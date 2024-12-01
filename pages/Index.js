@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import Carousel from '../components/Carousel';
 import GameList from '../components/GameList';
 
 export default function Home() {
