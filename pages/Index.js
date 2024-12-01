@@ -3,16 +3,6 @@ import Layout from '../components/Layout';
 import GameList from '../components/GameList';
 
 export default function Home() {
-  const images = [
-    '/logo/arcade.png',
-    '/logo/psx.png',
-    '/logo/snes.png',
-    '/logo/megadrive.png',
-    '/logo/n64.png',
-    '/logo/gba.png',
-    '/logo/atari.png',
-  ];
-
   const gameData = {
     games: [
       {
@@ -77,8 +67,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <h1 style={{ fontWeight: 'bold', textAlign: 'center', color: '#333', fontSize: '24px', }}>Consoles</h1>
-      <Carousel images={images} />
       <h2 style={{ fontWeight: 'bold', textAlign: 'center', margin: '20px', fontSize: '24px',  }}>Jogos</h2>
       <GameList games={gameData.games} />
     </Layout>

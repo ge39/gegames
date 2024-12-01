@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 export default function Emulation() {
   // const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
-  const { jogo, core } = router.query;
+  const { jogo } = router.query;
  
   useEffect(() => {
     if (jogo) {
