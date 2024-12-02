@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import GameList from '../components/GameList';
 import styles from '../styles/GameList.module.css';
+import Footer from '../components/Footer';
 
 export default function Gamelist() {
   const arcade = [
@@ -331,10 +332,7 @@ export default function Gamelist() {
         <GameList games={atari} />
       </section>
         
-      <footer className={styles.footer}>
-        gegames&copy; 2024 Fliperama Retrô. Feito com ❤️ para os amantes de jogos clássicos.{' '}
-        <a href="#">Política de Privacidade</a>
-      </footer>
+      <Footer />
 
     </Layout>
   );

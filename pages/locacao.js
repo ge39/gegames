@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/Locacao.module.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Locacao() {
   return (
@@ -122,10 +123,7 @@ export default function Locacao() {
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        gegames&copy; 2024 Fliperama Retrô. Feito com ❤️ para os amantes de jogos clássicos.{' '}
-        <a href="#">Política de Privacidade</a>
-      </footer>
+      <Footer />
     </div>
   );
 }

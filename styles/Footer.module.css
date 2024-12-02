@@ -1,10 +1,18 @@
+/* components/Footer.module.css */
 .footer {
-    text-align: center;
-    background-color:#361d1d;
-    color: white;
-    padding: 10px 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-  
+  background-color: #884b4b;
+  color: #fff;
+  /* margin-top:3px; */
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import "../styles/Global.css";
-import styles from '@/styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-         
     <div className={styles.container}>
       <Head>
         <title>Fliperama Retrô</title>
@@ -15,8 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        {/* Inclusão da Navbar */}
-        <Navbar />
+      <Navbar />
 
       <header className={styles.header}>
         <h1>Fliperama Retrô</h1>
@@ -32,10 +31,9 @@ export default function Home() {
 
         <section className={styles.services}>
           <div className={styles.service}>
-            
-          <Link href="/gamelist" className={styles.link}>
-            <h3>Jogos Online</h3>
-            <p>Jogue clássicos como Pac-Man, Mario e Street Fighter direto do seu navegador!</p>
+            <Link href="/gamelist" className={styles.link}>
+              <h3>Jogos Online</h3>
+              <p>Jogue clássicos como Pac-Man, Mario e Street Fighter direto do seu navegador!</p>
             </Link>
           </div>
 
@@ -47,18 +45,15 @@ export default function Home() {
           </div>
 
           <div className={styles.service}>
-          <Link href="/orcamento" className={styles.link}>
-            <h3>Contato/orçamento</h3>
-          </Link>
+            <Link href="/orcamento" className={styles.link}>
+              <h3>Contato/orçamento</h3>
+            </Link>
             <p>Entre em contato conosco, por email ou fale pelo Whatsapp.</p>
           </div>
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        gegames&copy; 2024 Fliperama Retrô. Feito com ❤️ para os amantes de jogos clássicos.{' '}
-        <a href="#">Política de Privacidade</a>
-      </footer>
+      <Footer />
     </div>
   );
 }

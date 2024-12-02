@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import styles from '@/styles/Orcamento.module.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Orcamento() {
   const [formData, setFormData] = useState({
@@ -166,10 +167,7 @@ export default function Orcamento() {
           </div>
         </main>
 
-        <footer className={styles.footer}>
-          &copy; gegames2024 Fliperama Retrô. Feito com ❤️ para os amantes de jogos clássicos.{' '}
-          <a href="#">Política de Privacidade</a>
-        </footer>
+        <Footer />
       </div>
     </>
   );

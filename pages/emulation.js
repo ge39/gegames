@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Emulation() {
   // const [menuOpen, setMenuOpen] = useState(false);
@@ -47,12 +48,15 @@ export default function Emulation() {
      
       {/* Inclusão da Navbar */}
       <Navbar />
+      
 
       <div className={styles.emulatorContainer}>
         <div id="game" className={styles.emulator}>
           <p>Carregando o emulador...</p>
         </div>
       </div>
+      {/* Inclusão da Rodapé */}
+      <Footer />
     </div>
   );
 }
