@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import GameList from '../components/GameList';
-import styles from '../styles/GameList.module.css';
 import Footer from '../components/Footer';
 
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import styles from '../styles/GameList.module.css';
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+const truncate = (text, length) => (text.length > length ? `${text.slice(0, length)}...` : text);
+
 export default function Gamelist() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Sinaliza que estamos no cliente
+  }, []);
+
   const arcade = [
+    // Seus dados aqui...
     {
       id: "37385",
       path: "arcade/1944.zip",
@@ -138,8 +154,7 @@ export default function Gamelist() {
     },
   ];
 
-  //outros jogos snes
-  const snes = [
+  const snesGames = [  // Alterado de "snes" para "snesGames"
     {
       id: "sn1",
       path: "snes/Super Mario World.zip",
@@ -224,119 +239,151 @@ export default function Gamelist() {
         players: "1",
         releasedate: "1994-03-19",
       },
-    ];
-    //outros jogos Atari
-    const atari = [
-      {
-        id: "1",
-        name: "Enduro",
-        path: "atari/Enduro(USA).a26",
-        core: "atari2600",
-        desc: "Enduro é um jogo de corrida onde você tem que competir contra outros carros em um cenário de pista infinita.",
-        image: "/images/games/atari/Enduro (USA)-thumb.png",
-        rating: "0.85",
-        players: "1",
-        releasedate: "1983-06-01",
-      },
-      {
-        id: "2",
-        name: "River Raid",
-        path: "atari/River Raid (USA).a26",
-        core: "atari2600",
-        desc: "River Raid é um jogo de tiro em que você controla um avião que deve destruir alvos enquanto evita obstáculos no rio.",
-        image: "/images/games/atari/River Raid (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "3",
-        name: "Megamania",
-        path: "atari/MegaMania.a26",
-        core: "atari2600",
-        desc: "Megamania é um jogo de tiro de arcade onde você controla uma nave espacial para destruir inimigos em várias ondas.",
-        image: "/images/games/atari/MegaMania - A Space Nightmare (USA)-thumb.png",
-        rating: "0.8",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "4",
-        name: "Frostbite",
-        path: "atari/Frostbite (USA).a26",
-        core: "atari2600",
-        desc: "Frostbite é um jogo de ação onde o jogador deve coletar blocos de gelo para construir iglus enquanto evita inimigos.",
-        image: "/images/games/atari/Frostbite (USA)-thumb.png",
-        rating: "0.75",
-        players: "1",
-        releasedate: "1983-01-01",
-      },
-      {
-        id: "5",
-        name: "Moon Patrol",
-        path: "atari/Moon Patrol (USA).a26",
-        core: "atari2600",
-        desc: "Moon Patrol é um jogo de arcade onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
-        image: "/images/games/atari/Moon Patrol (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "6",
-        name: "Pac-Man",
-        path: "atari/Pac-Man (USA).a26",
-        core: "atari2600",
-        desc: "Pac-Man é um dos jogos mais clássicos da história, onde o jogador controla Pac-Man e deve comer todas as pastilhas enquanto evita os fantasmas.",
-        image: "/images/games/atari/Pac-Man (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-05-01",
-      },
-      {
-        id: "7",
-        name: "Pitfall!",
-        path: ".atari/Pitfall (USA).a26",
-        core: "atari2600",
-        desc: "Pitfall! é um jogo de aventura onde o jogador controla Harry, um explorador, que deve navegar por uma selva cheia de armadilhas.",
-        image: "/images/games/atari/Pitfall (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-10-01",
-      },
-      {
-        id: "8",
-        name: "Space Invaders",
-        path: "atari/Space Invaders (USA).a26",
-        core: "atari2600",
-        desc: "Space Invaders é um dos primeiros jogos de tiro em que você controla uma nave para destruir ondas de invasores alienígenas.",
-        image: "/images/games/atari/Space Invaders (USA)-thumb.png",
-        rating: "1.0",
-        players: "1",
-        releasedate: "1980-01-01",
-      }
-    ];
-    
-  
+    // Outros jogos SNES aqui
+  ];
+  const Atari = [
+    // Seus dados aqui...
+    {
+      id: "1",
+      name: "Enduro",
+      path: "atari/Enduro(USA).a26",
+      core: "atari2600",
+      desc: "Enduro é um jogo de corrida onde você tem que competir contra outros carros em um cenário de pista infinita.",
+      image: "/images/games/atari/Enduro (USA)-thumb.png",
+      rating: "0.85",
+      players: "1",
+      releasedate: "1983-06-01",
+    },
+    {
+      id: "2",
+      name: "River Raid",
+      path: "atari/River Raid (USA).a26",
+      core: "atari2600",
+      desc: "River Raid é um jogo de tiro em que você controla um avião que deve destruir alvos enquanto evita obstáculos no rio.",
+      image: "/images/games/atari/River Raid (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "3",
+      name: "Megamania",
+      path: "atari/MegaMania.a26",
+      core: "atari2600",
+      desc: "Megamania é um jogo de tiro de arcade onde você controla uma nave espacial para destruir inimigos em várias ondas.",
+      image: "/images/games/atari/MegaMania - A Space Nightmare (USA)-thumb.png",
+      rating: "0.8",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "4",
+      name: "Frostbite",
+      path: "atari/Frostbite (USA).a26",
+      core: "atari2600",
+      desc: "Frostbite é um jogo de ação onde o jogador deve coletar blocos de gelo para construir iglus enquanto evita inimigos.",
+      image: "/images/games/atari/Frostbite (USA)-thumb.png",
+      rating: "0.75",
+      players: "1",
+      releasedate: "1983-01-01",
+    },
+    {
+      id: "5",
+      name: "Moon Patrol",
+      path: "atari/Moon Patrol (USA).a26",
+      core: "atari2600",
+      desc: "Moon Patrol é um jogo de arcade onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
+      image: "/images/games/atari/Moon Patrol (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "6",
+      name: "Pac-Man",
+      path: "atari/Pac-Man (USA).a26",
+      core: "atari2600",
+      desc: "Pac-Man é um dos jogos mais clássicos da história, onde o jogador controla Pac-Man e deve comer todas as pastilhas enquanto evita os fantasmas.",
+      image: "/images/games/atari/Pac-Man (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-05-01",
+    },
+    {
+      id: "7",
+      name: "Pitfall!",
+      path: ".atari/Pitfall (USA).a26",
+      core: "atari2600",
+      desc: "Pitfall! é um jogo de aventura onde o jogador controla Harry, um explorador, que deve navegar por uma selva cheia de armadilhas.",
+      image: "/images/games/atari/Pitfall (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-10-01",
+    },
+    {
+      id: "8",
+      name: "Space Invaders",
+      path: "atari/Space Invaders (USA).a26",
+      core: "atari2600",
+      desc: "Space Invaders é um dos primeiros jogos de tiro em que você controla uma nave para destruir ondas de invasores alienígenas.",
+      image: "/images/games/atari/Space Invaders (USA)-thumb.png",
+      rating: "1.0",
+      players: "1",
+      releasedate: "1980-01-01",
+    }
+  ];
+
+  const renderCarousel = (games) => {
+    if (!isClient) return null; // Evita renderizar Swiper no servidor
+
+    return (
+      <Swiper
+        navigation
+        pagination={{ clickable: true }}
+        spaceBetween={20}
+        slidesPerView={3}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className={styles.carousel}
+      >
+        {games.map((game) => (
+          <SwiperSlide key={game.id}>
+            <div className={styles.card}>
+              <img src={game.image} alt={game.alt} className={styles.image} />
+              <h2 className={styles.name}>{game.name}</h2>
+              <p className={styles.desc}>{truncate(game.desc, 100)}</p>
+              <p className={styles.info}>
+                <strong>Jogadores:</strong> {game.players} |{' '}
+                <strong>Lançamento:</strong> {game.releasedate}
+              </p>
+              {/* Botão de Jogar */}
+                {/* <a href={`/emulation/${game.path}`} className={styles.playButton}> */}
+                <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}className={styles.playButton}>
+                  <button>Jogar</button>
+                </a>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    );
+  };
 
   return (
     <Layout>
       <h1 className={styles.title}>Arcade</h1>
-      <GameList games={arcade} />
+      {renderCarousel(arcade)}
+      
       <h1 className={styles.title}>Super Nintendo</h1>
-      <section>
-        <GameList games={snes} />
-      </section>
+      {renderCarousel(snesGames)} {/* Passando "snesGames" aqui */}
+      
       <h1 className={styles.title}>Atari</h1>
-      <section>
-        <GameList games={atari} />
-      </section>
-        
+      {renderCarousel(Atari)} {/* Agora está passando o array Atari */}
+  
       <Footer />
-
     </Layout>
   );
-  
-    
-
 }
