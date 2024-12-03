@@ -52,7 +52,7 @@ export default function Emulation() {
 
       <div className={styles.emulatorContainer}>
         <div id="game" className={styles.emulator}>
-          <p>Carregando o emulador...</p>
+          
         </div>
       </div>
       {/* Inclusão da Rodapé */}

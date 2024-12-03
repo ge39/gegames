@@ -72,42 +72,27 @@
     font-size: 1.2rem;
   }
   
-  /* Media Query for Larger Screens */
-  @media screen and (min-width: 768px) {
-    .hamburger {
-      display: none; /* Hide hamburger on larger screens */
-    }
-  
-    .menu {
-      display: flex; /* Display menu as flex by default */
-      position: static; /* Reset position */
-      flex-direction: row; /* Horizontal alignment */
-      width: auto; /* Reset width */
-      padding: 0; /* Remove padding */
-    }
-  
-    .menu li {
-      margin: 0 1rem; /* Space between items */
-    }
-  
-    .menu li a {
-      font-size: 1rem;
-      color: white;
-    }
-  }
-  /* Estilos para o emulador */
-.emulatorContainer {
-    width: 640px;
-    height: 480px;
-    max-width: 100%;
-    margin: 0 auto; 
-    margin-top:5px;
-    margin-bottom: 5px;
+
+  .emulatorContainer {
+    height: 480px; /* Altura fixa para o contêiner */
+    /*max-width: 100%;  Limita a largura ao tamanho da tela */
+    margin: 5px auto; /* Centraliza o contêiner horizontalmente e define margens verticais */
+    width: 100%; /* O contêiner ocupa toda a largura disponível */
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background: #f9f9f9; /* Fundo para visualização (opcional) */
   }
   
   .emulator {
-    background: #000;
+    background: #000; /* Fundo preto para o emulador */
+    width: 90%; /* O emulador ocupa 90% da largura do contêiner */
+    height: 90%; /* O emulador ocupa 90% da altura do contêiner */
+    border-radius: 8px; /* Adiciona cantos arredondados (opcional) */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adiciona sombra (opcional) */
   }
+  
+  
   
   /* Navbar */
   .navbar {
