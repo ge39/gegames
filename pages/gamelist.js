@@ -319,10 +319,127 @@ export default function Gamelist() {
     //outros jogos Atari
     const Megadrive = [
       {
-
+          id: "md1",
+          path: "megadrive/sonic.zip",
+          core: "megadrive",
+          name: "Sonic the Hedgehog",
+          desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
+          image: "/images/games/sonic-thumb.png",
+          alt: "Sonic the Hedgehog Cover Art",
+          rating: "0.9",
+          players: "1-2",
+          releasedate: "1991-06-23"
+      },
+      {
+          id: "md2",
+          path: "megadrive/streets_of_rage.zip",
+          core: "megadrive",
+          name: "Streets of Rage",
+          desc: "Um jogo de luta side-scrolling onde o jogador deve derrotar gangues criminosas para salvar a cidade.",
+          image: "/images/games/streets_of_rage-thumb.png",
+          alt: "Streets of Rage Cover Art",
+          rating: "0.85",
+          players: "1-2",
+          releasedate: "1991-08-02"
+      },
+      {
+          id: "md3",
+          path: "megadrive/streets_of_rage2.zip",
+          core: "megadrive",
+          name: "Streets of Rage 2",
+          desc: "A sequência de Streets of Rage, oferecendo novos personagens, movimentos e uma jogabilidade mais refinada.",
+          image: "/images/games/streets_of_rage2-thumb.png",
+          alt: "Streets of Rage 2 Cover Art",
+          rating: "0.95",
+          players: "1-2",
+          releasedate: "1992-12-20"
+      },
+      {
+          id: "md4",
+          path: "megadrive/comix_zone.zip",
+          core: "megadrive",
+          name: "Comix Zone",
+          desc: "Comix Zone é um jogo de plataforma em que o jogador se move dentro de uma história em quadrinhos, controlando o herói Sketch Turner.",
+          image: "/images/games/comix_zone-thumb.png",
+          alt: "Comix Zone Cover Art",
+          rating: "0.85",
+          players: "1",
+          releasedate: "1995-03-10"
+      },
+      {
+          id: "md5",
+          path: "megadrive/altered_beast.zip",
+          core: "megadrive",
+          name: "Altered Beast",
+          desc: "Um jogo de ação em que o jogador assume o papel de um guerreiro ressuscitado, com o poder de se transformar em diferentes criaturas.",
+          image: "/images/games/altered_beast-thumb.png",
+          alt: "Altered Beast Cover Art",
+          rating: "0.8",
+          players: "1-2",
+          releasedate: "1988-10-29"
+      },
+      {
+          id: "md6",
+          path: "megadrive/phantasy_star_ii.zip",
+          core: "megadrive",
+          name: "Phantasy Star II",
+          desc: "Phantasy Star II é um RPG clássico com uma narrativa profunda, ambientada em um futuro distante onde os jogadores enfrentam forças ameaçadoras.",
+          image: "/images/games/phantasy_star_ii-thumb.png",
+          alt: "Phantasy Star II Cover Art",
+          rating: "0.9",
+          players: "1",
+          releasedate: "1989-04-29"
+      },
+      {
+          id: "md7",
+          path: "megadrive/earthworm_jim.zip",
+          core: "megadrive",
+          name: "Earthworm Jim",
+          desc: "Earthworm Jim é um jogo de plataforma com um herói incomum, Jim, uma minhoca em um traje espacial, lutando contra vilões em um mundo bizarro.",
+          image: "/images/games/earthworm_jim-thumb.png",
+          alt: "Earthworm Jim Cover Art",
+          rating: "0.9",
+          players: "1-2",
+          releasedate: "1994-03-14"
+      },
+      {
+          id: "md8",
+          path: "megadrive/sonic2.zip",
+          core: "megadrive",
+          name: "Sonic the Hedgehog 2",
+          desc: "A sequência de Sonic the Hedgehog, com novos movimentos e a introdução de Tails como parceiro de Sonic para aventuras emocionantes.",
+          image: "/images/games/sonic2-thumb.png",
+          alt: "Sonic the Hedgehog 2 Cover Art",
+          rating: "0.95",
+          players: "1-2",
+          releasedate: "1992-11-21"
+      },
+      {
+          id: "md9",
+          path: "megadrive/columns.zip",
+          core: "megadrive",
+          name: "Columns",
+          desc: "Columns é um jogo de quebra-cabeça baseado em combinações de pedras preciosas, onde o objetivo é fazer linhas de três ou mais pedras da mesma cor.",
+          image: "/images/games/columns-thumb.png",
+          alt: "Columns Cover Art",
+          rating: "0.8",
+          players: "1-2",
+          releasedate: "1990-06-02"
+      },
+      {
+          id: "md10",
+          path: "megadrive/golden_axe.zip",
+          core: "megadrive",
+          name: "Golden Axe",
+          desc: "Golden Axe é um jogo de luta e aventura em que os jogadores controlam heróis que buscam vingar a morte de seus entes queridos, enfrentando monstros e vilões.",
+          image: "/images/games/golden_axe-thumb.png",
+          alt: "Golden Axe Cover Art",
+          rating: "0.85",
+          players: "1-2",
+          releasedate: "1989-12-01"
       }
-    ];
-
+  ];
+  
 
   return (
     <Layout>
