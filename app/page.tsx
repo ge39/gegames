@@ -48,7 +48,7 @@ export default function Home() {
             <Link href="/orcamento" className={styles.link}>
               <h3>Contato/orçamento</h3>
             </Link>
-            <p>Entre em contato conosco, por email ou fale pelo Whatsapp.</p>
+            <p>Entre em contato conosco pelo Whatsapp.</p>
           </div>
         </section>
       </main>

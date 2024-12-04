@@ -5,7 +5,10 @@
   /* margin-top:3px; */
   text-align: center;
   padding: 5px 0;
+  position: fixed;
+  width:100%;
   font-size: 0.9rem;
+  bottom:0;
 }
 
 .footer a {

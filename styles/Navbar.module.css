@@ -6,6 +6,7 @@
     color: white;
     padding: 10px 20px;
     position: relative;
+    top:0;
     margin-bottom:2px;
   }
   
@@ -89,5 +90,6 @@
     .menu li {
       margin: 0 10px;
     }
+    
   }
   
