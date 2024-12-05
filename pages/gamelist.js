@@ -1,11 +1,10 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import GameList from '../components/GameList';
-import styles from '../styles/GameList.module.css';
-import Footer from '../components/Footer';
+import Head from 'next/head';
+import Carousel from '../components/Carousel';
+import styles from '../styles/Globals.css';
 
-export default function Gamelist() {
-  const arcade = [
+export default function Home() {
+  // Dados para os carrosséis
+  const arcadeGames = [
     {
       id: "37385",
       path: "arcade/1944.zip",
@@ -136,10 +135,8 @@ export default function Gamelist() {
       players: "1-2",
       releasedate: "1991-01-01",
     },
-  ];
-
-  //outros jogos snes
-  const snes = [
+  ]; // Copie os jogos do seu JSON aqui
+  const snesGames = [
     {
       id: "sn1",
       path: "snes/Super Mario World.zip",
@@ -224,271 +221,120 @@ export default function Gamelist() {
         players: "1",
         releasedate: "1994-03-19",
       },
-    ];
-    //outros jogos Atari
-    const atari = [
-      {
-        id: "1",
-        name: "Enduro",
-        path: "atari/Enduro(USA).a26",
-        core: "atari2600",
-        desc: "Enduro é um jogo de corrida onde você tem que competir contra outros carros em um cenário de pista infinita.",
-        image: "/images/games/atari/Enduro (USA)-thumb.png",
-        rating: "0.85",
-        players: "1",
-        releasedate: "1983-06-01",
-      },
-      {
-        id: "2",
-        name: "River Raid",
-        path: "atari/River Raid (USA).a26",
-        core: "atari2600",
-        desc: "River Raid é um jogo de tiro em que você controla um avião que deve destruir alvos enquanto evita obstáculos no rio.",
-        image: "/images/games/atari/River Raid (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "3",
-        name: "Megamania",
-        path: "atari/MegaMania.a26",
-        core: "atari2600",
-        desc: "Megamania é um jogo de tiro de arcade onde você controla uma nave espacial para destruir inimigos em várias ondas.",
-        image: "/images/games/atari/MegaMania - A Space Nightmare (USA)-thumb.png",
-        rating: "0.8",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "4",
-        name: "Frostbite",
-        path: "atari/Frostbite (USA).a26",
-        core: "atari2600",
-        desc: "Frostbite é um jogo de ação onde o jogador deve coletar blocos de gelo para construir iglus enquanto evita inimigos.",
-        image: "/images/games/atari/Frostbite (USA)-thumb.png",
-        rating: "0.75",
-        players: "1",
-        releasedate: "1983-01-01",
-      },
-      {
-        id: "5",
-        name: "Moon Patrol",
-        path: "atari/Moon Patrol (USA).a26",
-        core: "atari2600",
-        desc: "Moon Patrol é um jogo de arcade onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
-        image: "/images/games/atari/Moon Patrol (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-01-01",
-      },
-      {
-        id: "6",
-        name: "Pac-Man",
-        path: "atari/Pac-Man (USA).a26",
-        core: "atari2600",
-        desc: "Pac-Man é um dos jogos mais clássicos da história, onde o jogador controla Pac-Man e deve comer todas as pastilhas enquanto evita os fantasmas.",
-        image: "/images/games/atari/Pac-Man (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-05-01",
-      },
-      {
-        id: "7",
-        name: "Pitfall!",
-        path: ".atari/Pitfall (USA).a26",
-        core: "atari2600",
-        desc: "Pitfall! é um jogo de aventura onde o jogador controla Harry, um explorador, que deve navegar por uma selva cheia de armadilhas.",
-        image: "/images/games/atari/Pitfall (USA)-thumb.png",
-        rating: "0.9",
-        players: "1",
-        releasedate: "1982-10-01",
-      },
-      {
-        id: "8",
-        name: "Space Invaders",
-        path: "atari/Space Invaders (USA).a26",
-        core: "atari2600",
-        desc: "Space Invaders é um dos primeiros jogos de tiro em que você controla uma nave para destruir ondas de invasores alienígenas.",
-        image: "/images/games/atari/Space Invaders (USA)-thumb.png",
-        rating: "1.0",
-        players: "1",
-        releasedate: "1980-01-01",
-      }
-    ];
-    //outros jogos Atari
-    const Megadrive = [
-      {
-          id: "md1",
-          path: "megadrive/Sonic the Hedgehog (JUE) [!].zip",
-          core: "segaMD",
-          name: "Sonic the Hedgehog",
-          desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
-          image: "/images/games/megadrive/Sonic the Hedgehog (JUE) [!]-thumb.jpg",
-          alt: "Sonic the Hedgehog Cover Art",
-          rating: "0.9",
-          players: "1-2",
-          releasedate: "1991-06-23"
-      },
-      {
-          id: "md2",
-          path: "megadrive/Streets of Rage (JUE) [!].zip",
-          core: "segaMD",
-          name: "Streets of Rage",
-          desc: "Um jogo de luta side-scrolling onde o jogador deve derrotar gangues criminosas para salvar a cidade.",
-          image: "/images/games/megadrive/Streets of Rage (JUE) [!]-thumb.jpg",
-          alt: "Streets of Rage Cover Art",
-          rating: "0.85",
-          players: "1-2",
-          releasedate: "1991-08-02"
-      },
-      {
-          id: "md3",
-          path: "megadrive/Streets of Rage 2 (U) [T-Port_XMib].zip",
-          core: "segaMD",
-          name: "Streets of Rage 2",
-          desc: "A sequência de Streets of Rage, oferecendo novos personagens, movimentos e uma jogabilidade mais refinada.",
-          image: "/images/games/megadrive/Streets of Rage 2 (U) [!]-thumb.jpg",
-          alt: "Streets of Rage 2 Cover Art",
-          rating: "0.95",
-          players: "1-2",
-          releasedate: "1992-12-20"
-      },
-      {
-          id: "md4",
-          path: "megadrive/Comix Zone (4) [!].zip",
-          core: "segaMD",
-          name: "Comix Zone",
-          desc: "Comix Zone é um jogo de plataforma em que o jogador se move dentro de uma história em quadrinhos, controlando o herói Sketch Turner.",
-          image: "/images/games/megadrive/Comix Zone (4) [!]-thumb.jpg",
-          alt: "Comix Zone Cover Art",
-          rating: "0.85",
-          players: "1",
-          releasedate: "1995-03-10"
-      },
-      {
-          id: "md5",
-          path: "megadrive/Altered Beast (REV 02) (JU) [T-Port_Son_Car].zip",
-          core: "segaMD",
-          name: "Altered Beast",
-          desc: "Um jogo de ação em que o jogador assume o papel de um guerreiro ressuscitado, com o poder de se transformar em diferentes criaturas.",
-          image: "/images/games/megadrive/Altered Beast (REV 02) (JU) [!]-thumb.jpg",
-          alt: "Altered Beast Cover Art",
-          rating: "0.8",
-          players: "1-2",
-          releasedate: "1988-10-29"
-      },
-      {
-          id: "md6",
-          path: "megadrive/Phantasy Star 2 (REV 01) (UE) [T-Port].zip",
-          core: "segaMD",
-          name: "Phantasy Star II",
-          desc: "Phantasy Star II é um RPG clássico com uma narrativa profunda, ambientada em um futuro distante onde os jogadores enfrentam forças ameaçadoras.",
-          image: "/images/games/megadrive/Phantasy Star 2 (REV 01) (UE) [T-Port]-thumb.jpg",
-          alt: "Phantasy Star II Cover Art",
-          rating: "0.9",
-          players: "1",
-          releasedate: "1989-04-29"
-      },
-      {
-          id: "md7",
-          path: "megadrive/Earthworm Jim (U) [!].zip",
-          core: "segaMD",
-          name: "Earthworm Jim",
-          desc: "Earthworm Jim é um jogo de plataforma com um herói incomum, Jim, uma minhoca em um traje espacial, lutando contra vilões em um mundo bizarro.",
-          image: "/images/games/megadrive/Earthworm Jim (U) [!]-thumb.jpg",
-          alt: "Earthworm Jim Cover Art",
-          rating: "0.9",
-          players: "1-2",
-          releasedate: "1994-03-14"
-      },
-      {
-          id: "md8",
-          path: "megadrive/Sonic the Hedgehog 3 (U) [!].zip",
-          core: "segaMD",
-          name: "Sonic the Hedgehog 3",
-          desc: "A sequência de Sonic the Hedgehog, com novos movimentos e a introdução de Tails como parceiro de Sonic para aventuras emocionantes.",
-          image: "/images/games/megadrive/Sonic the Hedgehog 3 (U) [!]-thumb.jpg",
-          alt: "Sonic the Hedgehog 2 Cover Art",
-          rating: "0.95",
-          players: "1-2",
-          releasedate: "1992-11-21"
-      },
-      {
-          id: "md9",
-          path: "megadrive/Columns (REV 00) (JU).zip",
-          core: "segaMD",
-          name: "Columns",
-          desc: "Columns é um jogo de quebra-cabeça baseado em combinações de pedras preciosas, onde o objetivo é fazer linhas de três ou mais pedras da mesma cor.",
-          image: "/images/games/megadrive/Columns (REV 00) (JU)-thumb.jpg",
-          alt: "Columns Cover Art",
-          rating: "0.8",
-          players: "1-2",
-          releasedate: "1990-06-02"
-      },
-      {
-          id: "md10",
-          path: "megadrive/Golden Axe (REV 00) (JU) [T-Port_Son_Car].zip",
-          core: "segaMD",
-          name: "Golden Axe",
-          desc: "Golden Axe é um jogo de luta e aventura em que os jogadores controlam heróis que buscam vingar a morte de seus entes queridos, enfrentando monstros e vilões.",
-          image: "/images/games/megadrive/Golden Axe (REV 00) (JU) [!]-thumb.jpg",
-          alt: "Golden Axe Cover Art",
-          rating: "0.85",
-          players: "1-2",
-          releasedate: "1989-12-01"
-      },
-      {
-        id: "md11",
-        path: "megadrive/Show do Milhao (Brazil).zip",
-        core: "segaMD",
-        name: "Show do Milhão",
-        desc: "Show do Milhão é um jogo de perguntas e respostas baseado no programa de TV, onde o jogador tenta ganhar o prêmio máximo respondendo questões.",
-        image: "/images/games/megadrive/Show do Milhao (Brazil)-thumb.jpg",
-        alt: "Show do Milhão Cover Art",
-        rating: "0.85",
-        players: "1",
-        releasedate: "2000-11-20"
+  ];
+  const atariGames = [
+    {
+      id: "1",
+      name: "Enduro",
+      path: "atari/Enduro(USA).a26",
+      core: "atari2600",
+      desc: "Enduro é um jogo de corrida onde você tem que competir contra outros carros em um cenário de pista infinita.",
+      image: "/images/games/atari/Enduro (USA)-thumb.png",
+      rating: "0.85",
+      players: "1",
+      releasedate: "1983-06-01",
     },
     {
-        id: "md12",
-        path: "megadrive/Show do Milhao Volume 2 (Brazil).zip",
-        core: "segaMD",
-        name: "Show do Milhão 2",
-        desc: "A sequência de Show do Milhão, com mais perguntas, mais desafios e mais emoção, continuando a experiência do programa de TV.",
-        image: "/images/games/megadrive/Show do Milhao Volume 2 (Brazil)-thumb.jpg",
-        alt: "Show do Milhão 2 Cover Art",
-        rating: "0.87",
-        players: "1",
-        releasedate: "2001-10-10"
+      id: "2",
+      name: "River Raid",
+      path: "atari/River Raid (USA).a26",
+      core: "atari2600",
+      desc: "River Raid é um jogo de tiro em que você controla um avião que deve destruir alvos enquanto evita obstáculos no rio.",
+      image: "/images/games/atari/River Raid (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "3",
+      name: "Megamania",
+      path: "atari/MegaMania.a26",
+      core: "atari2600",
+      desc: "Megamania é um jogo de tiro de arcade onde você controla uma nave espacial para destruir inimigos em várias ondas.",
+      image: "/images/games/atari/MegaMania - A Space Nightmare (USA)-thumb.png",
+      rating: "0.8",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "4",
+      name: "Frostbite",
+      path: "atari/Frostbite (USA).a26",
+      core: "atari2600",
+      desc: "Frostbite é um jogo de ação onde o jogador deve coletar blocos de gelo para construir iglus enquanto evita inimigos.",
+      image: "/images/games/atari/Frostbite (USA)-thumb.png",
+      rating: "0.75",
+      players: "1",
+      releasedate: "1983-01-01",
+    },
+    {
+      id: "5",
+      name: "Moon Patrol",
+      path: "atari/Moon Patrol (USA).a26",
+      core: "atari2600",
+      desc: "Moon Patrol é um jogo de arcade onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
+      image: "/images/games/atari/Moon Patrol (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-01-01",
+    },
+    {
+      id: "6",
+      name: "Pac-Man",
+      path: "atari/Pac-Man (USA).a26",
+      core: "atari2600",
+      desc: "Pac-Man é um dos jogos mais clássicos da história, onde o jogador controla Pac-Man e deve comer todas as pastilhas enquanto evita os fantasmas.",
+      image: "/images/games/atari/Pac-Man (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-05-01",
+    },
+    {
+      id: "7",
+      name: "Pitfall!",
+      path: ".atari/Pitfall (USA).a26",
+      core: "atari2600",
+      desc: "Pitfall! é um jogo de aventura onde o jogador controla Harry, um explorador, que deve navegar por uma selva cheia de armadilhas.",
+      image: "/images/games/atari/Pitfall (USA)-thumb.png",
+      rating: "0.9",
+      players: "1",
+      releasedate: "1982-10-01",
+    },
+    {
+      id: "8",
+      name: "Space Invaders",
+      path: "atari/Space Invaders (USA).a26",
+      core: "atari2600",
+      desc: "Space Invaders é um dos primeiros jogos de tiro em que você controla uma nave para destruir ondas de invasores alienígenas.",
+      image: "/images/games/atari/Space Invaders (USA)-thumb.png",
+      rating: "1.0",
+      players: "1",
+      releasedate: "1980-01-01",
     }
   ];
-  
 
   return (
-    <Layout>
-      <h1 className={styles.title}>Arcade</h1>
-      <GameList games={arcade} />
-      <h1 className={styles.title}>Super Nintendo</h1>
-      <section>
-        <GameList games={snes} />
-      </section>
-      <h1 className={styles.title}>Atari</h1>
-      <section>
-        <GameList games={atari} />
-      </section>
+    <>
+      <Head>
+        <title>Carrossel de Jogos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <main className={styles.main}>
+        <section id="arcadeSection">
+          <h2>Arcade</h2>
+          <Carousel games={arcadeGames} />
+        </section>
 
-      <h1 className={styles.title}>Megadrive</h1>
-      <section>
-        <GameList games={Megadrive} />
-      </section>
+        <section id="snesSection">
+          <h2>Super Nintendo</h2>
+          <Carousel games={snesGames} />
+        </section>
 
-        {/* componente rodapé */}
-      < Footer />
-      
-    </Layout>
+        <section id="atariSection">
+          <h2>Atari</h2>
+          <Carousel games={atariGames} />
+        </section>
+      </main>
+    </>
   );
-  
-    
-
 }
