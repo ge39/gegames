@@ -19,5 +19,11 @@ body {
   main {
     padding: 20px;
   }
+   /* aumenta a area do nome do console em gamelist, telas menores que 678px */
+   @media (max-width: 678px) {
+    h2 {
+      width:100%;
+    }
+    }
   
   

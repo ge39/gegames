@@ -35,6 +35,18 @@
     align-items: center;
     justify-content: center;
     }
+    .slide-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory; /* Para um deslizamento suave entre os slides */
+      justify-content: center; /* Centraliza o conteúdo */
+    }
+    
+    .slide {
+      flex: 0 0 auto; /* Impede que o slide se estique */
+      scroll-snap-align: center; /* Faz o slide alinhar ao centro do contêiner */
+    }
+    
     .control:disabled {
         background-color: rgba(126, 81, 250, 0.2); /* Cor para o botão desabilitado */
         cursor: not-allowed;
@@ -92,4 +104,19 @@
   .playNow:hover {
     background-color: #0056b3;
   }
+  /* Ocultar botões de controle em telas menores que 678px */
+@media (max-width: 678px) {
+  .control {
+    display: none;
+  }
+  .carouselItem {
+      min-width: 270px; /* Cada item ocupa 20% da largura */
+      margin-left: 19px;
+    
+  }
   
+}
+
+
+
+

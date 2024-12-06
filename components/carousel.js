@@ -4,7 +4,7 @@ import GameCard from './GameCard';
 
 export default function Carousel({ games }) {
   const [index, setIndex] = useState(0); // Índice atual do carrossel
-  const [itemsVisible, setItemsVisible] = useState(2); // Número inicial de itens visíveis
+  const [itemsVisible, setItemsVisible] = useState(1); // Número inicial de itens visíveis
   const startTouchX = useRef(0); // Posição inicial do toque
   const isSwiping = useRef(false); // Indica se está arrastando
 
