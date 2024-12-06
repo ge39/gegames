@@ -1,9 +1,9 @@
-/* Orcamento.module.css */
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centraliza os itens no eixo horizontal */
+  justify-content: center; /* Centraliza os itens no eixo vertical */
   min-height: 100vh; /* A altura mínima do container será 100% da altura da tela */
-  /* background-color: #f9f9f9; */
   color: #333;
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
@@ -16,12 +16,21 @@
 
 .header h1 {
   font-size: 2.5rem;
-  color: #5d5d5d;
+  padding: 15px 0;
+  width: 500px;
+  color: snow;
+  background-color: #25D366;;
+  text-align: center; /* Centraliza o texto dentro do h1 */
+  margin: 0 auto; /* Garante que o elemento esteja centralizado */
 }
+
 
 .header p {
   font-size: 1.2rem;
-  color: #7c7c7c;
+  /* margin-top:-10px; */
+  padding: 15px;
+  color: snow;
+  background-color: #25D366;;
 }
 
 .main {
