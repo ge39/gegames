@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import styles from '../styles/Orcamento.module.css' ;
+import "../styles/Global.css";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
