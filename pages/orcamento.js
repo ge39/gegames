@@ -22,10 +22,10 @@ export default function Orcamento() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <header className={styles.header}>
+        {/* <header className={styles.header}>
           <h1>Solicite Seu Orçamento</h1>
           <p>Entre em contato conosco para mais informações sobre aluguel de fliperamas retrô!</p>
-        </header>
+        </header> */}
 
         <main className={styles.main}>
           <div className={styles.whatsappContact}>

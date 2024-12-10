@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Carousel from '../components/carousel';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavBar_gamelist';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 

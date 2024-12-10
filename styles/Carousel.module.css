@@ -16,6 +16,7 @@
     text-align: center;
     min-width: 350px; /* Cada item ocupa 20% da largura */
     transition: transform 0.3s ease-in-out;
+   
   }
   
   .control {

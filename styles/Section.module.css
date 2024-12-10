@@ -1,0 +1,69 @@
+/* Section.module.css */
+
+/* Estilo base para a seção */
+.section {
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Título da seção */
+  .section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Descrição da seção */
+  .section p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para a imagem dentro da seção */
+  .section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Link dentro da seção */
+  .section .link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .section .link:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Botão de voltar ao topo */
+  .section .topButton {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .section .topButton:hover {
+    background-color: #218838;
+  }
+  

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavBar_gamelist';
 import Footer from '../components/Footer';
 
 export default function Emulation() {

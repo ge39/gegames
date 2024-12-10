@@ -26,16 +26,16 @@ export default function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/gamelist">Jogue Online</Link>
+          <Link href="/gamelist" >Jogue Online</Link>
         </li>
         <li>
-          <Link href="/orcamento">Orçamento</Link>
+          <Link href="#orcamento">Orçamento</Link>
         </li>
         <li>
-          <Link href="/locacao">Locação</Link>
+          <Link href="#locacao">Locação</Link>
         </li>
         <li>
-          <Link href="/sobre">Sobre</Link>
+          <Link href="#sobre">Sobre</Link>
         </li>
       </ul>
     </nav>
