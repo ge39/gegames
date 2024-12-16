@@ -1,58 +1,288 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import "../styles/Global.css";
-import styles from '../styles/Home.module.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+"use client";
+
+import Navbar from "../components/Navbar";
+import Image from "next/image";
+import Footer from "../components/Footer";
+import EventSection from "../components/EventSection"; // Import do componente EventSection
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Fliperama Retrô</title>
-        <meta name="description" content="Reviva a magia dos anos 80 e 90 com jogos retrô e aluguel de fliperamas!" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <div>
+      {/* Navbar */}
       <Navbar />
 
-      <header className={styles.header}>
-        <h1>Fliperama Retrô</h1>
-      </header>
+      {/* Home Section */}
+      <section
+        id="home"
+        style={{
+          backgroundColor: "#F5DEB3",
+          padding: "50px 20px",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            backgroundColor: "#228B22",
+            padding: "2%",
+            textAlign: "center",
+            color: "snow",
+            fontSize: "24px",
+            fontWeight: "bold",
+            marginTop: "-40px",
+            marginBottom: "10px",
+          }}
+        >
+          Fliperamas Retrô, Nostalgia para Seus Eventos
+        </h1>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <Image
+            src="/images/Fliperamas/arcade3.jpg"
+            alt="Fliperama"
+            width={1000}
+            height={1000}
+            style={{ borderRadius: "8px", objectFit: "cover" }}
+          />
+        </div>
+        <p
+          style={{
+            position: "absolute",
+            top: "55%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(230, 230, 250, 0.10)",
+            borderRadius: "10px",
+            width: "85%",
+            color: "snow",
+            fontSize: "90%",
+            fontWeight: "bold",
+            textAlign: "center",
+            maxWidth: "800px",
+          }}
+        >
+          ALUGAMOS FLIPERAMAS COM JOGOS RETRÔ PARA TODOS OS TIPOS DE EVENTOS...
+        </p>
+        <div style={{ textAlign: "center" }}>
+          <a
+            href="#top"
+            style={{
+              backgroundColor: "#FF4500",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
+          >
+            Voltar ao Topo
+          </a>
+        </div>
+      </section>
+                 {/* Nosso Plano Section */}
+     <section
+       id="nosso-plano"
+       style={{
+         backgroundColor: "#C0C0C0",
+         padding: "50px 20px",
+         position: "relative",
+       }}
+     >
+       <h1
+         style={{
+           textAlign: "center",
+           color: "#204080",
+           fontWeight: "bold",
+           marginBottom: "20px",
+         }}
+       >
+         NOSSOS PLANOS
+       </h1>
+       <div style={{ textAlign: "center", marginBottom: "20px" }}>
+         <Image
+           src="/images/eventos/Fliperama_locacao.jpg"
+           alt="Fliperama"
+           width={1000}
+           height={1000}
+           style={{ borderRadius: "8px", objectFit: "cover" }}
+         />
+       </div>
+       <div style={{ textAlign: "center" }}>
+          <a
+            href="#top"
+            style={{
+              backgroundColor: "#FF4500",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
+            >
+            Voltar ao Topo
+          </a>
+      </div>
+     </section>
+      {/* Orçamento Section */}
+      <section
+        id="orcamento"
+        style={{
+          backgroundColor: "#77c5d5",
+          padding: "50px 20px",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            color: "#204080",
+            fontWeight: "bold",
+            marginBottom: "20px",
+          }}
+        >
+          FALE CONOSCO
+        </h1>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <Image
+            src="/images/Fliperamas/arcade2.jpg"
+            alt="Fliperama"
+            width={1200}
+            height={600}
+            style={{ borderRadius: "8px", objectFit: "cover" }}
+          />
+        </div>
+        <p
+          style={{
+            color: "#fff",
+            padding: "10px",
+            fontWeight: "bold",
+            textAlign: "center",
+            width: "90%",
+          }}
+        >
+          ENTRE EM CONTATO PARA RECEBER UM ORÇAMENTO PERSONALIZADO...
+        </p>
 
-      <main className={styles.main}>
-        <section className={styles.banner}>
-          <h2>Reviva a Magia dos Anos 80 e 90!</h2>
-          <Link href="/locacao" className={styles.link}>
-            <button className={styles.button}> Alugar Agora </button>
-          </Link>
-        </section>
+        {/* Botão WhatsApp */}
+        <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <a
+            href="https://wa.me/5511975145360"
+            target="_blank"
+            style={{
+              backgroundColor: "#25d366",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              color: "#fff",
+              display: "inline-block",
+              marginBottom:"18px",
+            }}
+          >
+            Fale pelo WhatsApp
+          </a>
+        </div>
+        <div style={{ textAlign: "center" }}>
+            <a
+              href="#top"
+              style={{
+                backgroundColor: "#FF4500",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                color: "#fff",
+              }}
+              >
+              Voltar ao Topo
+            </a>
+        </div>
+      </section>
 
-        <section className={styles.services}>
-          <div className={styles.service}>
-            <Link href="/gamelist" className={styles.link}>
-              <h3>Jogos Online</h3>
-              <p>Jogue clássicos como Pac-Man, Mario e Street Fighter direto do seu navegador!</p>
-            </Link>
-          </div>
+      {/* Eventos Section */}
+      <section
+        id="eventos"
+        style={{
+          backgroundColor: "#F5DEB3",
+          padding: "50px 20px",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            color: "#204080",
+            fontWeight: "bold",
+            marginBottom: "20px",
+          }}
+        >
+          NOSSOS EVENTOS REALIZADOS
+        </h1>
 
-          <div className={styles.service}>
-            <Link href="/locacao" className={styles.link}>
-              <h3>Aluguel de Fliperamas</h3>
-              <p>Transforme qualquer evento em uma festa inesquecível com nossos fliperamas!</p>
-            </Link>
-          </div>
+        {/* Adicionando o Componente EventSection */}
+        <EventSection />
+        <div style={{ textAlign: "center" }}>
+           <a
+             href="#top"
+             style={{
+               backgroundColor: "#FF4500",
+               padding: "10px 20px",
+               borderRadius: "5px",
+               color: "#fff",
+             }}
+             >
+             Voltar ao Topo
+           </a>
+       </div>
+      </section>
 
-          <div className={styles.service}>
-            <Link href="/orcamento" className={styles.link}>
-              <h3>Contato/orçamento</h3>
-            </Link>
-            <p>Entre em contato conosco pelo Whatsapp.</p>
-          </div>
-        </section>
-      </main>
+       {/* Sobre Section */}
+      <section
+        id="sobre"
+        style={{
+          backgroundColor: "#77c5d5",
+          padding: "50px 20px",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            color: "#204080",
+            fontWeight: "bold",
+            marginBottom: "20px",
+          }}
+        >
+          SOBRE NÓS
+        </h1>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <Image
+            src="/images/assets/arts/Eidos.jpg"
+            alt="Fliperama"
+            width={1200}
+            height={1200}
+            style={{ borderRadius: "8px", objectFit: "cover" }}
+          />
+        </div>
+        <p
+          style={{
+            color: "black",
+            fontWeight: "bold",
+            textAlign: "center",
+            maxWidth: "800px",
+            margin: "0 auto",
+            marginBottom:"15px",
+          }}
+        >
+          Conheça nossa história e paixão por fliperamas retrô...
+        </p>
+        <div style={{ textAlign: "center" }}>
+           <a
+             href="#top"
+             style={{
+               backgroundColor: "#FF4500",
+               padding: "10px 20px",
+               borderRadius: "5px",
+               color: "#fff",
+               marginTop:"15px",
+             }}
+             >
+             Voltar ao Topo
+           </a>
+       </div>
+      </section>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
