@@ -1,0 +1,93 @@
+.menuContainer {
+  position: relative;
+}
+
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block; /* Mostra o botão por padrão */
+}
+
+/* Estilo padrão do menu */
+.menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #333;
+  color: white;
+  display: flex;
+  flex-direction: column; /* Menu vertical */
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: none; /* Oculto por padrão */
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Para telas maiores que 768px */
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none; /* Esconde o botão hambúrguer */
+  }
+
+  .menu {
+    position: static; /* Fixa o menu */
+    display: flex; /* Exibe o menu */
+    flex-direction: row; /* Itens na horizontal */
+    background: none;
+    box-shadow: none;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .menu a {
+    color: #333; /* Links em preto */
+    font-size: 18px;
+  }
+
+  .menu a:hover {
+    color: #0070f3; /* Destaque no hover */
+  }
+}
+
+/* Para telas maiores que 1768px */
+@media screen and (min-width: 1768px) {
+  .hamburger {
+    display: none; /* Esconde o botão hambúrguer */
+  }
+
+  .menu {
+    display: flex; /* Exibe o menu na horizontal */
+    justify-content: center; /* Centraliza os itens */
+    align-items: center;
+    gap: 30px; /* Espaçamento maior entre os links */
+    background-color: lightgray; /* Cor de fundo */
+    height: 60px; /* Altura fixa */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    border-bottom: 2px solid #ddd; /* Linha sutil na base */
+    transition: all 0.3s ease; /* Transição suave para mudanças de estilo */
+  }
+
+  .menu a {
+    font-size: 24px; /* Aumenta o tamanho do texto */
+    color: #000; /* Links mais visíveis */
+    
+  }
+
+  .menu a:hover {
+    color: #ff4500; /* Destaque diferente no hover */
+  }
+}

@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f5;
+    background-image: url('../public/images/bk/moldura-bkg-cinza.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    background-color: #fafafa;
+    padding: 15px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+   /* aumenta a area do nome do console em gamelist, telas menores que 678px */
+   @media (max-width: 678px) {
+    h2 {
+      width:100%;
+    }
+    }
+  
+  
