@@ -49,6 +49,12 @@ export default function Home() {
       color: red,
     }
     @media screen and (max-width: 768px) {
+     .column2 {
+      width: 100% !important;  // Força a largura a ser 100% em telas pequenas
+      padding: 10px;  // Remove margens
+      margin-top:10px;
+      border: solid 1px #333,
+      }
       #home {
         height: auto;
         padding-bottom: 20px;
@@ -73,10 +79,7 @@ export default function Home() {
          flex: 1 0 100%;         // As colunas terão 100% de largura em telas pequenas
          margin: 10px 0;         // Ajusta a margem para garantir espaçamento vertical
        }
-      .column2 {
-        width: '100%';
-      }
-    @media screen and (max-width: 610px) {
+        @media screen and (max-width: 610px) {
       #home p {
      font-size: 14px;
      padding: 8px;
@@ -115,7 +118,7 @@ export default function Home() {
   <div 
     className="conteiner" 
     style={{
-      display: 'flex',           // Flexbox para alinhar as colunas lado a lado
+      display: 'inline-flex',          // Flexbox para alinhar as colunas lado a lado
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
@@ -214,7 +217,7 @@ export default function Home() {
   <div 
       className="conteiner" 
       style={{
-        display: 'flex',           // Flexbox para alinhar as colunas lado a lado
+        display: 'inline-flex',          // Flexbox para alinhar as colunas lado a lado
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
@@ -227,15 +230,18 @@ export default function Home() {
     <div 
       className="column2" 
       style={{
-        // flex: 1,                       // As colunas terão o mesmo tamanho
+       
+        // flex: 1,
+        margin: '0 10px', // Espaçamento entre as colunas
         backgroundImage: "url('./images/Fliperamas/fotoarcade2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        width: "32%",
-        height:'300px',
+        height: '300px',
         position: "relative",
-        paddingBottom: '10px',                                                                  
+        paddingBottom: '10px',
+        width: "32%", // largura padrão para telas grandes
+      
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>O Propósito e o Encanto do Fliperama</h2> */}
@@ -245,16 +251,16 @@ export default function Home() {
     <div 
       className="column2" 
       style={{
-        // flex: 1,   
-        margin:'0 10px',                    // As colunas terão o mesmo tamanho
+        // flex: 1, // As colunas terão o mesmo tamanho
+        margin: '0 10px', // Espaçamento entre as colunas
         backgroundImage: "url('./images/Fliperamas/arcadestreet.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        width: "32%",
-        height:'300px',
+        height: '300px',
         position: "relative",
-        paddingBottom: '10px',                                                                                
+        paddingBottom: '10px',
+        width: "32%", // largura padrão para telas grandes        
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>A Jornada do Cliente e a Conexão</h2> */}
@@ -263,15 +269,16 @@ export default function Home() {
     <div 
       className="column2" 
       style={{
-        // flex: 1,                       // As colunas terão o mesmo tamanho
+        // flex: 1, // As colunas terão o mesmo tamanho
+        margin: '0 10px', // Espaçamento entre as colunas
         backgroundImage: "url('./images/Fliperamas/fotoarcade2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        width: "32%",
-        height:'300px',
+        height: '300px',
         position: "relative",
-        paddingBottom: '10px',  
+        paddingBottom: '10px',
+        width: "32%", // largura padrão para telas grandes       
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>O Propósito e o Encanto do Fliperama</h2> */}
