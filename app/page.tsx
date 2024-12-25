@@ -26,9 +26,12 @@ export default function Home() {
       margin: 10px 0;
       width: 100%;
     }
-        #Home div h1 {
-        color:'black',
-        }
+    .column2{
+      padding: 0;  // Remove margens
+    }
+    #Home div h1 {
+      color:'black',
+      }
     // #home p {
       // position: absolute;
       // top: 65%;
