@@ -26,12 +26,9 @@ export default function Home() {
       margin: 10px 0;
       width: 100%;
     }
-    .column2{
-      padding: 0;  // Remove margens
-    }
-    #Home div h1 {
-      color:'black',
-      }
+        #Home div h1 {
+        color:'black',
+        }
     // #home p {
       // position: absolute;
       // top: 65%;
@@ -51,12 +48,20 @@ export default function Home() {
     #sobre p {
       color: red,
     }
+      .column2{
+        padding: 0px;
+        margin-top: 10px;
+        width:30%;
+      }
     @media screen and (max-width: 768px) {
      .column2 {
       width: 100% !important;  // Força a largura a ser 100% em telas pequenas
       padding: 10px;  // Remove margens
-      margin-top:10px;
+      margin:10px;
       border: solid 1px #333,
+      }
+      .column {
+        margin-top: -10px;
       }
       #home {
         height: auto;
@@ -82,15 +87,15 @@ export default function Home() {
          flex: 1 0 100%;         // As colunas terão 100% de largura em telas pequenas
          margin: 10px 0;         // Ajusta a margem para garantir espaçamento vertical
        }
-        @media screen and (max-width: 610px) {
+    @media screen and (max-width: 610px) {
       #home p {
-     font-size: 14px;
-     padding: 8px;
-     width: 90%;
-     height:"auto";
-     margin-top: -38%; /* Ajuste para telas menores */
-   }
- }
+         font-size: 14px;
+         padding: 8px;
+         width: 90%;
+         height:"auto";
+         margin-top: -38%; /* Ajuste para telas menores */
+      }
+    }
   `}
 </style>
 
@@ -132,14 +137,15 @@ export default function Home() {
     <div 
       className="column" 
       style={{
-        flex: 1,                       // As colunas terão o mesmo tamanho
+        // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
         padding: '20px',
         margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
-        display: 'flex',               // Flexbox para centralizar o texto
+        display: 'inline-flex',
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
@@ -160,14 +166,15 @@ export default function Home() {
     <div 
       className="column" 
       style={{
-        flex: 1,                       // As colunas terão o mesmo tamanho
+        // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
         padding: '20px',
         margin: '10px ',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
-        display: 'flex',               // Flexbox para centralizar o texto
+        display: 'inline-flex',
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
@@ -189,14 +196,15 @@ export default function Home() {
     <div 
       className="column" 
       style={{
-        flex: 1,                       // As colunas terão o mesmo tamanho
+        // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
         padding: '20px',
         margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
-        display: 'flex',               // Flexbox para centralizar o texto
+        display: 'inline-flex',
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         // justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
@@ -263,7 +271,7 @@ export default function Home() {
         height: '300px',
         position: "relative",
         paddingBottom: '10px',
-        width: "30%", // largura padrão para telas grandes        
+        width: '30%',// largura padrão para telas grandes        
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>A Jornada do Cliente e a Conexão</h2> */}
