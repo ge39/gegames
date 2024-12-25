@@ -228,7 +228,7 @@ export default function Home() {
       className="column2" 
       style={{
         // flex: 1,                       // As colunas terão o mesmo tamanho
-        backgroundImage: "url('/images/fliperamas/fotoarcade2.jpg')",
+        backgroundImage: "url('./images/fliperamas/fotoarcade2.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -247,7 +247,7 @@ export default function Home() {
       style={{
         // flex: 1,   
         margin:'0 10px',                    // As colunas terão o mesmo tamanho
-        backgroundImage: "url('/images/fliperamas/arcadestreet.jpg')",
+        backgroundImage: "url('./images/fliperamas/arcadestreet.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -286,7 +286,7 @@ export default function Home() {
    id="nosso-plano"
    style={{
     //  backgroundColor: "#C0C0C0",
-    backgroundImage: "url('/images/bk/bk-cinza-branco.jpg')",
+    backgroundImage: "url('./images/bk/bk-cinza-branco.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
