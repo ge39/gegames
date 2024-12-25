@@ -243,7 +243,7 @@ export default function Home() {
         height: '300px',
         position: "relative",
         paddingBottom: '10px',
-        width: "32%", // largura padrão para telas grandes
+        width: "30%", // largura padrão para telas grandes
       
       }}
       >
@@ -263,7 +263,7 @@ export default function Home() {
         height: '300px',
         position: "relative",
         paddingBottom: '10px',
-        width: "32%", // largura padrão para telas grandes        
+        width: "30%", // largura padrão para telas grandes        
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>A Jornada do Cliente e a Conexão</h2> */}
@@ -281,7 +281,7 @@ export default function Home() {
         height: '300px',
         position: "relative",
         paddingBottom: '10px',
-        width: "32%", // largura padrão para telas grandes       
+        width: "30%", // largura padrão para telas grandes       
       }}
       >
       {/* <h2 style={{color:'black',fontWeight:'bold',margin: '10px 0'}}>O Propósito e o Encanto do Fliperama</h2> */}
