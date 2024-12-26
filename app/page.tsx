@@ -511,7 +511,7 @@ export default function Home() {
             position: "fixed",
             bottom: "20px",
             left: "38%",
-            backgroundColor: "#438",
+            backgroundColor: "#FF4500",
             color: "#fff",
             padding: "10px 20px",
             borderRadius: "5px",
@@ -522,14 +522,7 @@ export default function Home() {
           }} >
           <a
            href="#top"
-           onMouseEnter={(e) =>
-             (e.target.style.backgroundColor = "#e03e00")
-           }
-           onMouseLeave={(e) =>
-             (e.target.style.backgroundColor = "#FF4500")
-           }
-         >
-           Voltar ao Topo
+          >  Voltar ao Topo
          </a>
       </div>         
     
