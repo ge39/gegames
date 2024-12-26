@@ -298,6 +298,35 @@ export default function Home() {
   </div>
 </section>
 
+ {/* Jogue Online */}
+ <section
+  id="sobre"
+  style={{
+    // backgroundColor: "#77c5d5",
+    backgroundImage: "url('/images/Fliperamas/arcade3.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    width: "100%",
+    height: "600px",
+    position: "relative",
+  }}
+  >
+  <h1
+    style={{
+      // position:"relative",
+      paddingTop:'60px',
+      textAlign: "center",
+      color: "snow",
+      fontSize:'24px',
+      fontWeight: "bold",
+      marginBottom: "150px",
+    }}
+  >
+    Jogue Online
+    <p>Conheça alguns de nossos Jogos que constam em nossos fliperamas retrô...</p>
+  </h1>
+</section>
 
 {/* {{nosso plano}} */}
 <section
@@ -490,7 +519,7 @@ export default function Home() {
           position: "relative",
 
         }}
-      >
+        >
         <h1
           style={{
             // position:"relative",
