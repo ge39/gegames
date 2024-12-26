@@ -356,19 +356,23 @@ export default function Home() {
       style={{ borderRadius: "8px", objectFit: "cover" }}
     />
   </div>
-       <div style={{ textAlign: "center" }}>
-          <a
-            href="#top"
-            style={{
-              backgroundColor: "#FF4500",
-              padding: "10px 20px",
-              borderRadius: "5px",
-              color: "#fff",
-            }}
-            >
-            Voltar ao Topo
-          </a>
-      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
      </section>
       {/* Orçamento Section */}
       <section
@@ -438,20 +442,6 @@ export default function Home() {
             Fale pelo WhatsApp
           </a>
         </div>
-        <div style={{ textAlign: "center"}}>
-            <a
-              href="#top"
-              style={{
-                left:"50%",
-                backgroundColor: "#FF4500",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                color: "#fff",
-              }}
-              >
-              Voltar ao Topo
-            </a>
-        </div>
       </section>
 
       {/* Eventos Section */}
@@ -484,19 +474,6 @@ export default function Home() {
 
         {/* Adicionando o Componente EventSection */}
         <EventSection />
-        <div style={{ textAlign: "center",padding: "40px 20px", }}>
-           <a
-             href="#top"
-             style={{
-               backgroundColor: "#FF4500",
-               padding: "10px 20px",
-               borderRadius: "5px",
-               color: "#fff",
-             }}
-             >
-             Voltar ao Topo
-           </a>
-       </div>
       </section>
 
        {/* Sobre Section */}
@@ -528,22 +505,34 @@ export default function Home() {
           SOBRE NÓS
           <p>Conheça nossa história e paixão por fliperamas retrô...</p>
         </h1>
-          <div style={{ textAlign: "center"}}>
-            <a
-              href="#top"
-              style={{
-                left:"50%",
-                backgroundColor: "#FF4500",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                color: "#fff",
-              }}
-              >
-              Voltar ao Topo
-            </a>
-        </div>        
-     </section>
+      </section>
 
+      <div style={{
+            position: "fixed",
+            bottom: "20px",
+            left: "38%",
+            backgroundColor: "#438",
+            color: "#fff",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            transition: "background-color 0.3s ease, transform 0.2s ease",
+          }} >
+          <a
+           href="#top"
+           onMouseEnter={(e) =>
+             (e.target.style.backgroundColor = "#e03e00")
+           }
+           onMouseLeave={(e) =>
+             (e.target.style.backgroundColor = "#FF4500")
+           }
+         >
+           Voltar ao Topo
+         </a>
+      </div>         
+    
       {/* Footer */}
       <Footer />
     </div>
