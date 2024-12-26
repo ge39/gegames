@@ -297,35 +297,35 @@ export default function Home() {
     </div>
   </div>
 </section>
-
- {/* Jogue Online */}
- <section
-  id="sobre"
-  style={{
-    // backgroundColor: "#77c5d5",
-    backgroundImage: "url('/images/Fliperamas/arcade3.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    width: "100%",
-    height: "600px",
-    position: "relative",
-  }}
-  >
-  <h1
-    style={{
-      // position:"relative",
-      paddingTop:'60px',
-      textAlign: "center",
-      color: "snow",
-      fontSize:'24px',
-      fontWeight: "bold",
-      marginBottom: "150px",
-    }}
-  >
-    Jogue Online
-    <p>Conheça alguns de nossos Jogos que constam em nossos fliperamas retrô...</p>
-  </h1>
+          {/* Jogue online */}
+  <section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
+   <h1 style={{ textAlign: 'center', color: '#333', fontWeight: 'bold', marginBottom: '20px' }}>
+   JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
+   </h1>
+   <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
+     <Image
+       src="/images/bk/jogueOnline.jpg"
+       alt="Fliperama"
+       width={1200}
+       height={600}
+       style={{ borderRadius: '8px', objectFit: 'cover', width: '100%', height: '100%',transform: '(-50%, -50%)', }}
+     />
+   </div>
+   <span style={{ backgroundColor: 'snow',borderRadius:'10px',
+     position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+     color: '#111', fontWeight: 'bold', textAlign: 'center', maxWidth: '1000px'
+   }}>
+     Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver......
+    </span>
+   
+   {/* Botão Jogue Centralizado */}
+   <div style={{ position: 'absolute',bottom: '25%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', zIndex: 10 }}>
+     <a href="/gamelist" target="_blank" style={{
+       backgroundColor: '#25d366', padding: '10px 20px', fontWeight:'bold', borderRadius: '5px', color: '#fff', display: 'inline-block'
+     }}>
+       Jogue Online
+     </a>
+   </div>
 </section>
 
 {/* {{nosso plano}} */}
@@ -537,12 +537,17 @@ export default function Home() {
       </section>
 
       <div style={{
+        display:"inline-block",
             position: "fixed",
+            textAlign:"center",
+            // fontSize:"90%",
             bottom: "20px",
-            left: "38%",
+            alignItems:"center",
             backgroundColor: "#FF4500",
             color: "#fff",
-            padding: "10px 20px",
+            padding: "10px",
+            left:"40%",
+            right:"40%",
             borderRadius: "5px",
             textDecoration: "none",
             fontWeight: "bold",
