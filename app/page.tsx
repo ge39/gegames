@@ -18,13 +18,13 @@ export default function Home() {
     #home h1 {
       border-radius: 10px;
       background-color: #438;
-      padding: 1%;
+      padding: 10px;
       text-align: center;
       color: snow;
-      font-size: 24px;
+      // font-size: 20px;
       font-weight: bold;
       margin: 10px 0;
-      width: 100%;
+      width: 95%;
     }
         #Home div h1 {
         color:'black',
@@ -114,11 +114,7 @@ export default function Home() {
   }}
 > 
 
-  <h1>
-    {/* Fliperamas Retrô, Nostalgia para Seus Eventos */}
-    ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...
-  </h1>
-
+      
   {/* <p> */}
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
   {/* </p> */}
@@ -134,6 +130,10 @@ export default function Home() {
       flexWrap: 'wrap',             // Permite que as colunas se movam para a próxima linha se não houver espaço
     }}
     >
+      <h1>
+  {/* Fliperamas Retrô, Nostalgia para Seus Eventos */}
+  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...
+</h1>
     <div 
       className="column" 
       style={{
@@ -299,7 +299,9 @@ export default function Home() {
 </section>
           {/* Jogue online */}
   <section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
-   <h1 style={{ textAlign: 'center', color: '#333', fontWeight: 'bold', marginBottom: '20px' }}>
+  
+   <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
+     fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
    JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
    </h1>
    <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
@@ -307,21 +309,19 @@ export default function Home() {
        src="/images/bk/jogueOnline.jpg"
        alt="Fliperama"
        width={1200}
-       height={600}
+       height={700}
        style={{ borderRadius: '8px', objectFit: 'cover', width: '100%', height: '100%',transform: '(-50%, -50%)', }}
      />
    </div>
-   <span style={{ backgroundColor: 'snow',borderRadius:'10px',
-     position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-     color: '#111', fontWeight: 'bold', textAlign: 'center', maxWidth: '1000px'
-   }}>
-     Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver......
-    </span>
+    {/* Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver...... */}
+    {/* </span> */}
    
    {/* Botão Jogue Centralizado */}
-   <div style={{ position: 'absolute',bottom: '25%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', zIndex: 10 }}>
+   <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
+    textAlign: 'center', zIndex: 10 }}>
      <a href="/gamelist" target="_blank" style={{
-       backgroundColor: '#25d366', padding: '10px 20px', fontWeight:'bold', borderRadius: '5px', color: '#fff', display: 'inline-block'
+       backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
+       borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
      }}>
        Jogue Online
      </a>
