@@ -18,13 +18,13 @@ export default function Home() {
     #home h1 {
       border-radius: 10px;
       background-color: #438;
-      padding: 1%;
+      padding: 10px;
       text-align: center;
       color: snow;
-      font-size: 24px;
+      // font-size: 20px;
       font-weight: bold;
       margin: 10px 0;
-      width: 100%;
+      width: 95%;
     }
         #Home div h1 {
         color:'black',
@@ -114,11 +114,7 @@ export default function Home() {
   }}
 > 
 
-  <h1>
-    {/* Fliperamas Retrô, Nostalgia para Seus Eventos */}
-    ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...
-  </h1>
-
+      
   {/* <p> */}
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
   {/* </p> */}
@@ -134,6 +130,10 @@ export default function Home() {
       flexWrap: 'wrap',             // Permite que as colunas se movam para a próxima linha se não houver espaço
     }}
     >
+      <h1>
+  {/* Fliperamas Retrô, Nostalgia para Seus Eventos */}
+  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...
+</h1>
     <div 
       className="column" 
       style={{
@@ -297,7 +297,36 @@ export default function Home() {
     </div>
   </div>
 </section>
-
+          {/* Jogue online */}
+  <section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
+  
+   <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
+     fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
+   JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
+   </h1>
+   <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
+     <Image
+       src="/images/bk/jogueOnline.jpg"
+       alt="Fliperama"
+       width={1200}
+       height={700}
+       style={{ borderRadius: '8px', objectFit: 'cover', width: '100%', height: '100%',transform: '(-50%, -50%)', }}
+     />
+   </div>
+    {/* Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver...... */}
+    {/* </span> */}
+   
+   {/* Botão Jogue Centralizado */}
+   <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
+    textAlign: 'center', zIndex: 10 }}>
+     <a href="/gamelist" target="_blank" style={{
+       backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
+       borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
+     }}>
+       Jogue Online
+     </a>
+   </div>
+</section>
 
 {/* {{nosso plano}} */}
 <section
@@ -356,19 +385,23 @@ export default function Home() {
       style={{ borderRadius: "8px", objectFit: "cover" }}
     />
   </div>
-       <div style={{ textAlign: "center" }}>
-          <a
-            href="#top"
-            style={{
-              backgroundColor: "#FF4500",
-              padding: "10px 20px",
-              borderRadius: "5px",
-              color: "#fff",
-            }}
-            >
-            Voltar ao Topo
-          </a>
-      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
      </section>
       {/* Orçamento Section */}
       <section
@@ -438,20 +471,6 @@ export default function Home() {
             Fale pelo WhatsApp
           </a>
         </div>
-        <div style={{ textAlign: "center"}}>
-            <a
-              href="#top"
-              style={{
-                left:"50%",
-                backgroundColor: "#FF4500",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                color: "#fff",
-              }}
-              >
-              Voltar ao Topo
-            </a>
-        </div>
       </section>
 
       {/* Eventos Section */}
@@ -484,19 +503,6 @@ export default function Home() {
 
         {/* Adicionando o Componente EventSection */}
         <EventSection />
-        <div style={{ textAlign: "center",padding: "40px 20px", }}>
-           <a
-             href="#top"
-             style={{
-               backgroundColor: "#FF4500",
-               padding: "10px 20px",
-               borderRadius: "5px",
-               color: "#fff",
-             }}
-             >
-             Voltar ao Topo
-           </a>
-       </div>
       </section>
 
        {/* Sobre Section */}
@@ -513,7 +519,7 @@ export default function Home() {
           position: "relative",
 
         }}
-      >
+        >
         <h1
           style={{
             // position:"relative",
@@ -528,22 +534,32 @@ export default function Home() {
           SOBRE NÓS
           <p>Conheça nossa história e paixão por fliperamas retrô...</p>
         </h1>
-          <div style={{ textAlign: "center"}}>
-            <a
-              href="#top"
-              style={{
-                left:"50%",
-                backgroundColor: "#FF4500",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                color: "#fff",
-              }}
-              >
-              Voltar ao Topo
-            </a>
-        </div>        
-     </section>
+      </section>
 
+      <div style={{
+        display:"inline-block",
+            position: "fixed",
+            textAlign:"center",
+            // fontSize:"90%",
+            bottom: "20px",
+            alignItems:"center",
+            backgroundColor: "#FF4500",
+            color: "#fff",
+            padding: "10px",
+            left:"40%",
+            right:"40%",
+            borderRadius: "5px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            transition: "background-color 0.3s ease, transform 0.2s ease",
+          }} >
+          <a
+           href="#top"
+          >  Voltar ao Topo
+         </a>
+      </div>         
+    
       {/* Footer */}
       <Footer />
     </div>
