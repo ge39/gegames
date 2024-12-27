@@ -17,7 +17,7 @@ export default function Emulation() {
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
       window.EJS_color = "#0000"; 
       window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = '../../${jogo}'; 
+      window.EJS_gameUrl = "../${jogo}"; 
       window.EJS_biosUrl = ""; 
 
       
