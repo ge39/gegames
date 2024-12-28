@@ -322,6 +322,7 @@ export default function Home() {
      <a href="/gamelist" target="_blank" style={{
        backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
        borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
+       boxShadow: '0px 0px 15px 15px rgba(250, 249, 235, 0.9)', /* Adiciona sombra (opcional) */
      }}>
        Jogue Online
      </a>

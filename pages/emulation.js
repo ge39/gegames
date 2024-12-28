@@ -8,26 +8,26 @@ export default function Emulation() {
   // const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const { jogo, core } = router.query;
- 
+  
   useEffect(() => {
     if (jogo) {
       // Configura o emulador com base no jogo da URL
       window.EJS_player = "#game";
       window.EJS_core = `${core}`; 
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color = "#0000"; 
+      window.EJS_color = "#0000";
       window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = "../${jogo}"; 
+      window.EJS_gameUrl = `../../roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
 
       
       // Carregar o script do EmulatorJS
       const script = document.createElement('script');
-      script.src = "https://www.emulatorjs.com/loader.js";
+      script.src = "../EmulatorJS-main/data/loader.js";
       script.async = true;
       script.onload = () => {
         console.log('EmulatorJS carregado com sucesso!');
-        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
+        window.EJS_pathtodata = "../EmulatorJS-main/data/"; 
       };
       script.onerror = () => {
         console.error('Erro ao carregar o script do EmulatorJS');
@@ -56,7 +56,9 @@ export default function Emulation() {
         </div>
       </div>
       {/* Inclusão da Rodapé */}
+      <span>`${jogo}`</span>
       <Footer />
+      
     </div>
   );
 }
