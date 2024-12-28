@@ -15,11 +15,10 @@ export default function Emulation() {
       window.EJS_player = "#game";
       window.EJS_core = `${core}`; 
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color = "#0000";
-      window.EJS_startOnLoaded = true;
+      window.EJS_color =  "#0064ff"; 
       window.EJS_gameUrl = `../../roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
-
+      window.EJS_startOnLoaded = true;
       
       // Carregar o script do EmulatorJS
       const script = document.createElement('script');
@@ -41,7 +40,7 @@ export default function Emulation() {
         
       };
     }
-  }, [jogo]);
+  }, [jogo, core]);
 
   return (
     <div>
@@ -56,8 +55,7 @@ export default function Emulation() {
         </div>
       </div>
       {/* Inclusão da Rodapé */}
-    
-      // <Footer />
+       {/* <Footer /> */}
       
     </div>
   );
