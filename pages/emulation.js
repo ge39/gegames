@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
 export default function Emulation() {
   // const [menuOpen, setMenuOpen] = useState(false);
@@ -56,8 +56,8 @@ export default function Emulation() {
         </div>
       </div>
       {/* Inclusão da Rodapé */}
-      <span>`${jogo}`</span>
-      <Footer />
+    
+      // <Footer />
       
     </div>
   );
