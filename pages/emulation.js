@@ -23,11 +23,11 @@ export default function Emulation() {
       
       // Carregar o script do EmulatorJS
       const script = document.createElement('script');
-      script.src = "../EmulatorJS-main/data/loader.js";
+      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
       script.async = true;
       script.onload = () => {
         console.log('EmulatorJS carregado com sucesso!');
-        window.EJS_pathtodata = "../EmulatorJS-main/data/"; 
+        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       };
       script.onerror = () => {
         console.error('Erro ao carregar o script do EmulatorJS');
