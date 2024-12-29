@@ -50,7 +50,7 @@ export default function Emulation() {
       
 
       <div className={styles.emulatorContainer}>
-        <div id="game" className={styles.emulator}>
+        <div id="game" className={styles.game}>
           
         </div>
       </div>
