@@ -1,8 +1,9 @@
 
   .emulatorContainer {
     /* Altura fixa para o contêiner */
-    /* height: 250px;  */
-    /*max-width: 100%;  Limita a largura ao tamanho da tela */
+    height: 250px; 
+    width:100%;
+    max-width: 100%; /* Limita a largura ao tamanho da tela */
     /* Centraliza o contêiner horizontalmente e define margens verticais */
     margin: 5px auto;
     
