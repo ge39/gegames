@@ -5,58 +5,66 @@ import Navbar from '../components/Navbar';
 // import Footer from '../components/Footer';
 
 export default function Emulation() {
-  // const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
-  const { jogo, core } = router.query;
-  
+  const { jogo = "Super Mario World.zip", core = "snes" } = router.query; // Valores padrão
+
   useEffect(() => {
-    if (jogo) {
-      // Configura o emulador com base no jogo da URL
-      window.EJS_player = "#game";
-      window.EJS_core = `${core}`; 
-      window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color =  "#0064ff"; 
-      window.EJS_gameUrl = `../../roms/${jogo}`; 
-      window.EJS_biosUrl = ""; 
-      window.EJS_startOnLoaded = true;
-      
-      // Carregar o script do EmulatorJS
-      const script = document.createElement('script');
-      script.src = "https://www.emulatorjs.org/stable/data//loader.js";
-      script.async = true;
-      script.onload = () => {
-        console.log('EmulatorJS carregado com sucesso!');
-        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
-      };
-      script.onerror = () => {
-        console.error('Erro ao carregar o script do EmulatorJS');
-        alert('Erro ao carregar o emulador. Tente novamente mais tarde.');
+    if (jogo && core) {
+      // Configurações do EmulatorJS
+      const emulatorConfig = {
+        EJS_startOnLoaded: false,
+        EJS_player: "#game",
+        EJS_core: core,
+        EJS_gameName: jogo || "Jogo Padrão",
+        EJS_start: "Start Game",
+        EJS_color: "#0064ff",
+        EJS_gameUrl: `../../roms/${jogo}`,
+        EJS_biosUrl: "",
+        EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/",
       };
 
-      document.body.appendChild(script);
+      Object.assign(window, emulatorConfig);
+
+      // Carregar o script do EmulatorJS
+      const script = document.createElement("script");
+      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+      script.async = true;
+
+      // Verificar e evitar duplicações no carregamento do script
+      if (!document.querySelector(`script[src="${script.src}"]`)) {
+        document.body.appendChild(script);
+      }
+
+      script.onload = () => {
+        console.log("EmulatorJS carregado com sucesso!");
+      };
+
+      script.onerror = () => {
+        console.error("Erro ao carregar o script do EmulatorJS");
+        alert(
+          "Erro ao carregar o emulador. Verifique sua conexão ou tente novamente mais tarde."
+        );
+      };
 
       return () => {
-        document.body.removeChild(script);
-        
+        // Remover script apenas se ele existir
+        const existingScript = document.querySelector(`script[src="${script.src}"]`);
+        if (existingScript) {
+          document.body.removeChild(existingScript);
+        }
       };
     }
   }, [jogo, core]);
 
   return (
     <div>
-     
       {/* Inclusão da Navbar */}
       <Navbar />
-      
-
       <div className={styles.emulatorContainer}>
-        <div id="game" className={styles.game}>
-          
-        </div>
+        <div id="game" className={styles.game} />
       </div>
-      {/* Inclusão da Rodapé */}
-       {/* <Footer /> */}
-      
+      {/* Inclusão do Rodapé (descomentado, se necessário) */}
+      {/* <Footer /> */}
     </div>
   );
 }
