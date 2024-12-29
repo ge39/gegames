@@ -29,22 +29,6 @@ export default function Home() {
         #Home div h1 {
         color:'black',
         }
-    // #home p {
-      // position: absolute;
-      // top: 65%;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
-       background-color: rgba(14, 14, 13, 0.75);
-      // border-radius: 10px;
-      // width: 100%;
-      // color: yellow;
-      // font-size: 1.8rem;
-      // font-weight: bold;
-      // text-align: center;
-      // max-width: 1000px;
-      // padding: 10px;
-      // margin-top: 120px; /* Aqui está a correção */
-    // }
     #sobre p {
       color: red,
     }
