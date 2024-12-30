@@ -19,7 +19,7 @@ export default function Emulation() {
         EJS_gameName: jogo || "Jogo Padrão",
         EJS_start: "Start Game",
         EJS_color: "#0064ff",
-        EJS_gameUrl: `../../roms/${jogo}`,
+        EJS_gameUrl: `../roms/${jogo}`,
         EJS_biosUrl: "",
         EJS_pathtodata:"https://cdn.emulatorjs.org/stable/data/",
       };
