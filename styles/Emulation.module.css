@@ -7,7 +7,7 @@
     /* Centraliza o contêiner horizontalmente e define margens verticais */
     margin: 5px auto;
     
-    width: 80%; /* O contêiner ocupa toda a largura disponível */
+    width: 50%; /* O contêiner ocupa toda a largura disponível */
     display: inline-flexbox; /* Habilita Flexbox */
      /* Centraliza horizontalmente */
     justify-content: center;
