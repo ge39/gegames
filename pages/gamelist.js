@@ -142,7 +142,7 @@ export default function Gamelist() {
   const snesGames = [
     {
       id: "sn1",
-      path: "snes/Super Mario World (U) [T+Por].smc",
+      path: "snes/Super Mario World.zip",
       name: "Super Mario World",
       core: "snes",
       desc: "Um dos maiores clássicos do Super Nintendo, onde Mario deve salvar a princesa Peach.",
