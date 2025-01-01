@@ -21,14 +21,14 @@ export default function Emulation() {
         EJS_color: "#0064ff",
         EJS_gameUrl: `../roms/${jogo}`,
         EJS_biosUrl: "",
-        EJS_pathtodata:"https://cdn.emulatorjs.org/stable/data/",
+        // EJS_pathtodata:"https://cdn.emulatorjs.org/stable/data/",
       };
   
       Object.assign(window, emulatorConfig);
   
       // Carregar o script do EmulatorJS
       const script = document.createElement("script");
-      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+      script.src = "https://www.emulatorjs.com/loader.js";
       script.async = true;
   
       script.onload = () => {
