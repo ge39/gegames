@@ -298,19 +298,19 @@ export default function Home() {
   </div>
 </section>
           {/* Jogue online */}
-  <section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
+  <section id="nosso-servico" style={{ padding: '50px 20px', position: 'relative' }}>
   
    <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
      fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
-   JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
+   APROVEITE NOSSA PROMOÇÃO COM 10% DE DESCONTO NA PRIMEIRA LOCAÇÃO.
    </h1>
    <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
      <Image
-       src="/images/bk/jogueOnline.jpg"
+       src="/images/bk/meupeixe.jpg"
        alt="Fliperama"
        width={1200}
-       height={700}
-       style={{ borderRadius: '8px', objectFit: 'cover', width: '100%', height: '100%',transform: '(-50%, -50%)', }}
+       height={1000}
+       style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
      />
    </div>
     {/* Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver...... */}
@@ -319,16 +319,49 @@ export default function Home() {
    {/* Botão Jogue Centralizado */}
    <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
     textAlign: 'center', zIndex: 10 }}>
-     <a href="/gamelist" target="_blank" style={{
+     <a href="https://wa.me/5511975145360" target="_blank" style={{
        backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
        borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
-       boxShadow: '0px 0px 15px 15px rgba(250, 249, 235, 0.9)', /* Adiciona sombra (opcional) */
+       boxShadow: '0px 0px 15px 15px rgba(0, 0, 0, 0.9)', /* Adiciona sombra (opcional) */
      }}>
-       Jogue Online
+      Fale Conosco
+
+
      </a>
    </div>
 </section>
 
+
+<section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
+  
+    <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
+    fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
+    JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
+    </h1>
+  <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
+    <Image
+    src="/images/bk/jogueOnline.jpg"
+    alt="Fliperama"
+    width={1200}
+    height={1000}
+    style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
+    />
+  </div>
+    {/* Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver...... */}
+    {/* </span> */}
+
+    {/* Botão Jogue Centralizado */}
+  <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
+    textAlign: 'center', zIndex: 10 }}>
+    <a href="/gamelist" target="_blank" style={{
+    backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
+    borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
+    boxShadow: '0px 0px 15px 15px rgba(250, 249, 235, 0.9)', /* Adiciona sombra (opcional) */
+    }}>
+    Jogue Online
+    </a>
+  </div>
+</section>
 {/* {{nosso plano}} */}
 <section
    id="nosso-plano"
@@ -448,6 +481,7 @@ export default function Home() {
             fontWeight: "bold",
             textAlign: "center",
             maxWidth: "900px",   
+            
           }}
         >
           ENTRE EM CONTATO PARA RECEBER UM ORÇAMENTO PERSONALIZADO...
