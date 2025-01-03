@@ -11,25 +11,19 @@ export default function Emulation() {
   
   useEffect(() => {
     if (jogo) {
-      // Configurações do EmulatorJS
-      const emulatorConfig = {
-        EJS_startOnLoaded: false,
-        EJS_player: "#game",
-        EJS_core: core,
-        EJS_gameName: jogo || "Jogo Padrão",
-        EJS_start: "Start Game",
-        EJS_color: "#0064ff",
-        EJS_gameUrl: `/roms/${jogo}`,
-        EJS_biosUrl: "",
-        EJS_pathtodata:"../EmulatorJS-main/data/",
-      };
-  
-      Object.assign(window, emulatorConfig);
-  
+      // Configura o emulador com base no jogo da URL
+      window.EJS_player = "#game";
+      window.EJS_core = `${core}`; 
+      window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
+      window.EJS_color = "#0000";
+      window.EJS_startOnLoaded = true;
+      window.EJS_gameUrl = `../../roms/${jogo}`; 
+      window.EJS_biosUrl = ""; 
+
+      
       // Carregar o script do EmulatorJS
-      const script = document.createElement("script");
-      // script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-       script.src = "../EmulatorJS-main/data/loader.js";
+      const script = document.createElement('script');
+      script.src = "../EmulatorJS-main/data/loader.js";
       script.async = true;
   
       script.onload = () => {
