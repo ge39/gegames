@@ -3,6 +3,7 @@
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
+import ButtonTop from '../components/ButtonTop';
 import EventSection from "../components/EventSection"; // Import do componente EventSection
 
 export default function Home() {
@@ -290,10 +291,11 @@ export default function Home() {
     {/* </span> */}
    
    {/* Botão Jogue Centralizado */}
-   <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
+   <div style={{ position: 'absolute',bottom: '30%', left: '50%',width:'30%', transform: 'translateX(-50%)', 
+    
     textAlign: 'center', zIndex: 10 }}>
      <a href="https://wa.me/5511975145360" target="_blank" style={{
-       backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
+       backgroundColor: '#25d366',fontSize:"1rem", fontWeight:'bold', padding:'2%',width:'100%',
        borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
        boxShadow: '0px 0px 15px 15px rgba(0, 0, 0, 0.9)', /* Adiciona sombra (opcional) */
      }}>
@@ -325,10 +327,11 @@ style={{ padding: '0px 10px', position: 'relative' }}>
     {/* </span> */}
 
     {/* Botão Jogue Centralizado */}
-  <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
+    <div style={{ position: 'absolute',bottom: '30%', left: '50%',width:'30%', transform: 'translateX(-50%)',  
     textAlign: 'center', zIndex: 10 }}>
+
     <a href="/gamelist" target="_blank" style={{
-    backgroundColor: '#25d366',width:"100%", padding: '10px',fontSize:"24px", fontWeight:'bold', 
+    backgroundColor: '#25d366',width:"100%", padding:'2%', fontWeight:'bold', 
     borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
     boxShadow: '0px 0px 15px 15px rgba(7, 7, 7, 0.9)', /* Adiciona sombra (opcional) */
     }}>
@@ -369,24 +372,24 @@ style={{ padding: '0px 10px', position: 'relative' }}>
    A CADA LOCAÇÃO GANHE CUPOM DE 5% de DESCONTO PARA SEU PRÓXIMO EVENTO!
   </p>
 </section>
-      {/* Orçamento Section */}
+      {/* Fale Conosco Section */}
       <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
-   fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
-   FALE CONOSCO
- </h1>
-      <section
-        id="orcamento"
-        style={{
-          backgroundImage: "url('/images/bk/arcadePessoas.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          width: "100%",
-          height: "600px",
-          padding: "50px 20px",
-          position: "relative",
-        }}
-      >
+          fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
+              FALE CONOSCO
+        </h1>
+  <section
+    id="orcamento"
+    style={{
+      backgroundImage: "url('/images/bk/arcadePessoas.webp')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      width: "100%",
+      height: "600px",
+      padding: "50px 20px",
+      position: "relative",
+    }}
+  >
       
         <div style={{
            display: "flex", justifyContent: "center", marginBottom: "20px"  }}>
@@ -504,32 +507,10 @@ style={{ padding: '0px 10px', position: 'relative' }}>
           <br /> Agradecidos: Equipe gegames
         </p>
       </section>
+      
+      <ButtonTop href="#top" text="Voltar ao Topo" />
 
-      <div style={{
-        display:"inline-block",
-            position: "fixed",
-            textAlign:"center",
-            // fontSize:"90%",
-            bottom: "20px",
-            alignItems:"center",
-            backgroundColor: "#FF4500",
-            color: "#fff",
-            padding: "10px",
-            left:"40%",
-            right:"40%",
-            borderRadius: "5px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            transition: "background-color 0.3s ease, transform 0.2s ease",
-          }} >
-          <a
-           href="#top"
-          >  Voltar ao Topo
-         </a>
-      </div>         
-    
-      {/* Footer */}
+        {/* Footer */}
       <Footer />
     </div>
   );
