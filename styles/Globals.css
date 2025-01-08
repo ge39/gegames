@@ -1,14 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto',Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f5;
-    background-image: url('../public/images/bk/moldura-bkg-cinza.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-  
+  /* Estilo global */
+
+/* Classe ou estilo para textos retrô */
+.retro {
+  font-family: 'Press Start 2P', cursive;
+}
+
   h2 {
     text-align: center;
     color: #333;
