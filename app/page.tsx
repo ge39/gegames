@@ -94,7 +94,7 @@ export default function Home() {
     backgroundRepeat: "no-repeat",
     width: "100%",
     position: "relative",
-    paddingBottom: '10px',
+    padding: '0px 10px',
   }}
 > 
 
@@ -151,7 +151,7 @@ export default function Home() {
   style={{
    
     // flex: 1,
-    margin: '0 10px', // Espaçamento entre as colunas
+    margin: '10px', // Espaçamento entre as colunas
     backgroundImage: "url('./images/Fliperamas/fotoarcade2.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -271,18 +271,18 @@ export default function Home() {
   
 </section>
           {/* Jogue online */}
-  <section id="nosso-servico" style={{ padding: '50px 20px', position: 'relative' }}>
+  <section id="nosso-servico" style={{ padding: '20px 10px', position: 'relative' }}>
   
-   <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
-     fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
+   <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
+     fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
    APROVEITE NOSSA PROMOÇÃO COM 10% DE DESCONTO NA PRIMEIRA LOCAÇÃO.
    </h1>
-   <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
+   <div style={{ textAlign: 'center', margin: '1%', backgroundColor: 'rgba(0,0,0,9)' }}>
      <Image
        src="/images/bk/moldura-bkg.jpg"
        alt="Fliperama"
        width={1200}
-       height={1000}
+       height={600}
        style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
      />
    </div>
@@ -305,18 +305,19 @@ export default function Home() {
 </section>
 
 
-<section id="jogue-online" style={{ padding: '50px 20px', position: 'relative' }}>
+<section id="jogue-online" 
+style={{ padding: '0px 10px', position: 'relative' }}>
   
-    <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
-    fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
+    <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
+    fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
     JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
     </h1>
-  <div style={{ textAlign: 'center', marginBottom: '20px', backgroundColor: 'rgba(0,0,0,9)' }}>
+  <div style={{ textAlign: 'center', backgroundColor: 'rgba(0,0,0,9)' }}>
     <Image
-    src="/images/bk/jogueOnline.jpg"
+    src="/images/bk/videorama.webp"
     alt="Fliperama"
     width={1200}
-    height={1000}
+    height={600}
     style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
     />
   </div>
@@ -327,7 +328,7 @@ export default function Home() {
   <div style={{ position: 'absolute',bottom: '35%', left: '50%', transform: 'translateX(-50%)', 
     textAlign: 'center', zIndex: 10 }}>
     <a href="/gamelist" target="_blank" style={{
-    backgroundColor: '#25d366',width:"100%", padding: '10px 20px',fontSize:"24px", fontWeight:'bold', 
+    backgroundColor: '#25d366',width:"100%", padding: '10px',fontSize:"24px", fontWeight:'bold', 
     borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
     boxShadow: '0px 0px 15px 15px rgba(7, 7, 7, 0.9)', /* Adiciona sombra (opcional) */
     }}>
@@ -336,23 +337,19 @@ export default function Home() {
   </div>
 </section>
 {/* {{nosso plano}} */}
-
+<h1 style={{ backgroundColor:"#438",padding:"10px",textAlign: 'center', color: 'snow',
+  fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
+  NOSSOS PLANOS
+</h1>
 <section  id="nosso-plano"  style={{
     backgroundImage: "url('/images/bk/bk-cinza-branco.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    padding: "50px 20px",
+    padding: "0px 10px",
     position: "relative",
-    paddingBottom:'20px',
-     
    }}
   >
-  <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
-    fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
-    NOSSOS PLANOS
-  </h1>
-
   <p style={{ padding:"10px 20px",textAlign: 'center', color: '#438',
     fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
     NA PRIMEIRA LOCAÇÃO GANHE 10% DE DESCONTO!
@@ -363,20 +360,24 @@ export default function Home() {
       src="/images/eventos/Fliperama_locacao.jpg"
       alt="Fliperama"
       width={1600}
-      height={200}
+      height={600}
       style={{ borderRadius: "8px", objectFit: "cover" }}
     />
   </div>
-  <p style={{ padding:"10px 20px",textAlign: 'center', color: '#438',
-    fontWeight: 'bold', marginBottom: '20px',borderRadius: '10px', }}>
+  <p style={{ padding:"10px",textAlign: 'center', color: '#438',
+    fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
    A CADA LOCAÇÃO GANHE CUPOM DE 5% de DESCONTO PARA SEU PRÓXIMO EVENTO!
   </p>
 </section>
       {/* Orçamento Section */}
+      <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
+   fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
+   FALE CONOSCO
+ </h1>
       <section
         id="orcamento"
         style={{
-          backgroundImage: "url('/images/Fliperamas/arcade2.jpg')",
+          backgroundImage: "url('/images/bk/arcadePessoas.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -386,18 +387,7 @@ export default function Home() {
           position: "relative",
         }}
       >
-        <h1
-          style={{
-            padding:'20px',
-            textAlign: "center",
-            fontSize:'24px',
-            color: "snow",
-            fontWeight: "bold",
-            // marginTop: "10%",
-          }}
-        >
-          FALE CONOSCO 
-        </h1>
+      
         <div style={{
            display: "flex", justifyContent: "center", marginBottom: "20px"  }}>
         </div>
@@ -423,7 +413,7 @@ export default function Home() {
         </p>
 
         {/* Botão WhatsApp */}
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <div style={{ textAlign: "center", marginTop: "1%" }}>
           <a
             href="https://wa.me/5511975145360"
             target="_blank"
@@ -444,9 +434,13 @@ export default function Home() {
       </section>
 
       {/* Eventos Section */}
+      <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center',width:'98%',margin:'1%', 
+        color: 'snow', fontWeight: 'bold',borderRadius: '10px', }}>
+        NOSSOS EVENTOS REALIZADOS
+      </h1>
       <section  id="eventos"
         style={{
-          backgroundColor:"#3599",
+          backgroundColor:"#3224",
           // backgroundImage: "url('/images/bk/moldura-bkg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -454,14 +448,14 @@ export default function Home() {
           width: "100%",
           height: "100%",
           position: "relative",
-          padding:'20px'
+          padding:'0px 10px'
         
         }}
         >
-        <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center',width:'95%',marginLeft:'2%', 
-          color: 'snow', fontWeight: 'bold',borderRadius: '10px', }}>
-          NOSSOS EVENTOS REALIZADOS
-        </h1>
+       
+       
+       
+       
         {/* Adicionando o Componente EventSection */}
         <EventSection />
       </section>
@@ -470,31 +464,45 @@ export default function Home() {
       <section
         id="sobre"
         style={{
-          // backgroundColor: "#77c5d5",
-          backgroundImage: "url('/images/Fliperamas/arcade3.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundColor: "#fafafa",
+          // backgroundImage: "url('/images/Fliperamas/arcade3.jpg')",
+          marginTop:'20px',
+          padding:'10px',
           width: "100%",
           height: "0 auto",
           position: "relative",
 
         }}
         >
-        <h1
-          style={{
-            // position:"relative",
-            paddingTop:'60px',
-            textAlign: "center",
-            color: "snow",
-            fontSize:'24px',
-            fontWeight: "bold",
-            marginBottom: "150px",
-          }}
-        >
-          SOBRE NÓS
+      
+        <h1 style={{ backgroundColor:"#438",padding:"10px",textAlign: 'center',width:'98%',margin:'1%', 
+            color: 'snow', fontWeight: 'bold',borderRadius: '10px', }}
+          >
+            SOBRE NÓS
           <p>Conheça nossa história e paixão por fliperamas retrô...</p>
         </h1>
+        <p style={{color:'#000',marginBottom:'10px',padding:'10px'}}>
+          A paixão por videogames começou nos anos dourados do Atari,Super Nintendo, Megadrive, Playstation..., quando cada partida era uma nova aventura. Hoje, com 54 anos, formado em Análise de Sistemas e atuando na área de Tecnologia da Informação com ênfase em redes de computadores e manutenção, trago essa paixão para um negócio que conecta nostalgia e tecnologia: o aluguel de fliperamas retrô.
+         </p>
+        <div  style={{
+            backgroundImage: "url('/images/bk/videorama.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            // marginTop:'20px',
+            // padding:'10px',
+            width: "100%",
+            height: "450px",
+            position: "relative",
+          }}>
+            
+        </div>
+          <p style={{color:'#000',marginBottom:'40px',padding:'10px'}}>
+          Nossa missão é levar a experiência única dos fliperamas clássicos para eventos e momentos especiais, sempre garantindo que cada máquina esteja em perfeito estado. Com um profundo conhecimento técnico e décadas de experiência tanto em jogos quanto em tecnologia, cuidamos para que cada equipamento seja uma verdadeira peça de arte funcional.
+          Seja para reviver memórias ou criar novas, estamos aqui para transformar o seu evento em uma viagem ao passado, com o charme e a diversão que só os fliperamas podem oferecer.
+          Somos apaixonados pelo que fazemos, e desejamos que este conteudo tambem disperte em você esta paixão...
+          <br /> Agradecidos: Equipe gegames
+        </p>
       </section>
 
       <div style={{
