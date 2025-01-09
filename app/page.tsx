@@ -470,6 +470,7 @@ style={{ padding: '0px 10px', position: 'relative' }}>
           backgroundColor: "#fafafa",
           // backgroundImage: "url('/images/Fliperamas/arcade3.jpg')",
           marginTop:'20px',
+          marginBottom:'110px',
           padding:'10px',
           width: "100%",
           height: "0 auto",
@@ -500,7 +501,7 @@ style={{ padding: '0px 10px', position: 'relative' }}>
           }}>
             
         </div>
-          <p style={{color:'#000',marginBottom:'40px',padding:'10px'}}>
+          <p style={{color:'#000',padding:'10px'}}>
           Nossa missão é levar a experiência única dos fliperamas clássicos para eventos e momentos especiais, sempre garantindo que cada máquina esteja em perfeito estado. Com um profundo conhecimento técnico e décadas de experiência tanto em jogos quanto em tecnologia, cuidamos para que cada equipamento seja uma verdadeira peça de arte funcional.
           Seja para reviver memórias ou criar novas, estamos aqui para transformar o seu evento em uma viagem ao passado, com o charme e a diversão que só os fliperamas podem oferecer.
           Somos apaixonados pelo que fazemos, e desejamos que este conteudo tambem disperte em você esta paixão...

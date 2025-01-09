@@ -3,7 +3,7 @@
     position: fixed;
     text-align: center;
     width: 20%;
-    bottom: 10%;
+    bottom: 7%;
     align-items: center;
     background-color: #ff4500;
     color: #fff;
@@ -34,6 +34,7 @@
       left: 10%;     /* Remove o espaçamento lateral */
       right: 10%;    /* Remove o espaçamento lateral */
       border-radius: 10px; /* Bordas retas para combinar com a tela */
+      bottom: 13%;
     }
   }
   
