@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    font-family: 'Roboto',Arial, sans-serif;
     justify-content: space-between;
     align-items: center;
     background-color:#884b4b ;
