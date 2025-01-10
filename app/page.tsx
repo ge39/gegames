@@ -272,18 +272,18 @@ export default function Home() {
   
 </section>
           {/* Jogue online */}
-  <section id="nosso-servico" style={{ padding: '20px 10px', position: 'relative' }}>
+<section id="nosso-servico" style={{ padding: '20px 10px', position: 'relative' }}>
   
-   <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
+  <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
      fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
    APROVEITE NOSSA PROMOÇÃO COM 10% DE DESCONTO NA PRIMEIRA LOCAÇÃO.
-   </h1>
-   <div style={{ textAlign: 'center', margin: '1%', backgroundColor: 'rgba(0,0,0,9)' }}>
+  </h1>
+  <div style={{ textAlign: 'center',width:'100%', backgroundColor: 'rgba(0,0,0,9)' }}>
      <Image
-       src="/images/bk/moldura-bkg.jpg"
+       src="/images/bk/videorama.webp"
        alt="Fliperama"
-       width={1200}
-       height={600}
+       width={900}
+       height={60}
        style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
      />
    </div>
@@ -307,19 +307,18 @@ export default function Home() {
 </section>
 
 
-<section id="jogue-online" 
-style={{ padding: '0px 10px', position: 'relative' }}>
+<section id="jogue-online" style={{padding: '0 10px', position: 'relative' }}>
   
-    <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
+  <h1 style={{ backgroundColor:"#438",padding:"10px ",textAlign: 'center', color: 'snow',
     fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
     JOGUE ONLINE OS MELHORES JOGOS - ARCADE / SNES / MEGADRIVE / ATARI
     </h1>
-  <div style={{ textAlign: 'center', backgroundColor: 'rgba(0,0,0,9)' }}>
+  <div style={{ textAlign: 'center',width:'100%', backgroundColor: 'rgba(0,0,0,9)' }}>
     <Image
-    src="/images/bk/videorama.webp"
+    src="/images/bk/jogos-online2.webp"
     alt="Fliperama"
-    width={1200}
-    height={600}
+    width={900}
+    height={60}
     style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
     />
   </div>
@@ -327,7 +326,7 @@ style={{ padding: '0px 10px', position: 'relative' }}>
     {/* </span> */}
 
     {/* Botão Jogue Centralizado */}
-    <div style={{ position: 'absolute',bottom: '30%', left: '50%',width:'30%', transform: 'translateX(-50%)',  
+    <div style={{ position: 'absolute',bottom: '50%', left: '50%',width:'30%', transform: 'translateX(-50%)',  
     textAlign: 'center', zIndex: 10 }}>
 
     <a href="/gamelist" target="_blank" style={{
@@ -339,13 +338,15 @@ style={{ padding: '0px 10px', position: 'relative' }}>
     </a>
   </div>
 </section>
+
 {/* {{nosso plano}} */}
 <h1 style={{ backgroundColor:"#438",padding:"10px",textAlign: 'center', color: 'snow',
   fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
   NOSSOS PLANOS
 </h1>
 <section  id="nosso-plano"  style={{
-    backgroundImage: "url('/images/bk/bk-cinza-branco.jpg')",
+    // backgroundImage: "url('/images/bk/bk-cinza-branco.jpg')",
+    backgroundColor:"#4382",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -358,12 +359,12 @@ style={{ padding: '0px 10px', position: 'relative' }}>
     NA PRIMEIRA LOCAÇÃO GANHE 10% DE DESCONTO!
   </p>
 
-   <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+  <div style={{ display: "flex",width:'100%',padding:'1%', justifyContent: "center", marginBottom: "20px" }}>
     <Image
       src="/images/eventos/Fliperama_locacao.jpg"
       alt="Fliperama"
-      width={1600}
-      height={600}
+      width={1500}
+      height={60}
       style={{ borderRadius: "8px", objectFit: "cover" }}
     />
   </div>
@@ -372,69 +373,44 @@ style={{ padding: '0px 10px', position: 'relative' }}>
    A CADA LOCAÇÃO GANHE CUPOM DE 5% de DESCONTO PARA SEU PRÓXIMO EVENTO!
   </p>
 </section>
+
       {/* Fale Conosco Section */}
-      <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', color: 'snow',
-          fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
+      <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center', 
+        color: 'snow',
+        fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
               FALE CONOSCO
         </h1>
-  <section
-    id="orcamento"
-    style={{
-      backgroundImage: "url('/images/bk/arcadePessoas.webp')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      width: "100%",
-      height: "600px",
-      padding: "50px 20px",
-      position: "relative",
-    }}
-  >
-      
-        <div style={{
-           display: "flex", justifyContent: "center", marginBottom: "20px"  }}>
-        </div>
-        <p
-          style={{
-            position: "absolute",
-            top: "35%",
-            left: "50%",
-            padding:'15px',
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(230, 230, 250, 0.90)",
-            borderRadius: "10px",
-            width: "90%",
-            color: "#333",
-            fontSize: "90%",
-            fontWeight: "bold",
-            textAlign: "center",
-            maxWidth: "900px",   
-            
-          }}
-        >
-          ENTRE EM CONTATO PARA RECEBER UM ORÇAMENTO PERSONALIZADO...
-        </p>
+<section
+    id="orcamento" style={{ padding: '20px 10px', position: 'relative'  }}>
+  
+    <div style={{ textAlign: 'center',width:'100%', backgroundColor: 'rgba(0,0,0,9)' }}>
+      <Image
+      src="/images/bk/fale-conosco.webp"
+      alt="Fliperama"
+      width={900}
+      height={60}
+      style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
+      />
+    </div>
+    {/* Acesse versões digitais dos nossos fliperamas e divirta-se onde estiver...... */}
+    {/* </span> */}
 
-        {/* Botão WhatsApp */}
-        <div style={{ textAlign: "center", marginTop: "1%" }}>
-          <a
-            href="https://wa.me/5511975145360"
-            target="_blank"
-            style={{
-              marginTop:'250px',
-              backgroundColor: "#25d366",
-              padding: "10px 20px",
-              borderRadius: "5px",
-              color: "#fff",
-              fontSize: "100%",
-              display: "inline-block",
-              marginBottom:"18px",
-            }}
-          >
-            Fale pelo WhatsApp
-          </a>
-        </div>
-      </section>
+    {/* Botão Jogue Centralizado */}
+
+    <div style={{ position: 'absolute',bottom: '50%', left: '50%',width:'30%', transform: 'translateX(-50%)', 
+ 
+ textAlign: 'center', zIndex: 10 }}>
+  <a href="https://wa.me/5511975145360" target="_blank" style={{
+    backgroundColor: '#25d366',fontSize:"1rem", fontWeight:'bold', padding:'2%',width:'100%',
+    borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
+    boxShadow: '0px 0px 15px 15px rgba(0, 0, 0, 0.9)', /* Adiciona sombra (opcional) */
+  }}>
+   Fale Pelo Whatsapp
+  </a>
+</div>
+
+
+</section>
 
       {/* Eventos Section */}
       <h1 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center',width:'98%',margin:'1%', 
@@ -455,9 +431,7 @@ style={{ padding: '0px 10px', position: 'relative' }}>
         
         }}
         >
-       
-       
-       
+      
        
         {/* Adicionando o Componente EventSection */}
         <EventSection />
@@ -493,8 +467,6 @@ style={{ padding: '0px 10px', position: 'relative' }}>
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            // marginTop:'20px',
-            // padding:'10px',
             width: "100%",
             height: "450px",
             position: "relative",

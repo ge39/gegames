@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 
-
 export default function Gamelist() {
   // Dados para os carrosséis
   const arcadeGames = [

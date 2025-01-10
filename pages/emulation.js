@@ -21,7 +21,6 @@ export default function Emulation() {
       window.EJS_gameUrl = `../../roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
 
-      
       // Carregar o script do EmulatorJS
       const script = document.createElement('script');
       script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
