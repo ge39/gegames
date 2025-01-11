@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
-import OnlineCounter from "../components/OnlineCounter";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
