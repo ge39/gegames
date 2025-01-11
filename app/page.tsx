@@ -5,13 +5,19 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import ButtonTop from '../components/ButtonTop';
 import EventSection from "../components/EventSection"; // Import do componente EventSection
+import OnlineCounter from "../components/OnlineCounter";
 
 export default function Home() {
   return (
     <div>
       {/* Navbar */}
       <Navbar />
+
+      <div>
+          <OnlineCounter  />
+      </div>
       <style jsx>{`
+
     #home {
       position: relative;
     }
@@ -486,5 +492,6 @@ export default function Home() {
         {/* Footer */}
       <Footer />
     </div>
+    
   );
 }

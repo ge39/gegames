@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
+import OnlineCounter from "../components/OnlineCounter";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function Navbar() {
       <div className={styles.logo}>
         <Link href="/">Gegames</Link>
       </div>
+      
       <div className={styles.hamburger} onClick={toggleMenu}>
         <div className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} />
         <div className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} />
@@ -26,7 +28,7 @@ export default function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/#gamelist">Jogue Online</Link>
+          <Link href="/gamelist">Jogue Online</Link>
         </li>
         <li>
           <Link href="/#orcamento">Fale Conosco</Link>
