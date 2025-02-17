@@ -1,5 +1,6 @@
 import styles from '../styles/Carousel.module.css';
 import Image from 'next/image';
+
 export default function GameCard({ game }) {
   return (
     <div className={styles.card}>
@@ -16,9 +17,9 @@ export default function GameCard({ game }) {
           ) : (
             <p className={styles.noImage}>Imagem não disponível</p>
           )}
-      <h3>{game.name}</h3>
-      <p>{game.desc}</p>
-      <small>Players: {game.players} | Rating: {game.rating}</small>
+         <h3>{game.name}</h3>
+         <p>{game.desc}</p>
+         <small>Players: {game.players} | Rating: {game.rating}</small>
         <a   href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
             className={styles.playNow}
           >
