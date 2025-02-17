@@ -470,7 +470,7 @@ export default function Gamelist() {
       <Navbar />
       <main className={styles.main}>
         <section id="arcadeSection">
-          <a href="#">
+          <a href="/gamelistArcade">
           <h2>Arcade</h2>
           </a>
          
