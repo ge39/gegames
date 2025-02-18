@@ -188,26 +188,14 @@ export default function Gamelist() {
         "releasedate": "1989-01-01"
       },
       {
-        "id": "37415",
-        "path": "arcade/samsho5.zip",
-        "core": "arcade",
-        "bios": "",
-        "name": "Samurai Shodown V",
-        "desc": "Um dos jogos mais técnicos da franquia Samurai Shodown, trazendo novos personagens e golpes.",
-        "image": "/images/games/samsho5.png",
-        "alt": "Samurai Shodown V Cover Art",
-        "players": "1-2",
-        "releasedate": "2003-10-10"
-      },
-      {
         "id": "37416",
-        "path": "arcade/sfiii.zip",
+        "path": "arcade/sfa3.zip",
         "core": "arcade",
         "bios": "",
-        "name": "Street Fighter III",
+        "name": "Street Fighter Alfa 3",
         "desc": "Uma revolução na franquia, com gráficos aprimorados e novas mecânicas como o Parry.",
-        "image": "/images/games/sfiii.png",
-        "alt": "Street Fighter III Cover Art",
+        "image": "/images/games/sfa3.png",
+        "alt": "Street Fighter Alfa III Cover Art",
         "players": "1-2",
         "releasedate": "1997-02-04"
       },
@@ -222,8 +210,8 @@ export default function Gamelist() {
         "alt": "Teenage Mutant Ninja Turtles II Cover Art",
         "players": "1-4",
         "releasedate": "1991-01-01"
-      }
-    
+      },
+        
   ]; // Copie os jogos do seu JSON aqui
 
   return (
