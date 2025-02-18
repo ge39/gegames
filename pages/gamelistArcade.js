@@ -127,6 +127,103 @@ export default function Gamelist() {
       players: "1-2",
       releasedate: "1991-01-01",
     },
+      {
+        "id": "37410",
+        "path": "arcade/goldnaxe.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "Golden Axe",
+        "desc": "Um clássico jogo de ação e aventura da SEGA onde guerreiros enfrentam forças malignas.",
+        "image": "/images/games/goldnaxe.png",
+        "alt": "Golden Axe Cover Art",
+        "players": "1-2",
+        "releasedate": "1989-06-01"
+      },
+      {
+        "id": "37411",
+        "path": "arcade/kof98.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "The King of Fighters '98",
+        "desc": "Um dos jogos mais populares da série KOF, trazendo diversos personagens e jogabilidade refinada.",
+        "image": "/images/games/kof98.png",
+        "alt": "The King of Fighters '98 Cover Art",
+        "players": "1-2",
+        "releasedate": "1998-07-23"
+      },
+      {
+        "id": "37412",
+        "path": "arcade/kof2003.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "The King of Fighters 2003",
+        "desc": "A introdução do sistema de Tag Battle na série KOF, permitindo trocas durante as lutas.",
+        "image": "/images/games/kof2003.png",
+        "alt": "The King of Fighters 2003 Cover Art",
+        "players": "1-2",
+        "releasedate": "2003-12-12"
+      },
+      {
+        "id": "37413",
+        "path": "arcade/pacplus.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "Pac-Man Plus",
+        "desc": "Uma versão aprimorada do Pac-Man clássico, com elementos surpresa e maior dificuldade.",
+        "image": "/images/games/pacplus.png",
+        "alt": "Pac-Man Plus Cover Art",
+        "players": "1",
+        "releasedate": "1982-01-01"
+      },
+      {
+        "id": "37414",
+        "path": "arcade/rambo3.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "Rambo III",
+        "desc": "Baseado no famoso filme, o jogo coloca os jogadores no papel de Rambo em missões intensas.",
+        "image": "/images/games/rambo3.png",
+        "alt": "Rambo III Cover Art",
+        "players": "1-2",
+        "releasedate": "1989-01-01"
+      },
+      {
+        "id": "37415",
+        "path": "arcade/samsho5.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "Samurai Shodown V",
+        "desc": "Um dos jogos mais técnicos da franquia Samurai Shodown, trazendo novos personagens e golpes.",
+        "image": "/images/games/samsho5.png",
+        "alt": "Samurai Shodown V Cover Art",
+        "players": "1-2",
+        "releasedate": "2003-10-10"
+      },
+      {
+        "id": "37416",
+        "path": "arcade/sfiii.zip",
+        "core": "arcade",
+        "bios": "",
+        "name": "Street Fighter III",
+        "desc": "Uma revolução na franquia, com gráficos aprimorados e novas mecânicas como o Parry.",
+        "image": "/images/games/sfiii.png",
+        "alt": "Street Fighter III Cover Art",
+        "players": "1-2",
+        "releasedate": "1997-02-04"
+      },
+      {
+        "id": "37417",
+        "path": "arcade/tmnt2.zip",
+        "core": "mame",
+        "bios": "",
+        "name": "Teenage Mutant Ninja Turtles II",
+        "desc": "Os heróis de casco retornam em um jogo beat 'em up recheado de ação e cooperação.",
+        "image": "/images/games/tmnt2.png",
+        "alt": "Teenage Mutant Ninja Turtles II Cover Art",
+        "players": "1-4",
+        "releasedate": "1991-01-01"
+      }
+    
   ]; // Copie os jogos do seu JSON aqui
 
   return (
