@@ -110,7 +110,7 @@ export default function Gamelist() {
       bios:"",
       name: "The king of Fighter 99",
       desc: "Chegamos mais uma vez ao tempo para o famoso KOF Tournament! Novos rostos e velhos se juntam para participar do último torneio KOF, mas algo parece errado.",
-      image: "/images/games/kof99-thumb.png",
+      image: "/images/games/kof99.png",
       alt: "The Kof 99",
       players: "1-2",
       releasedate: "1999-01-01",
