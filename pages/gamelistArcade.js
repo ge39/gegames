@@ -148,7 +148,7 @@ export default function Gamelist() {
           }}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard} style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
-                <a href={game.path} target="_blank" rel="noopener noreferrer">
+                <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <Image
                     src={game.image}
                     alt={game.alt}
@@ -157,7 +157,7 @@ export default function Gamelist() {
                     height={200}  // Altura da imagem (ajuste conforme necessário)
                     style={{
                       width: '100%',
-                      height: 'auto',
+                      height: '250',
                       borderRadius: '8px',
                       maxWidth: '300px', // Controla o tamanho máximo
                       margin: '0 auto'
@@ -165,22 +165,7 @@ export default function Gamelist() {
                   />
                   <h5>{game.name}</h5>
                 </a>
-                <a  
-                  style={{
-                    marginTop: '10px',
-                    padding: '10px 15px',
-                    backgroundColor: '#0070f3',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                  }}
-                  href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
-                  className={styles.playNow}
-                >
-                  Play Now
-                </a>
-              </div>
+               </div>
             ))}
           </div>
         </section>
