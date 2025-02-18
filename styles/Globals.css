@@ -7,25 +7,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-  /* Estilo global */
-/* Adicione no seu arquivo Globals.css ou no arquivo de estilos correspondente */
-
-/* Estilo geral para o grid de jogos */
-.gamesGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 colunas em telas grandes */
-  gap: 20px;
-  text-align: center;
-}
-
-/* Estilo das imagens para garantir responsividade */
-.gameImage {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  max-width: 300px; /* Limite máximo para a largura */
-  margin: 0 auto;
-}
 
 /* Classe ou estilo para textos retrô */
 .retro {
@@ -47,9 +28,7 @@ body {
     h2 {
       width:100%;
     }
-    .gamesGrid {
-      grid-template-columns: 1fr; /* 1 coluna em telas menores */
-    }
-    }
   
+    
+  }
   

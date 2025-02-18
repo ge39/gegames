@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Globals.css';
 import Footer from '../components/Footer';
-// import Link from 'next/link';  // Importando a tag Link do Next.js
+
 import Image from 'next/image'; // Importando a tag Image do Next.js
 
 export default function Gamelist() {
@@ -128,6 +128,7 @@ export default function Gamelist() {
       releasedate: "1991-01-01",
     },
   ]; // Copie os jogos do seu JSON aqui
+
   return (
     <>
       <Head>
@@ -135,37 +136,24 @@ export default function Gamelist() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
-      <main className={styles.main}>
+      <main>
         <section id="arcadeSection">
-          <a href="#">
-            <h2>Arcade</h2>
-          </a>
-          <div className={styles.gamesGrid} style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: '20px',
-            textAlign: 'center'
-          }}>
+          <h2>Arcade</h2>
+          <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
-              <div key={game.id} className={styles.gameCard} style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
+              <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <Image
                     src={game.image}
                     alt={game.alt}
                     className={styles.gameImage}
-                    width={300}   // Largura da imagem
-                    height={200}  // Altura da imagem (ajuste conforme necessário)
-                    style={{
-                      width: '100%',
-                      height: '250',
-                      borderRadius: '8px',
-                      maxWidth: '300px', // Controla o tamanho máximo
-                      margin: '0 auto'
-                    }}
+                    width={300}
+                    height={200}
+                    priority
                   />
                   <h5>{game.name}</h5>
                 </a>
-               </div>
+              </div>
             ))}
           </div>
         </section>
@@ -174,3 +162,49 @@ export default function Gamelist() {
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
