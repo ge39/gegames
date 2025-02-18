@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
+import Footer from '../components/Footer';
+// import Link from 'next/link';  // Importando a tag Link do Next.js
+import Image from 'next/image'; // Importando a tag Image do Next.js
 
 export default function Gamelist() {
   const arcadeGames = [
@@ -14,7 +16,6 @@ export default function Gamelist() {
       desc: "O jogo se passa nas acaloradas batalhas de 1944, durante a Segunda Guerra Mundial...",
       image: "/images/games/1944-image.png",
       alt: "1944: The Loop Master Cover Art",
-      //rating"0.9",
       players: "1-2",
       releasedate: "2000-06-20",
     },
@@ -27,7 +28,6 @@ export default function Gamelist() {
       desc: "Street Fighter II é um clássico jogo de luta competitivo lançado originalmente em 1991.",
       image: "/images/games/sf2-image.png",
       alt: "Street Fighter II Cover Art",
-      //rating"0.85",
       players: "1-2",
       releasedate: "1991-01-01",
     },
@@ -40,7 +40,6 @@ export default function Gamelist() {
       desc: "Escolha seus heróis favoritos dos universos de Street Fighter e Marvel Super Heroes.",
       image: "/images/games/mshvsf-image.png",
       alt: "Marvel Super Heroes vs Street Fighter Cover Art",
-      //rating"0.8",
       players: "1-2",
       releasedate: "1997-01-01",
     },
@@ -53,7 +52,6 @@ export default function Gamelist() {
       desc: "Um jogo de beat 'em up clássico lançado em 1993 pela Capcom.",
       image: "/images/games/dino-image.png",
       alt: "Cadillacs and Dinosaurs Cover Art",
-      //rating"0.75",
       players: "1-3",
       releasedate: "1993-01-01",
     },
@@ -66,7 +64,6 @@ export default function Gamelist() {
       desc: "Final Fight possui seis fases, cada uma em lugares diferentes de Metro City.",
       image: "/images/games/ffightae-image.png",
       alt: "Final Fight Cover Art",
-      //rating"0.75",
       players: "1-2",
       releasedate: "1988-12-31",
     },
@@ -79,7 +76,6 @@ export default function Gamelist() {
       desc: "Tendo conseguido subjugar o reino da Terra, Shao Kahn toma todas as almas humanas da Terra como suas. Para impedir que o reino de Outworld assimile totalmente o Earthrealm.",
       image: "/images/games/mk3-thumb.png",
       alt: "Mortal kombat3",
-      //rating"0.8",
       players: "1-2",
       releasedate: "1995-04-01",
     },
@@ -92,7 +88,6 @@ export default function Gamelist() {
       desc: "Metal Slug X é uma versão alternativa do Metal Slug 2. Diferente do primeiro jogo da franquia, Metal Slug X permite que você escolha os personagens Marco, Tarma, Eri e Fio.",
       image: "/images/games/mslugx-thumb.png",
       alt: "Metal Slug X",
-      //rating"0.85",
       players: "1-2",
       releasedate: "1999-01-01",
     },
@@ -105,7 +100,6 @@ export default function Gamelist() {
       desc: "RoboCop 2 é um jogo de tiro em 2D com jogabilidade 2.5D que coloca os jogadores no lugar do RoboCop. O jogo é baseado no filme de mesmo nome e segue sua trama.",
       image: "/images/games/robocop2.png",
       alt: "Robocop2",
-      //rating"0.6",
       players: "1-2",
       releasedate: "1991-01-01",
     },
@@ -118,7 +112,6 @@ export default function Gamelist() {
       desc: "Chegamos mais uma vez ao tempo para o famoso KOF Tournament! Novos rostos e velhos se juntam para participar do último torneio KOF, mas algo parece errado.",
       image: "/images/games/kof99-thumb.png",
       alt: "The Kof 99",
-      //rating"0.9",
       players: "1-2",
       releasedate: "1999-01-01",
     },
@@ -128,15 +121,14 @@ export default function Gamelist() {
       core: "arcade",
       bios:"",
       name: "Captain Commando",
-      desc: "O jogador escolhe um dos 4 membros do 'Team Commando': Captain Commando,  Jennet (Mack) ou Hoover (Baby Head). Os Commandos devem combater um exército de super criminosos geneticamente modificados, .",
+      desc: "O jogador escolhe um dos 4 membros do 'Team Commando': Captain Commando,  Jennet (Mack) ou Hoover (Baby Head). Os Commandos devem combater um exército de super criminosos geneticamente modificados.",
       image: "/images/games/captcomm-image.png",
-      alt: "The Kof 99",
-      //rating"0.9",
+      alt: "Captain Commando",
       players: "1-2",
       releasedate: "1991-01-01",
     },
   ]; // Copie os jogos do seu JSON aqui
-    return (
+  return (
     <>
       <Head>
         <title>Lista de Jogos</title>
@@ -157,14 +149,22 @@ export default function Gamelist() {
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard} style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
                 <a href={game.path} target="_blank" rel="noopener noreferrer">
-                  <img src={game.image} alt={game.alt} className={styles.gameImage} style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                  <Image
+                    src={game.image}
+                    alt={game.alt}
+                    className={styles.gameImage}
+                    width={300}   // Largura da imagem
+                    height={200}  // Altura da imagem (ajuste conforme necessário)
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      borderRadius: '8px',
+                      maxWidth: '300px', // Controla o tamanho máximo
+                      margin: '0 auto'
+                    }}
+                  />
                   <h5>{game.name}</h5>
                 </a>
-                {/* <p>{game.desc}</p> */}
-                {/* <p><strong>Rating:</strong> {game.rating}</p> */}
-                {/* <p><strong>Jogadores:</strong> {game.players}</p> */}
-                {/* <p><strong>Data de Lançamento:</strong> {game.releasedate}</p> */}
-
                 <a  
                   style={{
                     marginTop: '10px',
@@ -175,10 +175,10 @@ export default function Gamelist() {
                     borderRadius: '5px',
                     cursor: 'pointer'
                   }}
-                                   
                   href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
-                   className={styles.playNow}
-                  > Play Now
+                  className={styles.playNow}
+                >
+                  Play Now
                 </a>
               </div>
             ))}

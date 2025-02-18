@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Carousel from '../components/carousel';
+import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
@@ -470,25 +471,30 @@ export default function Gamelist() {
       <Navbar />
       <main className={styles.main}>
         <section id="arcadeSection">
-          <a href="/gamelistArcade">
-          <h2>Arcade</h2>
-          </a>
-         
+            <Link href="/gamelistArcade/">
+              <h2>Arcade</h2>
+          </Link>
           <Carousel games={arcadeGames} />
         </section>
 
         <section id="snesSection">
-          <h2>Super Nintendo</h2>
+            <Link href="#">
+              <h2>Super Nintendo</h2>
+            </Link>
           <Carousel games={snesGames} />
         </section>
 
         <section id="atariSection">
-          <h2>Atari</h2>
+          <Link href="#">
+            <h2>Atari</h2>
+          </Link>
           <Carousel games={atariGames} />
         </section>
 
         <section id="megadriveSection">
-          <h2>Megadrive</h2>
+          <Link href="#">
+            <h2>Megadrive</h2>
+          </Link>
           <Carousel games={megadriveGames} />
         </section>
       </main>
