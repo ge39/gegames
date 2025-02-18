@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
-import styles from '../styles/Globals.css';
+import styles from '../styles/GamelistArcade.module.css';
 import Footer from '../components/Footer';
 
 import Image from 'next/image'; // Importando a tag Image do Next.js
