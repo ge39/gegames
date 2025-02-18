@@ -138,7 +138,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2>Arcade</h2>
+          <h2 style={{textAlign:'center'}}>Arcade</h2>
           <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
