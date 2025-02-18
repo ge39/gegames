@@ -224,16 +224,16 @@ export default function Gamelist() {
         releasedate: "1999-04-16"
       },
       {
-        id: "37419",
-        path: "arcade/ghouls.zip",
+        id: "funybuble_001",
+        path: "arcade/funybubl.zip",
         core: "fbneo",
         bios: "",
-        name: "Ghouls 'n Ghosts",
-        desc: "Sequência de Ghosts 'n Goblins, onde Sir Arthur enfrenta criaturas demoníacas para resgatar almas capturadas.",
-        image: "/images/games/ghouls.png",
-        alt: "Ghouls 'n Ghosts Cover Art",
+        name: "Funny Bubble",
+        desc: "Um jogo de puzzle estilo Bubble Bobble onde os jogadores estouram bolhas para avançar de fase.",
+        image: "/images/games/funybubl.png",
+        alt: "Funny Bubble Cover Art",
         players: "1-2",
-        releasedate: "1988-12-01"
+       releasedate: "1997-01-01"
       },
       {
         id: "37420",
