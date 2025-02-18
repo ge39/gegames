@@ -70,7 +70,7 @@ export default function Gamelist() {
     {
       id: "37364",
       path: "arcade/mk3.zip",
-      core: "fbneo",
+      core: "arcade",
       bios:"",
       name: "Mortal Kombat 3",
       desc: "Tendo conseguido subjugar o reino da Terra, Shao Kahn toma todas as almas humanas da Terra como suas. Para impedir que o reino de Outworld assimile totalmente o Earthrealm.",
@@ -128,16 +128,16 @@ export default function Gamelist() {
       releasedate: "1991-01-01",
     },
       {
-        "id": "37410",
-        "path": "arcade/goldnaxe.zip",
-        "core": "arcade",
-        "bios": "",
-        "name": "Golden Axe",
-        "desc": "Um clássico jogo de ação e aventura da SEGA onde guerreiros enfrentam forças malignas.",
-        "image": "/images/games/goldnaxe.png",
-        "alt": "Golden Axe Cover Art",
-        "players": "1-2",
-        "releasedate": "1989-06-01"
+        id: "37410",
+        path: "arcade/goldnaxe.zip",
+        core: "arcade",
+        bios: "",
+        name: "Golden Axe",
+        desc: "Um clássico jogo de ação e aventura da SEGA onde guerreiros enfrentam forças malignas.",
+        image: "/images/games/goldnaxe.png",
+        alt: "Golden Axe Cover Art",
+        players: "1-2",
+        releasedate: "1989-06-01"
       },
       {
         "id": "37411",
@@ -211,8 +211,45 @@ export default function Gamelist() {
         "players": "1-4",
         "releasedate": "1991-01-01"
       },
-        
-  ]; // Copie os jogos do seu JSON aqui
+      {
+        id: "37418",
+        path: "arcade/ganryu.zip",
+        core: "fbneo",
+        bios: "",
+        name: "Ganryu",
+        desc: "Jogo de ação e plataforma inspirado na lenda do samurai Miyamoto Musashi.",
+        image: "/images/games/ganryu.png",
+        alt: "Ganryu Cover Art",
+        players: "1-2",
+        releasedate: "1999-04-16"
+      },
+      {
+        id: "37419",
+        path: "arcade/ghouls.zip",
+        core: "fbneo",
+        bios: "",
+        name: "Ghouls 'n Ghosts",
+        desc: "Sequência de Ghosts 'n Goblins, onde Sir Arthur enfrenta criaturas demoníacas para resgatar almas capturadas.",
+        image: "/images/games/ghouls.png",
+        alt: "Ghouls 'n Ghosts Cover Art",
+        players: "1-2",
+        releasedate: "1988-12-01"
+      },
+      {
+        id: "37420",
+        path: "arcade/rchase.zip",
+        core: "fbneo",
+        bios: "",
+        name: "Rail Chase",
+        desc: "Jogo de tiro sobre trilhos da SEGA, onde os jogadores enfrentam inimigos enquanto fogem em um vagão desgovernado.",
+        image: "/images/games/rchase.png",
+        alt: "Rail Chase Cover Art",
+        players: "1-2",
+        releasedate: "1991-07-01"
+      }
+     
+         
+    ]; // Copie os jogos do seu JSON aqui
 
   return (
     <>
