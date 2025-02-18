@@ -1,6 +1,6 @@
 .gamesGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas por padrão */
+    grid-template-columns: repeat(5, 1fr); /* 4 colunas por padrão */
     gap: 15px;
     text-align: center;
     padding: 10px;
@@ -15,7 +15,7 @@
   
   .gameImage {
     width: 100%;
-    height: auto;
+    height: 200px;
     border-radius: 8px;
     max-width: 300px;
     margin: 0 auto;

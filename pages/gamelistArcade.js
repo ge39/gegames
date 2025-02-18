@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
 import Footer from '../components/Footer';
-
 import Image from 'next/image'; // Importando a tag Image do Next.js
 
 export default function Gamelist() {
@@ -269,7 +268,7 @@ export default function Gamelist() {
                     src={game.image}
                     alt={game.alt}
                     className={styles.gameImage}
-                    width={300}
+                    width={200}
                     height={200}
                     priority
                   />
