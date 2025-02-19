@@ -115,7 +115,7 @@ export default function Home() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px',backgroundColor:'light-green' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px',backgroundColor:'Highlight' }}>
             <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <h2>Ampliar e Baixar Imagens em Lote</h2>
@@ -156,7 +156,7 @@ export default function Home() {
                     <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
                         <h3>Escolha o formato de saída</h3>
                         <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
-                            <option value="original">Manter formato original</option>
+                            <option value="original">Selecione um Formato</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/png">PNG</option>
                             <option value="image/webp">WebP</option> {/* Adicionando a opção WebP */}
