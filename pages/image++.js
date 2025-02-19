@@ -29,7 +29,7 @@ export default function Home() {
         const formatSelected = format !== "";
         const filesSelected = selectedFiles.length > 0;
 
-        let validDimensions = true; // Remover a variável se não for necessária.
+        let validDimensions = true;
         if (filesSelected) {
             const file = selectedFiles[0];
             const img = new Image();
@@ -42,7 +42,7 @@ export default function Home() {
                     const originalHeight = img.height;
                     setDimensionDisplay(`Dimensões da imagem original: ${originalWidth}x${originalHeight}px`);
 
-                    if (originalWidth < width || originalHeight < height) {
+                    if (originalWidth >= width || originalHeight >= height) {
                         setWarningMessage(`A imagem tem dimensões menores que as selecionadas (${originalWidth}x${originalHeight}px).`);
                         setValidDimensions(false);
                     } else {
@@ -88,11 +88,15 @@ export default function Home() {
                 const ctx = canvas.getContext('2d');
                 canvas.width = width;
                 canvas.height = height;
-                ctx.drawImage(img, 0, 0, width, height);
+
+                // Se a imagem for menor que o tamanho desejado, pode ampliar.
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                const mimeType = format === "webp" ? 'image/webp' : format || 'image/jpeg';
 
                 canvas.toBlob((blob) => {
                     callback(blob);
-                }, format || 'image/jpeg');
+                }, mimeType);
             };
             img.src = e.target.result;
         };
@@ -102,7 +106,7 @@ export default function Home() {
     const checkCompletion = (processedCount, totalFiles, zip) => {
         if (processedCount === totalFiles) {
             zip.generateAsync({ type: 'blob' }).then((content) => {
-                saveAs(content, 'imagens_redimensionadas.zip');
+                saveAs(content, 'imagens_ampliadas.zip');
                 setTimeout(() => {
                     outputRef.current.innerHTML = '';
                 }, 16000);
@@ -111,10 +115,10 @@ export default function Home() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px',backgroundColor:'light-green' }}>
             <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                    <h2>Reduzir e Baixar Imagens em Lote</h2>
+                    <h2>Ampliar e Baixar Imagens em Lote</h2>
 
                     <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
                         <h3>Selecione as imagens</h3>
@@ -152,10 +156,10 @@ export default function Home() {
                     <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
                         <h3>Escolha o formato de saída</h3>
                         <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
-                            {/* <option value="">Selecione</option> */}
                             <option value="original">Manter formato original</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/png">PNG</option>
+                            <option value="webp">WebP</option> {/* Adicionando a opção WebP */}
                         </select>
                     </div>
 
@@ -170,14 +174,11 @@ export default function Home() {
                     <h3>Pré-visualização das imagens redimensionadas</h3>
                     <div ref={outputRef} style={{ 
                          display: 'flex-grid', 
-                         gridTemplateColumns: 'repeat(5, 1fr)', // Duas colunas de igual largura
-                         gap: '10px', // Espaçamento entre as imagens
-                        // width:'100px',
-                        // height:'100px',
+                         gridTemplateColumns: 'repeat(5, 1fr)', 
+                         gap: '10px',
                     }}></div>
                 </div>
-
-                </div>
+            </div>
         </div>
     );
 }
