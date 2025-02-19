@@ -5,7 +5,7 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import ButtonTop from '../components/ButtonTop';
 import EventSection from "../components/EventSection"; // Import do componente EventSection
-import OnlineCounter from "../components/OnlineCounter";
+
 
 export default function Home() {
   return (
@@ -13,9 +13,6 @@ export default function Home() {
       {/* Navbar */}
       <Navbar />
 
-      <div>
-          <OnlineCounter  />
-      </div>
       <style jsx>{`
 
     #home {

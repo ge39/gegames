@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import Navbar from '../components/Navbar';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
@@ -42,7 +43,7 @@ export default function Home() {
                     const originalHeight = img.height;
                     setDimensionDisplay(`Dimensões da imagem original: ${originalWidth}x${originalHeight}px`);
 
-                    if (originalWidth >= width || originalHeight >= height) {
+                    if (originalWidth < width || originalHeight < height) {
                         setWarningMessage(`A imagem tem dimensões menores que as selecionadas (${originalWidth}x${originalHeight}px).`);
                         setValidDimensions(false);
                     } else {
@@ -86,10 +87,15 @@ export default function Home() {
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
-                canvas.width = width;
-                canvas.height = height;
+                const aspectRatio = img.width / img.height;
 
-                // Se a imagem for menor que o tamanho desejado, pode ampliar.
+                // Ajustar a imagem para manter a proporção correta
+                if (canvas.width / canvas.height > aspectRatio) {
+                    canvas.height = canvas.width / aspectRatio;
+                } else {
+                    canvas.width = canvas.height * aspectRatio;
+                }
+
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
                 const mimeType = format === "webp" ? 'image/webp' : format || 'image/jpeg';
@@ -115,70 +121,74 @@ export default function Home() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px',backgroundColor:'Highlight' }}>
-            <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-                <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                    <h2>Ampliar e Baixar Imagens em Lote</h2>
+        <>
+            <Navbar />
+           <div style={{ display: 'flex', justifyContent: 'center', padding: '20px', backgroundColor: 'Highlight' }}>
+                <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                    <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+                        <h2>Ampliar e Baixar Imagens em Lote</h2>
 
-                    <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                        <h3>Selecione as imagens</h3>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            multiple
-                            ref={fileInputRef}
-                            onChange={handleFileChange}
-                        />
-                    </div>
+                        <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
+                            <h3>Selecione as imagens</h3>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                multiple
+                                ref={fileInputRef}
+                                onChange={handleFileChange}
+                            />
+                        </div>
 
-                    <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                        <h3>Escolha as dimensões de saída</h3>
-                        <div>
-                            <label>Largura:</label>
-                            <select value={width} onChange={(e) => setWidth(e.target.value)} onBlur={handleDimensionChange}>
-                                <option value="">Selecione</option>
+                        <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
+                            <h3>Escolha as dimensões de saída</h3>
+                            <div>
+                                <label>Largura:</label>
+                                <select value={width} onChange={(e) => setWidth(e.target.value)} onBlur={handleDimensionChange}>
+                                    <option value="">Selecione</option>
                                     {Array.from({ length: 30 }, (_, i) => i * 50 + 50).map((value) => (
-                                    <option key={value} value={value}>{value}px</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div>
-                            <label>Altura:</label>
+                                        <option key={value} value={value}>{value}px</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Altura:</label>
                                 <select value={height} onChange={(e) => setHeight(e.target.value)} onBlur={handleDimensionChange}>
-                                <option value="">Selecione</option>
-                                {Array.from({ length: 30 }, (_, i) => i * 50 + 50).map((value) => (
-                                    <option key={value} value={value}>{value}px</option>
-                                ))}
+                                    <option value="">Selecione</option>
+                                    {Array.from({ length: 30 }, (_, i) => i * 50 + 50).map((value) => (
+                                        <option key={value} value={value}>{value}px</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
+                            <h3>Escolha o formato de saída</h3>
+                            <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
+                                <option value="original">Selecione um Formato</option>
+                                <option value="image/jpeg">JPEG</option>
+                                <option value="image/png">PNG</option>
+                                <option value="image/webp">WebP</option>
                             </select>
                         </div>
+
+                        <p style={{ color: 'red', fontSize: '14px' }}>{warningMessage}</p>
+                        <p style={{ fontSize: '14px' }}>{dimensionDisplay}</p>
+
+                        <button onClick={resizeAndDownload} disabled={!validDimensions} style={{ backgroundColor: '#3498db', color: '#fff', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+                            Redimensionar e Baixar
+                        </button>
                     </div>
 
-                    <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                        <h3>Escolha o formato de saída</h3>
-                        <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
-                            <option value="original">Selecione um Formato</option>
-                            <option value="image/jpeg">JPEG</option>
-                            <option value="image/png">PNG</option>
-                            <option value="image/webp">WebP</option> {/* Adicionando a opção WebP */}
-                        </select>
+                    <div style={{ flex: 5, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+                        <h3>Pré-visualização das imagens redimensionadas</h3>
+                        <div ref={outputRef} style={{ 
+                             display: 'grid', 
+                             gridTemplateColumns: 'repeat(5, 1fr)', 
+                             gap: '10px',
+                        }}></div>
                     </div>
-
-                    <p style={{ color: 'red', fontSize: '14px' }}>{warningMessage}</p>
-                    <p style={{ fontSize: '14px' }}>{dimensionDisplay}</p>
-
-                    <button onClick={resizeAndDownload} disabled={!validDimensions} style={{ backgroundColor: '#3498db', color: '#fff', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-                        Redimensionar e Baixar
-                    </button>
-                </div>
-                <div style={{ flex: 5, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                    <h3>Pré-visualização das imagens redimensionadas</h3>
-                    <div ref={outputRef} style={{ 
-                         display: 'flex-grid', 
-                         gridTemplateColumns: 'repeat(5, 1fr)', 
-                         gap: '10px',
-                    }}></div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
