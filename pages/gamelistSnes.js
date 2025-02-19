@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 
 export default function Gamelist() {
-  const arcadeGames = [
+  const snesGames = [
     {
       id: "sn1",
       path: "snes/Super Mario World.zip",
@@ -96,15 +96,15 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos</title>
+        <title>Lista de Jogos Super Nes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
       <main>
-        <section id="arcadeSection">
+        <section id="snesSection">
           <h2 style={{textAlign:'center'}}>Super Nintendo</h2>
           <div className={styles.gamesGrid}>
-            {arcadeGames.map((game) => (
+            {snesGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <Image

@@ -253,7 +253,7 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos</title>
+        <title>Lista de Jogos Arcade</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />

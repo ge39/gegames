@@ -8,7 +8,7 @@ export default function Gamelist() {
   const MegadriveGames = [
     {
       id: "md1",
-      path: "megadrive/Sonic the Hedgehog (JUE) [!].zip",
+      path: "megadrive/Sonic the Hedgehog.zip",
       core: "segaMD",
       name: "Sonic the Hedgehog",
       desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
@@ -32,7 +32,7 @@ export default function Gamelist() {
   },
   {
       id: "md3",
-      path: "megadrive/Streets of Rage 2 (U) [T-Port_XMib].zip",
+      path: "megadrive/Streets of Rage 2 (U).zip",
       core: "segaMD",
       name: "Streets of Rage 2",
       desc: "A sequência de Streets of Rage, oferecendo novos personagens, movimentos e uma jogabilidade mais refinada.",
@@ -56,7 +56,7 @@ export default function Gamelist() {
   },
   {
       id: "md5",
-      path: "megadrive/Altered Beast (REV 02) (JU) [T-Port_Son_Car].zip",
+      path: "megadrive/Altered Beast (REV 02) (JU).zip",
       core: "segaMD",
       name: "Altered Beast",
       desc: "Um jogo de ação em que o jogador assume o papel de um guerreiro ressuscitado, com o poder de se transformar em diferentes criaturas.",
@@ -68,7 +68,7 @@ export default function Gamelist() {
   },
   {
       id: "md6",
-      path: "megadrive/Phantasy Star 2 (REV 01) (UE) [T-Port].zip",
+      path: "megadrive/Phantasy Star 2 (REV 01) (UE).zip",
       core: "segaMD",
       name: "Phantasy Star II",
       desc: "Phantasy Star II é um RPG clássico com uma narrativa profunda, ambientada em um futuro distante onde os jogadores enfrentam forças ameaçadoras.",
@@ -116,7 +116,7 @@ export default function Gamelist() {
   },
   {
       id: "md10",
-      path: "megadrive/Golden Axe (REV 00) (JU) [T-Port_Son_Car].zip",
+      path: "megadrive/Golden Axe (REV 00) (JU).zip",
       core: "segaMD",
       name: "Golden Axe",
       desc: "Golden Axe é um jogo de luta e aventura em que os jogadores controlam heróis que buscam vingar a morte de seus entes queridos, enfrentando monstros e vilões.",
@@ -155,7 +155,7 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos</title>
+        <title>Lista de Jogos Megadrive</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />

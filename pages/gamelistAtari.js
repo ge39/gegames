@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 
 export default function Gamelist() {
-  const arcadeGames = [
+  const atariGames = [
     {
       id: "1",
       name: "Enduro",
@@ -33,7 +33,7 @@ export default function Gamelist() {
       name: "Megamania",
       path: "atari/MegaMania.a26",
       core: "atari2600",
-      desc: "Megamania é um jogo de tiro de arcade onde você controla uma nave espacial para destruir inimigos em várias ondas.",
+      desc: "Megamania é um jogo de tiro de atari onde você controla uma nave espacial para destruir inimigos em várias ondas.",
       image: "/images/games/atari/MegaMania - A Space Nightmare (USA)-thumb.png",
       rating: "0.8",
       players: "1",
@@ -55,7 +55,7 @@ export default function Gamelist() {
       name: "Moon Patrol",
       path: "atari/Moon Patrol (USA).a26",
       core: "atari2600",
-      desc: "Moon Patrol é um jogo de arcade onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
+      desc: "Moon Patrol é um jogo de atari onde o jogador controla um veículo lunar e precisa derrotar inimigos e obstáculos.",
       image: "/images/games/atari/Moon Patrol (USA)-thumb.png",
       rating: "0.9",
       players: "1",
@@ -100,15 +100,15 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos</title>
+        <title>Lista de Jogos Atari</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
       <main>
-        <section id="arcadeSection">
+        <section id="atariSection">
           <h2 style={{textAlign:'center'}}>Atari</h2>
           <div className={styles.gamesGrid}>
-            {arcadeGames.map((game) => (
+            {atariGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <Image
