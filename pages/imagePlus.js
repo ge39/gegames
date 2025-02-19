@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/footer';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
@@ -123,7 +124,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-           <div style={{ display: 'flex', justifyContent: 'center', padding: '20px', backgroundColor: 'Highlight' }}>
+           <div style={{ display: 'flex', justifyContent: 'center', padding: '20px', backgroundColor: '#8209' }}>
                 <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                     <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                         <h2>Ampliar e Baixar Imagens em Lote</h2>
@@ -189,6 +190,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
