@@ -485,14 +485,14 @@ export default function Gamelist() {
         </section>
 
         <section id="atariSection">
-          <Link href="#">
+          <Link href="/gamelistAtari">
             <h2>Atari</h2>
           </Link>
           <Carousel games={atariGames} />
         </section>
 
         <section id="megadriveSection">
-          <Link href="#">
+          <Link href="/gamelistMegadrive">
             <h2>Megadrive</h2>
           </Link>
           <Carousel games={megadriveGames} />
