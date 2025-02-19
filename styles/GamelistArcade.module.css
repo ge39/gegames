@@ -27,8 +27,18 @@
       grid-template-columns: repeat(5, 1fr); /* 4 colunas em tablets */
     }
   }
-  
+
   @media (max-width: 768px) {
+    .gamesGrid {
+      grid-template-columns: repeat(4, 1fr); /* 3 colunas em smartphones médios */
+    }
+  
+    .gameImage {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 600px) {
     .gamesGrid {
       grid-template-columns: repeat(3, 1fr); /* 3 colunas em smartphones médios */
     }
@@ -38,7 +48,7 @@
     }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     .gamesGrid {
       grid-template-columns: repeat(2, 1fr); /* 2 coluna em celulares pequenos */
     }
