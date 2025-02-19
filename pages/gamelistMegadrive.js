@@ -160,7 +160,7 @@ export default function Gamelist() {
       </Head>
       <Navbar />
       <main>
-        <section id="arcadeSection">
+        <section id="MegadriveSection">
           <h2 style={{textAlign:'center'}}>Megadrive</h2>
           <div className={styles.gamesGrid}>
             {MegadriveGames.map((game) => (
