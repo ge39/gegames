@@ -151,7 +151,7 @@ export default function Home() {
                     <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
                         <h3>Escolha o formato de saída</h3>
                         <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
-                            <option value="">Selecione</option>
+                            {/* <option value="">Selecione</option> */}
                             <option value="original">Manter formato original</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/png">PNG</option>
