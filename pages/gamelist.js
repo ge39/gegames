@@ -478,7 +478,7 @@ export default function Gamelist() {
         </section>
 
         <section id="snesSection">
-            <Link href="#">
+            <Link href="/gamelistSnes">
               <h2>Super Nintendo</h2>
             </Link>
           <Carousel games={snesGames} />
