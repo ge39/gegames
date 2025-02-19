@@ -111,7 +111,7 @@ export default function Home() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '20px',backgroundColor:'Highlight' }}>
             <div style={{ width: '100%', maxWidth: '1200px', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <h2>Reduzir e Baixar Imagens em Lote</h2>
