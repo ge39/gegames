@@ -41,7 +41,7 @@ export default function Home() {
                     const originalHeight = img.height;
                     setDimensionDisplay(`Dimensões da imagem original: ${originalWidth}x${originalHeight}px`);
 
-                    if (originalWidth <= width || originalHeight <= height) {
+                    if (originalWidth < width || originalHeight < height) {
                         setWarningMessage(`A imagem tem dimensões menores ou iguais às selecionadas (${originalWidth}x${originalHeight}px).`);
                         setValidDimensions(false);
                     } else {
