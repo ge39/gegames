@@ -130,7 +130,7 @@ export default function Home() {
                         <h2>Ampliar e Baixar Imagens em Lote</h2>
 
                         <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                            <h3>Selecione as imagens</h3>
+                            <h3>1 - Selecione as imagens</h3>
                             <input
                                 type="file"
                                 accept="image/*"
@@ -141,8 +141,8 @@ export default function Home() {
                         </div>
 
                         <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                            <h3>Escolha as dimensões de saída</h3>
-                            <div>
+                            <h3> 2 - Escolha as dimensões de saída</h3>
+                            <div style={{padding:'10px',marginLeft:'0px'}}>
                                 <label>Largura:</label>
                                 <select value={width} onChange={(e) => setWidth(e.target.value)} onBlur={handleDimensionChange}>
                                     <option value="">Selecione</option>
@@ -163,7 +163,7 @@ export default function Home() {
                         </div>
 
                         <div style={{ backgroundColor: '#ecf0f1', borderRadius: '8px', padding: '15px', marginBottom: '15px' }}>
-                            <h3>Escolha o formato de saída</h3>
+                            <h3>3 - Escolha o formato de saída</h3>
                             <select value={format} onChange={(e) => setFormat(e.target.value)} onBlur={handleDimensionChange}>
                                 <option value="original">Selecione um Formato</option>
                                 <option value="image/jpeg">JPEG</option>
