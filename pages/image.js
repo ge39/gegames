@@ -12,7 +12,7 @@ export default function Home() {
     const [validDimensions, setValidDimensions] = useState(true);
     const fileInputRef = useRef(null);
     const outputRef = useRef(null);
-
+    
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
         setFiles(selectedFiles);
@@ -29,7 +29,7 @@ export default function Home() {
         const formatSelected = format !== "";
         const filesSelected = selectedFiles.length > 0;
 
-        let valid = true;
+        let validDimensions = true; // Remover a variável se não for necessária.
         if (filesSelected) {
             const file = selectedFiles[0];
             const img = new Image();
