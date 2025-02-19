@@ -159,7 +159,7 @@ export default function Home() {
                             <option value="original">Manter formato original</option>
                             <option value="image/jpeg">JPEG</option>
                             <option value="image/png">PNG</option>
-                            <option value="webp">WebP</option> {/* Adicionando a opção WebP */}
+                            <option value="image/webp">WebP</option> {/* Adicionando a opção WebP */}
                         </select>
                     </div>
 
