@@ -36,7 +36,7 @@ export default function Gamelist() {
       "core": "snes",
       "name": "Breath of Fire II",
       "desc": "Breath of Fire II segue a história de Ryu, um jovem que luta para salvar o mundo de forças demoníacas.",
-      "image": "/images/games/snes/Breath of Fire II (USA)-thumb.webp",
+      "image": "/images/games/snes/Breath of Fire (USA)-thumb.webp",
       "alt": "Breath of Fire II Cover Art",
       "rating": "0.91",
       "players": "1",
@@ -78,6 +78,18 @@ export default function Gamelist() {
       "players": "1",
       "releasedate": "1994-10-06"
     },
+    {
+      "id": "ds",
+      "path": "snes/Desert Strike - Return to the Gulf (USA).zip",
+      "core": "snes",
+      "name": "Desert Strike: Return to the Gulf",
+      "desc": "Desert Strike é um jogo de tiro isométrico onde o jogador pilota um helicóptero de combate em missões no Golfo Pérsico para enfrentar forças inimigas.",
+      "image": "/images/games/snes/Desert Strike - Return to the Gulf (USA)-thumb.webp",
+      "alt": "Desert Strike: Return to the Gulf Cover Art",
+      "rating": "0.89",
+      "players": "1",
+      "releasedate": "1992-12-01"
+    },    
     {
       "id": "dkc1",
       "path": "snes/Donkey Kong Country (USA).zip",
@@ -209,18 +221,6 @@ export default function Gamelist() {
       "rating": "0.85",
       "players": "1-2",
       "releasedate": "1993-06-23"
-    },
-    {
-      "id": "hm",
-      "path": "snes/Harvest Moon (USA).zip",
-      "core": "snes",
-      "name": "Harvest Moon",
-      "desc": "Harvest Moon é um jogo de simulação de fazenda onde o jogador deve cultivar terras e cuidar de animais.",
-      "image": "/images/games/snes/Harvest Moon (USA)-thumb.webp",
-      "alt": "Harvest Moon Cover Art",
-      "rating": "0.84",
-      "players": "1",
-      "releasedate": "1996-08-02"
     },
     {
       "id": "ig",
@@ -468,7 +468,7 @@ export default function Gamelist() {
       "core": "snes",
       "name": "Teenage Mutant Ninja Turtles IV: Turtles in Time",
       "desc": "Turtles in Time é um jogo de luta e ação onde as Tartarugas Ninja enfrentam inimigos ao longo do tempo.",
-      "image": "/images/games/snes/Teenage Mutant Ninja Turtles IV - Turtles in Time (USA)-thumb.webp",
+      "image": "/images/games/snes/Teenage Mutant Ninja Turtles IV - Turtles in Time (USA)-fanart.webp",
       "alt": "Teenage Mutant Ninja Turtles IV Cover Art",
       "rating": "0.90",
       "players": "1-2",
@@ -534,18 +534,6 @@ export default function Gamelist() {
       "players": "1-2",
       "releasedate": "1993-03-01"
     },    
-    {
-      "id": "yi",
-      "path": "snes/Yoshi’s Island (USA).zip",
-      "core": "snes",
-      "name": "Yoshi’s Island",
-      "desc": "Yoshi’s Island é um jogo de plataforma onde Yoshi deve resgatar o bebê Mario enquanto enfrenta inimigos e obstáculos.",
-      "image": "/images/games/snes/Yoshi’s Island (USA)-thumb.webp",
-      "alt": "Yoshi’s Island Cover Art",
-      "rating": "0.94",
-      "players": "1-2",
-      "releasedate": "1995-08-05"
-    },
     {
       "id": "tb",
       "path": "snes/Turn and Burn - No-Fly Zone (USA).zip",
