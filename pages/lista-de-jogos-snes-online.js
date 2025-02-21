@@ -80,7 +80,7 @@ export default function Gamelist() {
     },
     {
       "id": "dc1",
-      "path": "snes/Demon’s Crest (USA).zip",
+      "path": "snes/Demon's Crest (U) [T+Por].zip",
       "core": "snes9x",
       "name": "Demon’s Crest",
       "desc": "Demon's Crest é um jogo de ação e plataforma onde o protagonista, Firebrand, luta para restaurar seu poder.",
