@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
 import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
-import  '../styles/Globals.css';
+
 export default function Gamelist() {
   const snesGames = [
     {
@@ -631,7 +631,7 @@ export default function Gamelist() {
                     height={200}
                     priority
                   />
-                  <h3>{game.name}</h3>
+                  <h5>{game.name}</h5>
                 </a>
               </div>
             ))}
