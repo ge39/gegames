@@ -540,7 +540,7 @@ export default function Gamelist() {
       "core": "snes9x",
       "name": "The Legend of Zelda: A Link to the Past",
       "desc": "A Link to the Past é um RPG de ação onde Link deve salvar a princesa Zelda e derrotar Ganon para restaurar a paz.",
-      "image": "/images/games/snes/Legend of Zelda, The - A Link to the Past (U) [T+Por]-thumb.png",
+      "image": "/images/games/snes/Legend of Zelda, The - A Link to the Past (U) [T+Por]-thumb.webp",
       "alt": "The Legend of Zelda Cover Art",
       "rating": "0.95",
       "players": "1",
