@@ -154,11 +154,11 @@ export default function Gamelist() {
     },
     {
       id: "sn2",
-      path: "snes/zelda-link.zip",
+      path: "snes/The Legend of Zelda - A Link to the Past (USA).zip",
       core: "snes",
       name: "The Legend of Zelda: A Link to the Past",
       desc: "A épica aventura de Link em busca de salvar Hyrule da escuridão de Ganon.",
-      image: "/images/games/snes/Legend of Zelda, The - A Link to the Past (U) [T+Por]-thumb.png",
+      image: "/images/games/snes/Legend of Zelda, The - A Link to the Past (U) [T+Por]-thumb.webp",
       alt: "The Legend of Zelda Cover Art",
       rating: "0.95",
       players: "1",
