@@ -9,7 +9,7 @@ export default function Gamelist() {
     {
       "id": "ac1",
       "path": "snes/ActRaiser (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "ActRaiser",
       "desc": "ActRaiser combina ação e estratégia enquanto um deus guerreiro luta contra forças malignas.",
       "image": "/images/games/snes/ActRaiser (USA)-thumb.webp",
@@ -21,7 +21,7 @@ export default function Gamelist() {
     {
       "id": "aladdin",
       "path": "snes/Aladdin (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Aladdin",
       "desc": "Aladdin é um jogo de plataforma onde o jogador assume o papel de Aladdin em sua jornada para salvar a princesa Jasmine e derrotar o vilão Jafar.",
       "image": "/images/games/snes/Aladdin (U) [T+Por]-thumb.webp",
@@ -33,7 +33,7 @@ export default function Gamelist() {
     {
       "id": "bf2",
       "path": "snes/Breath of Fire (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Breath of Fire II",
       "desc": "Breath of Fire II segue a história de Ryu, um jovem que luta para salvar o mundo de forças demoníacas.",
       "image": "/images/games/snes/Breath of Fire (USA)-thumb.webp",
@@ -45,7 +45,7 @@ export default function Gamelist() {
     {
       "id": "snes-captcommando",
       "path": "snes/Captain Commando (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Captain Commando",
       "desc": "Captain Commando é um beat 'em up onde jogadores enfrentam inimigos em diferentes cenários futuristas com ataques especiais e personagens únicos.",
       "image": "/images/games/snes/Captain Commando (USA)-thumb.webp",
@@ -57,7 +57,7 @@ export default function Gamelist() {
     {
       "id": "ct1",
       "path": "snes/Chrono Trigger (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Chrono Trigger",
       "desc": "Chrono Trigger é um RPG que permite aos jogadores viajar no tempo para salvar o mundo de uma catástrofe.",
       "image": "/images/games/snes/Chrono Trigger (USA)-thumb.webp",
@@ -69,7 +69,7 @@ export default function Gamelist() {
     {
       "id": "ct3",
       "path": "snes/Contra III - The Alien Wars (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Contra III: The Alien Wars",
       "desc": "Contra III é um jogo de tiro com ação intensa, onde os jogadores enfrentam uma invasão alienígena.",
       "image": "/images/games/snes/Contra III - The Alien Wars (USA)-thumb.webp",
@@ -81,7 +81,7 @@ export default function Gamelist() {
     {
       "id": "dc1",
       "path": "snes/Demon's Crest (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Demon’s Crest",
       "desc": "Demon's Crest é um jogo de ação e plataforma onde o protagonista, Firebrand, luta para restaurar seu poder.",
       "image": "/images/games/snes/Demon's Crest (USA)-thumb.webp",
@@ -93,7 +93,7 @@ export default function Gamelist() {
     {
       "id": "ds",
       "path": "snes/Desert Strike - Return to the Gulf (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Desert Strike: Return to the Gulf",
       "desc": "Desert Strike é um jogo de tiro isométrico onde o jogador pilota um helicóptero de combate em missões no Golfo Pérsico para enfrentar forças inimigas.",
       "image": "/images/games/snes/Desert Strike - Return to the Gulf (USA)-thumb.webp",
@@ -105,7 +105,7 @@ export default function Gamelist() {
     {
       "id": "dkc1",
       "path": "snes/Donkey Kong Country (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Donkey Kong Country",
       "desc": "Donkey Kong Country é um jogo de plataforma onde Donkey Kong e Diddy Kong lutam para recuperar seu estoque de bananas.",
       "image": "/images/games/snes/Donkey Kong Country (USA)-thumb.webp",
@@ -117,7 +117,7 @@ export default function Gamelist() {
     {
       "id": "dkc2",
       "path": "snes/Donkey Kong Country 2 - Diddy's Kong Quest (USA) (En,Fr).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Donkey Kong Country 2: Diddy’s Kong Quest",
       "desc": "Diddy e Dixie Kong embarcam em uma missão para resgatar Donkey Kong das garras de K. Rool.",
       "image": "/images/games/snes/Donkey Kong Country 2 - Diddy's Kong Quest (USA) (En,Fr)-thumb.webp",
@@ -129,7 +129,7 @@ export default function Gamelist() {
     {
       "id": "snes-dkc3",
       "path": "snes/Donkey Kong Country 3 - Dixie Kong's Double Trouble! (USA) (En,Fr).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Donkey Kong Country 3",
       "desc": "Donkey Kong Country 3 segue Dixie Kong e Kiddy Kong em uma aventura para resgatar Donkey Kong e Diddy Kong das garras do vilão KAOS, um robô controlado pelo King K. Rool.",
       "image": "/images/games/snes/Donkey Kong Country 3 - Dixie Kong's Double Trouble! (USA) (En,Fr)-thumb.webp",
@@ -141,7 +141,7 @@ export default function Gamelist() {
     {
      "id": "eb1",
       "path": "snes/EarthBound (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "EarthBound",
       "desc": "EarthBound é um RPG humorístico que segue Ness e seus amigos enquanto eles tentam salvar o mundo de uma invasão alienígena.",
       "image": "/images/games/snes/EarthBound (USA)-thumb.webp",
@@ -153,7 +153,7 @@ export default function Gamelist() {
     {
       "id": "ewj",
       "path": "snes/Earthworm Jim (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Earthworm Jim",
       "desc": "Earthworm Jim é um jogo de plataforma onde o jogador controla Jim, uma minhoca em uma missão para resgatar a princesa What's-Her-Name, enfrentando inimigos e obstáculos.",
       "image": "/images/games/snes/Earthworm Jim (USA)-thumb.webp",
@@ -165,7 +165,7 @@ export default function Gamelist() {
     {
       "id": "ewj2",
       "path": "snes/Earthworm Jim 2 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Earthworm Jim 2",
       "desc": "Earthworm Jim 2 continua a aventura de Jim em um mundo mais estranho e divertido, com mais níveis e personagens exóticos para enfrentar.",
       "image": "/images/games/snes/Earthworm Jim 2 (USA)-thumb.webp",
@@ -177,7 +177,7 @@ export default function Gamelist() {
     {
       "id": "f0",
       "path": "snes/F-Zero (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "F-Zero",
       "desc": "F-Zero é um jogo de corrida futurista onde os jogadores competem em pistas de alta velocidade.",
       "image": "/images/games/snes/F-Zero (USA)-thumb.webp",
@@ -189,7 +189,7 @@ export default function Gamelist() {
     {
       "id": "ff6",
       "path": "snes/Final Fantasy VI (J) [T+Eng].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Final Fantasy VI (III nos EUA)",
       "desc": "Final Fantasy VI é um RPG épico sobre uma luta contra o Império de Gestahl e seus aliados mágicos.",
       "image": "/images/games/snes/Final Fantasy VI (J) [T+Eng]-thumb.webp",
@@ -201,7 +201,7 @@ export default function Gamelist() {
     {
       "id": "ff1",
       "path": "snes/Final Fight (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Final Fight",
       "desc": "Final Fight é um jogo de luta de rua onde os jogadores assumem o papel de Hagger, Cody ou Guy, enfrentando gangues para resgatar a filha de Hagger.",
       "image": "/images/games/snes/Final Fight (U) [T+Por]-thumb.webp",
@@ -213,7 +213,7 @@ export default function Gamelist() {
     {
       "id": "ff2",
       "path": "snes/Final Fight 2 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Final Fight 2",
       "desc": "Final Fight 2 continua a batalha contra gangues, desta vez com novos personagens jogáveis, enquanto Cody e Guy estão ausentes, e Hagger busca resgatar sua filha novamente.",
       "image": "/images/games/snes/Final Fight 2 (USA)-thumb.webp",
@@ -225,7 +225,7 @@ export default function Gamelist() {
     {
       "id": "ff3",
       "path": "snes/Final Fight 3 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Final Fight 3",
       "desc": "Final Fight 3 traz novos personagens e desafios, com Hagger e amigos enfrentando mais gangues para restaurar a paz na cidade.",
       "image": "/images/games/snes/Final Fight 3 (USA)-thumb.webp",
@@ -237,7 +237,7 @@ export default function Gamelist() {
     {
       "id": "gt",
       "path": "snes/Goof Troop (U) [T+Por][f1].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Goof Troop",
       "desc": "Goof Troop é um jogo de ação e quebra-cabeça onde Goofy e Max devem resgatar o pai de Max.",
       "image": "/images/games/snes/Goof Troop (U) [T+Por][f1]-thumb.webp",
@@ -249,7 +249,7 @@ export default function Gamelist() {
     {
       "id": "ig",
       "path": "snes/Illusion of Gaia (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Illusion of Gaia",
       "desc": "Illusion of Gaia é um RPG de ação onde o jogador controla Will enquanto ele viaja pelo mundo em busca de respostas.",
       "image": "/images/games/snes/Illusion of Gaia (USA)-thumb.webp",
@@ -261,7 +261,7 @@ export default function Gamelist() {
     {
       "id": "jp1",
       "path": "snes/Jurassic Park (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Jurassic Park",
       "desc": "Jurassic Park é um jogo de ação e aventura onde os jogadores exploram a ilha e enfrentam dinossauros, com o objetivo de escapar com segurança.",
       "image": "/images/games/snes/Jurassic Park (USA)-thumb.webp",
@@ -273,7 +273,7 @@ export default function Gamelist() {
     {
       "id": "jp2",
       "path": "snes/Jurassic Park - The Chaos Continues (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Jurassic Park: The Chaos Continues",
       "desc": "Jurassic Park: The Chaos Continues é um jogo de ação onde os jogadores lutam para sobreviver contra dinossauros após o caos se instalar no parque.",
       "image": "/images/games/snes/Jurassic Park II - The Chaos Continues (USA) (En,Fr,De,It)-thumb.webp",
@@ -285,7 +285,7 @@ export default function Gamelist() {
     {
       "id": "ki",
       "path": "snes/Killer Instinct (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Killer Instinct",
       "desc": "Killer Instinct é um jogo de luta que introduz personagens únicos e um sistema de combos rápidos, onde os jogadores enfrentam oponentes em combates brutais.",
       "image": "/images/games/snes/Killer Instinct (USA)-thumb.webp",
@@ -297,7 +297,7 @@ export default function Gamelist() {
    {
       "id": "ks",
       "path": "snes/Kirby Super Star (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Kirby Super Star",
       "desc": "Kirby Super Star é uma coleção de jogos com o famoso personagem Kirby, com diversos modos de jogo e desafios.",
       "image": "/images/games/snes/Kirby Super Star (USA)-thumb.webp",
@@ -309,7 +309,7 @@ export default function Gamelist() {
     {
       "id": "lk",
       "path": "snes/Lion King, The (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Lion King",
       "desc": "O Rei Leão é um jogo de plataforma baseado no famoso filme da Disney, onde Simba deve enfrentar desafios para se tornar o rei.",
       "image": "/images/games/snes/Lion King, The (USA)-thumb.webp",
@@ -321,7 +321,7 @@ export default function Gamelist() {
     {
       "id": "lufia2",
       "path": "snes/Lufia II - Rise of the Sinistrals (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Lufia II: Rise of the Sinistrals",
       "desc": "Lufia II é um RPG que segue um herói chamado Maxim, que luta contra os Sinistrals para salvar o mundo.",
       "image": "/images/games/snes/Lufia II - Rise of the Sinistrals (USA)-thumb.webp",
@@ -333,7 +333,7 @@ export default function Gamelist() {
     {
       "id": "mmx",
       "path": "snes/Megaman X (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Mega Man X",
       "desc": "Mega Man X é um jogo de ação onde o jogador controla X, um Maverick Hunter, em uma missão para derrotar Mavericks.",
       "image": "/images/games/snes/Megaman X (U) [T+Por]-thumb.webp",
@@ -345,7 +345,7 @@ export default function Gamelist() {
     {
       "id": "mk3",
       "path": "snes/Mortal Kombat 3 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Mortal Kombat 3",
       "desc": "Mortal Kombat 3 é um jogo de luta icônico com combatentes que lutam em batalhas brutais, incluindo fatalities e outros movimentos especiais.",
       "image": "/images/games/snes/Mortal Kombat 3 (USA)-thumb.webp",
@@ -357,7 +357,7 @@ export default function Gamelist() {
     {
       "id": "ob",
       "path": "snes/Ogre Battle - The March of the Black Queen (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Ogre Battle: The March of the Black Queen",
       "desc": "Ogre Battle é um jogo de estratégia tática onde os jogadores comandam tropas em batalhas épicas contra um império maligno.",
       "image": "/images/games/snes/Ogre Battle - The March of the Black Queen (USA)-thumb.webp",
@@ -369,7 +369,7 @@ export default function Gamelist() {
     {
       "id": "pb",
       "path": "snes/Puzzle Bobble - Bust-A-Move (Europe).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Puzzle Bobble",
       "desc": "Puzzle Bobble é um jogo de quebra-cabeça onde os jogadores devem atirar bolhas coloridas para combinar com outras bolhas e eliminá-las.",
       "image": "/images/games/snes/Puzzle Bobble (Japan)-thumb.webp",
@@ -381,7 +381,7 @@ export default function Gamelist() {
     {
       "id": "sb2",
       "path": "snes/Super Bomberman 2 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Bomberman 2",
       "desc": "Super Bomberman 2 é um jogo de ação e estratégia onde os jogadores usam bombas para eliminar inimigos em batalhas multiplayer.",
       "image": "/images/games/snes/Super Bomberman 2 (USA)-thumb.webp",
@@ -393,7 +393,7 @@ export default function Gamelist() {
     {
       "id": "sc4",
       "path": "snes/Super Castlevania IV (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Castlevania IV",
       "desc": "Super Castlevania IV é um jogo de ação onde Simon Belmont luta contra Drácula e seus seguidores.",
       "image": "/images/games/snes/Super Castlevania IV (USA)-thumb.webp",
@@ -405,7 +405,7 @@ export default function Gamelist() {
     {
       "id": "smk",
       "path": "snes/Super Mario Kart (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Mario Kart",
       "desc": "Super Mario Kart é o jogo que introduziu a série de corridas de kart com personagens do universo Mario.",
       "image": "/images/games/snes/Super Mario Kart (USA)-thumb.webp",
@@ -417,7 +417,7 @@ export default function Gamelist() {
     {
       "id": "smrpg",
       "path": "snes/Super Mario RPG - Legend of the Seven Stars (U) [T+Por].zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Mario RPG: Legend of the Seven Stars",
       "desc": "Super Mario RPG mistura elementos de RPG com o estilo de jogo tradicional de Mario, enquanto Mario tenta salvar a princesa Peach.",
       "image": "/images/games/snes/Super Mario RPG (Japan)-thumb.webp",
@@ -429,7 +429,7 @@ export default function Gamelist() {
     {
       "id": "smw",
       "path": "snes/Super Mario World.zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Mario World",
       "desc": "Super Mario World é um jogo de plataforma onde Mario e Luigi devem resgatar a princesa Toadstool, enfrentando Bowser e seus seguidores.",
       "image": "/images/games/snes/Super Mario World (U) [T+Por]-thumb.webp",
@@ -441,7 +441,7 @@ export default function Gamelist() {
     {
       "id": "sm",
       "path": "snes/Super Metroid (Europe) (En,Fr,De).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Metroid",
       "desc": "Super Metroid é um jogo de ação e aventura onde Samus Aran viaja para resgatar a criatura Baby Metroid de um planeta hostil.",
       "image": "/images/games/snes/Super Metroid (Europe) (En,Fr,De)-thumb.webp",
@@ -453,7 +453,7 @@ export default function Gamelist() {
     {
       "id": "spo",
       "path": "snes/Super Punch-Out!! (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super Punch-Out!!",
       "desc": "Super Punch-Out!! é um jogo de boxe onde o jogador enfrenta uma série de boxeadores em combates intensos.",
       "image": "/images/games/snes/Super Punch-Out!! (USA)-thumb.webp",
@@ -465,7 +465,7 @@ export default function Gamelist() {
     {
       "id": "srtype",
       "path": "snes/Super R-Type (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Super-RType",
       "desc": "Super-RType é um jogo de tiro no estilo shoot 'em up, onde o jogador pilota uma nave para derrotar inimigos e chefões.",
       "image": "/images/games/snes/R-Type III - The Third Lightning (USA)-thumb.webp",
@@ -477,7 +477,7 @@ export default function Gamelist() {
     {
         "id": "snes-starfox",
         "path": "snes/Star Fox (U) (V1.0) [T+Por].zip",
-        "core": "snes9x",
+        "core": "snes",
         "name": "Star Fox",
         "desc": "Star Fox é um jogo de tiro em rail onde o jogador controla a nave Arwing em batalhas contra forças inimigas pelo espaço.",
         "image": "/images/games/snes/Star Fox (USA)-thumb.webp",
@@ -487,21 +487,21 @@ export default function Gamelist() {
         "releasedate": "1993-02-21"
     },
     {
-        "id": "snes-sfa2",
-        "path": "snes/Street Fighter Alpha 2 (USA).zip",
-        "core": "snes9x",
-        "name": "Street Fighter Alpha 2",
-        "desc": "Street Fighter Alpha 2 traz batalhas épicas entre lutadores lendários com combos, super movimentos e um elenco variado de personagens.",
-        "image": "/images/games/snes/Street Fighter Alpha 2 (USA)-thumb.webp",
-        "alt": "Street Fighter Alpha 2 Cover Art",
-        "rating": "0.91",
-        "players": "2",
-        "releasedate": "1996-11-01"
+        id: "snes-sfa2",
+        path: "snes/Street Fighter Alpha 2 (USA).zip",
+        core: "snes",
+        name: "Street Fighter Alpha 2",
+        desc: "Street Fighter Alpha 2 traz batalhas épicas entre lutadores lendários com combos, super movimentos e um elenco variado de personagens.",
+        image: "/images/games/snes/Street Fighter Alpha 2 (USA)-thumb.webp",
+        alt: "Street Fighter Alpha 2 Cover Art",
+        rating: "0.91",
+        players: "2",
+        releasedate: "1996-11-01"
     },
     {
       "id": "sf2",
       "path": "snes/Street Fighter II Turbo - Hyper Fighting (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Street Fighter II Turbo: Hyper Fighting",
       "desc": "Street Fighter II Turbo: Hyper Fighting é um jogo de luta com personagens icônicos, incluindo Ryu, Ken e Chun-Li.",
       "image": "/images/games/snes/Street Fighter II Turbo - Hyper Fighting (USA)-thumb.webp",
@@ -513,7 +513,7 @@ export default function Gamelist() {
     {
         "id": "snes-stargate",
         "path": "snes/Stargate (USA).zip",
-        "core": "snes9x",
+        "core": "snes",
         "name": "Stargate",
         "desc": "Baseado no filme, Stargate coloca os jogadores em ação com tiroteios, exploração e batalhas contra inimigos alienígenas.",
         "image": "/images/games/snes/Stargate (USA)-thumb.webp",
@@ -525,7 +525,7 @@ export default function Gamelist() {
     {
       "id": "tmnt4",
       "path": "snes/Teenage Mutant Ninja Turtles IV - Turtles in Time (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Teenage Mutant Ninja Turtles IV: Turtles in Time",
       "desc": "Turtles in Time é um jogo de luta e ação onde as Tartarugas Ninja enfrentam inimigos ao longo do tempo.",
       "image": "/images/games/snes/Teenage Mutant Ninja Turtles IV - Turtles in Time (USA)-fanart.webp",
@@ -537,7 +537,7 @@ export default function Gamelist() {
     {
       "id": "tloz",
       "path": "snes/The Legend of Zelda - A Link to the Past (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "The Legend of Zelda: A Link to the Past",
       "desc": "A Link to the Past é um RPG de ação onde Link deve salvar a princesa Zelda e derrotar Ganon para restaurar a paz.",
       "image": "/images/games/snes/Legend of Zelda, The - A Link to the Past (U) [T+Por]-thumb.webp",
@@ -549,7 +549,7 @@ export default function Gamelist() {
     {
       "id": "ts",
       "path": "snes/Toy Story (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Toy Story",
       "desc": "Toy Story é um jogo de plataforma baseado no filme, onde o jogador controla Woody e Buzz Lightyear, enfrentando desafios para resgatar o brinquedo perdido.",
       "image": "/images/games/snes/Toy Story (USA)-thumb.webp",
@@ -561,7 +561,7 @@ export default function Gamelist() {
     {
       "id": "tg1",
       "path": "snes/Top Gear (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Top Gear",
       "desc": "Top Gear é um jogo de corrida onde os jogadores competem em pistas de todo o mundo, enfrentando adversários enquanto tentam alcançar o primeiro lugar.",
       "image": "/images/games/snes/Top Gear (USA)-thumb.webp",
@@ -573,7 +573,7 @@ export default function Gamelist() {
     {
       "id": "tg2",
       "path": "snes/Top Gear 2 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Top Gear 2",
       "desc": "Top Gear 2 traz novas pistas e carros, oferecendo uma experiência de corrida mais desafiadora e divertida em relação ao primeiro jogo da série.",
       "image": "/images/games/snes/Top Gear 2 (USA)-thumb.webp",
@@ -585,7 +585,7 @@ export default function Gamelist() {
     {
       "id": "snes-tg3000",
       "path": "snes/Top Gear 3000 (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Top Gear 3000",
       "desc": "Top Gear 3000 é um jogo de corrida futurista onde os jogadores competem em pistas intergalácticas, utilizando melhorias tecnológicas para turbinar seus veículos.",
       "image": "/images/games/snes/Top Gear 3000 (USA)-thumb.webp",
@@ -597,7 +597,7 @@ export default function Gamelist() {
     {
       "id": "tb",
       "path": "snes/Turn and Burn - No-Fly Zone (USA).zip",
-      "core": "snes9x",
+      "core": "snes",
       "name": "Turn and Burn: No Fly Zone",
       "desc": "Turn and Burn: No Fly Zone é um jogo de combate aéreo onde os jogadores controlam aviões em missões de ataque e defesa.",
       "image": "/images/games/snes/Turn and Burn - No-Fly Zone (USA)-thumb.webp",
