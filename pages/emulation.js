@@ -1,76 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/Emulation.module.css";
 import Navbar from "../components/Navbar";
 
 export default function Emulation() {
-  const router = useRouter();
-  const [jogo, setJogo] = useState(null);
-  const [core, setCore] = useState(null);
+  const { query } = useRouter();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!query.jogo || !query.core || typeof window === "undefined") return;
 
-    const { jogo, core } = router.query;
+    // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
+    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
-    if (jogo && core) {
-      setJogo(jogo);
-      setCore(core);
+    // Configuração do EmulatorJS
+    Object.assign(window, {
+      EJS_player: "#game",
+      EJS_core: query.core,
+      EJS_gameName: query.jogo,
+      EJS_gameUrl: `/roms/${query.jogo}`,
+      EJS_canvasWidth: largura,
+      EJS_canvasHeight: altura,
+      EJS_fullscreenOnLoad: true,
+    });
 
-      // Remover os parâmetros da URL sem recarregar a página
-      // router.replace("/emulation", undefined, { shallow: true });
+    console.log("Emulador configurado:", largura, "x", altura);
 
-      // Definir tamanho baseado na janela, garantindo que seja sempre par
-      const calcularAspectRatio = () => {
-        const largura = window.innerWidth;
-        const altura = window.innerHeight;
-
-        const aspectRatio = largura / altura;
-
-        // Garante que o aspect ratio seja sempre um número par
-        return Math.round(aspectRatio * 10) % 2 === 0
-          ? aspectRatio
-          : aspectRatio + 0.1;
-      };
-
-      // Configuração do EmulatorJS
-      window.EJS_player = "#game";
-      window.EJS_core = core;
-      window.EJS_gameName = jogo || "Jogo Padrão";
-      window.EJS_gameUrl = `/roms/${jogo}`;
-      window.EJS_biosUrl = "";
-      window.EJS_canvasWidth = 1024;
-      window.EJS_canvasHeight = 768;
-      window.EJS_fullscreenOnLoad = true;
-      window.EJS_AspectRatio = calcularAspectRatio();
-
-      console.log("Aspect Ratio Ajustado:", window.EJS_AspectRatio);
-
-      // Carregar o script do EmulatorJS apenas uma vez
+    // Carrega o script do EmulatorJS apenas uma vez
+    if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
       const script = document.createElement("script");
       script.src = "https://www.emulatorjs.com/loader.js";
       script.async = true;
       script.crossOrigin = "anonymous";
-
       script.onload = () => console.log("EmulatorJS carregado!");
       script.onerror = () => alert("Erro ao carregar o emulador.");
-
       document.body.appendChild(script);
     }
-  }, [router.query]);
+  }, [query]);
 
   return (
     <div>
       <Navbar />
+      
       <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto" }}>
-        <div 
-          id="game" 
-          className={styles.game} 
-         style={{ width: "800px", height: "500px" }}
-        ></div>
+          <div 
+            id="game" 
+            className={styles.game} 
+           style={{ width: "800px", height: "500px" }}
+          ></div>
+        </div>
       </div>
-      
-      
-    </div>
   );
 }
