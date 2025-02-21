@@ -332,7 +332,7 @@ export default function Home() {
     <div style={{ position: 'absolute',bottom: '50%', left: '50%',width:'30%', transform: 'translateX(-50%)',  
     textAlign: 'center', zIndex: 10 }}>
 
-    <a href="/gamelist" target="_blank" style={{
+    <a href="/jogos-online-retro " target="_blank" style={{
     backgroundColor: '#25d366',width:"100%", padding:'2%', fontWeight:'bold', 
     borderRadius: '5px', color: '#fff', display: 'inline-block',borderColor:"snow",
     boxShadow: '0px 0px 15px 15px rgba(7, 7, 7, 0.9)', /* Adiciona sombra (opcional) */

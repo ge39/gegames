@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/gamelist">Jogue Online</Link>
+            <Link href="/jogos-online-retro ">Jogue Online</Link>
           </li>
           <li>
             <Link href="/#orcamento">Fale Conosco</Link>

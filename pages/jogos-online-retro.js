@@ -465,7 +465,7 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Carrossel de Jogos</title>
+        <title>Jogos Online Retrô</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
