@@ -4,7 +4,7 @@
     margin: 5px auto; /* Centraliza o contêiner horizontalmente e define margens verticais */
     /* margin-top: 1%; */
     width: 90%; /* O contêiner ocupa toda a largura disponível */
-    height: 450px;
+    height: 250px;
     display: flex; /* Habilita Flexbox */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
