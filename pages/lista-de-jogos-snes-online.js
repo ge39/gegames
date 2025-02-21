@@ -612,7 +612,7 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos Super Nes</title>
+        <title>Lista de Jogos Super Nes Online</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />

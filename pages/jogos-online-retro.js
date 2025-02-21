@@ -465,13 +465,13 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Jogos Online Retrô</title>
+        <title>Lista de Jogos Online Retrô</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
       <main className={styles.main}>
         <section id="arcadeSection">
-            <Link href="/gamelistArcade/">
+            <Link href="/lista-de-jogos-arcade-online/">
               <h2>Arcade</h2>
           </Link>
           <Carousel games={arcadeGames} />
