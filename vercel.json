@@ -1,0 +1,12 @@
+{
+    "headers": [
+      {
+        "source": "/roms/(.*)",
+        "headers": [
+          { "key": "Content-Type", "value": "application/zip" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ]
+  }
+  
