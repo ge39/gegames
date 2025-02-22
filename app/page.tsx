@@ -1,6 +1,5 @@
 "use client";
 import EventSection from "../components/EventSection"; // Import do componente EventSection
-import OnlineCounter from "../components/OnlineCounter";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
@@ -13,7 +12,6 @@ export default function Home() {
     <div>
       {/* Navbar */}
       <Navbar />
-    <OnlineCounter />
       <style jsx>{`
 
       #home {

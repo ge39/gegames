@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
+import OnlineCounter from './OnlineCounter';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,6 +65,7 @@ export default function Navbar() {
       <div>
 
 </div>
+< OnlineCounter />
     </>
   );
 }
