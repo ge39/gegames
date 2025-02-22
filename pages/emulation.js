@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
-// import Footer from '../components/Footer';
 
 export default function Emulation() {
   // const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +24,6 @@ export default function Emulation() {
       script.async = true;
       script.onload = () => {
         console.log('EmulatorJS carregado com sucesso!');
-        // window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       };
       script.onerror = () => {
         console.error('Erro ao carregar o script do EmulatorJS');
