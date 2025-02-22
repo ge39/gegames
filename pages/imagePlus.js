@@ -44,7 +44,7 @@ export default function Home() {
                     const originalHeight = img.height;
                     setDimensionDisplay(`Dimensões da imagem original: ${originalWidth}x${originalHeight}px`);
 
-                    if (originalWidth < width || originalHeight < height) {
+                    if (originalWidth > width || originalHeight > height) {
                         setWarningMessage(`A imagem tem dimensões menores que as selecionadas (${originalWidth}x${originalHeight}px).`);
                         setValidDimensions(false);
                     } else {
@@ -88,19 +88,17 @@ export default function Home() {
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
-                const aspectRatio = img.width / img.height;
-
-                // Ajustar a imagem para manter a proporção correta
-                if (canvas.width / canvas.height > aspectRatio) {
-                    canvas.height = canvas.width / aspectRatio;
-                } else {
-                    canvas.width = canvas.height * aspectRatio;
-                }
-
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
+    
+                const newWidth = width ? parseInt(width) : img.width;
+                const newHeight = height ? parseInt(height) : img.height;
+    
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+    
+                ctx.drawImage(img, 0, 0, newWidth, newHeight);
+    
                 const mimeType = format === "webp" ? 'image/webp' : format || 'image/jpeg';
-
+    
                 canvas.toBlob((blob) => {
                     callback(blob);
                 }, mimeType);
@@ -109,7 +107,7 @@ export default function Home() {
         };
         reader.readAsDataURL(file);
     };
-
+    
     const checkCompletion = (processedCount, totalFiles, zip) => {
         if (processedCount === totalFiles) {
             zip.generateAsync({ type: 'blob' }).then((content) => {
