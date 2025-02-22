@@ -1,0 +1,42 @@
+.buttonTopBack {
+    display: inline-block;
+    position: fixed;
+    text-align: center;
+    width: 20%;
+    bottom: 13%;
+    align-items: center;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 1%;
+    left: 40%;
+    right: 40%;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index:  11;
+  }
+  
+  .buttonTopBack a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .buttonTopBack:hover {
+    background-color: #e03e00;
+    transform: translateY(-5px);
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .buttonTopBack {
+      width: 80%; /* O botão ocupa toda a largura */
+      left: 10%;     /* Remove o espaçamento lateral */
+      right: 10%;    /* Remove o espaçamento lateral */
+      border-radius: 10px; /* Bordas retas para combinar com a tela */
+      bottom: 11%;
+    }
+  }
+  

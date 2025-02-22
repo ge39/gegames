@@ -1,0 +1,26 @@
+  .emulatorContainer {
+    
+    /*max-width: 100%;  Limita a largura ao tamanho da tela */
+    margin: 5px auto; /* Centraliza o contêiner horizontalmente e define margens verticais */
+    /* margin-top: 1%; */
+    width: 90%; /* O contêiner ocupa toda a largura disponível */
+    height: 250px;
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background: #070707; /* Fundo para visualização (opcional) */
+  }
+  
+  /* Estilos para telas maiores */
+  @media screen and (max-width: 768px) {
+    .emulatorContainer {
+      width: 100%;  
+      height: 550px;  
+      margin-top:0;
+      
+    }
+  
+  
+
+  }
+  
