@@ -18,7 +18,7 @@ export default function Emulation() {
       EJS_player: "#game",
       EJS_core: query.core,
       EJS_gameName: query.jogo,
-      EJS_gameUrl: `../../roms/${query.jogo}`,
+      EJS_gameUrl: `/roms/${query.jogo}`,
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
