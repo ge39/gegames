@@ -35,8 +35,8 @@ export default function Navbar() {
           <li className={styles.hasSubmenu}>
             <Link href="#">Imagem</Link>
             <ul className={styles.submenu}>
-              <li><Link href="/imageLess">Reduz Imagem</Link></li>
-              <li><Link href="/imagePlus">Amplia Imagem</Link></li>
+              <li><Link href="/imageLess">imageLess</Link></li>
+              <li><Link href="/imagePlus">imagePlus</Link></li>
             </ul>
           </li>
           
