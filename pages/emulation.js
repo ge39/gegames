@@ -25,7 +25,7 @@ export default function Emulation() {
       script.async = true;
       script.onload = () => {
         console.log('EmulatorJS carregado com sucesso!');
-        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
+        // window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       };
       script.onerror = () => {
         console.error('Erro ao carregar o script do EmulatorJS');
@@ -47,7 +47,7 @@ export default function Emulation() {
       {/* Inclusão da Navbar */}
       <Navbar />
       
-      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto" }}>
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto",maxwidth:'100' }}>
           <div 
             id="game" 
             className={styles.game} 
