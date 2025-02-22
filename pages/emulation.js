@@ -1,54 +1,62 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import styles from "../styles/Emulation.module.css";
-import Navbar from "../components/Navbar";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import styles from '../styles/Emulation.module.css';
+import Navbar from '../components/Navbar';
+// import Footer from '../components/Footer';
 
 export default function Emulation() {
-  const { query } = useRouter();
-
+  // const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const { jogo, core } = router.query;
+ 
   useEffect(() => {
-    if (!query.jogo || !query.core || typeof window === "undefined") return;
+    if (jogo) {
+      // Configura o emulador com base no jogo da URL
+      window.EJS_player = "#game";
+      window.EJS_core = `${core}`; 
+      window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
+      window.EJS_gameUrl = `../../roms/${jogo}`; 
+      window.EJS_biosUrl = ""; 
 
-    // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
-    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
-    const altura = Math.round((largura * 3) / 4 / 2) * 2;
-
-    // Configuração do EmulatorJS
-    Object.assign(window, {
-      EJS_player: "#game",
-      EJS_core: query.core,
-      EJS_gameName: query.jogo,
-      EJS_gameUrl: `/roms/${query.jogo}`,
-      EJS_canvasWidth: largura,
-      EJS_canvasHeight: altura,
-      EJS_fullscreenOnLoad: true,
-    });
-
-    console.log("Emulador configurado:", largura, "x", altura);
-
-    // Carrega o script do EmulatorJS apenas uma vez
-    if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
-      const script = document.createElement("script");
+      
+      // Carregar o script do EmulatorJS
+      const script = document.createElement('script');
       script.src = "https://www.emulatorjs.com/loader.js";
       script.async = true;
-      script.crossOrigin = "anonymous";
-      script.onload = () => console.log("EmulatorJS carregado!");
-      script.onerror = () => alert("Erro ao carregar o emulador.");
+      script.onload = () => {
+        console.log('EmulatorJS carregado com sucesso!');
+        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
+      };
+      script.onerror = () => {
+        console.error('Erro ao carregar o script do EmulatorJS');
+        alert('Erro ao carregar o emulador. Tente novamente mais tarde.');
+      };
+
       document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+        
+      };
     }
-  }, [query]);
+  }, [jogo,core]);
 
   return (
     <div>
+     
+      {/* Inclusão da Navbar */}
       <Navbar />
       
-      <div className={styles.emulatorContainer} style={{ width: "80%", height: "500px", margin: "0 auto" }}>
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto" }}>
           <div 
             id="game" 
             className={styles.game} 
            style={{ width: "800px", height: "500px" }}
           ></div>
         </div>
-      </div>
+            
+      {/* Inclusão da Rodapé */}
+      {/* <Footer /> */}
+    </div>
   );
 }
