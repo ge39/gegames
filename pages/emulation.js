@@ -18,7 +18,7 @@ export default function Emulation() {
       window.EJS_color = "#0000";
       window.EJS_startOnLoaded = true;
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-      window.EJS_gameUrl = `../../roms/${jogo}`; 
+      window.EJS_gameUrl = `../roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
 
       // Carregar o script do EmulatorJS
