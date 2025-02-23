@@ -13,7 +13,7 @@ export default function Gamelist() {
       bios:"",
       name: "1944 : THE LOOP MASTER",
       desc: "O jogo se passa nas acaloradas batalhas de 1944, durante a Segunda Guerra Mundial...",
-      image: "/images/games/1944-image.png",
+      image: "/images/games/arcade/1944-image.webp",
       alt: "1944: The Loop Master Cover Art",
       players: "1-2",
       releasedate: "2000-06-20",
@@ -23,9 +23,9 @@ export default function Gamelist() {
       path: "arcade/sf2.zip",
       core: "arcade",
       bios:"",
-      name: "STREET FIGHTER II: THE WORLD WARRIOR",
+      name: "STREET F. II: THE WORLD WARRIOR",
       desc: "Street Fighter II é um clássico jogo de luta competitivo lançado originalmente em 1991.",
-      image: "/images/games/sf2-image.png",
+      image: "/images/games/arcade/sf2-image.webp",
       alt: "Street Fighter II Cover Art",
       players: "1-2",
       releasedate: "1991-01-01",
@@ -35,9 +35,9 @@ export default function Gamelist() {
       path: "arcade/mshvsf.zip",
       core: "arcade",
       bios:"",
-      name: "MARVEL SUPER HEROES VS. STREET FIGHTER",
+      name: "MARVEL SUPER HEROES VS. STREET",
       desc: "Escolha seus heróis favoritos dos universos de Street Fighter e Marvel Super Heroes.",
-      image: "/images/games/mshvsf-image.png",
+      image: "/images/games/arcade/mshvsf-image.webp",
       alt: "Marvel Super Heroes vs Street Fighter Cover Art",
       players: "1-2",
       releasedate: "1997-01-01",
@@ -49,7 +49,7 @@ export default function Gamelist() {
       bios:"",
       name: "CADILLACS AND DINOSAURS",
       desc: "Um jogo de beat 'em up clássico lançado em 1993 pela Capcom.",
-      image: "/images/games/dino-image.png",
+      image: "/images/games/arcade/dino-image.webp",
       alt: "Cadillacs and Dinosaurs Cover Art",
       players: "1-3",
       releasedate: "1993-01-01",
@@ -61,7 +61,7 @@ export default function Gamelist() {
       bios:"",
       name: "FINAL FIGHT",
       desc: "Final Fight possui seis fases, cada uma em lugares diferentes de Metro City.",
-      image: "/images/games/ffightae-image.png",
+      image: "/images/games/arcade/ffightae-image.webp",
       alt: "Final Fight Cover Art",
       players: "1-2",
       releasedate: "1988-12-31",
@@ -73,7 +73,7 @@ export default function Gamelist() {
       bios:"",
       name: "Mortal Kombat 3",
       desc: "Tendo conseguido subjugar o reino da Terra, Shao Kahn toma todas as almas humanas da Terra como suas. Para impedir que o reino de Outworld assimile totalmente o Earthrealm.",
-      image: "/images/games/mk3-thumb.png",
+      image: "/images/games/arcade/mk3-thumb.webp",
       alt: "Mortal kombat3",
       players: "1-2",
       releasedate: "1995-04-01",
@@ -85,7 +85,7 @@ export default function Gamelist() {
       bios:"",
       name: "Metal Slug X",
       desc: "Metal Slug X é uma versão alternativa do Metal Slug 2. Diferente do primeiro jogo da franquia, Metal Slug X permite que você escolha os personagens Marco, Tarma, Eri e Fio.",
-      image: "/images/games/mslugx-thumb.png",
+      image: "/images/games/arcade/mslugx-thumb.webp",
       alt: "Metal Slug X",
       players: "1-2",
       releasedate: "1999-01-01",
@@ -97,7 +97,7 @@ export default function Gamelist() {
       bios:"",
       name: "Robocop 2",
       desc: "RoboCop 2 é um jogo de tiro em 2D com jogabilidade 2.5D que coloca os jogadores no lugar do RoboCop. O jogo é baseado no filme de mesmo nome e segue sua trama.",
-      image: "/images/games/robocop2.png",
+      image: "/images/games/arcade/robocop2.webp",
       alt: "Robocop2",
       players: "1-2",
       releasedate: "1991-01-01",
@@ -109,7 +109,7 @@ export default function Gamelist() {
       bios:"",
       name: "The king of Fighter 99",
       desc: "Chegamos mais uma vez ao tempo para o famoso KOF Tournament! Novos rostos e velhos se juntam para participar do último torneio KOF, mas algo parece errado.",
-      image: "/images/games/kof99.png",
+      image: "/images/games/arcade/kof99.webp",
       alt: "The Kof 99",
       players: "1-2",
       releasedate: "1999-01-01",
@@ -121,7 +121,7 @@ export default function Gamelist() {
       bios:"",
       name: "Captain Commando",
       desc: "O jogador escolhe um dos 4 membros do 'Team Commando': Captain Commando,  Jennet (Mack) ou Hoover (Baby Head). Os Commandos devem combater um exército de super criminosos geneticamente modificados.",
-      image: "/images/games/captcomm-image.png",
+      image: "/images/games/arcade/captcomm-image.webp",
       alt: "Captain Commando",
       players: "1-2",
       releasedate: "1991-01-01",
@@ -133,7 +133,7 @@ export default function Gamelist() {
         bios: "",
         name: "Golden Axe",
         desc: "Um clássico jogo de ação e aventura da SEGA onde guerreiros enfrentam forças malignas.",
-        image: "/images/games/goldnaxe.png",
+        image: "/images/games/arcade/goldnaxe.webp",
         alt: "Golden Axe Cover Art",
         players: "1-2",
         releasedate: "1989-06-01"
@@ -145,7 +145,7 @@ export default function Gamelist() {
         "bios": "",
         "name": "The King of Fighters '98",
         "desc": "Um dos jogos mais populares da série KOF, trazendo diversos personagens e jogabilidade refinada.",
-        "image": "/images/games/kof98.png",
+        "image": "/images/games/arcade/kof98.webp",
         "alt": "The King of Fighters '98 Cover Art",
         "players": "1-2",
         "releasedate": "1998-07-23"
@@ -157,7 +157,7 @@ export default function Gamelist() {
         "bios": "",
         "name": "The King of Fighters 2003",
         "desc": "A introdução do sistema de Tag Battle na série KOF, permitindo trocas durante as lutas.",
-        "image": "/images/games/kof2003.png",
+        "image": "/images/games/arcade/kof2003.webp",
         "alt": "The King of Fighters 2003 Cover Art",
         "players": "1-2",
         "releasedate": "2003-12-12"
@@ -169,7 +169,7 @@ export default function Gamelist() {
         "bios": "",
         "name": "Pac-Man Plus",
         "desc": "Uma versão aprimorada do Pac-Man clássico, com elementos surpresa e maior dificuldade.",
-        "image": "/images/games/pacplus.png",
+        "image": "/images/games/arcade/pacplus.webp",
         "alt": "Pac-Man Plus Cover Art",
         "players": "1",
         "releasedate": "1982-01-01"
@@ -181,7 +181,7 @@ export default function Gamelist() {
         "bios": "",
         "name": "Rambo III",
         "desc": "Baseado no famoso filme, o jogo coloca os jogadores no papel de Rambo em missões intensas.",
-        "image": "/images/games/rambo3.png",
+        "image": "/images/games/arcade/rambo3.webp",
         "alt": "Rambo III Cover Art",
         "players": "1-2",
         "releasedate": "1989-01-01"
@@ -193,7 +193,7 @@ export default function Gamelist() {
         "bios": "",
         "name": "Street Fighter Alfa 3",
         "desc": "Uma revolução na franquia, com gráficos aprimorados e novas mecânicas como o Parry.",
-        "image": "/images/games/sfa3.png",
+        "image": "/images/games/arcade/sfa3.webp",
         "alt": "Street Fighter Alfa III Cover Art",
         "players": "1-2",
         "releasedate": "1997-02-04"
@@ -201,11 +201,11 @@ export default function Gamelist() {
       {
         "id": "37417",
         "path": "arcade/tmnt2.zip",
-        "core": "mame",
+        "core": "arcade",
         "bios": "",
         "name": "Teenage Mutant Ninja Turtles II",
         "desc": "Os heróis de casco retornam em um jogo beat 'em up recheado de ação e cooperação.",
-        "image": "/images/games/tmnt2.png",
+        "image": "/images/games/arcade/tmnt2.webp",
         "alt": "Teenage Mutant Ninja Turtles II Cover Art",
         "players": "1-4",
         "releasedate": "1991-01-01"
@@ -217,7 +217,7 @@ export default function Gamelist() {
         bios: "",
         name: "Ganryu",
         desc: "Jogo de ação e plataforma inspirado na lenda do samurai Miyamoto Musashi.",
-        image: "/images/games/ganryu.png",
+        image: "/images/games/arcade/ganryu.webp",
         alt: "Ganryu Cover Art",
         players: "1-2",
         releasedate: "1999-04-16"
@@ -229,7 +229,7 @@ export default function Gamelist() {
         bios: "",
         name: "Funny Bubble",
         desc: "Um jogo de puzzle estilo Bubble Bobble onde os jogadores estouram bolhas para avançar de fase.",
-        image: "/images/games/funybubl.png",
+        image: "/images/games/arcade/funybubl.webp",
         alt: "Funny Bubble Cover Art",
         players: "1-2",
        releasedate: "1997-01-01"
@@ -241,7 +241,7 @@ export default function Gamelist() {
         bios: "",
         name: "Rail Chase",
         desc: "Jogo de tiro sobre trilhos da SEGA, onde os jogadores enfrentam inimigos enquanto fogem em um vagão desgovernado.",
-        image: "/images/games/rchase.png",
+        image: "/images/games/arcade/rchase.webp",
         alt: "Rail Chase Cover Art",
         players: "1-2",
         releasedate: "1991-07-01"
@@ -264,6 +264,7 @@ export default function Gamelist() {
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                   <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                  <h5>{game.name}</h5>
                   <Image
                     src={game.image}
                     alt={game.alt}
@@ -272,7 +273,8 @@ export default function Gamelist() {
                     height={200}
                     priority
                   />
-                  <h5>{game.name}</h5>
+                 
+                  <h5>{"Total Players: " + game.players}</h5>
                 </a>
               </div>
             ))}
