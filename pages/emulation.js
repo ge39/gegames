@@ -42,11 +42,11 @@ export default function Emulation() {
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto" }}>
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px",maxWidth:'90%', margin: "0 auto" }}>
           <div 
             id="game" 
             className={styles.game} 
-           style={{ width: "800px", height: "500px" }}
+           style={{ width: "800px", height: "500px",maxWidth:"100%" }}
           ></div>
         </div>
       </div>
