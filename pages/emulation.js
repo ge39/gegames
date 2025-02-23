@@ -17,6 +17,7 @@ export default function Emulation() {
       EJS_player: "#game",
       EJS_core: core,
       EJS_gameName: jogo,
+      EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/",
       EJS_gameUrl: `/roms/${jogo}`,
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
@@ -25,7 +26,7 @@ export default function Emulation() {
 
     console.log("Emulador configurado:", largura, "x", altura);
 
-    if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
+    if (!document.querySelector('script[src="https://www.emulatorjs.org/stable/data/"]')) {
       const script = document.createElement("script");
       script.src = "https://www.emulatorjs.com/loader.js";
       script.async = true;
