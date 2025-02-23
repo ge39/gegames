@@ -26,9 +26,9 @@ export default function Emulation() {
 
     console.log("Emulador configurado:", largura, "x", altura);
 
-    if (!document.querySelector('script[src="https://www.emulatorjs.org/stable/data/"]')) {
+    if (!document.querySelector('script[src="https://cdn.emulatorjs.org/stable/data/"]')) {
       const script = document.createElement("script");
-      script.src = "https://www.emulatorjs.org/stable/data/loader.js";
+      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
       script.async = true;
       script.crossOrigin = "anonymous";
       script.onload = () => console.log("EmulatorJS carregado!");
