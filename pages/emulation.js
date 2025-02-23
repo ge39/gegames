@@ -4,46 +4,50 @@ import styles from "../styles/Emulation.module.css";
 import Navbar from "../components/Navbar";
 
 export default function Emulation() {
-  const router = useRouter();
-  const { jogo, core } = router.query; // Extraindo query parameters corretamente
+  const { query } = useRouter();
 
   useEffect(() => {
-    if (!jogo || !core || typeof window === "undefined") return;
+    if (!query.jogo || !query.core || typeof window === "undefined") return;
 
+    // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
     const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
     const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
+    // Configuração do EmulatorJS
     Object.assign(window, {
       EJS_player: "#game",
-      EJS_core: core,
-      EJS_gameName: jogo,
-      EJS_pathtodata: "../EmulatorJS-main/data/",
-      EJS_gameUrl: `../../roms/${jogo}`,
+      EJS_core: query.core,
+      EJS_gameName: query.jogo,
+      EJS_gameUrl: `../../roms/${query.jogo}`,
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
-      EJS_startOnLoaded: true, // 🚀 Faz o emulador iniciar automaticamente
     });
 
     console.log("Emulador configurado:", largura, "x", altura);
 
-    if (!document.querySelector('script[src="../EmulatorJS-main/data/"]')) {
+    // Carrega o script do EmulatorJS apenas uma vez
+    if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
       const script = document.createElement("script");
-      script.src = "../EmulatorJS-main/data/loader.js";
+      script.src = "https://www.emulatorjs.com/loader.js";
       script.async = true;
       script.crossOrigin = "anonymous";
       script.onload = () => console.log("EmulatorJS carregado!");
       script.onerror = () => alert("Erro ao carregar o emulador.");
       document.body.appendChild(script);
     }
-  }, [jogo, core]); // Atualiza sempre que os parâmetros da query mudam
+  }, [query]);
 
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ width: "80%", height: "500px", margin: "0 auto", maxWidth:"100%"}}>
-        <div id="game" className={styles.game} style={{ width: "800px", height: "500px" }}></div>
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", margin: "0 auto" }}>
+          <div 
+            id="game" 
+            className={styles.game} 
+           style={{ width: "800px", height: "500px" }}
+          ></div>
+        </div>
       </div>
-    </div>
   );
 }
