@@ -17,6 +17,7 @@ export default function Emulation() {
     Object.assign(window, {
       EJS_player: "#game",
       EJS_core: query.core,
+      EJS_multitap: true, // Ativa suporte para multitap
       EJS_gameName: query.jogo,
       // EJS_gameUrl: `../../roms/${query.jogo}`,
       EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
