@@ -17,18 +17,19 @@ export default function Emulation() {
       EJS_player: "#game",
       EJS_core: core,
       EJS_gameName: jogo,
-      EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/",
-      EJS_gameUrl: `/roms/${jogo}`,
+      EJS_pathtodata: "../EmulatorJS-main/data/",
+      EJS_gameUrl: `../roms/${jogo}`,
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
+      EJS_startOnLoaded: true, // 🚀 Faz o emulador iniciar automaticamente
     });
 
     console.log("Emulador configurado:", largura, "x", altura);
 
-    if (!document.querySelector('script[src="https://cdn.emulatorjs.org/stable/data/"]')) {
+    if (!document.querySelector('script[src="../EmulatorJS-main/data/"]')) {
       const script = document.createElement("script");
-      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+      script.src = "../EmulatorJS-main/data/loader.js";
       script.async = true;
       script.crossOrigin = "anonymous";
       script.onload = () => console.log("EmulatorJS carregado!");
