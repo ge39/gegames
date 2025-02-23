@@ -18,7 +18,7 @@ export default function Emulation() {
       EJS_core: core,
       EJS_gameName: jogo,
       EJS_pathtodata: "../EmulatorJS-main/data/",
-      EJS_gameUrl: `../roms/${jogo}`,
+      EJS_gameUrl: `../../roms/${jogo}`,
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
