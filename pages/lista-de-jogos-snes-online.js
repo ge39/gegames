@@ -623,7 +623,7 @@ export default function Gamelist() {
             {snesGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
-                <h5>{game.name}</h5>
+                <span style={{marginBottom:'50px', fontSize:'20px'}}>{game.name}</span>
                   <Image
                     src={game.image}
                     alt={game.alt}
