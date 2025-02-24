@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
 import Footer from '../components/Footer';
@@ -259,7 +260,15 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center'}}>Arcade</h2>
+          <h2 style={{textAlign:'center'}}>
+
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+          
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+         
+            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
+         
+            </h2>
           <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>

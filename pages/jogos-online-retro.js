@@ -11,7 +11,7 @@ export default function Gamelist() {
     {
       id: "37385",
       path: "arcade/1944.zip",
-      core: "fbalpha2012_cps1",
+      core: "arcade",
       bios:"",
       name: "1944 : THE LOOP MASTER",
       desc: "O jogo se passa nas acaloradas batalhas de 1944, durante a Segunda Guerra Mundial...",
