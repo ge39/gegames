@@ -10,46 +10,52 @@ export default function Emulation() {
     if (!query.jogo || !query.core || typeof window === "undefined") return;
 
     // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
-    // const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
-    // const altura = Math.round((largura * 3) / 4 / 2) * 2;
+    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
-    // Configuração do EmulatorJS
-    Object.assign(window, {
-      EJS_player: "#game",
-      EJS_core: query.core,
-      EJS_multitap: true, // Ativa suporte para multitap
-      EJS_gameName: query.jogo,
-      // EJS_gameUrl: `../../roms/${query.jogo}`,
-      EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
-      // EJS_canvasWidth: largura,
-      // EJS_canvasHeight: altura,
-      EJS_fullscreenOnLoad: true,
-    });
+    const checkCanvas = setInterval(() => {
+      if (document.getElementById("game")) {
+        clearInterval(checkCanvas);
 
-    // console.log("Emulador configurado:", largura, "x", altura);
+        // Configuração do EmulatorJS
+        Object.assign(window, {
+          EJS_player: "#game",
+          EJS_core: query.core,
+          EJS_multitap: true, // Ativa suporte para multitap
+          EJS_gameName: query.jogo,
+          EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
+          EJS_canvasWidth: largura,
+          EJS_canvasHeight: altura,
+          EJS_fullscreenOnLoad: true,
+        });
 
-    // Carrega o script do EmulatorJS apenas uma vez
-    if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
-      const script = document.createElement("script");
-      script.src = "https://www.emulatorjs.com/loader.js";
-      script.async = true;
-      script.crossOrigin = "anonymous";
-      script.onload = () => console.log("EmulatorJS carregado!");
-      script.onerror = () => alert("Erro ao carregar o emulador.");
-      document.body.appendChild(script);
-    }
+        console.log("Emulador configurado:", largura, "x", altura);
+
+        if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
+          const script = document.createElement("script");
+          script.src = "https://www.emulatorjs.com/loader.js";
+          script.async = true;
+          script.crossOrigin = "anonymous";
+          script.onload = () => console.log("EmulatorJS carregado!");
+          script.onerror = () => alert("Erro ao carregar o emulador.");
+          document.body.appendChild(script);
+        }
+      }
+    }, 100);
+
+    return () => clearInterval(checkCanvas);
   }, [query]);
 
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px",maxWidth:'90%', margin: "0 auto" }}>
-          <div 
-            id="game" 
-            className={styles.game} 
-           style={{ width: "800px", height: "500px",maxWidth:"100%" }}
-          ></div>
-        </div>
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
+        <div 
+          id="game" 
+          className={styles.game} 
+          style={{ width: "800px", height: "500px", maxWidth: "100%" }}
+        ></div>
       </div>
+    </div>
   );
 }
