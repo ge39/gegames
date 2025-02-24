@@ -10,8 +10,8 @@ export default function Emulation() {
     if (!query.jogo || !query.core || typeof window === "undefined") return;
 
     // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
-    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
-    const altura = Math.round((largura * 3) / 4 / 2) * 2;
+    // const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    // const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
     // Configuração do EmulatorJS
     Object.assign(window, {
@@ -21,12 +21,12 @@ export default function Emulation() {
       EJS_gameName: query.jogo,
       // EJS_gameUrl: `../../roms/${query.jogo}`,
       EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
-      EJS_canvasWidth: largura,
-      EJS_canvasHeight: altura,
+      // EJS_canvasWidth: largura,
+      // EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
     });
 
-    console.log("Emulador configurado:", largura, "x", altura);
+    // console.log("Emulador configurado:", largura, "x", altura);
 
     // Carrega o script do EmulatorJS apenas uma vez
     if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
