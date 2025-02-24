@@ -108,7 +108,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="atariSection">
-          <h2 style={{textAlign:'center'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
 
           <Link style={{textDecoration: "none" ,color:'red'}} href="/gamelistAtari">Atari - </Link>
 
@@ -122,6 +122,7 @@ export default function Gamelist() {
           <div className={styles.gamesGrid}>
             {atariGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
+                 <h5>{game.name}</h5>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <Image
                     src={game.image}
@@ -131,7 +132,7 @@ export default function Gamelist() {
                     height={200}
                     priority
                   />
-                  <h5>{game.name}</h5>
+                   <h5>{"Total Players: " + game.players}</h5>
                 </a>
               </div>
             ))}

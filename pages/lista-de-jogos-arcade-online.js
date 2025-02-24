@@ -261,13 +261,13 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
 
-            <Link style={{textDecoration: "none",color:'red' }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
-          
+          <Link style={{textDecoration: "none",color:"red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
          
-            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
+            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
 
             <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
           

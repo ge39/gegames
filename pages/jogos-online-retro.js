@@ -472,15 +472,15 @@ export default function Gamelist() {
       <main className={styles.main}>
         <section id="arcadeSection">
             
-              <h2>
-              <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
-              <
-                Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
-         
-              <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
+          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+            
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+        
+            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
 
-              <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
-              </h2>
+            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
+          </h2>
        
           <Carousel games={arcadeGames} />
         </section>

@@ -620,7 +620,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="snesSection">
-          <h2 style={{textAlign:'center'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
 
           <Link style={{textDecoration: "none",color:'red' }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
 
@@ -635,7 +635,7 @@ export default function Gamelist() {
             {snesGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
-                <span style={{marginBottom:'50px', fontSize:'20px'}}>{game.name}</span>
+                  <h5>{game.name}</h5>
                   <Image
                     src={game.image}
                     alt={game.alt}

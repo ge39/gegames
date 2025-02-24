@@ -163,7 +163,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="MegadriveSection">
-          <h2 style={{textAlign:'center'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
 
           <Link style={{textDecoration: "none",color:'red' }} href="/gamelistMegadrive">Megadrive - </Link>
 
@@ -178,6 +178,7 @@ export default function Gamelist() {
             {MegadriveGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                <h5>{game.name}</h5>
                   <Image
                     src={game.image}
                     alt={game.alt}
@@ -186,7 +187,7 @@ export default function Gamelist() {
                     height={200}
                     priority
                   />
-                  <h5>{game.name}</h5>
+                  <h5>{"Total Players: " + game.players}</h5>
                 </a>
               </div>
             ))}
