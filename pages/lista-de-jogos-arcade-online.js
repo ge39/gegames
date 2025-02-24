@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
+import  '../styles/Globals.css';
 import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 
@@ -262,13 +263,16 @@ export default function Gamelist() {
         <section id="arcadeSection">
           <h2 style={{textAlign:'center'}}>
 
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+            <Link style={{textDecoration: "none",color:'red' }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
           
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
          
             <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
-         
-            </h2>
+
+            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
+          
+          </h2>
+            
           <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>

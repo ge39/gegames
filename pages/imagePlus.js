@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import  '../styles/Globals.css';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
