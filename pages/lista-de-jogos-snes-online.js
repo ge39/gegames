@@ -21,7 +21,7 @@ export default function Gamelist() {
       "releasedate": "1990-12-16"
     },
     {
-      "id": "Alladin",
+      "id": "aladdin",
       "path": "snes/Aladdin (U) [T+Por].zip",
       "core": "snes",
       "name": "Aladdin",
