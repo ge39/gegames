@@ -42,7 +42,7 @@ export default function Home() {
         }
       @media screen and (max-width: 768px) {
        .column2 {
-        width: 100% !important;  // Força a largura a ser 100% em telas pequenas
+        max-width: 90% !important;  // Força a largura a ser 100% em telas pequenas
         padding: 10px;  // Remove margens
         margin:10px;
         border: solid 1px #333,
@@ -95,7 +95,7 @@ export default function Home() {
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    width: "100%",
+    width: "90%",
     position: "relative",
     padding: '0px 10px',
   }}
@@ -282,7 +282,7 @@ export default function Home() {
   </h1>
   <div style={{ textAlign: 'center',width:'100%', backgroundColor: 'rgba(0,0,0,9)' }}>
      <Image
-       src="/images/bk/videorama.webp"
+       src="/images/bk/suporteArcade.webp"
        alt="Fliperama"
        width={900}
        height={500}
@@ -343,7 +343,7 @@ export default function Home() {
 
 {/* {{nosso plano}} */}
 <h1 style={{ backgroundColor:"#438",padding:"10px",textAlign: 'center', color: 'snow',
-  fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
+  fontWeight: 'bold', margin: '1%',borderRadius: '10px',maxWidth:'100%' }}>
   NOSSOS PLANOS
 </h1>
 <section  id="nosso-plano"  style={{
@@ -361,13 +361,14 @@ export default function Home() {
     NA PRIMEIRA LOCAÇÃO GANHE 10% DE DESCONTO!
   </p>
 
-  <div style={{ display: "flex",width:'100%',padding:'1%', justifyContent: "center", marginBottom: "20px" }}>
+  <div style={{ borderRadius: '8px', objectFit: 'cover', maxWidth: '100%',transform: '(-50%, -50%)', }}>
     <Image
-      src="/images/eventos/Fliperama_locacao.jpg"
+      src="/images/eventos/Fliperama_locacao.webp"
       alt="Fliperama"
-      width={1250}
-      height={850}
-      style={{ borderRadius: "8px", objectFit: "cover" }}
+      width={500}
+      height={900}
+      style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
+      
     />
   </div>
   <p style={{ padding:"10px",textAlign: 'center', color: '#438',
@@ -378,7 +379,7 @@ export default function Home() {
 
       {/* Fale Conosco Section */}
       <h2 style={{ backgroundColor:"#438",padding:"15px 0px",textAlign: 'center', 
-        color: 'snow', width:"97",
+        color: 'snow', maxWidth:"100%",
         fontWeight: 'bold',borderRadius: '10px', }}>
               FALE CONOSCO
         </h2>
@@ -415,7 +416,7 @@ export default function Home() {
 </section>
 
       {/* Eventos Section */}
-      <h2 style={{ backgroundColor:"#438",padding:"10px 20px",textAlign: 'center',width:'97%', 
+      <h2 style={{ backgroundColor:"#438",padding:"10px 15px",textAlign: 'center',maxWidth:'100%', 
         color: 'snow', fontWeight: 'bold',borderRadius: '10px', }}>
         NOSSOS EVENTOS REALIZADOS
       </h2>
@@ -426,7 +427,7 @@ export default function Home() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          width: "100%",
+          maxWidth: "95%",
           height: "100%",
           position: "relative",
           padding:'0px 10px'
@@ -455,7 +456,7 @@ export default function Home() {
         }}
         >
       
-        <h2 style={{ backgroundColor:"#438",padding:"15px 0px",textAlign: 'center',width:'99%', 
+        <h2 style={{ backgroundColor:"#438",padding:"10px 0px",textAlign: 'center',maxWidth:'100%', 
             color: 'snow', fontWeight: 'bold',borderRadius: '10px', }}
           >
              Conheça nossa História e paixão por Fliperamas Retrô...

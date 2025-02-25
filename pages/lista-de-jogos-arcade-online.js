@@ -269,7 +269,7 @@ export default function Gamelist() {
          
             <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
 
-            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
+            <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
           
           </h2>
             
