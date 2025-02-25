@@ -127,8 +127,8 @@ export default function Home() {
         // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
-         padding: '10px',
-        // margin: '10px',
+        padding: '10px',
+        margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
@@ -154,7 +154,7 @@ export default function Home() {
         style={{
         
           // flex: 1,
-          margin: '10px', // Espaçamento entre as colunas
+          margin: '0 10px', // Espaçamento entre as colunas
           backgroundImage: "url('./images/Fliperamas/fotoarcade2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -178,7 +178,7 @@ export default function Home() {
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
         padding: '10px',
-        // margin: '10px ',
+        margin: '0 10px', // Espaçamento entre as colunas
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
@@ -229,7 +229,7 @@ export default function Home() {
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
         padding: '10px',
-        // margin: '10px',
+        margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
@@ -427,7 +427,7 @@ export default function Home() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          maxWidth: "95%",
+          maxWidth: "100%",
           height: "100%",
           position: "relative",
           padding:'0px 10px'
