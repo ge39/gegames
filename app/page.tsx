@@ -26,8 +26,8 @@ export default function Home() {
         color: snow;
         // font-size: 20px;
         font-weight: bold;
-        margin: 10px 0;
-        width: 95%;
+        margin-top: 0.5%  ;
+        width: 100%;
       }
           #Home div h1 {
           color:'black',
@@ -95,9 +95,9 @@ export default function Home() {
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    width: "90%",
+    // width: "90%",
     position: "relative",
-    padding: '0px 10px',
+    // padding: '0px 10px',
   }}
 > 
 
@@ -127,12 +127,12 @@ export default function Home() {
         // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
-        padding: '20px',
-        margin: '10px',
+         padding: '10px',
+        // margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
-        width:'28.8%',               // Flexbox para centralizar o texto
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
@@ -177,12 +177,12 @@ export default function Home() {
         // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
-        padding: '20px',
-        margin: '10px ',
+        padding: '10px',
+        // margin: '10px ',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
-        width:'28.8%',               // Flexbox para centralizar o texto
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
@@ -228,12 +228,12 @@ export default function Home() {
         // flex: 1,                       // As colunas terão o mesmo tamanho
         textAlign: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fundo branco com 70% de transparência
-        padding: '20px',
-        margin: '10px',
+        padding: '10px',
+        // margin: '10px',
         borderRadius: '8px',
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)', // sombra opcional para destaque
         display: 'inline-flex',
-        width:'28.8%',               // Flexbox para centralizar o texto
+        width:'30%',               // Flexbox para centralizar o texto
         flexDirection: 'column',       // Para garantir que o conteúdo (título e texto) fiquem empilhados verticalmente
         // justifyContent: 'center',      // Centraliza verticalmente
         alignItems: 'center',          // Centraliza horizontalmente
