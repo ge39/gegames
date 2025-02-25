@@ -22,7 +22,7 @@ export default function Gamelist() {
     },
     {
       "id": "Aladdin",
-      "path": "snes/Aladdin (U) [T+Por].zip",
+      "path": "snes/Aladdin.zip",
       "core": "snes",
       "name": "Aladdin",
       "desc": "Aladdin é um jogo de plataforma onde o jogador assume o papel de Aladdin em sua jornada para salvar a princesa Jasmine e derrotar o vilão Jafar.",
