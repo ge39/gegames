@@ -18,7 +18,7 @@ export default function Emulation() {
       EJS_core: core,
       EJS_gameName: jogo,
       EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/", // Definindo corretamente
-      EJS_gameUrl: `/roms/${jogo}`, // Caminho da ROM corrigido
+      EJS_gameUrl: `./roms/${jogo}`, // Caminho da ROM corrigido
       EJS_canvasWidth: largura,
       EJS_canvasHeight: altura,
       EJS_fullscreenOnLoad: true,
@@ -39,7 +39,7 @@ export default function Emulation() {
     <div>
       <Navbar />
       <div className={styles.emulatorContainer} style={{ width: "80%", height: "500px", margin: "0 auto", maxWidth: "100%" }}>
-        <div id="game" className={styles.game} style={{ width: "800px", height: "500px" }}></div>
+        <div id="game" className={styles.game} style={{ width: "800px", height: "500px",maxWidth: "100%" }}></div>
       </div>
     </div>
   );
