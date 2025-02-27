@@ -36,6 +36,7 @@ export default function Emulation() {
       script.onerror = () => alert("Erro ao carregar o emulador.");
       document.body.appendChild(script);
     }
+    
   }, [jogo, core]); // Atualiza sempre que os parâmetros da query mudam
 
   return (

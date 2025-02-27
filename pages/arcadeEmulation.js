@@ -4,66 +4,42 @@ import styles from "../styles/Emulation.module.css";
 import Navbar from "../components/Navbar";
 
 export default function Emulation() {
-  const { query } = useRouter();
+  const router = useRouter();
+  const { jogo, core } = router.query; // Extraindo query parameters corretamente
 
   useEffect(() => {
-    if (!query.jogo || typeof window === "undefined") return;
+    if (!jogo || !core || typeof window === "undefined") return;
 
-    // Lista de cores compatíveis com ROMs arcade
-    const arcadeCores = ["arcade", "fbneo", "mame2003", "mame2003-plus", "mame0.243", "mame2010"];
-    
-    // Se o usuário não especificar um core, tenta encontrar um automaticamente
-    const selectedCore = query.core && arcadeCores.includes(query.core)
-      ? query.core
-      : arcadeCores[0]; // Usa o primeiro da lista como padrão
-
-    // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
     const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
     const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
-    const checkCanvas = setInterval(() => {
-      if (document.getElementById("game")) {
-        clearInterval(checkCanvas);
+    Object.assign(window, {
+      EJS_player: "#game",
+      EJS_core: core,
+      EJS_gameName: jogo,
+      EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/", // Definindo corretamente
+      EJS_gameUrl: `/roms/${jogo}`, // Caminho da ROM corrigido
+      EJS_canvasWidth: largura,
+      EJS_canvasHeight: altura,
+      EJS_fullscreenOnLoad: true,
+      EJS_startOnLoaded: true, // 🚀 Faz o emulador iniciar automaticamente
+    });
 
-        // Configuração do EmulatorJS
-        Object.assign(window, {
-          EJS_player: "#game",
-          EJS_core: query.jogo,
-          EJS_multitap: true, // Ativa suporte para multitap
-          EJS_gameName: query.jogo,
-          EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
-          EJS_canvasWidth: largura,
-          EJS_canvasHeight: altura,
-          EJS_fullscreenOnLoad: true,
-          EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/"
-        });
+    console.log("Emulador configurado:", largura, "x", altura);
 
-        console.log("Emulador configurado com core:", selectedCore, "| Resolução:", largura, "x", altura);
-
-        if (!document.querySelector('script[src="https://cdn.emulatorjs.org/stable/data/loader.js"]')) {
-          const script = document.createElement("script");
-          script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-          script.async = true;
-          script.crossOrigin = "anonymous";
-          script.onload = () => console.log("EmulatorJS carregado!");
-          script.onerror = () => alert("Erro ao carregar o emulador.");
-          document.body.appendChild(script);
-        }
-      }
-    }, 100);
-
-    return () => clearInterval(checkCanvas);
-  }, [query]);
+    if (!document.querySelector('script[src="https://cdn.emulatorjs.org/stable/data/loader.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js"; // Caminho absoluto correto
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [jogo, core]); // Atualiza sempre que os parâmetros da query mudam
 
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "100%", margin: "0 auto" }}>
-        <div 
-          id="game" 
-          className={styles.game} 
-          style={{ width: "800px", height: "500px", maxWidth: "100%" }}
-        ></div>
+      <div className={styles.emulatorContainer} style={{ width: "80%", height: "500px", margin: "0 auto", maxWidth: "100%" }}>
+        <div id="game" className={styles.game} style={{ width: "800px", height: "500px" }}></div>
       </div>
     </div>
   );
