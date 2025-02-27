@@ -20,7 +20,7 @@ export default function Navbar() {
           
         <div className={styles.logo}>
           <Link href="/">
-              <Image src="/logo/Logo gegames-white.png" alt="Gegames Logo" width={200} height={50} />
+              <Image src="/logo/Logo gegames-black.png" alt="Gegames Logo" width={200} height={50} />
            </Link>
            
       </div>
