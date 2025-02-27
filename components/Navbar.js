@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from '../styles/Navbar.module.css';
 // import OnlineCounter from './OnlineCounter';
 
@@ -16,7 +17,13 @@ export default function Navbar() {
     <>
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link href="/">Gegames</Link>
+          
+        <div className={styles.logo}>
+          <Link href="/">
+              <Image src="/logo/Logo gegames-white.png" alt="Gegames Logo" width={200} height={50} />
+           </Link>
+           
+      </div>
         </div>
 
         <div className={styles.hamburger} onClick={toggleMenu}>
