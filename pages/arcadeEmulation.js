@@ -18,7 +18,7 @@ export default function Emulation() {
       window.EJS_color = "#0000";
       window.EJS_startOnLoaded = true;
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-      window.EJS_gameUrl = `../../roms/${jogo}`; 
+      window.EJS_gameUrl = `/roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
 
       // Carregar o script do EmulatorJS
@@ -51,7 +51,7 @@ export default function Emulation() {
   return (
     <div>
     <Navbar />
-    <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
+    <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "100%", margin: "0 auto" }}>
       <div 
         id="game" 
         className={styles.game} 
