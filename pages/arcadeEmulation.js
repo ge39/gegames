@@ -16,7 +16,8 @@ export default function Emulation() {
       window.EJS_core = `${core}`; 
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
       window.EJS_color = "#0000"; 
-      window.EJS_startOnLoaded = true;
+      window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
+      // window.EJS_startOnLoaded = true;
       window.EJS_gameUrl = `../../roms/${jogo}`; 
       window.EJS_biosUrl = ""; 
 
@@ -25,14 +26,7 @@ export default function Emulation() {
       const script = document.createElement('script');
       script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
       script.async = true;
-      script.onload = () => {
-        console.log('EmulatorJS carregado com sucesso!');
-        window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
-      };
-      script.onerror = () => {
-        console.error('Erro ao carregar o script do EmulatorJS');
-        alert('Erro ao carregar o emulador. Tente novamente mais tarde.');
-      };
+    
 
       document.body.appendChild(script);
 
