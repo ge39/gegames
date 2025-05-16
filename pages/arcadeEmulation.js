@@ -13,7 +13,7 @@ export default function Emulation() {
     if (jogo) {
       // Configura o emulador com base no jogo da URL
       window.EJS_player = "#game";
-      window.EJS_core = `${core}`; 
+      // window.EJS_core = `${core}`; 
       window.EJS_core = `snes`;
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
       window.EJS_color = "#0000"; 
