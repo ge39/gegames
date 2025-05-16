@@ -14,11 +14,13 @@ export default function Emulation() {
       // Configura o emulador com base no jogo da URL
       window.EJS_player = "#game";
       window.EJS_core = `${core}`; 
+      window.EJS_core = `snes`;
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
       window.EJS_color = "#0000"; 
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       // window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = `/roms/${jogo}`; 
+      // window.EJS_gameUrl = `./roms/${jogo}`; 
+      window.EJS_gameUrl = `/roms/snes/Aladdin.zip`;
       window.EJS_biosUrl = ""; 
 
       
