@@ -14,7 +14,7 @@ export default function Emulation() {
       // Configura o emulador com base no jogo da URL
       window.EJS_player = "#game";
       // window.EJS_core = `${core}`; 
-      window.EJS_core = `fbalpha2012_cps2`;
+      window.EJS_core = 'arcade';
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
       window.EJS_color = "#0000"; 
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
