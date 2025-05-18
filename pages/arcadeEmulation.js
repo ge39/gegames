@@ -18,7 +18,7 @@ export default function Emulation() {
       window.EJS_color = "#0010"; 
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       // window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = "public/roms/arcade/sf2.zip"; 
+      window.EJS_gameUrl = "public/roms/snes/Street Fighter Alpha 2 (USA).zip"; 
       window.EJS_biosUrl = ""; 
 
       
