@@ -25,7 +25,7 @@ export default function Emulation() {
           EJS_multitap: true, // Ativa suporte para multitap
           EJS_gameName: query.jogo,
           // EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
-          EJS_gameUrl:'./rom/arcade/sf2.zip',
+          EJS_gameUrl: `${window.location.origin}/roms/arcade/sf2.zip`,
           EJS_canvasWidth: largura,
           EJS_canvasHeight: altura,
           EJS_fullscreenOnLoad: true,
