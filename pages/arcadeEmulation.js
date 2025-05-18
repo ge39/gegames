@@ -5,48 +5,58 @@ import Navbar from '../components/Navbar';
 // import Footer from '../components/Footer';
 
 export default function Emulation() {
- // const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
-  const { jogo, core } = router.query;
- 
+ const { query } = useRouter();
+
   useEffect(() => {
-    if (jogo) {
-      // Configura o emulador com base no jogo da URL
-      window.EJS_player = "#game";
-      window.EJS_core = '${core}'; 
-      window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color = "#0000"; 
-      window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
-      // window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = '/roms/${jogo}'; 
-      window.EJS_biosUrl = ""; 
+    if (!query.jogo || !query.core || typeof window === "undefined") return;
 
-      
-      // Carregar o script do EmulatorJS
-      const script = document.createElement('script');
-      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-      script.async = true;
-    
+    // Ajusta o tamanho do emulador com proporção 4:3 e valores pares
+    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
-      document.body.appendChild(script);
+    const checkCanvas = setInterval(() => {
+      if (document.getElementById("game")) {
+        clearInterval(checkCanvas);
 
-      return () => {
-        document.body.removeChild(script);
-        
-      };
-    }
-  }, [core,jogo]);
-                 
+        // Configuração do EmulatorJS
+        Object.assign(window, {
+          EJS_player: "#game",
+          EJS_core: query.core,
+          EJS_multitap: true, // Ativa suporte para multitap
+          EJS_gameName: query.jogo,
+          EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
+          EJS_canvasWidth: largura,
+          EJS_canvasHeight: altura,
+          EJS_fullscreenOnLoad: true,
+        });
+
+        console.log("Emulador configurado:", largura, "x", altura);
+
+        if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
+          const script = document.createElement("script");
+          script.src = "https://www.emulatorjs.com/loader.js";
+          script.async = true;
+          script.crossOrigin = "anonymous";
+          script.onload = () => console.log("EmulatorJS carregado!");
+          script.onerror = () => alert("Erro ao carregar o emulador.");
+          document.body.appendChild(script);
+        }
+      }
+    }, 100);
+
+    return () => clearInterval(checkCanvas);
+  }, [query]);
+
   return (
     <div>
-    <Navbar />
-    <div className={styles.emulatorContainer} style={{  width: "800px", height: "500px", maxWidth: "100%", margin: "0 auto"}}>
-      <div 
-        id="game" 
-        className={styles.game} 
-        style={{ width: "800px", height: "500px", maxWidth: "100%" }}
-      ></div>
+      <Navbar />
+      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
+        <div 
+          id="game" 
+          className={styles.game} 
+          style={{ width: "800px", height: "500px", maxWidth: "100%" }}
+        ></div>
+      </div>
     </div>
-  </div>
   );
 }
