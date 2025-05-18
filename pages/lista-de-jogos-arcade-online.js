@@ -276,7 +276,7 @@ export default function Gamelist() {
           <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
-                  <a href={`/arcadeEmulation?core=${encodeURIComponent(game.core)}&jogo=${encodeURIComponent(game.path)}`}>
+                  <a href={`/arcadeEmulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
                   <Image
                     src={game.image}
