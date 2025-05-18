@@ -15,7 +15,7 @@ export default function Emulation() {
       window.EJS_player = "#game";
       window.EJS_core = `${core}`; 
       window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color = "#0000"; 
+      window.EJS_color = "#0001"; 
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
       // window.EJS_startOnLoaded = true;
       window.EJS_gameUrl = `../../roms/${jogo}`; 
