@@ -23,7 +23,7 @@ export default function Gamelist() {
     {
       id: "42982",
       path: "arcade/sf2.zip",
-      core: fbneo,
+      core: "fbneo",
       bios:"",
       name: "STREET F. II: THE WORLD WARRIOR",
       desc: "Street Fighter II é um clássico jogo de luta competitivo lançado originalmente em 1991.",
@@ -35,7 +35,7 @@ export default function Gamelist() {
     {
       id: "37402",
       path: "arcade/mshvsf.zip",
-      core: "fbneo,
+      core: "fbneo",
       bios:"",
       name: "MARVEL SUPER HEROES VS. STREET",
       desc: "Escolha seus heróis favoritos dos universos de Street Fighter e Marvel Super Heroes.",
