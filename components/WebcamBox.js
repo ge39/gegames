@@ -3,13 +3,12 @@ import { useEffect, useRef, useState } from "react";
 export default function WebcamBox() {
   const videoRef = useRef(null);
   const boxRef = useRef(null);
-  const resizeHandleRef = useRef(null);
   const [stream, setStream] = useState(null);
   const [cameraAtiva, setCameraAtiva] = useState(true);
   const [visivel, setVisivel] = useState(true);
   const [boxStyle, setBoxStyle] = useState({
     top: 60,
-    left: window.innerWidth - 180,
+    left: typeof window !== "undefined" ? window.innerWidth - 180 : 200,
     width: 160,
     height: 120,
   });
@@ -18,28 +17,32 @@ export default function WebcamBox() {
     if (visivel && !stream) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((mediaStream) => {
-          videoRef.current.srcObject = mediaStream;
-          setStream(mediaStream);
-          setCameraAtiva(true);
+          if (videoRef.current) {
+            videoRef.current.srcObject = mediaStream;
+            setStream(mediaStream);
+            setCameraAtiva(true);
+          }
         })
         .catch((err) => {
-          console.error("Erro ao acessar webcam:", err);
+          console.error("Erro ao acessar a webcam:", err);
           setCameraAtiva(false);
           setVisivel(false);
         });
     }
 
     return () => {
-      stream?.getTracks().forEach((track) => track.stop());
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
     };
-  }, [visivel]);
+  }, [visivel, stream]);
 
   const toggleCamera = () => {
     if (cameraAtiva) {
       stream?.getTracks().forEach((track) => track.stop());
+      setStream(null);
       setCameraAtiva(false);
       setVisivel(false);
-      setStream(null);
     } else {
       setVisivel(true);
     }
@@ -47,47 +50,49 @@ export default function WebcamBox() {
 
   useEffect(() => {
     const box = boxRef.current;
-    const resizeHandle = resizeHandleRef.current;
+    if (!box) return;
 
     let startX, startY, startWidth, startHeight, offsetX, offsetY;
     let isDragging = false;
     let isResizing = false;
 
-    const onMouseDownDrag = (e) => {
-      if (e.target === resizeHandle) return;
-      isDragging = true;
-      startX = e.clientX || e.touches?.[0]?.clientX;
-      startY = e.clientY || e.touches?.[0]?.clientY;
-      offsetX = startX - box.offsetLeft;
-      offsetY = startY - box.offsetTop;
+    const handleTouchOrMouseStart = (e) => {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const target = e.target;
+
+      if (target.classList.contains("resize-handle")) {
+        isResizing = true;
+        startX = clientX;
+        startY = clientY;
+        startWidth = box.offsetWidth;
+        startHeight = box.offsetHeight;
+      } else {
+        isDragging = true;
+        offsetX = clientX - box.offsetLeft;
+        offsetY = clientY - box.offsetTop;
+      }
+
       e.preventDefault();
     };
 
-    const onMouseDownResize = (e) => {
-      isResizing = true;
-      startX = e.clientX || e.touches?.[0]?.clientX;
-      startY = e.clientY || e.touches?.[0]?.clientY;
-      startWidth = box.offsetWidth;
-      startHeight = box.offsetHeight;
-      e.stopPropagation();
-      e.preventDefault();
-    };
+    const handleTouchOrMouseMove = (e) => {
+      if (!isDragging && !isResizing) return;
 
-    const onMouseMove = (e) => {
-      const x = e.clientX || e.touches?.[0]?.clientX;
-      const y = e.clientY || e.touches?.[0]?.clientY;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
       if (isDragging) {
         setBoxStyle((prev) => ({
           ...prev,
-          left: x - offsetX,
-          top: y - offsetY,
+          left: clientX - offsetX,
+          top: clientY - offsetY,
         }));
       }
 
       if (isResizing) {
-        const newWidth = Math.max(100, startWidth + (x - startX));
-        const newHeight = Math.max(75, startHeight + (y - startY));
+        const newWidth = Math.max(100, startWidth + (clientX - startX));
+        const newHeight = Math.max(75, startHeight + (clientY - startY));
         setBoxStyle((prev) => ({
           ...prev,
           width: newWidth,
@@ -96,31 +101,28 @@ export default function WebcamBox() {
       }
     };
 
-    const onMouseUp = () => {
+    const handleTouchOrMouseEnd = () => {
       isDragging = false;
       isResizing = false;
     };
 
-    box.addEventListener("mousedown", onMouseDownDrag);
-    box.addEventListener("touchstart", onMouseDownDrag, { passive: false });
-    resizeHandle.addEventListener("mousedown", onMouseDownResize);
-    resizeHandle.addEventListener("touchstart", onMouseDownResize, { passive: false });
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-    document.addEventListener("touchmove", onMouseMove, { passive: false });
-    document.addEventListener("touchend", onMouseUp);
+    // Eventos
+    box.addEventListener("mousedown", handleTouchOrMouseStart);
+    box.addEventListener("touchstart", handleTouchOrMouseStart, { passive: false });
+    window.addEventListener("mousemove", handleTouchOrMouseMove);
+    window.addEventListener("touchmove", handleTouchOrMouseMove, { passive: false });
+    window.addEventListener("mouseup", handleTouchOrMouseEnd);
+    window.addEventListener("touchend", handleTouchOrMouseEnd);
 
     return () => {
-      box.removeEventListener("mousedown", onMouseDownDrag);
-      box.removeEventListener("touchstart", onMouseDownDrag);
-      resizeHandle.removeEventListener("mousedown", onMouseDownResize);
-      resizeHandle.removeEventListener("touchstart", onMouseDownResize);
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-      document.removeEventListener("touchmove", onMouseMove);
-      document.removeEventListener("touchend", onMouseUp);
+      box.removeEventListener("mousedown", handleTouchOrMouseStart);
+      box.removeEventListener("touchstart", handleTouchOrMouseStart);
+      window.removeEventListener("mousemove", handleTouchOrMouseMove);
+      window.removeEventListener("touchmove", handleTouchOrMouseMove);
+      window.removeEventListener("mouseup", handleTouchOrMouseEnd);
+      window.removeEventListener("touchend", handleTouchOrMouseEnd);
     };
-  }, [visivel]);
+  }, [boxRef, visivel]);
 
   return (
     <>
@@ -153,13 +155,14 @@ export default function WebcamBox() {
             border: "2px solid #fff",
             borderRadius: "8px",
             overflow: "hidden",
-            touchAction: "none"
+            touchAction: "none",
           }}
         >
           <video
             ref={videoRef}
             autoPlay
             muted
+            playsInline
             style={{
               width: "100%",
               height: "100%",
@@ -167,17 +170,17 @@ export default function WebcamBox() {
             }}
           />
           <div
-            ref={resizeHandleRef}
+            className="resize-handle"
             style={{
               position: "absolute",
-              bottom: 0,
-              right: 0,
               width: 20,
               height: 20,
+              bottom: 0,
+              right: 0,
               background: "#fff",
-              borderTopLeftRadius: "5px",
               cursor: "nwse-resize",
               zIndex: 9999,
+              borderTopLeftRadius: "6px",
             }}
           />
         </div>
