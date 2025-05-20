@@ -23,7 +23,7 @@ export default function Gamelist() {
     {
       id: "42982",
       path: "arcade/sf2.zip",
-      core: "arcade",
+      core: "fbneo",
       bios:"",
       name: "STREET F. II: THE WORLD WARRIOR",
       desc: "Street Fighter II é um clássico jogo de luta competitivo lançado originalmente em 1991.",
@@ -35,7 +35,7 @@ export default function Gamelist() {
     {
       id: "37402",
       path: "arcade/mshvsf.zip",
-      core: "arcade",
+      core: "fbneo",
       bios:"",
       name: "MARVEL SUPER HEROES VS. STREET",
       desc: "Escolha seus heróis favoritos dos universos de Street Fighter e Marvel Super Heroes.",
@@ -276,7 +276,7 @@ export default function Gamelist() {
           <div className={styles.gamesGrid}>
             {arcadeGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
-                  <a href={`/arcadeEmulation?core=${encodeURIComponent(game.core)}&jogo=${encodeURIComponent(game.path)}`}>
+                  <a href={`/arcadeEmulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
                   <Image
                     src={game.image}

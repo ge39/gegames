@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import styles from "../styles/Emulation.module.css";
 import Navbar from "../components/Navbar";
+
+const WebcamBox = dynamic(() => import("../components/WebcamBox"), { ssr: false });
 
 export default function Emulation() {
   const { query } = useRouter();
@@ -21,7 +24,7 @@ export default function Emulation() {
         Object.assign(window, {
           EJS_player: "#game",
           EJS_core: query.core,
-          EJS_multitap: true, // Ativa suporte para multitap
+          EJS_multitap: true,
           EJS_gameName: query.jogo,
           EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
           EJS_canvasWidth: largura,
@@ -49,10 +52,14 @@ export default function Emulation() {
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
-        <div 
-          id="game" 
-          className={styles.game} 
+      <WebcamBox />
+      <div
+        className={styles.emulatorContainer}
+        style={{ width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}
+      >
+        <div
+          id="game"
+          className={styles.game}
           style={{ width: "800px", height: "500px", maxWidth: "100%" }}
         ></div>
       </div>
