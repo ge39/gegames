@@ -3,9 +3,16 @@ import { useEffect, useRef, useState } from "react";
 export default function WebcamBox() {
   const videoRef = useRef(null);
   const boxRef = useRef(null);
+  const resizeHandleRef = useRef(null);
   const [stream, setStream] = useState(null);
   const [cameraAtiva, setCameraAtiva] = useState(true);
   const [visivel, setVisivel] = useState(true);
+  const [boxStyle, setBoxStyle] = useState({
+    top: 60,
+    left: window.innerWidth - 180,
+    width: 160,
+    height: 120,
+  });
 
   useEffect(() => {
     if (visivel && !stream) {
@@ -29,51 +36,89 @@ export default function WebcamBox() {
 
   const toggleCamera = () => {
     if (cameraAtiva) {
-      // Desliga a câmera e oculta a janela
       stream?.getTracks().forEach((track) => track.stop());
       setCameraAtiva(false);
       setVisivel(false);
       setStream(null);
     } else {
-      // Reativa a janela e a câmera
       setVisivel(true);
     }
   };
 
-  // Drag para mover
   useEffect(() => {
     const box = boxRef.current;
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
+    const resizeHandle = resizeHandleRef.current;
 
-    const handleMouseDown = (e) => {
+    let startX, startY, startWidth, startHeight, offsetX, offsetY;
+    let isDragging = false;
+    let isResizing = false;
+
+    const onMouseDownDrag = (e) => {
+      if (e.target === resizeHandle) return;
       isDragging = true;
-      offsetX = e.clientX - box.offsetLeft;
-      offsetY = e.clientY - box.offsetTop;
+      startX = e.clientX || e.touches?.[0]?.clientX;
+      startY = e.clientY || e.touches?.[0]?.clientY;
+      offsetX = startX - box.offsetLeft;
+      offsetY = startY - box.offsetTop;
+      e.preventDefault();
     };
 
-    const handleMouseMove = (e) => {
+    const onMouseDownResize = (e) => {
+      isResizing = true;
+      startX = e.clientX || e.touches?.[0]?.clientX;
+      startY = e.clientY || e.touches?.[0]?.clientY;
+      startWidth = box.offsetWidth;
+      startHeight = box.offsetHeight;
+      e.stopPropagation();
+      e.preventDefault();
+    };
+
+    const onMouseMove = (e) => {
+      const x = e.clientX || e.touches?.[0]?.clientX;
+      const y = e.clientY || e.touches?.[0]?.clientY;
+
       if (isDragging) {
-        box.style.left = `${e.clientX - offsetX}px`;
-        box.style.top = `${e.clientY - offsetY}px`;
+        setBoxStyle((prev) => ({
+          ...prev,
+          left: x - offsetX,
+          top: y - offsetY,
+        }));
+      }
+
+      if (isResizing) {
+        const newWidth = Math.max(100, startWidth + (x - startX));
+        const newHeight = Math.max(75, startHeight + (y - startY));
+        setBoxStyle((prev) => ({
+          ...prev,
+          width: newWidth,
+          height: newHeight,
+        }));
       }
     };
 
-    const handleMouseUp = () => {
+    const onMouseUp = () => {
       isDragging = false;
+      isResizing = false;
     };
 
-    if (box) {
-      box.addEventListener("mousedown", handleMouseDown);
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
-    }
+    box.addEventListener("mousedown", onMouseDownDrag);
+    box.addEventListener("touchstart", onMouseDownDrag, { passive: false });
+    resizeHandle.addEventListener("mousedown", onMouseDownResize);
+    resizeHandle.addEventListener("touchstart", onMouseDownResize, { passive: false });
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+    document.addEventListener("touchmove", onMouseMove, { passive: false });
+    document.addEventListener("touchend", onMouseUp);
 
     return () => {
-      if (box) box.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      box.removeEventListener("mousedown", onMouseDownDrag);
+      box.removeEventListener("touchstart", onMouseDownDrag);
+      resizeHandle.removeEventListener("mousedown", onMouseDownResize);
+      resizeHandle.removeEventListener("touchstart", onMouseDownResize);
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("touchmove", onMouseMove);
+      document.removeEventListener("touchend", onMouseUp);
     };
   }, [visivel]);
 
@@ -85,7 +130,7 @@ export default function WebcamBox() {
           position: "absolute",
           top: 10,
           left: 10,
-          zIndex: 20,
+          zIndex: 9999,
           padding: "6px 12px",
           background: "#333",
           color: "#fff",
@@ -102,24 +147,38 @@ export default function WebcamBox() {
           ref={boxRef}
           style={{
             position: "absolute",
-            top: 60,
-            right: 10,
-            width: 160,
-            height: 120,
-            zIndex: 10,
-            background: "rgba(0,0,0,0.6)",
+            ...boxStyle,
+            zIndex: 9998,
+            background: "#000",
+            border: "2px solid #fff",
             borderRadius: "8px",
-            cursor: "move",
-            padding: "5px",
+            overflow: "hidden",
+            touchAction: "none"
           }}
         >
           <video
             ref={videoRef}
             autoPlay
             muted
-            width="100%"
-            height="100%"
-            style={{ borderRadius: "4px", border: "2px solid #fff" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover"
+            }}
+          />
+          <div
+            ref={resizeHandleRef}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+              width: 20,
+              height: 20,
+              background: "#fff",
+              borderTopLeftRadius: "5px",
+              cursor: "nwse-resize",
+              zIndex: 9999,
+            }}
           />
         </div>
       )}
