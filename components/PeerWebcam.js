@@ -1,138 +1,100 @@
-
-// components/PeerWebcam.js
 import { useEffect, useRef, useState } from "react";
 import Peer from "peerjs";
 
 export default function PeerWebcam({ sala }) {
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
+  const [peer, setPeer] = useState(null);
+  const [callActive, setCallActive] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const localBoxRef = useRef(null);
   const remoteBoxRef = useRef(null);
-  const [peerId, setPeerId] = useState(null);
 
   useEffect(() => {
-    const peer = new Peer();
+    const peerInstance = new Peer(`sala-${sala}`, {
+      host: "peerjs.com",
+      secure: true,
+      port: 443,
+    });
 
-    peer.on("open", (id) => {
-      setPeerId(id);
-      const outroId = sala + "-1" === id ? sala + "-2" : sala + "-1";
-      if (id !== outroId) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+    setPeer(peerInstance);
+
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(stream => {
+        if (localVideoRef.current) {
           localVideoRef.current.srcObject = stream;
-          const call = peer.call(outroId, stream);
-          call.on("stream", (remoteStream) => {
-            remoteVideoRef.current.srcObject = remoteStream;
+        }
+
+        peerInstance.on("open", id => {
+          console.log("Conectado como:", id);
+        });
+
+        peerInstance.on("call", call => {
+          call.answer(stream);
+          call.on("stream", remoteStream => {
+            if (remoteVideoRef.current) {
+              remoteVideoRef.current.srcObject = remoteStream;
+              setCallActive(true);
+            }
           });
         });
-      }
-    });
 
-    peer.on("call", (call) => {
-      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-        localVideoRef.current.srcObject = stream;
-        call.answer(stream);
-        call.on("stream", (remoteStream) => {
-          remoteVideoRef.current.srcObject = remoteStream;
-        });
-      });
-    });
+        // Tenta se conectar com o outro jogador
+        const otherPeerId = `sala-${sala}`;
+        if (peerInstance.id !== otherPeerId) {
+          const call = peerInstance.call(otherPeerId, stream);
+          call?.on("stream", remoteStream => {
+            if (remoteVideoRef.current) {
+              remoteVideoRef.current.srcObject = remoteStream;
+              setCallActive(true);
+            }
+          });
+        }
+      })
+      .catch(err => console.error("Erro ao acessar webcam:", err));
 
-    return () => peer.destroy();
+    return () => {
+      peerInstance.destroy();
+    };
   }, [sala]);
-
-  // Função para tornar a div arrastável
-  const makeDraggable = (ref) => {
-    let offsetX = 0;
-    let offsetY = 0;
-    let isDragging = false;
-
-    const startDrag = (e) => {
-      isDragging = true;
-      const touch = e.touches ? e.touches[0] : e;
-      offsetX = touch.clientX - ref.current.getBoundingClientRect().left;
-      offsetY = touch.clientY - ref.current.getBoundingClientRect().top;
-      document.addEventListener("mousemove", drag);
-      document.addEventListener("mouseup", endDrag);
-      document.addEventListener("touchmove", drag, { passive: false });
-      document.addEventListener("touchend", endDrag);
-    };
-
-    const drag = (e) => {
-      if (!isDragging) return;
-      const touch = e.touches ? e.touches[0] : e;
-      const x = touch.clientX - offsetX;
-      const y = touch.clientY - offsetY;
-      ref.current.style.left = `${x}px`;
-      ref.current.style.top = `${y}px`;
-    };
-
-    const endDrag = () => {
-      isDragging = false;
-      document.removeEventListener("mousemove", drag);
-      document.removeEventListener("mouseup", endDrag);
-      document.removeEventListener("touchmove", drag);
-      document.removeEventListener("touchend", endDrag);
-    };
-
-    ref.current.addEventListener("mousedown", startDrag);
-    ref.current.addEventListener("touchstart", startDrag, { passive: false });
-  };
 
   useEffect(() => {
     if (localBoxRef.current) makeDraggable(localBoxRef);
     if (remoteBoxRef.current) makeDraggable(remoteBoxRef);
   }, []);
 
-  return (
-    <>
-      <div
-        ref={localBoxRef}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          width: "160px",
-          height: "120px",
-          zIndex: 1000,
-          border: "2px solid lime",
-          borderRadius: "8px",
-          overflow: "hidden",
-          touchAction: "none",
-          background: "#000",
-        }}
-      >
-        <video
-          ref={localVideoRef}
-          autoPlay
-          muted
-          playsInline
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </div>
+  const makeDraggable = (ref) => {
+    let posX = 0, posY = 0, initialX = 0, initialY = 0;
 
-      <div
-        ref={remoteBoxRef}
-        style={{
-          position: "fixed",
-          top: "20px",
-          left: "20px",
-          width: "160px",
-          height: "120px",
-          zIndex: 1000,
-          border: "2px solid red",
-          borderRadius: "8px",
-          overflow: "hidden",
-          touchAction: "none",
-          background: "#000",
-        }}
-      >
-        <video
-          ref={remoteVideoRef}
-          autoPlay
-          playsInline
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </div>
-    </>
-  );
-}
+    const dragMouseDown = (e) => {
+      e.preventDefault();
+      const touch = e.touches ? e.touches[0] : e;
+      initialX = touch.clientX;
+      initialY = touch.clientY;
+
+      document.addEventListener("mousemove", elementDrag);
+      document.addEventListener("mouseup", closeDragElement);
+      document.addEventListener("touchmove", elementDrag);
+      document.addEventListener("touchend", closeDragElement);
+    };
+
+    const elementDrag = (e) => {
+      const touch = e.touches ? e.touches[0] : e;
+      posX = touch.clientX - initialX;
+      posY = touch.clientY - initialY;
+      initialX = touch.clientX;
+      initialY = touch.clientY;
+
+      ref.current.style.top = (ref.current.offsetTop + posY) + "px";
+      ref.current.style.left = (ref.current.offsetLeft + posX) + "px";
+    };
+
+    const closeDragElement = () => {
+      document.removeEventListener("mouseup", closeDragElement);
+      document.removeEventListener("mousemove", elementDrag);
+      document.removeEventListener("touchend", closeDragElement);
+      document.removeEventListener("touchmove", elementDrag);
+    };
+
+    ref.current.addEventListener("mousedown", dragMouseDown);
+    ref.current.addEventListener
