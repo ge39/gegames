@@ -106,7 +106,6 @@ export default function WebcamBox() {
       isResizing = false;
     };
 
-    // Eventos
     box.addEventListener("mousedown", handleTouchOrMouseStart);
     box.addEventListener("touchstart", handleTouchOrMouseStart, { passive: false });
     window.addEventListener("mousemove", handleTouchOrMouseMove);
@@ -129,10 +128,10 @@ export default function WebcamBox() {
       <button
         onClick={toggleCamera}
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 10,
           left: 10,
-          zIndex: 9999,
+          zIndex: 2147483647, // maior z-index para o botão também
           padding: "6px 12px",
           background: "#333",
           color: "#fff",
@@ -148,9 +147,12 @@ export default function WebcamBox() {
         <div
           ref={boxRef}
           style={{
-            position: "absolute",
-            ...boxStyle,
-            zIndex: 9998,
+            position: "fixed",  // importante: fixed para ficar sempre na tela
+            top: boxStyle.top,
+            left: boxStyle.left,
+            width: boxStyle.width,
+            height: boxStyle.height,
+            zIndex: 2147483647,  // maior valor pra garantir sobreposição total
             background: "#000",
             border: "2px solid #fff",
             borderRadius: "8px",
@@ -179,7 +181,7 @@ export default function WebcamBox() {
               right: 0,
               background: "#fff",
               cursor: "nwse-resize",
-              zIndex: 9999,
+              zIndex: 2147483647,
               borderTopLeftRadius: "6px",
             }}
           />

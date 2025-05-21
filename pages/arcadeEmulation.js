@@ -8,33 +8,40 @@ export default function Emulation() {
   const { query } = useRouter();
 
   useEffect(() => {
-    if (jogo) {
-      // Configura o emulador com base no jogo da URL
-      window.EJS_player = "#game";
-      window.EJS_core = `${core}`; 
-      window.EJS_gameName = jogo || 'Jogo Padrão'; // Nome do jogo
-      window.EJS_color = "#0000"; 
-      window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/"; 
-      // window.EJS_startOnLoaded = true;
-      window.EJS_gameUrl = `/roms/${jogo}`; 
-      window.EJS_biosUrl = ""; 
 
-      
-      // Carregar o script do EmulatorJS
-      const script = document.createElement('script');
-      script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-      script.async = true;
-    
+    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    const altura = Math.round((largura * 3) / 4 / 2) * 2;
 
-      document.body.appendChild(script);
+    const checkCanvas = setInterval(() => {
+      if (document.getElementById("game")) {
+        clearInterval(checkCanvas);
 
-      return () => {
-        document.body.removeChild(script);
-        
-      };
-    }
-  }, [core,jogo]);
-                 
+        Object.assign(window, {
+          EJS_player: "#game",
+          EJS_core: query.core,
+          EJS_multitap: true,
+          EJS_gameName: query.jogo,
+          EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
+          EJS_canvasWidth: largura,
+          EJS_canvasHeight: altura,
+          EJS_fullscreenOnLoad: true,
+        });
+
+        if (!document.querySelector('script[src="https://www.emulatorjs.com/loader.js"]')) {
+          const script = document.createElement("script");
+          script.src = "https://www.emulatorjs.com/loader.js";
+          script.async = true;
+          script.crossOrigin = "anonymous";
+          script.onload = () => console.log("EmulatorJS carregado!");
+          script.onerror = () => alert("Erro ao carregar o emulador.");
+          document.body.appendChild(script);
+        }
+      }
+    }, 100);
+
+    return () => clearInterval(checkCanvas);
+  }, [query]);
+
   return (
     <div>
       <Navbar />
