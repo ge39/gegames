@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import styles from "../styles/Emulation.module.css";
 import Navbar from "../components/Navbar";
+import PeerConnection from "../components/PeerConnection";
+
 
 // Carrega WebcamBox apenas no client side
 const WebcamBox = dynamic(() => import("../components/WebcamBox"), { ssr: false });
@@ -67,13 +69,13 @@ export default function Emulation() {
   return (
     <div>
       <Navbar />
-     <WebcamBox style={{ zIndex: 1000000 }} />
+     
 
       <div
         className={styles.emulatorContainer}
         style={{
           width: dimensions.width,
-          height: dimensions.height / 2,
+          height: dimensions.height / 1.7,
           maxWidth: "70%",
           margin: "0 auto",
           position: "relative",
@@ -83,8 +85,12 @@ export default function Emulation() {
         <div
           id="game"
           className={styles.game}
-          style={{ width: "100%", height: "100%",zIndex: 1,position: "absolute" }}
-        ></div>
+          style={{ width: "100%", height: "100%", position: "relative", overflow: "hidden" }}
+          >   
+          <WebcamBox insideEmulator />
+           <PeerConnection peerId={query.peerId} />
+        </div>
+
       </div>
     </div>
   );
