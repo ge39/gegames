@@ -85,7 +85,7 @@ export default function PeerConnection() {
           cursor: "move",
         }}
       >
-        <strong style={{ fontSize: 14 }}>Conexão P2P</strong>
+        <strong style={{ fontSize: 14 }}>WebcamView</strong>
         <button
           onClick={() => setMinimized(!minimized)}
           style={{
