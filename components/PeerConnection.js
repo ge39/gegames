@@ -6,14 +6,13 @@ export default function PeerConnection() {
   const [peerIdParam, setPeerIdParam] = useState("");
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
-//   const [remoteStream, setRemoteStream] = useState(null);
   const [minimized, setMinimized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 80 });
 
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
+  const localStreamRef = useRef(null);
   const boxRef = useRef(null);
 
   useEffect(() => {
@@ -22,18 +21,27 @@ export default function PeerConnection() {
 
     peer.on("open", (id) => {
       setMyPeerId(`&peerId=${id}`);
-      setPeerIdParam(`&peerId=${id}`);  // <-- variável com concatenação
+      setPeerIdParam(`&peerId=${id}`);
     });
 
-    peer.on("call", (call) => {
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-        call.answer(stream);
+    peer.on("call", async (call) => {
+      if (!localStreamRef.current) {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        localStreamRef.current = stream;
         localVideoRef.current.srcObject = stream;
-        call.on("stream", (remoteStream) => {
-          setRemoteStream(remoteStream);
+      }
+
+      call.answer(localStreamRef.current);
+
+      call.on("stream", (remoteStream) => {
+        if (remoteVideoRef.current) {
           remoteVideoRef.current.srcObject = remoteStream;
-          setConnected(true);
-        });
+        }
+        setConnected(true);
+      });
+
+      call.on("close", () => {
+        setConnected(false);
       });
     });
 
@@ -42,79 +50,40 @@ export default function PeerConnection() {
     };
   }, []);
 
-  const connectToPeer = () => {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+  const connectToPeer = async () => {
+    if (!localStreamRef.current) {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      localStreamRef.current = stream;
       localVideoRef.current.srcObject = stream;
-      const call = peerRef.current.call(remoteId, stream);
-      callRef.current = call;
+    }
 
-      call.on("stream", (remoteStream) => {
-        setRemoteStream(remoteStream);
+    const call = peerRef.current.call(remoteId, localStreamRef.current);
+    callRef.current = call;
+
+    call.on("stream", (remoteStream) => {
+      if (remoteVideoRef.current) {
         remoteVideoRef.current.srcObject = remoteStream;
-        setConnected(true);
-      });
+      }
+      setConnected(true);
+    });
 
-      call.on("close", () => {
-        setConnected(false);
-        setRemoteStream(null);
-      });
+    call.on("close", () => {
+      setConnected(false);
     });
   };
 
   const copyPeerId = () => {
     navigator.clipboard.writeText(myPeerId);
-     alert("ID copiado!");
+    alert("ID copiado!");
   };
-
-  // Arrastar a janela
-  useEffect(() => {
-    const box = boxRef.current;
-    if (!box) return;
-
-    let isDragging = false;
-    let startX = 0;
-    let startY = 0;
-    let initialX = 0;
-    let initialY = 0;
-
-    const handleMouseDown = (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      initialX = position.x;
-      initialY = position.y;
-      e.preventDefault();
-    };
-
-    const handleMouseMove = (e) => {
-      if (!isDragging) return;
-      const deltaX = e.clientX - startX;
-      const deltaY = e.clientY - startY;
-      setPosition({ x: initialX + deltaX, y: initialY + deltaY });
-    };
-
-    const handleMouseUp = () => {
-      isDragging = false;
-    };
-
-    box.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      box.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [position]);
 
   return (
     <div
       ref={boxRef}
       style={{
         position: "fixed",
-        top: position.y,
-        left: position.x,
+        top: 80,
+        left: 20,
         zIndex: 999999,
         width: minimized ? 180 : 260,
         background: "#111",
