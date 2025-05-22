@@ -3,8 +3,10 @@ import Peer from "peerjs";
 
 export default function PeerConnection() {
   const [myPeerId, setMyPeerId] = useState("");
+  const [peerIdParam, setPeerIdParam] = useState("");
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
+  const [remoteStream, setRemoteStream] = useState(null);
   const [minimized, setMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 20, y: 80 });
 
@@ -19,16 +21,17 @@ export default function PeerConnection() {
     peerRef.current = peer;
 
     peer.on("open", (id) => {
-      setMyPeerId(id);
+      setMyPeerId(`&peerId=${id}`);
+      setPeerIdParam(`&peerId=${id}`);  // <-- variável com concatenação
     });
 
     peer.on("call", (call) => {
       navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
         call.answer(stream);
-        if (localVideoRef.current) localVideoRef.current.srcObject = stream;
-
+        localVideoRef.current.srcObject = stream;
         call.on("stream", (remoteStream) => {
-          if (remoteVideoRef.current) remoteVideoRef.current.srcObject = remoteStream;
+          setRemoteStream(remoteStream);
+          remoteVideoRef.current.srcObject = remoteStream;
           setConnected(true);
         });
       });
@@ -41,19 +44,26 @@ export default function PeerConnection() {
 
   const connectToPeer = () => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-      if (localVideoRef.current) localVideoRef.current.srcObject = stream;
+      localVideoRef.current.srcObject = stream;
       const call = peerRef.current.call(remoteId, stream);
       callRef.current = call;
 
       call.on("stream", (remoteStream) => {
-        if (remoteVideoRef.current) remoteVideoRef.current.srcObject = remoteStream;
+        setRemoteStream(remoteStream);
+        remoteVideoRef.current.srcObject = remoteStream;
         setConnected(true);
       });
 
       call.on("close", () => {
         setConnected(false);
+        setRemoteStream(null);
       });
     });
+  };
+
+  const copyPeerId = () => {
+    navigator.clipboard.writeText(myPeerId);
+    // alert("ID copiado!");
   };
 
   // Arrastar a janela
@@ -114,7 +124,7 @@ export default function PeerConnection() {
         fontFamily: "sans-serif",
         cursor: "move",
         userSelect: "none",
-        transition: "all 0.2s ease-in-out",
+        transition: "all 0.2s ease-in-out"
       }}
     >
       <div
@@ -125,7 +135,7 @@ export default function PeerConnection() {
           justifyContent: "space-between",
           alignItems: "center",
           borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
+          borderTopRightRadius: 8
         }}
       >
         <strong style={{ fontSize: 14 }}>Conexão P2P</strong>
@@ -136,8 +146,9 @@ export default function PeerConnection() {
             border: "none",
             color: "#fff",
             fontSize: 16,
-            cursor: "pointer",
+            cursor: "pointer"
           }}
+          title={minimized ? "Maximizar" : "Minimizar"}
         >
           {minimized ? "▣" : "—"}
         </button>
@@ -146,16 +157,14 @@ export default function PeerConnection() {
       {!minimized && (
         <div style={{ padding: 10 }}>
           <p style={{ fontSize: 12, margin: "0 0 6px 0", wordBreak: "break-word" }}>
-            <strong>Seu ID:</strong>
-            <br />
-            {myPeerId}
+            <strong>Seu ID:</strong><br />{myPeerId}
+          </p>
+          <p style={{ fontSize: 12, margin: "0 0 10px 0", color: "#aaa" }}>
+            <em>Parametro: {peerIdParam}</em>
           </p>
 
           <button
-            onClick={() => {
-              navigator.clipboard.writeText(myPeerId);
-              alert("ID copiado!");
-            }}
+            onClick={copyPeerId}
             style={{
               width: "100%",
               padding: "6px",
@@ -164,7 +173,7 @@ export default function PeerConnection() {
               border: "none",
               borderRadius: 4,
               cursor: "pointer",
-              marginBottom: 10,
+              marginBottom: 10
             }}
           >
             Copiar ID
@@ -180,7 +189,7 @@ export default function PeerConnection() {
               padding: 6,
               borderRadius: 4,
               border: "1px solid #ccc",
-              marginBottom: 5,
+              marginBottom: 5
             }}
           />
           <button
@@ -194,24 +203,15 @@ export default function PeerConnection() {
               border: "none",
               borderRadius: 4,
               cursor: "pointer",
-              fontSize: 14,
+              fontSize: 14
             }}
           >
             Conectar
           </button>
 
           <div style={{ display: "flex", gap: 5, marginTop: 10 }}>
-            <video
-              ref={localVideoRef}
-              autoPlay
-              muted
-              style={{ width: "48%", height: 90, background: "#000" }}
-            />
-            <video
-              ref={remoteVideoRef}
-              autoPlay
-              style={{ width: "48%", height: 90, background: "#000" }}
-            />
+            <video ref={localVideoRef} autoPlay muted style={{ width: "48%", height: 90, background: "#000" }} />
+            <video ref={remoteVideoRef} autoPlay style={{ width: "48%", height: 90, background: "#000" }} />
           </div>
 
           {connected && <p style={{ marginTop: 6, fontSize: 12, color: "#0f0" }}>Conectado ✅</p>}
