@@ -13,9 +13,7 @@ export default function PeerConnection() {
   const localStreamRef = useRef(null);
 
   useEffect(() => {
-    // Recupera ID salvo, se existir
     const storedId = localStorage.getItem("myPeerId");
-
     const peer = storedId ? new Peer(storedId) : new Peer();
     peerRef.current = peer;
 
@@ -51,7 +49,6 @@ export default function PeerConnection() {
 
   const toggleCamera = async () => {
     if (cameraOn) {
-      // Desliga câmera local
       if (localStreamRef.current) {
         localStreamRef.current.getTracks().forEach((track) => track.stop());
       }
@@ -109,6 +106,26 @@ export default function PeerConnection() {
       <p style={{ fontSize: 12, margin: "10px 0 6px" }}>
         <strong>Seu ID:</strong><br />
         <code>{myPeerId || "gerando..."}</code>
+        <br />
+        <button
+          onClick={() => {
+            if (myPeerId) {
+              navigator.clipboard.writeText(myPeerId);
+              alert("ID copiado para a área de transferência!");
+            }
+          }}
+          style={{
+            marginTop: 5,
+            fontSize: 12,
+            color: "#0af",
+            background: "none",
+            border: "none",
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+        >
+          Copiar ID
+        </button>
       </p>
 
       <button
