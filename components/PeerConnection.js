@@ -6,7 +6,7 @@ export default function PeerConnection() {
   const [peerIdParam, setPeerIdParam] = useState("");
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
-  const [remoteStream, setRemoteStream] = useState(null);
+//   const [remoteStream, setRemoteStream] = useState(null);
   const [minimized, setMinimized] = useState(false);
   const [position, setPosition] = useState({ x: 20, y: 80 });
 
@@ -63,7 +63,7 @@ export default function PeerConnection() {
 
   const copyPeerId = () => {
     navigator.clipboard.writeText(myPeerId);
-    // alert("ID copiado!");
+     alert("ID copiado!");
   };
 
   // Arrastar a janela
