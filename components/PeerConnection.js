@@ -6,12 +6,11 @@ export default function PeerConnection() {
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
   const [minimized, setMinimized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 80 });
 
+  // Removei localVideoRef pois não será usado mais
   const remoteVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
-  const boxRef = useRef(null);
 
   useEffect(() => {
     const peer = new Peer();
@@ -48,21 +47,21 @@ export default function PeerConnection() {
 
       call.on("close", () => {
         setConnected(false);
-        if (remoteVideoRef.current) remoteVideoRef.current.srcObject = null;
       });
     });
   };
 
-  // Código para arrastar a janela (mesmo que antes)...
-  // ... (se quiser, posso incluir aqui também)
+  const copyPeerId = () => {
+    navigator.clipboard.writeText(myPeerId);
+    alert("ID copiado!");
+  };
 
   return (
     <div
-      ref={boxRef}
       style={{
         position: "fixed",
-        top: position.y,
-        left: position.x,
+        top: 80,
+        left: 20,
         zIndex: 999999,
         width: minimized ? 180 : 260,
         background: "#111",
@@ -70,9 +69,8 @@ export default function PeerConnection() {
         borderRadius: 8,
         boxShadow: "0 0 10px rgba(0,0,0,0.5)",
         fontFamily: "sans-serif",
-        cursor: "move",
         userSelect: "none",
-        transition: "all 0.2s ease-in-out"
+        transition: "all 0.2s ease-in-out",
       }}
     >
       <div
@@ -83,7 +81,8 @@ export default function PeerConnection() {
           justifyContent: "space-between",
           alignItems: "center",
           borderTopLeftRadius: 8,
-          borderTopRightRadius: 8
+          borderTopRightRadius: 8,
+          cursor: "move",
         }}
       >
         <strong style={{ fontSize: 14 }}>Conexão P2P</strong>
@@ -94,7 +93,7 @@ export default function PeerConnection() {
             border: "none",
             color: "#fff",
             fontSize: 16,
-            cursor: "pointer"
+            cursor: "pointer",
           }}
           title={minimized ? "Maximizar" : "Minimizar"}
         >
@@ -105,8 +104,25 @@ export default function PeerConnection() {
       {!minimized && (
         <div style={{ padding: 10 }}>
           <p style={{ fontSize: 12, margin: "0 0 6px 0", wordBreak: "break-word" }}>
-            <strong>Seu ID:</strong><br />{myPeerId}
+            <strong>Seu ID:</strong><br />
+            {myPeerId}
           </p>
+
+          <button
+            onClick={copyPeerId}
+            style={{
+              width: "100%",
+              padding: "6px",
+              background: "#00bfff",
+              color: "#fff",
+              border: "none",
+              borderRadius: 4,
+              cursor: "pointer",
+              marginBottom: 10,
+            }}
+          >
+            Copiar ID
+          </button>
 
           <input
             type="text"
@@ -118,7 +134,7 @@ export default function PeerConnection() {
               padding: 6,
               borderRadius: 4,
               border: "1px solid #ccc",
-              marginBottom: 5
+              marginBottom: 5,
             }}
           />
           <button
@@ -132,17 +148,19 @@ export default function PeerConnection() {
               border: "none",
               borderRadius: 4,
               cursor: "pointer",
-              fontSize: 14
+              fontSize: 14,
             }}
           >
             Conectar
           </button>
 
-          <video
-            ref={remoteVideoRef}
-            autoPlay
-            style={{ width: "100%", height: 180, background: "#000", marginTop: 10 }}
-          />
+          <div style={{ marginTop: 10 }}>
+            <video
+              ref={remoteVideoRef}
+              autoPlay
+              style={{ width: "100%", height: 180, background: "#000" }}
+            />
+          </div>
 
           {connected && <p style={{ marginTop: 6, fontSize: 12, color: "#0f0" }}>Conectado ✅</p>}
         </div>
