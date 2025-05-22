@@ -5,40 +5,31 @@ export default function PeerConnection() {
   const [myPeerId, setMyPeerId] = useState("");
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
-  const [minimized, setMinimized] = useState(false);
+  const [cameraOn, setCameraOn] = useState(false);
 
-  // Removei localVideoRef pois não será usado mais
   const remoteVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
+  const localStreamRef = useRef(null);
 
   useEffect(() => {
-    const peer = new Peer();
+    // Recupera ID salvo, se existir
+    const storedId = localStorage.getItem("myPeerId");
+
+    const peer = storedId ? new Peer(storedId) : new Peer();
     peerRef.current = peer;
 
     peer.on("open", (id) => {
       setMyPeerId(id);
+      localStorage.setItem("myPeerId", id);
     });
 
-    peer.on("call", (call) => {
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-        call.answer(stream);
-        call.on("stream", (remoteStream) => {
-          remoteVideoRef.current.srcObject = remoteStream;
-          setConnected(true);
-        });
-      });
-    });
+    peer.on("call", async (call) => {
+      if (!cameraOn) return;
 
-    return () => {
-      peer.destroy();
-    };
-  }, []);
-
-  const connectToPeer = () => {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-      const call = peerRef.current.call(remoteId, stream);
-      callRef.current = call;
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      localStreamRef.current = stream;
+      call.answer(stream);
 
       call.on("stream", (remoteStream) => {
         remoteVideoRef.current.srcObject = remoteStream;
@@ -47,13 +38,54 @@ export default function PeerConnection() {
 
       call.on("close", () => {
         setConnected(false);
+        remoteVideoRef.current.srcObject = null;
       });
+
+      callRef.current = call;
     });
+
+    return () => {
+      peer.destroy();
+    };
+  }, [cameraOn]);
+
+  const toggleCamera = async () => {
+    if (cameraOn) {
+      // Desliga câmera local
+      if (localStreamRef.current) {
+        localStreamRef.current.getTracks().forEach((track) => track.stop());
+      }
+      setCameraOn(false);
+    } else {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        localStreamRef.current = stream;
+        setCameraOn(true);
+      } catch (err) {
+        alert("Erro ao acessar a câmera: " + err.message);
+      }
+    }
   };
 
-  const copyPeerId = () => {
-    navigator.clipboard.writeText(myPeerId);
-    alert("ID copiado!");
+  const connectToPeer = async () => {
+    if (!cameraOn) {
+      alert("Ligue a câmera antes de conectar.");
+      return;
+    }
+
+    const call = peerRef.current.call(remoteId, localStreamRef.current);
+
+    call.on("stream", (remoteStream) => {
+      remoteVideoRef.current.srcObject = remoteStream;
+      setConnected(true);
+    });
+
+    call.on("close", () => {
+      setConnected(false);
+      remoteVideoRef.current.srcObject = null;
+    });
+
+    callRef.current = call;
   };
 
   return (
@@ -63,107 +95,82 @@ export default function PeerConnection() {
         top: 80,
         left: 20,
         zIndex: 999999,
-        width: minimized ? 180 : 260,
+        width: 260,
         background: "#111",
         color: "#fff",
         borderRadius: 8,
         boxShadow: "0 0 10px rgba(0,0,0,0.5)",
         fontFamily: "sans-serif",
-        userSelect: "none",
-        transition: "all 0.2s ease-in-out",
+        padding: 12
       }}
     >
-      <div
+      <strong style={{ fontSize: 14 }}>Conexão Webcam</strong>
+
+      <p style={{ fontSize: 12, margin: "10px 0 6px" }}>
+        <strong>Seu ID:</strong><br />
+        <code>{myPeerId || "gerando..."}</code>
+      </p>
+
+      <button
+        onClick={toggleCamera}
         style={{
-          background: "#222",
-          padding: "8px 10px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
-          cursor: "move",
+          background: "none",
+          border: "none",
+          color: cameraOn ? "#f33" : "#0f0",
+          cursor: "pointer",
+          textDecoration: "underline",
+          marginBottom: 10
         }}
       >
-        <strong style={{ fontSize: 14 }}>WebcamView</strong>
-        <button
-          onClick={() => setMinimized(!minimized)}
-          style={{
-            background: "none",
-            border: "none",
-            color: "#fff",
-            fontSize: 16,
-            cursor: "pointer",
-          }}
-          title={minimized ? "Maximizar" : "Minimizar"}
-        >
-          {minimized ? "▣" : "—"}
-        </button>
-      </div>
+        {cameraOn ? "Desligar câmera" : "Ligar câmera"}
+      </button>
 
-      {!minimized && (
-        <div style={{ padding: 10 }}>
-          <p style={{ fontSize: 12, margin: "0 0 6px 0", wordBreak: "break-word" }}>
-            <strong>Seu ID:</strong><br />
-            {myPeerId}
-          </p>
+      <input
+        type="text"
+        value={remoteId}
+        onChange={(e) => setRemoteId(e.target.value)}
+        placeholder="ID do amigo"
+        style={{
+          width: "100%",
+          padding: 6,
+          borderRadius: 4,
+          border: "1px solid #ccc",
+          marginBottom: 8
+        }}
+      />
 
-          <button
-            onClick={copyPeerId}
-            style={{
-              width: "100%",
-              padding: "6px",
-              background: "#00bfff",
-              color: "#fff",
-              border: "none",
-              borderRadius: 4,
-              cursor: "pointer",
-              marginBottom: 10,
-            }}
-          >
-            Copiar ID
-          </button>
+      <button
+        onClick={connectToPeer}
+        disabled={!remoteId}
+        style={{
+          width: "100%",
+          padding: "6px 10px",
+          background: "#28a745",
+          color: "#fff",
+          border: "none",
+          borderRadius: 4,
+          cursor: "pointer",
+          fontSize: 14
+        }}
+      >
+        Conectar
+      </button>
 
-          <input
-            type="text"
-            value={remoteId}
-            onChange={(e) => setRemoteId(e.target.value)}
-            placeholder="ID do amigo"
-            style={{
-              width: "100%",
-              padding: 6,
-              borderRadius: 4,
-              border: "1px solid #ccc",
-              marginBottom: 5,
-            }}
-          />
-          <button
-            onClick={connectToPeer}
-            disabled={!remoteId}
-            style={{
-              width: "100%",
-              padding: "6px 10px",
-              background: "#28a745",
-              color: "#fff",
-              border: "none",
-              borderRadius: 4,
-              cursor: "pointer",
-              fontSize: 14,
-            }}
-          >
-            Conectar
-          </button>
+      <video
+        ref={remoteVideoRef}
+        autoPlay
+        playsInline
+        style={{
+          width: "100%",
+          height: 160,
+          marginTop: 10,
+          background: "#000",
+          borderRadius: 4
+        }}
+      />
 
-          <div style={{ marginTop: 10 }}>
-            <video
-              ref={remoteVideoRef}
-              autoPlay
-              style={{ width: "100%", height: 180, background: "#000" }}
-            />
-          </div>
-
-          {connected && <p style={{ marginTop: 6, fontSize: 12, color: "#0f0" }}>Conectado ✅</p>}
-        </div>
+      {connected && (
+        <p style={{ marginTop: 6, fontSize: 12, color: "#0f0" }}>Conectado ✅</p>
       )}
     </div>
   );
