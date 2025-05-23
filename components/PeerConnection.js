@@ -6,28 +6,25 @@ export default function PeerConnection() {
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
   const [cameraOn, setCameraOn] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 80 });
+  const draggingRef = useRef(false);
+  const positionRef = useRef({ x: 20, y: 20 });
+  const containerRef = useRef(null);
 
   const remoteVideoRef = useRef(null);
   const localVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
   const localStreamRef = useRef(null);
-  const containerRef = useRef(null);
 
+  // Peer init
   useEffect(() => {
-    const storedId = localStorage.getItem("myPeerId");
-    const peer = storedId ? new Peer(storedId) : new Peer();
+    const peer = new Peer(); // Gera ID aleatório
     peerRef.current = peer;
 
-    peer.on("open", (id) => {
-      setMyPeerId(id);
-      localStorage.setItem("myPeerId", id);
-    });
+    peer.on("open", (id) => setMyPeerId(id));
 
     peer.on("call", async (call) => {
       if (!cameraOn) return;
-
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         localStreamRef.current = stream;
@@ -50,35 +47,8 @@ export default function PeerConnection() {
       }
     });
 
-    return () => {
-      peer.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    let offsetX = 0;
-    let offsetY = 0;
-
-    const onMouseDown = (e) => {
-      offsetX = e.clientX - position.x;
-      offsetY = e.clientY - position.y;
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
-    };
-
-    const onMouseMove = (e) => {
-      setPosition({ x: e.clientX - offsetX, y: e.clientY - offsetY });
-    };
-
-    const onMouseUp = () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-    };
-
-    el.addEventListener("mousedown", onMouseDown);
-    return () => el.removeEventListener("mousedown", onMouseDown);
-  }, [position]);
+    return () => peer.destroy();
+  }, [cameraOn]);
 
   const toggleCamera = async () => {
     if (cameraOn) {
@@ -98,35 +68,53 @@ export default function PeerConnection() {
   };
 
   const connectToPeer = () => {
-    if (!cameraOn) {
-      alert("Ligue a câmera antes de conectar.");
-      return;
+    if (!cameraOn) return alert("Ligue a câmera antes de conectar.");
+    try {
+      const call = peerRef.current.call(remoteId, localStreamRef.current);
+      call.on("stream", (remoteStream) => {
+        remoteVideoRef.current.srcObject = remoteStream;
+        setConnected(true);
+      });
+      call.on("close", () => {
+        setConnected(false);
+        remoteVideoRef.current.srcObject = null;
+      });
+      callRef.current = call;
+    } catch {
+      alert("Erro ao tentar iniciar a chamada. Verifique o ID.");
     }
-
-    const call = peerRef.current.call(remoteId, localStreamRef.current);
-
-    call.on("stream", (remoteStream) => {
-      remoteVideoRef.current.srcObject = remoteStream;
-      setConnected(true);
-    });
-
-    call.on("close", () => {
-      setConnected(false);
-      remoteVideoRef.current.srcObject = null;
-    });
-
-    callRef.current = call;
   };
 
   const disconnect = () => {
     callRef.current?.close();
-    callRef.current = null;
     localStreamRef.current?.getTracks().forEach((track) => track.stop());
-    localStreamRef.current = null;
     localVideoRef.current.srcObject = null;
     remoteVideoRef.current.srcObject = null;
     setConnected(false);
     setCameraOn(false);
+  };
+
+  // Movimento da div
+  const startDrag = (e) => {
+    draggingRef.current = true;
+    positionRef.current = {
+      x: e.clientX - containerRef.current.offsetLeft,
+      y: e.clientY - containerRef.current.offsetTop,
+    };
+    document.addEventListener("mousemove", handleDrag);
+    document.addEventListener("mouseup", stopDrag);
+  };
+
+  const handleDrag = (e) => {
+    if (!draggingRef.current) return;
+    containerRef.current.style.left = `${e.clientX - positionRef.current.x}px`;
+    containerRef.current.style.top = `${e.clientY - positionRef.current.y}px`;
+  };
+
+  const stopDrag = () => {
+    draggingRef.current = false;
+    document.removeEventListener("mousemove", handleDrag);
+    document.removeEventListener("mouseup", stopDrag);
   };
 
   return (
@@ -134,27 +122,29 @@ export default function PeerConnection() {
       ref={containerRef}
       style={{
         position: "fixed",
-        top: position.y,
-        left: position.x,
-        zIndex: 9999,
-        width: "170px",
+        top: 20,
+        left: 20,
+        width: 200,
         background: "#111",
         color: "#fff",
+        padding: 10,
         borderRadius: 8,
-        boxShadow: "0 6px 12px rgba(0,0,0,0.6)",
         fontFamily: "sans-serif",
-        padding: 8,
         fontSize: 12,
-        cursor: "move",
+        zIndex: 9999,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.6)",
         userSelect: "none",
+        cursor: "move",
       }}
+      onMouseDown={startDrag}
     >
-      <div style={{ marginBottom: 4 }}>
+      <div>
         <strong>ID:</strong>
-        <div style={{ wordWrap: "break-word", fontSize: 10 }}>{myPeerId || "gerando..."}</div>
+        <div style={{ fontSize: 10, wordWrap: "break-word" }}>{myPeerId || "gerando..."}</div>
         {myPeerId && (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               navigator.clipboard.writeText(myPeerId);
               alert("ID copiado!");
             }}
@@ -174,14 +164,14 @@ export default function PeerConnection() {
         )}
       </div>
 
-      <div style={{ display: "flex", gap: 4, justifyContent: "center" }}>
+      <div style={{ display: "flex", gap: 6, marginTop: 8, justifyContent: "center" }}>
         <video
           ref={localVideoRef}
           autoPlay
           muted
           playsInline
-          width={68}
-          height={51}
+          width={80}
+          height={60}
           style={{
             background: "#222",
             borderRadius: 4,
@@ -193,8 +183,8 @@ export default function PeerConnection() {
           ref={remoteVideoRef}
           autoPlay
           playsInline
-          width={68}
-          height={51}
+          width={80}
+          height={60}
           style={{
             background: "#000",
             borderRadius: 4,
@@ -203,27 +193,33 @@ export default function PeerConnection() {
         />
       </div>
 
-      <div style={{ marginTop: 8, display: "flex", flexDirection: "column" }}>
-        <label style={{ fontSize: 10, color: "#aaa", marginBottom: 2 }}>ID do amigo:</label>
+      <div style={{ marginTop: 8 }}>
+        <label style={{ fontSize: 11 }}>ID do amigo:</label>
         <input
           type="text"
           value={remoteId}
           onChange={(e) => setRemoteId(e.target.value)}
-          placeholder="Digite o ID"
+          placeholder="Cole o ID aqui"
           style={{
-            padding: "5px 6px",
-            fontSize: 10,
-            borderRadius: 5,
+            width: "100%",
+            padding: 4,
+            fontSize: 11,
+            marginTop: 2,
+            background: "#222",
+            color: "#fff",
             border: "1px solid #444",
-            background: "#2c2c3d",
-            color: "#eee",
+            borderRadius: 4,
           }}
+          onMouseDown={(e) => e.stopPropagation()}
         />
       </div>
 
       <div style={{ marginTop: 6, display: "flex", gap: 4 }}>
         <button
-          onClick={toggleCamera}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleCamera();
+          }}
           style={{
             flex: 1,
             fontSize: 11,
@@ -238,7 +234,10 @@ export default function PeerConnection() {
           {cameraOn ? "Desligar" : "Ligar"}
         </button>
         <button
-          onClick={connectToPeer}
+          onClick={(e) => {
+            e.stopPropagation();
+            connectToPeer();
+          }}
           disabled={!remoteId}
           style={{
             flex: 1,
@@ -257,7 +256,10 @@ export default function PeerConnection() {
 
       {connected && (
         <button
-          onClick={disconnect}
+          onClick={(e) => {
+            e.stopPropagation();
+            disconnect();
+          }}
           style={{
             marginTop: 4,
             width: "100%",
