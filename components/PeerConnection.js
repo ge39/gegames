@@ -170,28 +170,28 @@ export default function PeerConnection() {
 
   return (
     <div
-      ref={boxRef}
-      onMouseDown={onMouseDown}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-      style={{
-        position: "fixed",
-        top: 80,
-        left: 20,
-        zIndex: 999999,
-        width: 246,
-        maxWidth: "95vw",
-        background: "#1e1e1e",
-        color: "#ddd",
-        borderRadius: 8,
-        boxShadow: "0 5px 15px rgba(0,0,0,0.6)",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        userSelect: "none",
-        overflow: "hidden",
-        touchAction: "none",
-      }}
-    >
+    ref={boxRef}
+    onMouseDown={onMouseDown}
+    onTouchStart={onTouchStart}
+    onTouchMove={onTouchMove}
+    onTouchEnd={onTouchEnd}
+    style={{
+      position: "fixed",
+      top: 80,
+      left: 20,
+      zIndex: 2147483647, // maior z-index para o botão também
+      width: 197, // reduzido 20%
+      maxWidth: "95vw",
+      background: "#1e1e1e",
+      color: "#ddd",
+      borderRadius: 8,
+      boxShadow: "0 5px 15px rgba(0,0,0,0.6)",
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      userSelect: "none",
+      overflow: "hidden",
+      touchAction: "none",
+    }}
+  >
       <div
         className="header"
         style={{
@@ -341,17 +341,17 @@ export default function PeerConnection() {
 
           <video
             ref={remoteVideoRef}
-            autoPlay
-            playsInline
-            style={{
-              width: "100%",
-              height: 131,
-              marginTop: 10,
-              background: "#000",
-              borderRadius: 4,
-              userSelect: "none",
-            }}
-          />
+      autoPlay
+      playsInline
+        style={{
+          width: "100%",
+          height: 105, // reduzido 20%
+          marginTop: 10,
+          background: "#000",
+          borderRadius: 4,
+          userSelect: "none",
+        }}
+      />
 
           {connected && (
             <p
