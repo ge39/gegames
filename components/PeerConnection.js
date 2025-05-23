@@ -6,14 +6,16 @@ export default function PeerConnection() {
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
   const [cameraOn, setCameraOn] = useState(false);
+  const [minimized, setMinimized] = useState(false);
 
   const remoteVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
   const localStreamRef = useRef(null);
   const boxRef = useRef(null);
-  const offset = useRef({ x: 0, y: 0 });
+
   const isDragging = useRef(false);
+  const dragOffset = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const storedId = localStorage.getItem("myPeerId");
@@ -28,7 +30,10 @@ export default function PeerConnection() {
     peer.on("call", async (call) => {
       if (!cameraOn) return;
 
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      });
       localStreamRef.current = stream;
       call.answer(stream);
 
@@ -58,7 +63,10 @@ export default function PeerConnection() {
       setCameraOn(false);
     } else {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true,
+        });
         localStreamRef.current = stream;
         setCameraOn(true);
       } catch (err) {
@@ -73,172 +81,292 @@ export default function PeerConnection() {
       return;
     }
 
-    try {
-      const call = peerRef.current.call(remoteId, localStreamRef.current);
+    const call = peerRef.current.call(remoteId, localStreamRef.current);
 
-      call.on("stream", (remoteStream) => {
-        remoteVideoRef.current.srcObject = remoteStream;
-        setConnected(true);
-      });
+    call.on("stream", (remoteStream) => {
+      remoteVideoRef.current.srcObject = remoteStream;
+      setConnected(true);
+    });
 
-      call.on("close", () => {
-        setConnected(false);
-        remoteVideoRef.current.srcObject = null;
-      });
+    call.on("close", () => {
+      setConnected(false);
+      remoteVideoRef.current.srcObject = null;
+    });
 
-      callRef.current = call;
-    } catch (err) {
-      alert("Erro ao tentar iniciar a chamada. Verifique o ID.");
+    callRef.current = call;
+  };
+
+  // Drag - mouse
+  const onMouseDown = (e) => {
+    if (e.target === boxRef.current.querySelector(".header")) {
+      isDragging.current = true;
+      const rect = boxRef.current.getBoundingClientRect();
+      dragOffset.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+      e.preventDefault();
     }
   };
 
-  // Função de arrastar
-  const handleMouseDown = (e) => {
-    isDragging.current = true;
-    const box = boxRef.current.getBoundingClientRect();
-    offset.current = { x: e.clientX - box.left, y: e.clientY - box.top };
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-  };
-
-  const handleMouseMove = (e) => {
+  const onMouseMove = (e) => {
     if (!isDragging.current) return;
-    boxRef.current.style.left = `${e.clientX - offset.current.x}px`;
-    boxRef.current.style.top = `${e.clientY - offset.current.y}px`;
+    let left = e.clientX - dragOffset.current.x;
+    let top = e.clientY - dragOffset.current.y;
+
+    const maxLeft = window.innerWidth - boxRef.current.offsetWidth;
+    const maxTop = window.innerHeight - boxRef.current.offsetHeight;
+    if (left < 0) left = 0;
+    else if (left > maxLeft) left = maxLeft;
+    if (top < 0) top = 0;
+    else if (top > maxTop) top = maxTop;
+
+    boxRef.current.style.left = `${left}px`;
+    boxRef.current.style.top = `${top}px`;
   };
 
-  const handleMouseUp = () => {
+  const onMouseUp = () => {
     isDragging.current = false;
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", handleMouseUp);
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  };
+
+  // Drag - touch
+  const onTouchStart = (e) => {
+    const touch = e.touches[0];
+    if (e.target === boxRef.current.querySelector(".header")) {
+      isDragging.current = true;
+      const rect = boxRef.current.getBoundingClientRect();
+      dragOffset.current = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+      };
+      e.preventDefault();
+    }
+  };
+
+  const onTouchMove = (e) => {
+    if (!isDragging.current) return;
+    const touch = e.touches[0];
+    let left = touch.clientX - dragOffset.current.x;
+    let top = touch.clientY - dragOffset.current.y;
+
+    const maxLeft = window.innerWidth - boxRef.current.offsetWidth;
+    const maxTop = window.innerHeight - boxRef.current.offsetHeight;
+    if (left < 0) left = 0;
+    else if (left > maxLeft) left = maxLeft;
+    if (top < 0) top = 0;
+    else if (top > maxTop) top = maxTop;
+
+    boxRef.current.style.left = `${left}px`;
+    boxRef.current.style.top = `${top}px`;
+  };
+
+  const onTouchEnd = () => {
+    isDragging.current = false;
   };
 
   return (
     <div
       ref={boxRef}
+      onMouseDown={onMouseDown}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
       style={{
         position: "fixed",
-        top: 100,
+        top: 80,
         left: 20,
-        width: 280,
+        zIndex: 999999,
+        width: 246,
+        maxWidth: "95vw",
         background: "#1e1e1e",
-        color: "#fff",
-        borderRadius: 12,
-        boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
-        fontFamily: "sans-serif",
-        padding: 14,
-        zIndex: 9999,
-        cursor: "default",
+        color: "#ddd",
+        borderRadius: 8,
+        boxShadow: "0 5px 15px rgba(0,0,0,0.6)",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         userSelect: "none",
+        overflow: "hidden",
+        touchAction: "none",
       }}
     >
       <div
-        onMouseDown={handleMouseDown}
+        className="header"
         style={{
-          cursor: "move",
-          marginBottom: 12,
+          backgroundColor: "#121212",
+          padding: "8px 12px",
+          cursor: "grab",
           fontWeight: "bold",
-          fontSize: 15,
-          color: "#0af"
+          fontSize: 13,
+          borderBottom: "1px solid #333",
+          userSelect: "none",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        🔗 Conexão Webcam (arraste aqui)
-      </div>
-
-      <div style={{ fontSize: 12, marginBottom: 6 }}>
-        <strong>Seu ID:</strong><br />
-        <code>{myPeerId || "gerando..."}</code><br />
+        Conexão Webcam
         <button
-          onClick={() => {
-            if (myPeerId) {
-              navigator.clipboard.writeText(myPeerId);
-              alert("ID copiado!");
-            }
-          }}
+          onClick={() => setMinimized(!minimized)}
           style={{
-            fontSize: 11,
-            color: "#0af",
             background: "none",
             border: "none",
+            color: "#0af",
+            fontSize: 18,
+            lineHeight: 1,
             cursor: "pointer",
-            textDecoration: "underline",
-            marginTop: 4
+            userSelect: "none",
+            padding: 0,
+            marginLeft: 8,
+            fontWeight: "bold",
+            width: 24,
+            height: 24,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
+          aria-label={minimized ? "Restaurar janela" : "Minimizar janela"}
+          type="button"
         >
-          Copiar ID
+          {minimized ? "▢" : "−"}
         </button>
       </div>
 
-      <button
-        onClick={toggleCamera}
-        style={{
-          background: cameraOn ? "#c62828" : "#2e7d32",
-          color: "#fff",
-          border: "none",
-          borderRadius: 6,
-          padding: "6px 10px",
-          fontSize: 13,
-          width: "100%",
-          marginBottom: 10,
-          cursor: "pointer"
-        }}
-      >
-        {cameraOn ? "Desligar câmera" : "Ligar câmera"}
-      </button>
+      {!minimized && (
+        <div style={{ padding: "10px 12px" }}>
+          <div style={{ fontSize: 10, marginBottom: 8 }}>
+            <strong>Seu ID:</strong>
+            <br />
+            <code
+              style={{
+                background: "#333",
+                padding: "3px 7px",
+                borderRadius: 3,
+                display: "inline-block",
+                marginTop: 3,
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+                wordBreak: "break-word",
+              }}
+            >
+              {myPeerId || "gerando..."}
+            </code>
+            <br />
+            <button
+              onClick={() => {
+                if (myPeerId) {
+                  navigator.clipboard.writeText(myPeerId);
+                  alert("ID copiado para a área de transferência!");
+                }
+              }}
+              style={{
+                marginTop: 5,
+                fontSize: 10,
+                color: "#0af",
+                background: "none",
+                border: "none",
+                textDecoration: "underline",
+                cursor: "pointer",
+                padding: 0,
+                userSelect: "auto",
+              }}
+              type="button"
+            >
+              Copiar ID
+            </button>
+          </div>
 
-      <label style={{ fontSize: 12, marginBottom: 2, display: "block" }}>
-        ID do amigo:
-      </label>
-      <input
-        type="text"
-        value={remoteId}
-        onChange={(e) => setRemoteId(e.target.value)}
-        placeholder="Digite o ID"
-        style={{
-          width: "100%",
-          padding: 6,
-          borderRadius: 6,
-          border: "1px solid #444",
-          marginBottom: 10,
-          background: "#222",
-          color: "#fff"
-        }}
-      />
+          <button
+            onClick={toggleCamera}
+            style={{
+              background: cameraOn ? "#b33030" : "#2e8b57",
+              border: "none",
+              color: "#fff",
+              cursor: "pointer",
+              padding: "8px 0",
+              borderRadius: 4,
+              marginBottom: 10,
+              width: "100%",
+              fontWeight: "600",
+              fontSize: 13,
+              userSelect: "none",
+              transition: "background-color 0.3s",
+            }}
+            type="button"
+          >
+            {cameraOn ? "Desligar câmera" : "Ligar câmera"}
+          </button>
 
-      <button
-        onClick={connectToPeer}
-        disabled={!remoteId}
-        style={{
-          width: "100%",
-          padding: "6px 10px",
-          background: "#1976d2",
-          color: "#fff",
-          border: "none",
-          borderRadius: 6,
-          cursor: "pointer",
-          fontSize: 14,
-          marginBottom: 10
-        }}
-      >
-        Conectar
-      </button>
+          <input
+            type="text"
+            value={remoteId}
+            onChange={(e) => setRemoteId(e.target.value)}
+            placeholder="ID do amigo"
+            style={{
+              width: "100%",
+              padding: 7,
+              borderRadius: 4,
+              border: "1px solid #555",
+              marginBottom: 8,
+              backgroundColor: "#222",
+              color: "#eee",
+              fontSize: 13,
+              userSelect: "text",
+              boxSizing: "border-box",
+            }}
+          />
 
-      <video
-        ref={remoteVideoRef}
-        autoPlay
-        playsInline
-        style={{
-          width: "100%",
-          height: 160,
-          background: "#000",
-          borderRadius: 6
-        }}
-      />
+          <button
+            onClick={connectToPeer}
+            disabled={!remoteId}
+            style={{
+              width: "100%",
+              padding: "8px 0",
+              background: !remoteId ? "#666" : "#28a745",
+              color: "#fff",
+              border: "none",
+              borderRadius: 4,
+              cursor: !remoteId ? "not-allowed" : "pointer",
+              fontSize: 13,
+              fontWeight: "600",
+              userSelect: "none",
+              transition: "background-color 0.3s",
+            }}
+            type="button"
+          >
+            Conectar
+          </button>
 
-      {connected && (
-        <p style={{ marginTop: 8, fontSize: 12, color: "#0f0" }}>
-          ✅ Conectado com sucesso!
-        </p>
+          <video
+            ref={remoteVideoRef}
+            autoPlay
+            playsInline
+            style={{
+              width: "100%",
+              height: 131,
+              marginTop: 10,
+              background: "#000",
+              borderRadius: 4,
+              userSelect: "none",
+            }}
+          />
+
+          {connected && (
+            <p
+              style={{
+                marginTop: 6,
+                fontSize: 11,
+                color: "#0f0",
+                textAlign: "center",
+                userSelect: "none",
+              }}
+            >
+              Conectado ✅
+            </p>
+          )}
+        </div>
       )}
     </div>
   );
