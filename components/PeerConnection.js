@@ -11,6 +11,9 @@ export default function PeerConnection() {
   const peerRef = useRef(null);
   const callRef = useRef(null);
   const localStreamRef = useRef(null);
+  const boxRef = useRef(null);
+  const offset = useRef({ x: 0, y: 0 });
+  const isDragging = useRef(false);
 
   useEffect(() => {
     const storedId = localStorage.getItem("myPeerId");
@@ -70,89 +73,135 @@ export default function PeerConnection() {
       return;
     }
 
-    const call = peerRef.current.call(remoteId, localStreamRef.current);
+    try {
+      const call = peerRef.current.call(remoteId, localStreamRef.current);
 
-    call.on("stream", (remoteStream) => {
-      remoteVideoRef.current.srcObject = remoteStream;
-      setConnected(true);
-    });
+      call.on("stream", (remoteStream) => {
+        remoteVideoRef.current.srcObject = remoteStream;
+        setConnected(true);
+      });
 
-    call.on("close", () => {
-      setConnected(false);
-      remoteVideoRef.current.srcObject = null;
-    });
+      call.on("close", () => {
+        setConnected(false);
+        remoteVideoRef.current.srcObject = null;
+      });
 
-    callRef.current = call;
+      callRef.current = call;
+    } catch (err) {
+      alert("Erro ao tentar iniciar a chamada. Verifique o ID.");
+    }
+  };
+
+  // Função de arrastar
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    const box = boxRef.current.getBoundingClientRect();
+    offset.current = { x: e.clientX - box.left, y: e.clientY - box.top };
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    boxRef.current.style.left = `${e.clientX - offset.current.x}px`;
+    boxRef.current.style.top = `${e.clientY - offset.current.y}px`;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
   };
 
   return (
     <div
+      ref={boxRef}
       style={{
         position: "fixed",
-        top: 80,
+        top: 100,
         left: 20,
-        zIndex: 999999,
-        width: 260,
-        background: "#111",
+        width: 280,
+        background: "#1e1e1e",
         color: "#fff",
-        borderRadius: 8,
-        boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+        borderRadius: 12,
+        boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
         fontFamily: "sans-serif",
-        padding: 12
+        padding: 14,
+        zIndex: 9999,
+        cursor: "default",
+        userSelect: "none",
       }}
     >
-      <strong style={{ fontSize: 14 }}>Conexão Webcam</strong>
+      <div
+        onMouseDown={handleMouseDown}
+        style={{
+          cursor: "move",
+          marginBottom: 12,
+          fontWeight: "bold",
+          fontSize: 15,
+          color: "#0af"
+        }}
+      >
+        🔗 Conexão Webcam (arraste aqui)
+      </div>
 
-      <p style={{ fontSize: 12, margin: "10px 0 6px" }}>
+      <div style={{ fontSize: 12, marginBottom: 6 }}>
         <strong>Seu ID:</strong><br />
-        <code>{myPeerId || "gerando..."}</code>
-        <br />
+        <code>{myPeerId || "gerando..."}</code><br />
         <button
           onClick={() => {
             if (myPeerId) {
               navigator.clipboard.writeText(myPeerId);
-              alert("ID copiado para a área de transferência!");
+              alert("ID copiado!");
             }
           }}
           style={{
-            marginTop: 5,
-            fontSize: 12,
+            fontSize: 11,
             color: "#0af",
             background: "none",
             border: "none",
-            textDecoration: "underline",
             cursor: "pointer",
+            textDecoration: "underline",
+            marginTop: 4
           }}
         >
           Copiar ID
         </button>
-      </p>
+      </div>
 
       <button
         onClick={toggleCamera}
         style={{
-          background: "none",
+          background: cameraOn ? "#c62828" : "#2e7d32",
+          color: "#fff",
           border: "none",
-          color: cameraOn ? "#f33" : "#0f0",
-          cursor: "pointer",
-          textDecoration: "underline",
-          marginBottom: 10
+          borderRadius: 6,
+          padding: "6px 10px",
+          fontSize: 13,
+          width: "100%",
+          marginBottom: 10,
+          cursor: "pointer"
         }}
       >
         {cameraOn ? "Desligar câmera" : "Ligar câmera"}
       </button>
 
+      <label style={{ fontSize: 12, marginBottom: 2, display: "block" }}>
+        ID do amigo:
+      </label>
       <input
         type="text"
         value={remoteId}
         onChange={(e) => setRemoteId(e.target.value)}
-        placeholder="ID do amigo"
+        placeholder="Digite o ID"
         style={{
           width: "100%",
           padding: 6,
-          borderRadius: 4,
-          border: "1px solid #ccc",
-          marginBottom: 8
+          borderRadius: 6,
+          border: "1px solid #444",
+          marginBottom: 10,
+          background: "#222",
+          color: "#fff"
         }}
       />
 
@@ -162,12 +211,13 @@ export default function PeerConnection() {
         style={{
           width: "100%",
           padding: "6px 10px",
-          background: "#28a745",
+          background: "#1976d2",
           color: "#fff",
           border: "none",
-          borderRadius: 4,
+          borderRadius: 6,
           cursor: "pointer",
-          fontSize: 14
+          fontSize: 14,
+          marginBottom: 10
         }}
       >
         Conectar
@@ -180,14 +230,15 @@ export default function PeerConnection() {
         style={{
           width: "100%",
           height: 160,
-          marginTop: 10,
           background: "#000",
-          borderRadius: 4
+          borderRadius: 6
         }}
       />
 
       {connected && (
-        <p style={{ marginTop: 6, fontSize: 12, color: "#0f0" }}>Conectado ✅</p>
+        <p style={{ marginTop: 8, fontSize: 12, color: "#0f0" }}>
+          ✅ Conectado com sucesso!
+        </p>
       )}
     </div>
   );
