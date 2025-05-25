@@ -176,10 +176,10 @@ export default function PeerConnection() {
       onTouchEnd={onTouchEnd}
       style={{
         position: "fixed",
-        top: 88,
-        left: 10,
-        zIndex: 999999,
-        width: 190,
+        top: 80,
+        left: 20,
+        zIndex: 2147483647,
+        width: 200,
         maxWidth: "95vw",
         background: "#12151a",
         color: "#e1e1e1",

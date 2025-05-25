@@ -7,21 +7,32 @@ export default function WebcamBox() {
   const [cameraAtiva, setCameraAtiva] = useState(true);
   const [visivel, setVisivel] = useState(true);
   const [boxStyle, setBoxStyle] = useState({
-    top: 60,
-    left: typeof window !== "undefined" ? window.innerWidth - 180 : 200,
-    width: 160,
+    bottom:520,
+    right: 10, // será atualizado no useEffect
+    width: 180,
     height: 120,
   });
 
+  // Corrige posição inicial do vídeo no canto superior direito
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setBoxStyle((prev) => ({
+        ...prev,
+        left: window.innerWidth - 180,
+      }));
+    }
+  }, []);
+
+  // Inicializa webcam quando visível
   useEffect(() => {
     if (visivel && !stream) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((mediaStream) => {
           if (videoRef.current) {
             videoRef.current.srcObject = mediaStream;
-            setStream(mediaStream);
-            setCameraAtiva(true);
           }
+          setStream(mediaStream);
+          setCameraAtiva(true);
         })
         .catch((err) => {
           console.error("Erro ao acessar a webcam:", err);
@@ -35,11 +46,13 @@ export default function WebcamBox() {
         stream.getTracks().forEach((track) => track.stop());
       }
     };
-  }, [visivel, stream]);
+  }, [visivel]);
 
   const toggleCamera = () => {
     if (cameraAtiva) {
-      stream?.getTracks().forEach((track) => track.stop());
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
       setStream(null);
       setCameraAtiva(false);
       setVisivel(false);
@@ -48,6 +61,7 @@ export default function WebcamBox() {
     }
   };
 
+  // Drag e Resize
   useEffect(() => {
     const box = boxRef.current;
     if (!box) return;
@@ -121,7 +135,7 @@ export default function WebcamBox() {
       window.removeEventListener("mouseup", handleTouchOrMouseEnd);
       window.removeEventListener("touchend", handleTouchOrMouseEnd);
     };
-  }, [boxRef, visivel]);
+  }, [visivel]);
 
   return (
     <>
@@ -131,13 +145,13 @@ export default function WebcamBox() {
           position: "fixed",
           top: 10,
           left: 10,
-          zIndex: 2147483647, // maior z-index para o botão também
+          zIndex: 2147483647,
           padding: "6px 12px",
           background: "#333",
           color: "#fff",
           border: "none",
           borderRadius: "6px",
-          cursor: "pointer"
+          cursor: "pointer",
         }}
       >
         {cameraAtiva ? "Desligar Webcam" : "Ligar Webcam"}
@@ -147,12 +161,12 @@ export default function WebcamBox() {
         <div
           ref={boxRef}
           style={{
-            position: "fixed",  // importante: fixed para ficar sempre na tela
-            top: boxStyle.top,
-            left: boxStyle.left,
+            position: "fixed",
+            top: boxStyle.bottom,
+            left: boxStyle.right,
             width: boxStyle.width,
             height: boxStyle.height,
-            zIndex: 2147483647,  // maior valor pra garantir sobreposição total
+            zIndex: 2147483647,
             background: "#000",
             border: "2px solid #fff",
             borderRadius: "8px",
@@ -168,7 +182,7 @@ export default function WebcamBox() {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover"
+              objectFit: "cover",
             }}
           />
           <div
