@@ -10,7 +10,7 @@ export default function Gamelist() {
   const arcadeGames = [
     {
       id: "37385",
-      path: "arcade/1944.zip",
+      path: "fliperama/1944.zip",
       core: "fbalpha2012_cps1",
       bios:"",
       name: "1944 : THE LOOP MASTER",
@@ -22,7 +22,7 @@ export default function Gamelist() {
     },
     {
       id: "42982",
-      path: "arcade/sf2.zip",
+      path: "fliperama/sf2.zip",
       core: "fbneo",
       bios:"",
       name: "STREET F. II: THE WORLD WARRIOR",
@@ -34,7 +34,7 @@ export default function Gamelist() {
     },
     {
       id: "37402",
-      path: "arcade/mshvsf.zip",
+      path: "fliperama/mshvsf.zip",
       core: "fbneo",
       bios:"",
       name: "MARVEL SUPER HEROES VS. STREET",
@@ -46,7 +46,7 @@ export default function Gamelist() {
     },
     {
       id: "37360",
-      path: "arcade/dino.zip",
+      path: "fliperama/dino.zip",
       core: "arcade",
       bios:"",
       name: "CADILLACS AND DINOSAURS",
@@ -58,7 +58,7 @@ export default function Gamelist() {
     },
     {
       id: "37362",
-      path: "arcade/ffight.zip",
+      path: "fliperama/ffight.zip",
       core: "arcade",
       bios:"",
       name: "FINAL FIGHT",
@@ -70,7 +70,7 @@ export default function Gamelist() {
     },
     {
       id: "37364",
-      path: "arcade/mk3.zip",
+      path: "fliperama/mk3.zip",
       core: "arcade",
       bios:"",
       name: "Mortal Kombat 3",
@@ -82,7 +82,7 @@ export default function Gamelist() {
     },
     {
       id: "37365",
-      path: "arcade/mslugx.zip",
+      path: "fliperama/mslugx.zip",
       core: "arcade",
       bios:"",
       name: "Metal Slug X",
@@ -94,7 +94,7 @@ export default function Gamelist() {
     },
     {
       id: "37366",
-      path: "arcade/robocop2.zip",
+      path: "fliperama/robocop2.zip",
       core: "arcade",
       bios:"",
       name: "Robocop 2",
@@ -106,7 +106,7 @@ export default function Gamelist() {
     },
     {
       id: "37367",
-      path: "arcade/kof99.zip",
+      path: "fliperama/kof99.zip",
       core: "arcade",
       bios:"",
       name: "The king of Fighter 99",
@@ -118,7 +118,7 @@ export default function Gamelist() {
     },
     {
       id: "37368",
-      path: "arcade/captcomm.zip",
+      path: "fliperama/captcomm.zip",
       core: "arcade",
       bios:"",
       name: "Captain Commando",
@@ -130,7 +130,7 @@ export default function Gamelist() {
     },
       {
         id: "37410",
-        path: "arcade/goldnaxe.zip",
+        path: "fliperama/goldnaxe.zip",
         core: "arcade",
         bios: "",
         name: "Golden Axe",
@@ -214,7 +214,7 @@ export default function Gamelist() {
       },
       {
         id: "37418",
-        path: "arcade/ganryu.zip",
+        path: "fliperama/ganryu.zip",
         core: "fbneo",
         bios: "",
         name: "Ganryu",
@@ -226,7 +226,7 @@ export default function Gamelist() {
       },
       {
         id: "funybuble_001",
-        path: "arcade/funybubl.zip",
+        path: "fliperama/funybubl.zip",
         core: "fbneo",
         bios: "",
         name: "Funny Bubble",
@@ -238,7 +238,7 @@ export default function Gamelist() {
       },
       {
         id: "37420",
-        path: "arcade/rchase.zip",
+        path: "fliperama/rchase.zip",
         core: "fbneo",
         bios: "",
         name: "Rail Chase",
@@ -298,49 +298,3 @@ export default function Gamelist() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
