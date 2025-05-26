@@ -10,7 +10,7 @@ export default function Gamelist() {
   const arcadeGames = [
     {
       id: "37385",
-      path: "arcade/1944.zip",
+      path: "fliperama/1944.zip",
       core: "arcade",
       bios:"",
       name: "1944 : THE LOOP MASTER",
@@ -23,7 +23,7 @@ export default function Gamelist() {
     },
     {
       id: "42982",
-      path: "arcade/sf2.zip",
+      path: "fliperama/sf2.zip",
       core: "arcade",
       bios:"",
       name: "STREET FIGHTER II: THE WORLD WARRIOR",
@@ -36,7 +36,7 @@ export default function Gamelist() {
     },
     {
       id: "37402",
-      path: "arcade/mshvsf.zip",
+      path: "fliperama/mshvsf.zip",
       core: "arcade",
       bios:"",
       name: "MARVEL SUPER HEROES VS. STREET FIGHTER",
@@ -49,7 +49,7 @@ export default function Gamelist() {
     },
     {
       id: "37360",
-      path: "arcade/dino.zip",
+      path: "fliperama/dino.zip",
       core: "arcade",
       bios:"",
       name: "CADILLACS AND DINOSAURS",
@@ -62,7 +62,7 @@ export default function Gamelist() {
     },
     {
       id: "37362",
-      path: "arcade/ffight.zip",
+      path: "fliperama/ffight.zip",
       core: "arcade",
       bios:"",
       name: "FINAL FIGHT",
@@ -75,7 +75,7 @@ export default function Gamelist() {
     },
     {
       id: "37364",
-      path: "arcade/mk3.zip",
+      path: "fliperama/mk3.zip",
       core: "fbneo",
       bios:"",
       name: "Mortal Kombat 3",
@@ -88,7 +88,7 @@ export default function Gamelist() {
     },
     {
       id: "37365",
-      path: "arcade/mslugx.zip",
+      path: "fliperama/mslugx.zip",
       core: "arcade",
       bios:"",
       name: "Metal Slug X",
@@ -101,7 +101,7 @@ export default function Gamelist() {
     },
     {
       id: "37366",
-      path: "arcade/robocop2.zip",
+      path: "fliperama/robocop2.zip",
       core: "arcade",
       bios:"",
       name: "Robocop 2",
@@ -114,7 +114,7 @@ export default function Gamelist() {
     },
     {
       id: "37367",
-      path: "arcade/kof99.zip",
+      path: "fliperama/kof99.zip",
       core: "arcade",
       bios:"",
       name: "The king of Fighter 99",
@@ -127,7 +127,7 @@ export default function Gamelist() {
     },
     {
       id: "37368",
-      path: "arcade/captcomm.zip",
+      path: "fliperama/captcomm.zip",
       core: "arcade",
       bios:"",
       name: "Captain Commando",
