@@ -142,7 +142,7 @@ export default function Gamelist() {
       },
       {
         "id": "37411",
-        "path": "arcade/kof98.zip",
+         path: "fliperama/kof98.zip",
         "core": "arcade",
         "bios": "",
         "name": "The King of Fighters '98",
@@ -154,7 +154,7 @@ export default function Gamelist() {
       },
       {
         "id": "37412",
-        "path": "arcade/kof2003.zip",
+         path: "fliperama/kof2003.zip",
         "core": "arcade",
         "bios": "",
         "name": "The King of Fighters 2003",
@@ -166,7 +166,7 @@ export default function Gamelist() {
       },
       {
         "id": "37413",
-        "path": "arcade/pacplus.zip",
+         path: "fliperama/pacplus.zip",
         "core": "arcade",
         "bios": "",
         "name": "Pac-Man Plus",
@@ -178,7 +178,7 @@ export default function Gamelist() {
       },
       {
         "id": "37414",
-        "path": "arcade/rambo3.zip",
+         path: "fliperama/rambo3.zip",
         "core": "arcade",
         "bios": "",
         "name": "Rambo III",
@@ -190,7 +190,7 @@ export default function Gamelist() {
       },
       {
         "id": "37416",
-        "path": "arcade/sfa3.zip",
+         path: "fliperama/sfa3.zip",
         "core": "arcade",
         "bios": "",
         "name": "Street Fighter Alfa 3",
@@ -202,7 +202,7 @@ export default function Gamelist() {
       },
       {
         "id": "37417",
-        "path": "arcade/tmnt2.zip",
+         path: "fliperama/tmnt2.zip",
         "core": "arcade",
         "bios": "",
         "name": "Teenage Mutant Ninja Turtles II",
