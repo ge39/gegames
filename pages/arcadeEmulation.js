@@ -18,12 +18,10 @@ export default function Emulation() {
 
         Object.assign(window, {
           EJS_player: "#game",
-          // EJS_core: query.core,
-          EJS_core: 'arcade',
+          EJS_core: query.core,
           EJS_multitap: true,
           EJS_gameName: query.jogo,
-          // EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
-           EJS_gameUrl: `${window.location.origin}/roms/snes/dino.zip`,
+          EJS_gameUrl: `${window.location.origin}/roms/${query.jogo}`,
           EJS_canvasWidth: largura,
           EJS_canvasHeight: altura,
           EJS_fullscreenOnLoad: true,
