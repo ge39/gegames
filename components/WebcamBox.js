@@ -7,13 +7,13 @@ export default function WebcamBox() {
   const [cameraAtiva, setCameraAtiva] = useState(true);
   const [visivel, setVisivel] = useState(true);
   const [boxStyle, setBoxStyle] = useState({
-    bottom:510,
-    right: 10, // será atualizado no useEffect
+    top: 10,
+    left: 0,
     width: 140,
     height: 120,
   });
 
-  // Corrige posição inicial do vídeo no canto superior direito
+  // Define a posição inicial no canto superior direito
   useEffect(() => {
     if (typeof window !== "undefined") {
       setBoxStyle((prev) => ({
@@ -23,16 +23,16 @@ export default function WebcamBox() {
     }
   }, []);
 
-  // Inicializa webcam quando visível
+  // Inicializa a webcam
   useEffect(() => {
-    if (visivel && !stream) {
+    if (cameraAtiva && !stream) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((mediaStream) => {
           if (videoRef.current) {
             videoRef.current.srcObject = mediaStream;
           }
           setStream(mediaStream);
-          setCameraAtiva(true);
+          setVisivel(true);
         })
         .catch((err) => {
           console.error("Erro ao acessar a webcam:", err);
@@ -46,7 +46,7 @@ export default function WebcamBox() {
         stream.getTracks().forEach((track) => track.stop());
       }
     };
-  }, [visivel]);
+  }, [cameraAtiva]);
 
   const toggleCamera = () => {
     if (cameraAtiva) {
@@ -55,9 +55,9 @@ export default function WebcamBox() {
       }
       setStream(null);
       setCameraAtiva(false);
-      setVisivel(false);
+      setTimeout(() => setVisivel(false), 100);
     } else {
-      setVisivel(true);
+      setCameraAtiva(true);
     }
   };
 
@@ -70,7 +70,7 @@ export default function WebcamBox() {
     let isDragging = false;
     let isResizing = false;
 
-    const handleTouchOrMouseStart = (e) => {
+    const handleStart = (e) => {
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
       const target = e.target;
@@ -90,7 +90,7 @@ export default function WebcamBox() {
       e.preventDefault();
     };
 
-    const handleTouchOrMouseMove = (e) => {
+    const handleMove = (e) => {
       if (!isDragging && !isResizing) return;
 
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -115,25 +115,25 @@ export default function WebcamBox() {
       }
     };
 
-    const handleTouchOrMouseEnd = () => {
+    const handleEnd = () => {
       isDragging = false;
       isResizing = false;
     };
 
-    box.addEventListener("mousedown", handleTouchOrMouseStart);
-    box.addEventListener("touchstart", handleTouchOrMouseStart, { passive: false });
-    window.addEventListener("mousemove", handleTouchOrMouseMove);
-    window.addEventListener("touchmove", handleTouchOrMouseMove, { passive: false });
-    window.addEventListener("mouseup", handleTouchOrMouseEnd);
-    window.addEventListener("touchend", handleTouchOrMouseEnd);
+    box.addEventListener("mousedown", handleStart);
+    box.addEventListener("touchstart", handleStart, { passive: false });
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("touchmove", handleMove, { passive: false });
+    window.addEventListener("mouseup", handleEnd);
+    window.addEventListener("touchend", handleEnd);
 
     return () => {
-      box.removeEventListener("mousedown", handleTouchOrMouseStart);
-      box.removeEventListener("touchstart", handleTouchOrMouseStart);
-      window.removeEventListener("mousemove", handleTouchOrMouseMove);
-      window.removeEventListener("touchmove", handleTouchOrMouseMove);
-      window.removeEventListener("mouseup", handleTouchOrMouseEnd);
-      window.removeEventListener("touchend", handleTouchOrMouseEnd);
+      box.removeEventListener("mousedown", handleStart);
+      box.removeEventListener("touchstart", handleStart);
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+      window.removeEventListener("mouseup", handleEnd);
+      window.removeEventListener("touchend", handleEnd);
     };
   }, [visivel]);
 
@@ -152,6 +152,8 @@ export default function WebcamBox() {
           border: "none",
           borderRadius: "6px",
           cursor: "pointer",
+          boxShadow: "0 0 8px rgba(0,0,0,0.3)",
+          transition: "all 0.2s",
         }}
       >
         {cameraAtiva ? "Desligar Webcam" : "Ligar Webcam"}
@@ -162,8 +164,8 @@ export default function WebcamBox() {
           ref={boxRef}
           style={{
             position: "fixed",
-            top: boxStyle.bottom,
-            left: boxStyle.right,
+            top: boxStyle.top,
+            left: boxStyle.left,
             width: boxStyle.width,
             height: boxStyle.height,
             zIndex: 2147483647,
@@ -171,7 +173,9 @@ export default function WebcamBox() {
             border: "2px solid #fff",
             borderRadius: "8px",
             overflow: "hidden",
+            boxShadow: "0 0 10px rgba(0,0,0,0.5)",
             touchAction: "none",
+            userSelect: "none",
           }}
         >
           <video
