@@ -6,7 +6,7 @@ import  '../styles/Globals.css';
 import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
-import { snesGames } from './data/snesGames.js';
+import { snesGames } from '../data/snesGames.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');

@@ -6,7 +6,7 @@ import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
 import Image from 'next/image';
 import { useState } from 'react';
-import { atariGames } from './data/atariGames.js';
+import { atariGames } from '../data/atariGames.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
