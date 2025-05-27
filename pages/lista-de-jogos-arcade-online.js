@@ -71,7 +71,7 @@ export default function Gamelist() {
     {
       id: "37364",
       path: "fliperama/mk3.zip",
-      core: "arcade",
+      core: "fbneo",
       bios:"",
       name: "Mortal Kombat 3",
       desc: "Tendo conseguido subjugar o reino da Terra, Shao Kahn toma todas as almas humanas da Terra como suas. Para impedir que o reino de Outworld assimile totalmente o Earthrealm.",
