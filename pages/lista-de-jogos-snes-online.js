@@ -611,8 +611,11 @@ export default function Gamelist() {
       "releasedate": "1992-12-01"
     }
                                                                                                                                                                                                                                                                            
-    ]; // Copie os jogos do seu JSON aqui
-
+     ]; // Copie os jogos do seu JSON aqui
+    // Filtra os jogos pelo nome baseado no searchTerm
+    const filteredGames = arcadeGames.filter(game =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+       
   return (
     <>
       <Head>
