@@ -8,6 +8,7 @@ import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 
 export default function Gamelist() {
+   const [searchTerm, setSearchTerm] = useState('');
   const snesGames = [
     {
       "id": "ac1",
