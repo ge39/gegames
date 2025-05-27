@@ -15,8 +15,9 @@ export default function Emulation() {
     if (!query.jogo || !query.core) return;
 
     const updateDimensions = () => {
-      const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
-      const altura = Math.round((largura * 3) / 4 / 2) * 2; // Proporção 4:3
+    const largura = Math.round((window.innerWidth * 0.8) / 2) * 2;
+    const altura = Math.round((largura * 3) / 4 / 2) * 2.8;
+
       setDimensions({ width: largura, height: altura });
     };
 
@@ -84,7 +85,7 @@ export default function Emulation() {
         <div
           id="game"
           className={styles.game}
-          style={{ width: "100%", height: "100%", position: "relative", overflow: "hidden" }}
+          style={{  width: "800px", height: "500px", maxWidth: "100%"}}
         >
           <WebcamBox />
           <PeerConnection peerId={query.peerId} />

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
+import PeerConnection from "../components/PeerConnection";
 import WebcamBox from '../components/WebcamBox'; // 👈 NOVO
 
 export default function Emulation() {
@@ -46,12 +47,15 @@ export default function Emulation() {
     <div>
       <Navbar />
       <div className={styles.emulatorContainer} style={{ position: "relative", width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
-        <WebcamBox /> {/* 👈 ADICIONADO */}
+        
         <div
           id="game"
           className={styles.game}
           style={{ width: "800px", height: "500px", maxWidth: "100%" }}
-        ></div>
+        >
+          <WebcamBox /> {/* 👈 ADICIONADO */}
+          <PeerConnection peerId={query.peerId} />
+        </div>
       </div>
     </div>
   );
