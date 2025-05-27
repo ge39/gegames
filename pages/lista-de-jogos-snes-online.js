@@ -5,6 +5,7 @@ import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
 import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
+import { useState } from 'react';
 
 export default function Gamelist() {
   const snesGames = [
@@ -632,7 +633,7 @@ export default function Gamelist() {
 
           </h2>
           <div className={styles.gamesGrid}>
-            {snesGames.map((game) => (
+             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
