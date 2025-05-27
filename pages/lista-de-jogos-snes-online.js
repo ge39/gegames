@@ -613,7 +613,7 @@ export default function Gamelist() {
                                                                                                                                                                                                                                                                            
      ]; // Copie os jogos do seu JSON aqui
     // Filtra os jogos pelo nome baseado no searchTerm
-    const filteredGames = arcadeGames.filter(game =>
+    const filteredGames = snesGames.filter(game =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
        
   return (
@@ -639,7 +639,7 @@ export default function Gamelist() {
          <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
-                <a href={`/arcadeEmulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
                   <Image
                     src={game.image}
