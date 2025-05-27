@@ -636,6 +636,23 @@ export default function Gamelist() {
           <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
 
           </h2>
+             {/* Campo de busca */}
+          <div style={{ textAlign: 'center', margin: '20px' }}>
+            <input
+              type="text"
+              placeholder="Buscar por nome..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                padding: '10px',
+                fontSize: '16px',
+                width: '80%',
+                maxWidth: '500px',
+                borderRadius: '8px',
+                border: '1px solid #ccc'
+              }}
+            />
+          </div>
           <div className={styles.gamesGrid}>
              {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
