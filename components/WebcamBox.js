@@ -7,9 +7,9 @@ export default function WebcamBox() {
   const [cameraAtiva, setCameraAtiva] = useState(true);
   const [visivel, setVisivel] = useState(true);
   const [boxStyle, setBoxStyle] = useState({
-    bottom:520,
+    bottom:510,
     right: 10, // será atualizado no useEffect
-    width: 180,
+    width: 140,
     height: 120,
   });
 
