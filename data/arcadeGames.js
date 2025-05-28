@@ -47,6 +47,7 @@ export const arcadeGames = [
       players: "1-3",
       releasedate: "1993-01-01",
     },
+    
     {
       id: "37362",
       path: "fliperama/ffight.zip",
@@ -238,7 +239,90 @@ export const arcadeGames = [
         alt: "Rail Chase Cover Art",
         players: "1-2",
         releasedate: "1991-07-01"
-      }
-     
+      },
+      {
+    "id": "1",
+    "path": "fliperama/adulto/fantasia.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "FANTASIA",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/fantasia.webp",
+    "alt": "Fantasia Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "2",
+    "path": "fliperama/adulto/galpani4.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALPANI4",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galpani4.webp",
+    "alt": "Galpani4 Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "3",
+    "path": "fliperama/adulto/galpanic.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALPANIC",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galpanic.webp",
+    "alt": "Galpanic Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "4",
+    "path": "fliperama/adulto/galpanis.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALPANIS",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galpanis.webp",
+    "alt": "Galpanis Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "5",
+    "path": "fliperama/galpans2.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALPANS2",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galpans2.webp",
+    "alt": "Galpans2 Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "6",
+    "path": "fliperama/adulto/galpans3.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALPANS3",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galpans3.webp",
+    "alt": "Galpans3 Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  },
+  {
+    "id": "7",
+    "path": "fliperama/adulto/galspnbl.zip",
+    "core": "arcade",
+    "bios": "",
+    "name": "GALSPNBL",
+    "desc": "Descrição não disponível.",
+    "image": "/images/games/arcade/adulto/galspnbl.webp",
+    "alt": "Galspnbl Cover Art",
+    "players": "1-2",
+    "releasedate": "199X-01-01"
+  }
          
     ]; // Copie os jogos do seu JSON aqui
