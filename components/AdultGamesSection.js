@@ -22,10 +22,14 @@ export default function AdultGamesSection() {
     <div className="my-8 p-4 border rounded bg-gray-50 shadow-md max-w-[1100px] mx-auto">
       <h2
         onClick={handleClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}
         className="text-2xl font-bold text-red-600 cursor-pointer hover:underline select-none text-center"
       >
         🔞 Jogos Adultos (Clique para desbloquear)
       </h2>
+
 
       {isAuthorized && (
         <div className="grid grid-cols-4 gap-4 mt-6">
@@ -43,7 +47,7 @@ export default function AdultGamesSection() {
                 <Image
                   src={game.image}
                   alt={game.alt}
-                  width={200}
+                  width={230}
                   height={200}
                   className="rounded object-cover mx-auto"
                   priority
