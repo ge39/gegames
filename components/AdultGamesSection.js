@@ -45,9 +45,7 @@ export default function AdultGamesSection() {
                   alt={game.alt}
                   width={200}
                   height={200}
-                  className="rounded object-cover"
-                  priority
-                    className={styles.Image}
+                  className={styles.Image}
                 />
                 <h3 className="mt-2 font-semibold">{game.name}</h3>
                 <p className="text-xs mt-1 text-gray-500">
