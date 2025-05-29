@@ -1,15 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { adultGames } from "../data/adultGames";
 
 export default function AdultGamesSection() {
   const [isAuthorized, setIsAuthorized] = useState(false);
-
-  useEffect(() => {
-    const access = sessionStorage.getItem("adultGamesAccess");
-    if (access === "true") setIsAuthorized(true);
-  }, []);
 
   const handleClick = () => {
     const today = new Date().getDate();
@@ -17,7 +12,6 @@ export default function AdultGamesSection() {
     const input = prompt("🔒 Digite a senha para acessar os jogos adultos:");
 
     if (input === correctPassword) {
-      sessionStorage.setItem("adultGamesAccess", "true");
       setIsAuthorized(true);
     } else {
       alert("❌ Senha incorreta!");
@@ -34,7 +28,7 @@ export default function AdultGamesSection() {
       </h2>
 
       {isAuthorized && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-4 gap-4 mt-6">
           {adultGames.map((game) => (
             <div
               key={game.id}

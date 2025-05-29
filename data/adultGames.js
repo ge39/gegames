@@ -6,7 +6,8 @@ export const adultGames = [
   {
     id: "1",
     path: "fliperama/adulto/fantasia.zip",
-    core: "arcade",    bios: "",
+    core: "arcade",   
+    bios: "",
     name: "FANTASIA",
     desc: "Descrição não disponível.",
     image: "/images/games/arcade/adulto/fantasia-thumb.webp",
