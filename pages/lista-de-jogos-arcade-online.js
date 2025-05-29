@@ -7,6 +7,11 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { arcadeGames } from '../data/arcadeGames.js';
+import AdultGamesSection from '../components/AdultGamesSection';
+
+// dentro do return JSX do componente Gamelist, após a listagem de jogos normais:
+
+<AdultGamesSection />
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,6 +22,7 @@ export default function Gamelist() {
     );
   return (
     <>
+    
       <Head>
         <title>Lista de Jogos Arcade Online</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,13 +74,19 @@ export default function Gamelist() {
                   />
                   <h5>{"Total Players: " + game.players}</h5>
                 </a>
+                
               </div>
+              
             ))}
+           
           </div>
-
+            <AdultGamesSection />
         </section>
       </main>
+       
       <Footer />
+      
     </>
+    
   );
 }

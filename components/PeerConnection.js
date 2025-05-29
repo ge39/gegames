@@ -123,8 +123,8 @@ export default function PeerConnection() {
     if (top < 0) top = 0;
     else if (top > maxTop) top = maxTop;
 
-    boxRef.current.style.left = ${left}px;
-    boxRef.current.style.top = ${top}px;
+    boxRef.current.style.left = `${left}px`;
+    boxRef.current.style.top = `${top}px`;
   };
 
   const onMouseUp = () => {
@@ -159,8 +159,8 @@ export default function PeerConnection() {
     if (top < 0) top = 0;
     else if (top > maxTop) top = maxTop;
 
-    boxRef.current.style.left = ${left}px;
-    boxRef.current.style.top = ${top}px;
+    boxRef.current.style.left = `${left}px`;
+    boxRef.current.style.top = `${top}px`;
   };
 
   const onTouchEnd = () => {
@@ -176,10 +176,10 @@ export default function PeerConnection() {
       onTouchEnd={onTouchEnd}
       style={{
         position: "fixed",
-        top: 88,
-        left: 10,
-        zIndex: 999999,
-        width: 140,
+        top: 80,
+        left: 20,
+        zIndex: 2147483647,
+        width: 200,
         maxWidth: "95vw",
         background: "#12151a",
         color: "#e1e1e1",
