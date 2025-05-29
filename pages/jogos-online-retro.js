@@ -474,6 +474,8 @@ export default function Gamelist() {
             
           <h2 style={{textAlign:'center', maxwidht:'100%'}}>
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+
+              <Link style={{textDecoration: "none" }} href="/adult-games">Adult Game - </Link>
             
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
         
