@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
 import PeerConnection from "../components/PeerConnection";
-// import WebcamBox from '../components/WebcamBox'; // 👈 NOVO
+// import WebcamBox from '../components/WebcamBox'; 👈 NOVO  // 
 
 export default function Emulation() {
   const { query } = useRouter();
