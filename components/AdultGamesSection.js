@@ -12,19 +12,7 @@ export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(false);
 
-  useEffect(() => {
-    const today = new Date().getDate();
-    const correctPassword = (today + 2).toString();
-    const input = prompt('🔒 Digite a senha para acessar os jogos adultos:');
-
-    if (input === correctPassword) {
-      setIsAuthorized(true);
-    } else {
-      alert('❌ Senha incorreta! Você não poderá visualizar os jogos.');
-    }
-  }, []);
-
-  const handleRetry = () => {
+  const checkPassword = () => {
     const today = new Date().getDate();
     const correctPassword = (today + 2).toString();
     const input = prompt('🔒 Digite a senha para acessar os jogos adultos:');
@@ -35,6 +23,10 @@ export default function Gamelist() {
     }
   };
 
+  useEffect(() => {
+    checkPassword();
+  }, []);
+
   const filteredGames = adultGames.filter((game) =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -44,10 +36,16 @@ export default function Gamelist() {
       <>
         <Navbar />
         <main className="text-center py-10">
-          <h2 className="text-2xl text-red-600 font-bold"><a className="text-xs text-blue-600 hover:underline" href="adult-games">Acessar 🔐</a> </h2>
-          
+          <h2 className="text-2xl text-red-600 font-bold">
+            <a className="text-xs text-blue-600 hover:underline" href="adult-games">Acessar 🔐</a>
+          </h2>
           <p className="mt-2">Você não inseriu a senha correta.</p>
-          
+          <button
+            onClick={checkPassword}
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Tentar novamente
+          </button>
         </main>
         <Footer />
       </>
@@ -71,7 +69,6 @@ export default function Gamelist() {
             <Link style={{ textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
           </h2>
 
-          {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
               type="text"
@@ -89,7 +86,6 @@ export default function Gamelist() {
             />
           </div>
 
-          {/* Lista de jogos */}
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
