@@ -7,11 +7,11 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { arcadeGames } from '../data/arcadeGames.js';
-import AdultGamesSection from '../components/AdultGamesSection';
+// import AdultGamesSection from '../components/AdultGamesSection';
 
 // dentro do return JSX do componente Gamelist, após a listagem de jogos normais:
 
-<AdultGamesSection />
+{/* <AdultGamesSection /> */}
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,6 +33,8 @@ export default function Gamelist() {
           <h2 style={{textAlign:'center', maxwidht:'100%'}}>
 
           <Link style={{textDecoration: "none",color:"red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+
+            <Link style={{textDecoration: "none",color:"red" }} href="/adult-games">Adult Games - </Link>
 
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
          
@@ -80,7 +82,7 @@ export default function Gamelist() {
             ))}
            
           </div>
-            <AdultGamesSection />
+            {/* <AdultGamesSection /> */}
         </section>
       </main>
        

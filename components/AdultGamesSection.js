@@ -1,66 +1,116 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import { adultGames } from "../data/adultGames";
+import Head from 'next/head';
+import Link from 'next/link';
+import Navbar from '../components/Navbar';
+import styles from '../styles/GamelistArcade.module.css';
+import '../styles/Globals.css';
+import Footer from '../components/Footer';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { adultGames } from '../data/adultGames';
 
-export default function AdultGamesSection() {
+export default function Gamelist() {
+  const [searchTerm, setSearchTerm] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(false);
 
-  const handleClick = () => {
+  useEffect(() => {
     const today = new Date().getDate();
     const correctPassword = (today + 2).toString();
-    const input = prompt("🔒 Digite a senha para acessar os jogos adultos:");
+    const input = prompt('🔒 Digite a senha para acessar os jogos adultos:');
 
     if (input === correctPassword) {
       setIsAuthorized(true);
     } else {
-      alert("❌ Senha incorreta!");
+      alert('❌ Senha incorreta! Você não poderá visualizar os jogos.');
+    }
+  }, []);
+
+  const handleRetry = () => {
+    const today = new Date().getDate();
+    const correctPassword = (today + 2).toString();
+    const input = prompt('🔒 Digite a senha para acessar os jogos adultos:');
+    if (input === correctPassword) {
+      setIsAuthorized(true);
+    } else {
+      alert('❌ Senha incorreta!');
     }
   };
 
+  const filteredGames = adultGames.filter((game) =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (!isAuthorized) {
+    return (
+      <>
+        <Navbar />
+        <main className="text-center py-10">
+          <h2 className="text-2xl text-red-600 font-bold"><a className="text-xs text-blue-600 hover:underline" href="adult-games">Acessar 🔐</a> </h2>
+          
+          <p className="mt-2">Você não inseriu a senha correta.</p>
+          
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
   return (
-    <div className="my-8 p-4 border rounded bg-gray-50 shadow-md max-w-[1100px] mx-auto">
-      <h2
-        onClick={handleClick}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => { if (e.key === 'Enter') handleClick(); }}
-        className="text-2xl font-bold text-red-600 cursor-pointer hover:underline select-none text-center"
-      >
-        🔞 Jogos Adultos (Clique para desbloquear)
-      </h2>
+    <>
+      <Head>
+        <title>Lista de Jogos Adultos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
 
+      <Navbar />
+      <main>
+        <section id="arcadeSection">
+          <h2 style={{ textAlign: 'center' }}>
+            <Link style={{ textDecoration: "none", color: "red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+            <Link style={{ textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+            <Link style={{ textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
+            <Link style={{ textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
+          </h2>
 
-      {isAuthorized && (
-        <div className="grid grid-cols-4 gap-4 mt-6">
-          {adultGames.map((game) => (
-            <div
-              key={game.id}
-              className="border rounded p-2 bg-white shadow hover:shadow-lg transition"
-            >
-              <a
-                href={`/emulation?jogo=${encodeURIComponent(
-                  game.path
-                )}&core=${encodeURIComponent(game.core)}`}
-                className="block text-center"
-              >
-                <Image
-                  src={game.image}
-                  alt={game.alt}
-                  width={230}
-                  height={200}
-                  className="rounded object-cover mx-auto"
-                  priority
-                />
-                <h3 className="mt-2 font-semibold">{game.name}</h3>
-                <p className="text-xs mt-1 text-gray-500">
-                  Jogadores: {game.players}
-                </p>
-              </a>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+          {/* Campo de busca */}
+          <div style={{ textAlign: 'center', margin: '20px' }}>
+            <input
+              type="text"
+              placeholder="Buscar por nome..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                padding: '10px',
+                fontSize: '16px',
+                width: '80%',
+                maxWidth: '500px',
+                borderRadius: '8px',
+                border: '1px solid #ccc'
+              }}
+            />
+          </div>
+
+          {/* Lista de jogos */}
+          <div className={styles.gamesGrid}>
+            {filteredGames.map((game) => (
+              <div key={game.id} className={styles.gameCard}>
+                <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                  <h5>{game.name}</h5>
+                  <Image
+                    src={game.image}
+                    alt={game.alt}
+                    className={styles.gameImage}
+                    width={200}
+                    height={200}
+                    priority
+                  />
+                  <h5>{'Total Players: ' + game.players}</h5>
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
