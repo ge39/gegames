@@ -30,6 +30,8 @@ export default function Gamelist() {
           <Link style={{textDecoration: "none",color:'red' }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
 
           <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+          
+          <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
                           
           <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive - </Link>
 

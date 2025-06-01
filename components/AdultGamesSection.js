@@ -40,12 +40,12 @@ export default function Gamelist() {
             <a className="text-xs text-blue-600 hover:underline" href="adult-games">Acessar 🔐</a>
           </h2>
           <p className="mt-2">Você não inseriu a senha correta.</p>
-          <button
+          {/* <button
             onClick={checkPassword}
             className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             Tentar novamente
-          </button>
+          </button> */}
         </main>
         <Footer />
       </>
@@ -63,10 +63,17 @@ export default function Gamelist() {
       <main>
         <section id="arcadeSection">
           <h2 style={{ textAlign: 'center' }}>
-            <Link style={{ textDecoration: "none", color: "red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
-            <Link style={{ textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
-            <Link style={{ textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
-            <Link style={{ textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
+            <Link style={{ textDecoration: "none", color: "red" }} href="/lista-de-jogos-arcade-online">XXX - </Link>
+            
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+
+            <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
+            
+            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+        
+            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
+
+            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
           </h2>
 
           <div style={{ textAlign: 'center', margin: '20px' }}>
