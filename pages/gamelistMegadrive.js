@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { MegadriveGames } from '../data/MegadriveGames.js';
+import WhatsappButton from '@/components/WhatsappButton';
+
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -52,8 +54,9 @@ export default function Gamelist() {
                 maxWidth: '500px',
                 borderRadius: '8px',
                 border: '1px solid #ccc'
-              }}
+              }}  
             />
+             < WhatsappButton />
           </div>
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (

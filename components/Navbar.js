@@ -50,7 +50,7 @@ export default function Navbar() {
           <li><Link href="/#sobre">Sobre</Link></li>
         </ul>
       </nav>
-      {/* <OnlineCounter /> */}
+      {/* <OnlineCounter />  */}
     </>
   );
 }

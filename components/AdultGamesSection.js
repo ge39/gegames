@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { adultGames } from '../data/adultGames';
+import WhatsappButton from '@/components/WhatsappButton';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -91,6 +92,7 @@ export default function Gamelist() {
                 border: '1px solid #ccc'
               }}
             />
+            < WhatsappButton />
           </div>
 
           <div className={styles.gamesGrid}>

@@ -4,6 +4,7 @@ import Carousel from '../components/carousel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
+import WhatsappButton from '@/components/WhatsappButton';
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -484,8 +485,9 @@ export default function Gamelist() {
             <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
 
             <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
+            <WhatsappButton />
           </h2>
-       
+          
           <Carousel games={arcadeGames} />
         </section>
 
@@ -508,7 +510,9 @@ export default function Gamelist() {
             <h2>Megadrive</h2>
           </Link>
           <Carousel games={megadriveGames} />
+          
         </section>
+        
       </main>
       < Footer />
     </>

@@ -7,6 +7,7 @@ import '../styles/Globals.css';
 import Image from 'next/image';
 import { useState } from 'react';
 import { gbaGames } from '../data/gbaGames.js';
+import WhatsappButton from '@/components/WhatsappButton';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,6 +51,7 @@ export default function Gamelist() {
                 border: '1px solid #ccc'
               }}
             />
+            < WhatsappButton/>
           </div>
 
           <div className={styles.gamesGrid}>

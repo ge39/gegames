@@ -7,11 +7,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { arcadeGames } from '../data/arcadeGames.js';
-// import AdultGamesSection from '../components/AdultGamesSection';
-
-// dentro do return JSX do componente Gamelist, após a listagem de jogos normais:
-
-{/* <AdultGamesSection /> */}
+import WhatsappButton from '@/components/WhatsappButton';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,13 +32,13 @@ export default function Gamelist() {
 
           <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
 
-            <Link style={{textDecoration: "none"}} href="/adult-games">XXX - </Link>
+          <Link style={{textDecoration: "none"}} href="/adult-games">XXX - </Link>
 
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+          <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
          
-            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
+          <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
 
-            <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
+          <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
           
           </h2>
             {/* Campo de busca */}
@@ -61,6 +57,7 @@ export default function Gamelist() {
                 border: '1px solid #ccc'
               }}
             />
+            <WhatsappButton />
           </div>
 
           <div className={styles.gamesGrid}>
