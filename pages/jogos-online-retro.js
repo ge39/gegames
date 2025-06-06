@@ -473,7 +473,7 @@ export default function Gamelist() {
       <main className={styles.main}>
         <section id="arcadeSection">
             
-          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%',margin-top:'100px'}}>
             <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
 
             <Link style={{textDecoration: "none" }} href="/adult-games">X X X - </Link>
