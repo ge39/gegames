@@ -459,7 +459,7 @@ export default function Gamelist() {
     alt: "Show do Milhão 2 Cover Art",
     rating: "0.87",
     players: "1",
-    releasedate: "2001-10-10"
+    releasedate: "2001-10-10",
 }
   ]
 
