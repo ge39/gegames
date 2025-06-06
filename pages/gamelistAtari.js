@@ -27,7 +27,7 @@ export default function Gamelist() {
 
       <main>
         <section id="atariSection">
-          <h2 style={{ textAlign: 'center', maxWidth: '100%' }}>
+          <h2 style={{ textAlign: 'center', maxWidth: '100%',marginTop:'80px' }}>
             <Link style={{ textDecoration: 'none', color: 'red' }} href="/gamelistAtari">Atari - </Link>
             <Link style={{ textDecoration: 'none' }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
             

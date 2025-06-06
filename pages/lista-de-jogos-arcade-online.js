@@ -26,7 +26,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
 
           <Link style={{textDecoration: "none",color:"red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
 
