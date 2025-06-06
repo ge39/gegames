@@ -22,12 +22,15 @@ export default function Home() {
         border-radius: 10px;
         background-color: #438;
         padding: 10px;
+        justify-content:center;
         text-align: center;
+        margin-left:1.5%;
+        margin-right:.5%;
         color: snow;
         // font-size: 20px;
         font-weight: bold;
         margin-top: 0.5%  ;
-        width: 100%;
+        width: 99%;
       }
           #Home div h1 {
           color:'black',
@@ -106,21 +109,18 @@ export default function Home() {
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
   {/* </p> */}
 
-  <div 
+  <div
     className="conteiner" 
     style={{
       display: 'inline-flex',          // Flexbox para alinhar as colunas lado a lado
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      marginTop: '0', // Adiciona um espaço entre o conteúdo principal e as colunas
+      marginTop: '45px', // Adiciona um espaço entre o conteúdo principal e as colunas
       flexWrap: 'wrap',             // Permite que as colunas se movam para a próxima linha se não houver espaço
     }}
     >
-      <h1>
-  {/* Fliperamas Retrô, Nostalgia para Seus Eventos */}
-  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...
-</h1>
+      <h1>  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...</h1>
     <div 
       className="column" 
       style={{
@@ -365,8 +365,8 @@ export default function Home() {
     <Image
       src="/images/eventos/Fliperama_locacao.webp"
       alt="Fliperama"
-      width={500}
-      height={900}
+      width={900}
+      height={500}
       style={{ borderRadius: '8px', objectFit: 'cover', width: '100%',transform: '(-50%, -50%)', }}
       
     />
