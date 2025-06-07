@@ -462,7 +462,7 @@ export default function Gamelist() {
     releasedate: "2001-10-10",
 }
   ]
-
+   
   return (
     <>
       <Head>
@@ -485,9 +485,14 @@ export default function Gamelist() {
             <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
 
             <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
-            <WhatsappButton />
+           
           </h2>
+
+          <div style={{ textAlign: 'center', margin: '20px' }}>
           
+            <WhatsappButton />
+          </div>
+
           <Carousel games={arcadeGames} />
         </section>
 
