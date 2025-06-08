@@ -53,7 +53,7 @@ export default function Emulation() {
           style={{ width: "800px", height: "500px", maxWidth: "100%" }}
         >
            
-          <PeerConnection peerId={query.peerId} />
+          <PeerConnection peerId={query.peerId} /> 
         
         </div>
       </div>
