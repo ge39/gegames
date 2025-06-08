@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
 import PeerConnection from "../components/PeerConnection";
-
+import WebcamBoox from '../components/WebcamBox';
 
 export default function Emulation() {
   const { query } = useRouter();
@@ -55,6 +55,7 @@ export default function Emulation() {
         >
            
           <PeerConnection peerId={query.peerId} />
+          < WebcamBoox />
         </div>
       </div>
     </div>
