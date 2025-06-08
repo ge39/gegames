@@ -9,6 +9,7 @@ export default function PeerConnection() {
   const [minimized, setMinimized] = useState(false);
 
   const remoteVideoRef = useRef(null);
+  const localVideoRef = useRef(null);
   const peerRef = useRef(null);
   const callRef = useRef(null);
   const localStreamRef = useRef(null);
@@ -36,6 +37,7 @@ export default function PeerConnection() {
       });
       localStreamRef.current = stream;
       call.answer(stream);
+      if (localVideoRef.current) localVideoRef.current.srcObject = stream;
 
       call.on("stream", (remoteStream) => {
         remoteVideoRef.current.srcObject = remoteStream;
@@ -59,7 +61,9 @@ export default function PeerConnection() {
     if (cameraOn) {
       if (localStreamRef.current) {
         localStreamRef.current.getTracks().forEach((track) => track.stop());
+        localStreamRef.current = null;
       }
+      if (localVideoRef.current) localVideoRef.current.srcObject = null;
       setCameraOn(false);
     } else {
       try {
@@ -68,6 +72,7 @@ export default function PeerConnection() {
           audio: true,
         });
         localStreamRef.current = stream;
+        if (localVideoRef.current) localVideoRef.current.srcObject = stream;
         setCameraOn(true);
       } catch (err) {
         alert("Erro ao acessar a câmera: " + err.message);
@@ -75,7 +80,7 @@ export default function PeerConnection() {
     }
   };
 
-  const connectToPeer = async () => {
+  const connectToPeer = () => {
     if (!cameraOn) {
       alert("Ligue a câmera antes de conectar.");
       return;
@@ -96,7 +101,6 @@ export default function PeerConnection() {
     callRef.current = call;
   };
 
-  // Drag handlers (mouse & touch)
   const onMouseDown = (e) => {
     if (e.target === boxRef.current.querySelector(".header")) {
       isDragging.current = true;
@@ -118,10 +122,8 @@ export default function PeerConnection() {
 
     const maxLeft = window.innerWidth - boxRef.current.offsetWidth;
     const maxTop = window.innerHeight - boxRef.current.offsetHeight;
-    if (left < 0) left = 0;
-    else if (left > maxLeft) left = maxLeft;
-    if (top < 0) top = 0;
-    else if (top > maxTop) top = maxTop;
+    left = Math.max(0, Math.min(left, maxLeft));
+    top = Math.max(0, Math.min(top, maxTop));
 
     boxRef.current.style.left = `${left}px`;
     boxRef.current.style.top = `${top}px`;
@@ -154,10 +156,8 @@ export default function PeerConnection() {
 
     const maxLeft = window.innerWidth - boxRef.current.offsetWidth;
     const maxTop = window.innerHeight - boxRef.current.offsetHeight;
-    if (left < 0) left = 0;
-    else if (left > maxLeft) left = maxLeft;
-    if (top < 0) top = 0;
-    else if (top > maxTop) top = maxTop;
+    left = Math.max(0, Math.min(left, maxLeft));
+    top = Math.max(0, Math.min(top, maxTop));
 
     boxRef.current.style.left = `${left}px`;
     boxRef.current.style.top = `${top}px`;
@@ -185,8 +185,7 @@ export default function PeerConnection() {
         color: "#e1e1e1",
         borderRadius: 10,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.75)",
-        fontFamily:
-          "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         userSelect: "none",
         overflow: "hidden",
         touchAction: "none",
@@ -201,7 +200,6 @@ export default function PeerConnection() {
           fontWeight: "700",
           fontSize: 14,
           borderBottom: "1px solid #2f3640",
-          userSelect: "none",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -217,31 +215,18 @@ export default function PeerConnection() {
             border: "none",
             color: "#58a6ff",
             fontSize: 20,
-            lineHeight: 1,
             cursor: "pointer",
-            userSelect: "none",
-            padding: 0,
-            marginLeft: 8,
-            fontWeight: "700",
             width: 28,
             height: 28,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "color 0.3s",
           }}
-          aria-label={minimized ? "Restaurar janela" : "Minimizar janela"}
-          type="button"
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#a0c4ff")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#58a6ff")}
         >
           {minimized ? "▢" : "−"}
         </button>
       </div>
 
       {!minimized && (
-        <div style={{ padding: "14px 16px", fontSize: 13, color: "#d7dae0" }}>
-          <div style={{ fontSize: 11, marginBottom: 10, lineHeight: 1.3 }}>
+        <div style={{ padding: 14, fontSize: 13 }}>
+          <div style={{ fontSize: 11, marginBottom: 10 }}>
             <strong>Seu ID:</strong>
             <br />
             <code
@@ -251,14 +236,8 @@ export default function PeerConnection() {
                 borderRadius: 6,
                 display: "inline-block",
                 marginTop: 6,
-                maxWidth: "100%",
-                overflowWrap: "break-word",
-                wordBreak: "break-word",
-                fontWeight: "600",
-                letterSpacing: "0.03em",
-                userSelect: "all",
-                boxShadow: "inset 0 0 5px #0f1620",
                 color: "#66d9ef",
+                fontWeight: 600,
               }}
             >
               {myPeerId || "gerando..."}
@@ -279,11 +258,8 @@ export default function PeerConnection() {
                 border: "none",
                 textDecoration: "underline",
                 cursor: "pointer",
-                padding: 0,
-                userSelect: "auto",
                 fontWeight: "600",
               }}
-              type="button"
             >
               Copiar ID
             </button>
@@ -302,13 +278,7 @@ export default function PeerConnection() {
               width: "100%",
               fontWeight: "700",
               fontSize: 14,
-              userSelect: "none",
-              boxShadow: cameraOn
-                ? "0 4px 12px rgba(217, 76, 76, 0.7)"
-                : "0 4px 12px rgba(59, 166, 98, 0.7)",
-              transition: "background-color 0.3s, box-shadow 0.3s",
             }}
-            type="button"
           >
             {cameraOn ? "Desligar câmera" : "Ligar câmera"}
           </button>
@@ -328,13 +298,7 @@ export default function PeerConnection() {
               color: "#d7dae0",
               fontSize: 14,
               fontWeight: "500",
-              userSelect: "text",
-              boxSizing: "border-box",
-              outline: "none",
-              transition: "border-color 0.3s",
             }}
-            onFocus={(e) => (e.target.style.borderColor = "#58a6ff")}
-            onBlur={(e) => (e.target.style.borderColor = "#3a3f47")}
           />
 
           <button
@@ -350,32 +314,11 @@ export default function PeerConnection() {
               cursor: !remoteId ? "not-allowed" : "pointer",
               fontSize: 14,
               fontWeight: "700",
-              userSelect: "none",
-              boxShadow: !remoteId
-                ? "none"
-                : "0 6px 15px rgba(46, 164, 79, 0.6)",
-              transition: "background-color 0.3s, box-shadow 0.3s",
             }}
-            type="button"
           >
             Conectar
           </button>
 
-          <video
-            ref={remoteVideoRef}
-            autoPlay
-            playsInline
-            style={{
-              width: "100%",
-              height: 110,
-              marginTop: 14,
-              background: "#000",
-              borderRadius: 8,
-              userSelect: "none",
-              boxShadow: "inset 0 0 8px #111",
-            }}
-          />
-          
           {connected && (
             <p
               style={{
@@ -383,14 +326,40 @@ export default function PeerConnection() {
                 fontSize: 12,
                 color: "#4ade80",
                 textAlign: "center",
-                userSelect: "none",
                 fontWeight: "600",
-                textShadow: "0 0 5px #4ade80aa",
               }}
             >
               Conectado ✅
             </p>
           )}
+
+          <div style={{ display: "flex", gap: 6, marginTop: 14 }}>
+            <video
+              ref={localVideoRef}
+              autoPlay
+              muted
+              playsInline
+              style={{
+                width: "48%",
+                height: 100,
+                background: "#333",
+                borderRadius: 6,
+                objectFit: "cover",
+              }}
+            />
+            <video
+              ref={remoteVideoRef}
+              autoPlay
+              playsInline
+              style={{
+                width: "48%",
+                height: 100,
+                background: "#444",
+                borderRadius: 6,
+                objectFit: "cover",
+              }}
+            />
+          </div>
         </div>
       )}
     </div>
