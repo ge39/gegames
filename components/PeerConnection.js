@@ -333,7 +333,7 @@ export default function PeerConnection() {
             </p>
           )}
 
-          <div style={{ display: "flex", gap: 6, marginTop: 14 }}>
+          <div style={{ display: "flex", gap: 6, marginTop: 14,backgroudColor:"yellow" }}>
             <video
               ref={localVideoRef}
               autoPlay
