@@ -340,7 +340,7 @@ export default function PeerConnection() {
               muted
               playsInline
               style={{
-                width: "48%",
+                width: "100%",
                 height: 100,
                 background: "#333",
                 borderRadius: 6,
@@ -352,7 +352,7 @@ export default function PeerConnection() {
               autoPlay
               playsInline
               style={{
-                width: "48%",
+                width: "100%",
                 height: 100,
                 background: "#444",
                 borderRadius: 6,
