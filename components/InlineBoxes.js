@@ -1,4 +1,4 @@
-import styles from './InlineBoxes.module.css';
+import styles from './styles/InlineBoxes.module.css';
 
 export default function InlineBoxes() {
   return (
