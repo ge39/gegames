@@ -199,11 +199,11 @@ export default function PeerConnection() {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         style={{
-          position: "fixed",
-          top: 80,
+          position: "relative",
+          top: -10,
           left: 20,
           zIndex: 2147483647,
-          width: 200,
+          width:"95%",
           maxWidth: "95vw",
           background: "#12151a",
           color: "#e1e1e1",
@@ -213,29 +213,30 @@ export default function PeerConnection() {
           userSelect: "none",
           overflow: "hidden",
           touchAction: "none",
-          resize: "both",
+          // resize: "both",
         }}
       >
         {/* Cabeçalho arrastável */}
         <div
           className="header"
-          style={{
-            backgroundColor: "#1f252c",
-            padding: "10px 14px",
-            cursor: "grab",
-            fontWeight: "700",
-            fontSize: 14,
-            borderBottom: "1px solid #2f3640",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            color: "#58a6ff",
-            textShadow: "0 0 5px #58a6ff66",
-          }}
+          // style={{
+          //   backgroundColor: "#1f252c",
+          //   padding: "10px 14px",
+          //   cursor: "grab",
+          //   fontWeight: "700",
+          //   fontSize: 14,
+          //   width:150,
+          //   borderBottom: "1px solid #2f3640",
+          //   // display: "flex",
+          //   // justifyContent: "space-between",
+          //   alignItems: "center",
+          //   color: "#58a6ff",
+          //   textShadow: "0 0 5px #58a6ff66",
+          // }}
         >
-          Conexão Webcam
+          {/* Conexão Webcam
           <button
-            onClick={() => setMinimized(!minimized)}
+            // onClick={() => setMinimized(!minimized)}
             style={{
               background: "transparent",
               border: "none",
@@ -247,27 +248,27 @@ export default function PeerConnection() {
             }}
           >
             {minimized ? "▢" : "−"}
-          </button>
+          </button> */}
         </div>
 
         {!minimized && (
           <div style={{ padding: 14, fontSize: 13 }}>
             {/* ...conteúdo existente */}
-            <div style={{ fontSize: 11, marginBottom: 10 }}>
+            <div style={{ fontSize: 11, marginBottom: 0 }}>
               <strong>Seu ID:</strong>
-              <br />
+              {/* <br /> */}
               <code
                 style={{
                   background: "#222831",
                   padding: "5px 10px",
                   borderRadius: 6,
-                  display: "inline-block",
+                  display: "inline",
                   marginTop: 6,
                   color: "#66d9ef",
                   fontWeight: 600,
                 }}
               >
-                {myPeerId || "gerando..."}
+                 <strong>Seu ID:</strong> {myPeerId || "gerando..."}
               </code>
               <br />
               <button
@@ -302,8 +303,8 @@ export default function PeerConnection() {
                 padding: "10px 0",
                 borderRadius: 6,
                 marginBottom: 14,
-                width: "100%",
-                fontWeight: "700",
+                width: "15%",
+                fontWeight: "400",
                 fontSize: 14,
               }}
             >
@@ -316,15 +317,16 @@ export default function PeerConnection() {
               onChange={(e) => setRemoteId(e.target.value)}
               placeholder="ID do amigo"
               style={{
-                width: "100%",
+                width: "20%",
                 padding: 10,
+                margin:10,
                 borderRadius: 6,
                 border: "1.5px solid #3a3f47",
                 marginBottom: 12,
                 backgroundColor: "#222831",
                 color: "#d7dae0",
                 fontSize: 14,
-                fontWeight: "500",
+                fontWeight: "400",
               }}
             />
 
@@ -332,7 +334,7 @@ export default function PeerConnection() {
               onClick={connectToPeer}
               disabled={!remoteId}
               style={{
-                width: "100%",
+                width: "10%",
                 padding: "10px 0",
                 background: !remoteId ? "#555" : "#2ea44f",
                 color: "#fff",
@@ -340,7 +342,7 @@ export default function PeerConnection() {
                 borderRadius: 6,
                 cursor: !remoteId ? "not-allowed" : "pointer",
                 fontSize: 14,
-                fontWeight: "700",
+                fontWeight: "400",
               }}
             >
               Conectar
@@ -407,7 +409,7 @@ export default function PeerConnection() {
           Div Flutuante
         </div>
         <div style={{ padding: 10, flex: 1, overflowY: "auto", fontSize: 14 }}>
-           <div>
+            <div>
               <video
                 ref={localVideoRef}
                 autoPlay
@@ -420,7 +422,7 @@ export default function PeerConnection() {
                   backgroundColor: "#000",
                 }}
               />
-            </div>
+           </div>
 
             <div>
               <video
@@ -433,7 +435,7 @@ export default function PeerConnection() {
                 borderRadius: 8,
                 backgroundColor: "#000",
               }}
-            />
+              />
             </div>
         </div>
       </div>
