@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Peer from "peerjs";
-import styles from './InlineBoxes.js';
+import InlineBoxes from './InlineBoxes.js';
 
 export default function PeerConnection() {
   // seus estados e refs existentes...
