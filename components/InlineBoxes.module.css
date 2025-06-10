@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+  height: 100px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: flex-end; /* garante alinhamento no bottom */
+  gap: 10px;
+  padding: 10px;
+}
+
+.box {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  bottom: 0;
+  position: relative;
+}
