@@ -441,6 +441,7 @@ export default function PeerConnection() {
         </div>
         
       </div>
+          < InlineBoxes />
     </>
     
   );
