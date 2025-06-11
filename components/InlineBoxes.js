@@ -45,7 +45,7 @@ export default function InlineBoxes() {
                 Copiar ID
               </button>
             
-
+          </div>
       <div className={styles.box}>Box 1</div>
       <div className={styles.box}>Box 2</div>
       <div className={styles.box}>Box 3</div>
