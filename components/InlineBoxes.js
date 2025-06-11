@@ -1,3 +1,6 @@
+import { useEffect, useRef, useState } from "react";
+import Peer from "peerjs";
+
 import styles from './InlineBoxes.module.css';
 
 export default function InlineBoxes() {
