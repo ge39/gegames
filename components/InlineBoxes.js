@@ -46,6 +46,7 @@ export default function InlineBoxes() {
               </button>
             
           </div>
+      </div>
       // <div className={styles.box}>Box 1</div>
       // <div className={styles.box}>Box 2</div>
       // <div className={styles.box}>Box 3</div>
