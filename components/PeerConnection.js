@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Peer from "peerjs";
-import InlineBoxes from './InlineBoxes.js';
+
 
 export default function PeerConnection() {
   // seus estados e refs existentes...
@@ -438,10 +438,11 @@ export default function PeerConnection() {
               }}
               />
             </div>
-              < InlineBoxes />
         </div>
+        
       </div>
     </>
+    
   );
 
   // Função toggleCamera, connectToPeer continuam aqui (não alteradas)...
