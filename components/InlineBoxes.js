@@ -23,6 +23,29 @@ export default function InlineBoxes() {
               >
                 {myPeerId || "gerando..."}
               </code>
+              <br />
+              <button
+                onClick={() => {
+                  if (myPeerId) {
+                    navigator.clipboard.writeText(myPeerId);
+                    alert("ID copiado para a área de transferência!");
+                  }
+                }}
+                style={{
+                  marginTop: 6,
+                  fontSize: 11,
+                  color: "#58a6ff",
+                  background: "none",
+                  border: "none",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontWeight: "600",
+                }}
+              >
+                Copiar ID
+              </button>
+            
+
       <div className={styles.box}>Box 1</div>
       <div className={styles.box}>Box 2</div>
       <div className={styles.box}>Box 3</div>
