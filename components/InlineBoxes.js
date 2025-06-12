@@ -20,8 +20,8 @@ export default function InlineBoxes() {
               }}
             >
               Conectar
-            </button> 
-    </div>
+        </button> 
+      </div>
       <div className={styles.box}>Box 2</div>
       <div className={styles.box}>Box 3</div>
       <div className={styles.box}>Box 4</div>
