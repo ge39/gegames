@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Navbar.module.css';
-// import OnlineCounter from './OnlineCounter';
+import OnlineCounter from './OnlineCounter';
+import Head from 'next/head';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +23,17 @@ export default function Navbar() {
           <Link href="/">
               <Image src="/logo/Logo gegames-black.png" alt="Gegames Logo" width={200} height={50} />
            </Link>
-           
+
+            <Head>
+              <title>GegaMes - Jogos Retrô Online</title>
+              <meta name="description" content="Jogue clássicos dos Arcades, SNES, Mega Drive e mais diretamente do navegador!" />
+              <meta name="robots" content="index, follow" />
+              <link rel="canonical" href="https://gegamess.vercel.app/" />
+            </Head>
+
       </div>
         </div>
+        
 
         <div className={styles.hamburger} onClick={toggleMenu}>
           <div className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} />
@@ -50,7 +59,7 @@ export default function Navbar() {
           <li><Link href="/#sobre">Sobre</Link></li>
         </ul>
       </nav>
-      {/* <OnlineCounter />  */}
+      <OnlineCounter /> 
     </>
   );
 }
