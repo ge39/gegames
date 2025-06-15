@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 import WhatsappButton from '@/components/WhatsappButton';
+import SEOHead from "../components/SEOHead";
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -465,23 +466,30 @@ export default function Gamelist() {
    
   return (
     <>
-      <Head>
+    
+      <SEOHead
+        title="Jogos Retrô Online"
+        description="Jogue Super Nintendo, Mega Drive, Nintendo 64 e muito mais diretamente do navegador com multiplayer!"
+        url="https://gegamess.vercel.app"
+      />
+      <main>{/* conteúdo */}</main>
+    
+      {/* <Head>
         <title>Lista de Jogos Online Retrô</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+      </Head> */}
       <Navbar />
       <main className={styles.main}>
         <section id="arcadeSection">
-            
           <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+            <Link style={{textDecoration: "none" }} href="/gamelistArcade">Arcade - </Link>
 
             <Link style={{textDecoration: "none" }} href="/adult-games">X X X - </Link>
 
             <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-            
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
-        
+
+            <Link style={{textDecoration: "none" }} href="/gamelistSnes">Super Nintendo - </Link>
+
             <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
 
             <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
@@ -497,7 +505,7 @@ export default function Gamelist() {
         </section>
 
         <section id="snesSection">
-            <Link href="/lista-de-jogos-snes-online">
+            <Link href="/gamelistSnes">
               <h2>Super Nintendo</h2>
             </Link>
           <Carousel games={snesGames} />

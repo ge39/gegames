@@ -1,47 +1,45 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar.js';
 import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.js';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
-import { arcadeGames } from '../data/arcadeGames.js';
+import { snesGames } from '../data/snesGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
-  
+
     // Filtra os jogos pelo nome baseado no searchTerm
-    const filteredGames = arcadeGames.filter(game =>
+    const filteredGames = snesGames.filter(game =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
   return (
     <>
-    
       <Head>
-        <title>Lista de Jogos Arcade Online</title>
+        <title>Lista de Jogos Super Nes Online</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
       <main>
-        <section id="arcadeSection">
+        <section id="snesSection">
           <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
 
-          <Link style={{textDecoration: "none",color:"red" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
+          <Link style={{textDecoration: "none",color:'red' }} href="/gamelistSnes">Super Nintendo - </Link>
 
+          <Link style={{textDecoration: "none" }} href="/gamelistArcade">Arcade - </Link>
+          
           <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-
-          <Link style={{textDecoration: "none"}} href="/adult-games">XXX - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
-         
-          <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
+                          
+          <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive - </Link>
 
           <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
-          
+
           </h2>
-            {/* Campo de busca */}
+          {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
               type="text"
@@ -57,9 +55,8 @@ export default function Gamelist() {
                 border: '1px solid #ccc'
               }}
             />
-            <WhatsappButton />
+            < WhatsappButton />
           </div>
-
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
@@ -75,19 +72,58 @@ export default function Gamelist() {
                   />
                   <h5>{"Total Players: " + game.players}</h5>
                 </a>
-                
               </div>
-              
             ))}
-           
           </div>
-            {/* <AdultGamesSection /> */}
         </section>
       </main>
-       
       <Footer />
-      
     </>
-    
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,10 +29,9 @@ export default function Gamelist() {
         <section id="atariSection">
           <h2 style={{ textAlign: 'center', maxWidth: '100%',marginTop:'80px' }}>
             <Link style={{ textDecoration: 'none', color: 'red' }} href="/gamelistAtari">Atari - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
-            
+            <Link style={{ textDecoration: 'none' }} href="/gamelistArcade">Arcade - </Link>
             <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
+            <Link style={{ textDecoration: 'none' }} href="/gamelistSnes">Super Nintendo - </Link>
             <Link style={{ textDecoration: 'none' }} href="/gamelistMegadrive">Megadrive</Link>
           </h2>
 
