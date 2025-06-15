@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';
 import Navbar from '../components/Navbar';
 import PeerConnection from "../components/PeerConnection";
-import InlineBoxes from '../components/InlineBoxes.js';
 
 export default function Emulation() {
   const { query } = useRouter();
@@ -46,7 +45,7 @@ export default function Emulation() {
   return (
     <div>
       <Navbar />
-      <div className={styles.emulatorContainer} style={{ position: "relative", width: "800px", height: "500px", maxWidth: "90%", margin: "0 auto" }}>
+      <div className={styles.emulatorContainer} style={{ position: "relative", width: "800px", height: "500px", maxWidth: "90%", marginTop: "0 auto" }}>
         
         <div
           id="game"
@@ -57,7 +56,7 @@ export default function Emulation() {
           <PeerConnection peerId={query.peerId} /> 
         
         </div>
-               < InlineBoxes />
+      
       </div>
     </div>
   );

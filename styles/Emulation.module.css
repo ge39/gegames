@@ -1,5 +1,6 @@
 .emulatorContainer {
   margin: 5px auto;
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
