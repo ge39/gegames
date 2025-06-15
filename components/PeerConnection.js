@@ -181,7 +181,7 @@ export default function PeerConnection() {
     zIndex: 2147483647,
     width: 170,
     maxWidth: "95vw",
-    background: "#12151a",
+    background: "transparent",
     color: "#e1e1e1",
     borderRadius: 10,
     boxShadow: "0 8px 20px rgba(0, 0, 0, 0.75)",
@@ -202,7 +202,7 @@ export default function PeerConnection() {
   <div
     className="header"
     style={{
-      backgroundColor: "#1f252c",
+      backgroundColor: "transparent",
       padding: "10px 14px",
       cursor: "grab",
       fontWeight: "700",
@@ -303,7 +303,7 @@ export default function PeerConnection() {
               borderRadius: 6,
               border: "1.5px solid #3a3f47",
               marginBottom: 12,
-              backgroundColor: "#222831",
+              backgroundColor: "transparent",
               color: "#d7dae0",
               fontSize: 12,
               fontWeight: "500",
@@ -370,7 +370,7 @@ export default function PeerConnection() {
                 width: "100%",
                 display: "inline-block",
                 height: "100%",
-                background: "#444",
+                background: "#333",
                 borderRadius: 6,
                 objectFit: "contain",
               }}
