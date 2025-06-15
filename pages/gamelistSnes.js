@@ -26,7 +26,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="snesSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>
 
           <Link style={{textDecoration: "none",color:'red' }} href="/gamelistSnes">Super Nintendo - </Link>
 

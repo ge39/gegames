@@ -26,7 +26,7 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
+          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>
 
           <Link style={{textDecoration: "none",color:"red" }} href="/gamelistArcade">Arcade - </Link>
 
@@ -34,7 +34,7 @@ export default function Gamelist() {
 
           <Link style={{textDecoration: "none"}} href="/adult-games">XXX - </Link>
 
-          <Link style={{textDecoration: "none" }} href="/gamelistBnes">Super Nintendo - </Link>
+          <Link style={{textDecoration: "none" }} href="/gamelistSnes">Super Nintendo - </Link>
          
           <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
 
