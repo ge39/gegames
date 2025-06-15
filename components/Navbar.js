@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Navbar.module.css';
-import OnlineCounter from './OnlineCounter';
+
 import Head from 'next/head';
 
 export default function Navbar() {
@@ -59,7 +59,7 @@ export default function Navbar() {
           <li><Link href="/#sobre">Sobre</Link></li>
         </ul>
       </nav>
-      <OnlineCounter /> 
+      
     </>
   );
 }
