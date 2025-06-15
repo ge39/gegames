@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = "https://gegamess.vercel.app";
+  const baseUrl = "https://gegames.vercel.app";
 
   const staticPages = [
     { loc: "/", priority: "1.0" },

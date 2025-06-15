@@ -23,7 +23,8 @@ export default function OnlineCounter() {
   }, []);
 
   return (
-    <div style={{fontSize:"12px", textAlign:"center",backgroundColor:"#fafafa",width:"100%"}}>
+    <div style={{fontSize:"12px", textAlign:"center",backgroundColor:"#fafafa",width:"100%",marginTop:"0",padding:"5px",borderRadius:"5px"}}>
+      <span style={{color:"red"}}>Online Counter: </span>
       <span>user(s) online: {onlineUsers} </span>
     </div>
   );

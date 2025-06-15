@@ -28,7 +28,7 @@ export default function Navbar() {
               <title>GegaMes - Jogos Retrô Online</title>
               <meta name="description" content="Jogue clássicos dos Arcades, SNES, Mega Drive e mais diretamente do navegador!" />
               <meta name="robots" content="index, follow" />
-              <link rel="canonical" href="https://gegamess.vercel.app/" />
+              <link rel="canonical" href="https://gegames.vercel.app/" />
             </Head>
 
       </div>
