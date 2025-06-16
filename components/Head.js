@@ -11,6 +11,7 @@ export default function HeadJogosRetro() {
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Gegames" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="google-site-verification" content="google6f561de9f8982561" />
 
       {/* Open Graph (Facebook, WhatsApp, etc.) */}
       <meta property="og:title" content="Jogue Clássicos Retrô Online | Gegames" />

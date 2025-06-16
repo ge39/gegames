@@ -20,10 +20,11 @@ export default function Gamelist() {
   return (
     <>
       <Head>
-        <title>Lista de Jogos Super Nes Online</title>
+        <title>Lista de Jogos Super Nintendo Online</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
+
       <main>
         <section id="snesSection">
           <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>

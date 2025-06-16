@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
-
+import Head from "next/head";
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -466,20 +466,15 @@ export default function Gamelist() {
    
   return (
     <>
-     
+     <Head />
       <SEOHead
-        title="Jogos Retrô Online"
-        description="Jogue Super Nintendo, Mega Drive, Nintendo 64 e muito mais diretamente do navegador com multiplayer!"
-        url="https://gegames.vercel.app"
+        title="Jogos Online Retrô | Gegames"
+        description="Reviva os clássicos dos anos 80/90 no navegador. Jogue com webcam e desafie seus amigos!"
+        url="https://gegames.vercel.app/jogos-online-retro"
+        image="/logo/arcade.png"
       />
-     
-    
-      {/* <Head>
-        <title>Lista de Jogos Online Retrô</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head> */}
       <Navbar />
-    
+
       <main className={styles.main}>
         <section id="arcadeSection">
           <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
