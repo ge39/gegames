@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://gegames.vercel.app
+Host: https://gegamess.vercel.app
 
 # Sitemaps
-Sitemap: https://gegames.vercel.app/sitemap.xml
+Sitemap: https://gegamess.vercel.app/sitemap.xml
