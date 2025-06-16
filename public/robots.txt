@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://gegamess.vercel.app
-
-# Sitemaps
-Sitemap: https://gegamess.vercel.app/sitemap.xml
