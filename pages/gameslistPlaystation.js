@@ -1,6 +1,5 @@
 
 import Head from 'next/head';
-import Link from 'next/link';
 import Navbar from '../components/Navbar.js';
 import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
