@@ -8,6 +8,7 @@ import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { arcadeGames } from '../data/arcadeGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,23 +27,10 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>
-
-          <Link style={{textDecoration: "none",color:"red" }} href="/gamelistArcade">Arcade - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-
-          <Link style={{textDecoration: "none"}} href="/adult-games">XXX - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistSnes">Super Nintendo - </Link>
-         
-          <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive -</Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
-          
-          </h2>
+          <Console />
             {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Arcade - {filteredGames.length}</h4>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -63,18 +51,18 @@ export default function Gamelist() {
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
-                <a href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
                   <Image
                     src={game.image}
-                    alt={game.alt}
+                    alt={game.name}
                     className={styles.gameImage}
                     width={200}
                     height={200}
                     priority
                   />
                   <h5>{"Total Players: " + game.players}</h5>
-                </a>
+                </Link>
                 
               </div>
               

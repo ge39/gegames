@@ -6,6 +6,7 @@ import styles from '../styles/Globals.css';
 import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 import Head from "next/head";
+import Console from '../components/Console';
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -477,20 +478,7 @@ export default function Gamelist() {
 
       <main className={styles.main}>
         <section id="arcadeSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px'}}>
-            <Link style={{textDecoration: "none" }} href="/gamelistArcade">Arcade - </Link>
-
-            <Link style={{textDecoration: "none" }} href="/adult-games">X X X - </Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistSnes">Super Nintendo - </Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
-           
-          </h2>
+         < Console />
 
           <div style={{ textAlign: 'center', margin: '20px' }}>
           

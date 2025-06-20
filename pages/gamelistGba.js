@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { gbaGames } from '../data/gbaGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,16 +28,11 @@ export default function Gamelist() {
 
       <main>
         <section id="atariSection">
-          <h2 style={{ textAlign: 'center', maxWidth: '100%',marginTop:'80px',borderRadius:'10px' }}>
-            <Link style={{ textDecoration: 'none', color: 'red' }} href="/gamelistGba">Gba - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/gamelistAtari">Atari - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/gamelistArcade">Arcade - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/gamelistSnes">Super Nintendo - </Link>
-            <Link style={{ textDecoration: 'none' }} href="/gamelistMegadrive">Megadrive</Link>
-          </h2>
+          <Console />
 
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos GBA - {filteredGames.length}</h4>
             <input
               type="text"
               placeholder="Buscar por nome..."

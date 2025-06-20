@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { adultGames } from '../data/adultGames';
 import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,19 +64,8 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="arcadeSection">
-          <h2 style={{ textAlign: 'center' ,marginTop:'80px'}}>
-            <Link style={{ textDecoration: "none", color: "red" }} href="/lista-de-jogos-arcade-online">XXX - </Link>
-            
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-arcade-online">Arcade - </Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-            
-            <Link style={{textDecoration: "none" }} href="/lista-de-jogos-snes-online">Super Nintendo - </Link>
-        
-            <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive</Link>
-
-            <Link style={{textDecoration: "none" }} href="/gamelistAtari"> - Atari</Link>
-          </h2>
+         
+         <Console />
 
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input

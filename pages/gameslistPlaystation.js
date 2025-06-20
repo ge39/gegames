@@ -6,7 +6,7 @@ import  '../styles/Globals.css';
 import Footer from '../components/Footer.js';
 import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
-import { snesGames } from '../data/snesGames.js';
+import { psxGames } from '../data/psxGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
 
@@ -14,24 +14,24 @@ export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
 
     // Filtra os jogos pelo nome baseado no searchTerm
-    const filteredGames = snesGames.filter(game =>
+    const filteredGames = psxGames.filter(game =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
   return (
     <>
       <Head>
-        <title>Lista de Jogos Super Nintendo Online</title>
+        <title>Lista de Jogos Playstation Online</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Navbar />
 
       <main>
-        <section id="snesSection">
+        <section id="psxSection">
            < Console />
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Super Nintendo - {filteredGames.length}</h4>
+            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Playstation - {filteredGames.length}</h4>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -52,8 +52,8 @@ export default function Gamelist() {
           
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
-              <div key={game.id} className={styles.gameCard}>
-                <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+              <div key={game.id} className={styles.gameCard}>  
+               <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
                   <h5>{game.name}</h5>
                   <Image
                     src={game.image}
@@ -74,49 +74,3 @@ export default function Gamelist() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
