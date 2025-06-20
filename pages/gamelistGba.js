@@ -32,7 +32,9 @@ export default function Gamelist() {
       <main>
         <section id="atariSection">
           <Console />
+          
            <PeerConnection peerId={query.peerId} />
+
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos GBA - {filteredGames.length}</h4>

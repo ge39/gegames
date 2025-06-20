@@ -203,7 +203,7 @@ export default function PeerConnection() {
     boxShadow: "0 8px 20px rgba(0, 0, 0, 0.75)",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     userSelect: "none",
-    resize: 'both',
+    // resize: 'both',
     overflow: 'auto',
     scrollbarWidth: 'none',
     msOverflowStyle: 'none',
@@ -227,30 +227,33 @@ export default function PeerConnection() {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      color: "#58a6ff",
-      textShadow: "0 0 5px #58a6ff66",
+      // color: "#58a6ff",
+      // textShadow: "0 0 5px #58a6ff66",
+      color: "snow",
+      textShadow: "0 0 5px red",
       touchAction: "none", // agora aplicado corretamente aqui
     }}
   >
-        Conexão Webcam
+        Webcam
         <button
           onClick={() => setMinimized(!minimized)}
           style={{
             background: "transparent",
             border: "none",
-            color: "#58a6ff",
+            // color: "#58a6ff",
+            color: "red",
             fontSize: 20,
             cursor: "pointer",
             width: 28,
             height: 28,
           }}
         >
-          {minimized ? "▢" : "−"}
+          {minimized ? "x" : "−"}
         </button>
       </div>
 
       {!minimized && (
-        <div style={{ padding: 14, fontSize: 13 }}>
+        <div style={{ padding: 14, fontSize: 13,color: "#58a6ff" }}>
           <div style={{ fontSize: 11, marginBottom: 10 }}>
             <strong>Seu ID:</strong>
             <br />
