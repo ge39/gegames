@@ -8,6 +8,7 @@ import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { snesGames } from '../data/snesGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,21 +28,10 @@ export default function Gamelist() {
 
       <main>
         <section id="snesSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>
-
-          <Link style={{textDecoration: "none",color:'red' }} href="/gamelistSnes">Super Nintendo - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistArcade">Arcade - </Link>
-          
-          <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-                          
-          <Link style={{textDecoration: "none" }} href="/gamelistMegadrive">Megadrive - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
-
-          </h2>
+           < Console />
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Super Nintendo - {filteredGames.length}</h4>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -57,7 +47,9 @@ export default function Gamelist() {
               }}
             />
             < WhatsappButton />
+            
           </div>
+          
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>

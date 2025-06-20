@@ -8,7 +8,7 @@ import Image from 'next/image'; // Importando a tag Image do Next.js
 import { useState } from 'react';
 import { MegadriveGames } from '../data/MegadriveGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
-
+import Console from '@/components/Console.js';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,22 +26,10 @@ export default function Gamelist() {
       <Navbar />
       <main>
         <section id="MegadriveSection">
-          <h2 style={{textAlign:'center', maxwidht:'100%',marginTop:'80px',borderRadius:'10px'}}>
-
-          <Link style={{textDecoration: "none",color:'red' }} href="/gamelistMegadrive">Megadrive - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistArcade">Arcade - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
-
-
-          <Link style={{textDecoration: "none" }} href="/gamelistSnes">Super Nintendo - </Link>
-
-          <Link style={{textDecoration: "none" }} href="/gamelistAtari">Atari</Link>
-
-          </h2>
+           < Console />
             {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Megadrive - {filteredGames.length}</h4>
             <input
               type="text"
               placeholder="Buscar por nome..."
