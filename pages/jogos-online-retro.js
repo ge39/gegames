@@ -1,13 +1,12 @@
-import { useRouter } from 'next/router';
-
 import Link from 'next/link';
+import Head from "next/head";
 import Carousel from '../components/carousel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
-import Head from "next/head";
+
 import Console from '../components/Console';
 
 export default function Gamelist() {
@@ -466,9 +465,8 @@ export default function Gamelist() {
     releasedate: "2001-10-10",
 }
   ]
-  
-  const router = useRouter();
-  const { query } = router;
+
+ 
   return (
     <>
      <Head />
