@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5273f6a51f22cf0d67b547c60b48f4f51c57554
 export const psxGames = [
   {
     id: "1",

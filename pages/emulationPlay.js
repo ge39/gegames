@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5273f6a51f22cf0d67b547c60b48f4f51c57554
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Emulation.module.css';

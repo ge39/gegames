@@ -1,7 +1,7 @@
 import Link from 'next/link';
 // import styles from '../styles/Console.module.css';
 
-export default function Console({ consoleName, games }) {
+export default function Console() {
    return (
      <div>
        <h2 style={{ textAlign: 'center', maxWidth: '100%', marginTop: '80px', borderRadius: '10px' }}>
