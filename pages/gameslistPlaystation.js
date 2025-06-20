@@ -53,21 +53,18 @@ export default function Gamelist() {
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>  
-                <a
-                  href={`/emulationPlay?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}&bios=${encodeURIComponent(game.bios)}`}
-                  target="_self" // força carregamento completo
-                >
-                   <h5>{game.name}</h5>
+                <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}>
+                  <h5>{game.name}</h5>
                   <Image
                     src={game.image}
-                    alt={game.alt}
+                    alt={game.name}
                     className={styles.gameImage}
                     width={200}
                     height={200}
                     priority
                   />
                   <h5>{"Total Players: " + game.players}</h5>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
