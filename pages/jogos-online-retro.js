@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import Carousel from '../components/carousel';
 import Navbar from '../components/Navbar';
@@ -7,6 +9,7 @@ import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 import Head from "next/head";
 import Console from '../components/Console';
+import PeerConnection  from '../components/PeerConnection';
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -464,9 +467,13 @@ export default function Gamelist() {
     releasedate: "2001-10-10",
 }
   ]
-   
+  
+  const router = useRouter();
+  const { query } = router;
   return (
     <>
+    <PeerConnection /> 
+   
      <Head />
       <SEOHead
         title="Jogos Online Retrô | Gegames"
@@ -475,13 +482,13 @@ export default function Gamelist() {
         image="/logo/arcade.png"
       />
       <Navbar />
-
+      
       <main className={styles.main}>
         <section id="arcadeSection">
          < Console />
-
+         
           <div style={{ textAlign: 'center', margin: '20px' }}>
-          
+           
             <WhatsappButton />
           </div>
 
