@@ -19,43 +19,59 @@ export default function PeerConnection() {
   const dragOffset = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    const storedId = localStorage.getItem("myPeerId");
-    const peer = storedId ? new Peer(storedId) : new Peer();
-    peerRef.current = peer;
+  let isMounted = true;
 
-    peer.on("open", (id) => {
-      setMyPeerId(id);
-      localStorage.setItem("myPeerId", id);
-    });
+  const setupPeer = async () => {
+    if (!window.peerInstance) {
+      const storedId = localStorage.getItem("myPeerId");
+      const peer = storedId ? new Peer(storedId) : new Peer();
+      peerRef.current = peer;
+      window.peerInstance = peer;
 
-    peer.on("call", async (call) => {
-      if (!cameraOn) return;
-
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: true,
-      });
-      localStreamRef.current = stream;
-      call.answer(stream);
-      if (localVideoRef.current) localVideoRef.current.srcObject = stream;
-
-      call.on("stream", (remoteStream) => {
-        remoteVideoRef.current.srcObject = remoteStream;
-        setConnected(true);
+      peer.on("open", (id) => {
+        if (!isMounted) return;
+        setMyPeerId(id);
+        localStorage.setItem("myPeerId", id);
       });
 
-      call.on("close", () => {
-        setConnected(false);
-        remoteVideoRef.current.srcObject = null;
+      peer.on("call", (call) => {
+        if (!window.localStream) {
+          console.warn("Stream local não disponível para responder à chamada.");
+          return;
+        }
+
+        call.answer(window.localStream);
+        call.on("stream", (remoteStream) => {
+          if (remoteVideoRef.current) remoteVideoRef.current.srcObject = remoteStream;
+          setConnected(true);
+        });
+
+        call.on("close", () => {
+          setConnected(false);
+          if (remoteVideoRef.current) remoteVideoRef.current.srcObject = null;
+        });
+
+        callRef.current = call;
       });
+    } else {
+      peerRef.current = window.peerInstance;
+      setMyPeerId(peerRef.current.id);
+    }
 
-      callRef.current = call;
-    });
+    if (window.localStream) {
+      localStreamRef.current = window.localStream;
+      setCameraOn(true);
+      if (localVideoRef.current) localVideoRef.current.srcObject = window.localStream;
+    } else {
+      // ⚠️ Se não há stream, inicia a câmera automaticamente
+      toggleCamera();
+    }
+  };
 
-    return () => {
-      peer.destroy();
-    };
-  }, [cameraOn]);
+  setupPeer();
+  return () => { isMounted = false; };
+}, []);
+
 
   const toggleCamera = async () => {
     if (cameraOn) {

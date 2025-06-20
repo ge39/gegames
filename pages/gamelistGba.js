@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
 import styles from '../styles/GamelistArcade.module.css';
@@ -9,10 +10,12 @@ import { useState } from 'react';
 import { gbaGames } from '../data/gbaGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
+import  PeerConnection from "../components/PeerConnection";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
-  
+  const { query } = useRouter(); // 👈 isso corrige o erro
+
   const filteredGames = gbaGames.filter((game) =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -29,7 +32,7 @@ export default function Gamelist() {
       <main>
         <section id="atariSection">
           <Console />
-
+           <PeerConnection peerId={query.peerId} />
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos GBA - {filteredGames.length}</h4>

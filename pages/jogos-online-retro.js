@@ -9,7 +9,6 @@ import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 import Head from "next/head";
 import Console from '../components/Console';
-import PeerConnection  from '../components/PeerConnection';
 
 export default function Gamelist() {
   // Dados para os carrosséis
@@ -472,8 +471,6 @@ export default function Gamelist() {
   const { query } = router;
   return (
     <>
-    <PeerConnection /> 
-   
      <Head />
       <SEOHead
         title="Jogos Online Retrô | Gegames"

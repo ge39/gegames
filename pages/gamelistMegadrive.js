@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 import Navbar from '../components/Navbar';
 import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
@@ -9,10 +10,12 @@ import { useState } from 'react';
 import { MegadriveGames } from '../data/MegadriveGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
+import PeerConnection from "../components/PeerConnection";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
-  
+  const { query } = useRouter(); // 👈 isso corrige o erro
+
     // Filtra os jogos pelo nome baseado no searchTerm
     const filteredGames = MegadriveGames.filter(game =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -27,6 +30,7 @@ export default function Gamelist() {
       <main>
         <section id="MegadriveSection">
            < Console />
+           <PeerConnection peerId={query.peerId} />
             {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Megadrive - {filteredGames.length}</h4>
