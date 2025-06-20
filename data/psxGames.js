@@ -64,7 +64,7 @@ export const psxGames = [
     core: "psx",
     bios: "/roms/psx/bios/SCPH1001.BIN",
     desc: "Aventura colorida com fases variadas e muito humor. Um clássico da Naughty Dog.",
-    image: "/roms/psx/images/Crash Bandicoot 3 Warped-thumb.png",
+    image: "/roms/psx/images/Crash Bandicoot 3 Warped-thumb.webp",
     rating: "0.92",
     players: "1",
     releasedate: "1998-06-01"
@@ -91,7 +91,7 @@ export const psxGames = [
     core: "psx",
     bios: "/roms/psx/bios/SCPH1001.BIN",
     desc: "Skate radical com trilha sonora marcante e jogabilidade viciante.",
-    image: "/roms/psx/images/Tony Hawk's Pro Skater 2-thumb.png",
+    image: "/roms/psx/images/Tony Hawk's Pro Skater 2-thumb.webp",
     rating: "0.90",
     players: "1-2",
     releasedate: "2000-06-01"
@@ -103,7 +103,7 @@ export const psxGames = [
     core: "psx",
     bios: "/roms/psx/bios/SCPH1001.BIN",
     desc: "Terror psicológico com ambientação sombria e trilha sonora perturbadora.",
-    image: "/roms/psx/images/Silent Hill-thumb.png",
+    image: "/roms/psx/images/Silent Hill-thumb.webp",
     rating: "0.89",
     players: "1",
     releasedate: "1999-06-01"
@@ -115,7 +115,7 @@ export const psxGames = [
     core: "psx",
     bios: "/roms/psx/bios/SCPH1001.BIN",
     desc: "Exploração 3D com personagens carismáticos e fases criativas.",
-    image: "/roms/psx/images/Spyro 3 Year Of The Dragon-thumb.png",
+    image: "/roms/psx/images/Spyro 3 Year Of The Dragon-thumb.webp",
     rating: "0.88",
     players: "1",
     releasedate: "2000-06-01"
