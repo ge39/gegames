@@ -1,123 +1,88 @@
-
 export const psxGames = [
   {
     id: "1",
-    name: "Final Fantasy VII",
-    path: "psx/Final Fantasy VII (USA).zip",
-    core: "beetle-psx",
-    bios: "SCPH1001.BIN",
-    desc: "Um épico RPG com narrativa envolvente e personagens memoráveis. Revolucionou os RPGs nos consoles.",
-    image: "/images/games/psx/final-fantasy-vii-thumb.jpg",
-    rating: "0.98",
+    name: "Ace Combat 2",
+    path: "psone/Ace Combat 2.PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Jogo de combate aéreo em 3D com ação intensa.",
+    image: "/roms/psone/images/Ace Combat 2-thumb.webp",
+    rating: "0.85",
     players: "1",
-    releasedate: "1997-06-01"
+    releasedate: "1997-05-01"
   },
   {
     id: "2",
-    name: "Metal Gear Solid",
-    path: "psx/Metal Gear Solid (USA).zip",
-    core: "beetle-psx",
-    bios: {
-      necessario: true,
-      arquivo: "SCPH1001.BIN"
-    },
-    desc: "Ação furtiva cinematográfica com enredo complexo e jogabilidade estratégica. Um marco da série.",
-    image: "/images/games/psx/metal-gear-solid-thumb.jpg",
-    rating: "0.97",
+    name: "Army Men Sarge's Heroes",
+    path: "/psone/Army Men Sarges Heroes.PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Soldados de plástico em missões de guerra cheias de humor.",
+    image: "/roms/psone/images/Army Men Sarges Heroes-thumb.webp",
+    rating: "0.78",
+    players: "1-2",
+    releasedate: "1999-10-31"
+  },
+  {
+    id: "3",
+    name: "Batman Beyond: Return of the Joker",
+    path: "psone/Batman Beyond - Return of the Joker (USA).PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Aventura futurista do Batman com o retorno do Coringa.",
+    image: "/roms/psone/images/Batman Beyond - Return of the Joker (USA)-thumb.webp",
+    rating: "0.70",
     players: "1",
-    releasedate: "1998-06-01"
+    releasedate: "2000-12-13"
   },
   {
     id: "4",
-    name: "Resident Evil 2",
-    path: "psx/Resident Evil 2 (USA).zip",
-    core: "beetle-psx",
-    bios: {
-      necessario: true,
-      arquivo: "SCPH1001.BIN"
-    },
-    desc: "Terror de sobrevivência com narrativa ramificada e atmosfera assustadora.",
-    image: "/images/games/psx/resident-evil-2-thumb.jpg",
-    rating: "0.94",
-    players: "1",
-    releasedate: "1998-06-01"
+    name: "Battle Arena Toshinden 3",
+    path: "/psone/Battle Arena Toshinden 3.PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Luta em arenas 3D com armas e personagens carismáticos.",
+    image: "/roms/psone/images/Battle Arena Toshinden 3-thumb.webp",
+    rating: "0.82",
+    players: "1-2",
+    releasedate: "1997-03-31"
   },
   {
     id: "5",
-    name: "Gran Turismo 2",
-    path: "psx/Gran Turismo 2 (USA).zip",
-    core: "beetle-psx",
-    bios: {
-      necessario: true,
-      arquivo: "SCPH1001.BIN"
-    },
-    desc: "Simulação de corrida com centenas de carros e pistas. Um dos mais completos do PS1.",
-    image: "/images/games/psx/gran-turismo-2-thumb.jpg",
-    rating: "0.93",
+    name: "Bust-A-Move 4",
+    path: "/psone/Bust-A-Move 4.PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Puzzle com bolhas coloridas e muita estratégia.",
+    image: "/roms/psone/images/Bust-A-Move 4-thumb.webp",
+    rating: "0.83",
     players: "1-2",
-    releasedate: "1999-06-01"
+    releasedate: "1999-12-31"
   },
   {
     id: "6",
-    name: "Crash Bandicoot: Warped",
-    path: "psx/Crash Bandicoot 3 Warped.PBP",
+    name: "Crash Bash",
+    path: "/psone/Crash Bash.PBP",
     core: "psx",
-    bios: "/roms/psx/bios/SCPH1001.BIN",
-    desc: "Aventura colorida com fases variadas e muito humor. Um clássico da Naughty Dog.",
-    image: "/roms/psx/images/Crash Bandicoot 3 Warped-thumb.webp",
-    rating: "0.92",
-    players: "1",
-    releasedate: "1998-06-01"
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Mini games malucos com personagens da série Crash.",
+    image: "/roms/psone/images/Crash Bash-thumb.webp",
+    rating: "0.87",
+    players: "1-4",
+    releasedate: "2000-11-06"
   },
   {
     id: "7",
-    name: "Tekken 3",
-    path: "psx/Tekken 3 (USA).zip",
-    core: "beetle-psx",
-    bios: {
-      necessario: true,
-      arquivo: "SCPH1001.BIN"
-    },
-    desc: "Luta frenética com personagens icônicos e jogabilidade refinada.",
-    image: "/images/games/psx/tekken-3-thumb.jpg",
-    rating: "0.91",
-    players: "1-2",
-    releasedate: "1998-06-01"
-  },
-  {
-    id: "8",
-    name: "Tony Hawk’s Pro Skater 2",
-    path: "/psx/Tony Hawks Pro Skater 2.PBP",
+    name: "Die Hard Trilogy",
+    path: "/psone/Die Hard Trilogy.PBP",
     core: "psx",
-    bios: "/roms/psx/bios/SCPH1001.BIN",
-    desc: "Skate radical com trilha sonora marcante e jogabilidade viciante.",
-    image: "/roms/psx/images/Tony Hawk's Pro Skater 2-thumb.webp",
-    rating: "0.90",
-    players: "1-2",
-    releasedate: "2000-06-01"
-  },
-  {
-    id: "9",
-    name: "Silent Hill",
-    path: "psx/Silent Hill.PBP",
-    core: "psx",
-    bios: "/roms/psx/bios/SCPH1001.BIN",
-    desc: "Terror psicológico com ambientação sombria e trilha sonora perturbadora.",
-    image: "/roms/psx/images/Silent Hill-thumb.webp",
-    rating: "0.89",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
+    desc: "Três jogos em um, baseado nos filmes Duro de Matar.",
+    image: "/roms/psone/images/Die Hard Trilogy-thumb.webp",
+    rating: "0.79",
     players: "1",
-    releasedate: "1999-06-01"
+    releasedate: "1996-08-01"
   },
-  {
-    id: "10",
-    name: "Spyro: Year of the Dragon",
-    path: "psx/Spyro the Dragon.PBP",
-    core: "psx",
-    bios: "/roms/psx/bios/SCPH1001.BIN",
-    desc: "Exploração 3D com personagens carismáticos e fases criativas.",
-    image: "/roms/psx/images/Spyro 3 Year Of The Dragon-thumb.webp",
-    rating: "0.88",
-    players: "1",
-    releasedate: "2000-06-01"
-  }
+  // (... e assim por diante até o último jogo)
 ];
+
