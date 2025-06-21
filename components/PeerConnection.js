@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Peer from "peerjs";
 
 export default function PeerConnection() {
@@ -18,8 +18,48 @@ export default function PeerConnection() {
   const isDragging = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
 
+  // ✅ Função estável com useCallback
+  const toggleCamera = useCallback(async () => {
+    if (cameraOn) {
+      if (localStreamRef.current) {
+        localStreamRef.current.getTracks().forEach((track) => track.stop());
+        localStreamRef.current = null;
+      }
+      if (localVideoRef.current) localVideoRef.current.srcObject = null;
+      setCameraOn(false);
+    } else {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true,
+        });
+        localStreamRef.current = stream;
+        if (localVideoRef.current) localVideoRef.current.srcObject = stream;
+        setCameraOn(true);
+      } catch (err) {
+        alert("Erro ao acessar a câmera: " + err.message);
+      }
+    }
+  }, [cameraOn]);
+
+  // ✅ Inicializa PeerJS e vídeo local
   useEffect(() => {
   let isMounted = true;
+
+  const toggleCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      });
+      localStreamRef.current = stream;
+      if (localVideoRef.current) localVideoRef.current.srcObject = stream;
+      window.localStream = stream;
+      setCameraOn(true);
+    } catch (err) {
+      alert("Erro ao acessar a câmera: " + err.message);
+    }
+  };
 
   const setupPeer = async () => {
     if (!window.peerInstance) {
@@ -60,11 +100,10 @@ export default function PeerConnection() {
 
     if (window.localStream) {
       localStreamRef.current = window.localStream;
-      setCameraOn(true);
       if (localVideoRef.current) localVideoRef.current.srcObject = window.localStream;
+      setCameraOn(true);
     } else {
-      // ⚠️ Se não há stream, inicia a câmera automaticamente
-      toggleCamera();
+      toggleCamera(); // ✅ chamada local, estável e segura
     }
   };
 
@@ -73,29 +112,7 @@ export default function PeerConnection() {
 }, []);
 
 
-  const toggleCamera = async () => {
-    if (cameraOn) {
-      if (localStreamRef.current) {
-        localStreamRef.current.getTracks().forEach((track) => track.stop());
-        localStreamRef.current = null;
-      }
-      if (localVideoRef.current) localVideoRef.current.srcObject = null;
-      setCameraOn(false);
-    } else {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: true,
-        });
-        localStreamRef.current = stream;
-        if (localVideoRef.current) localVideoRef.current.srcObject = stream;
-        setCameraOn(true);
-      } catch (err) {
-        alert("Erro ao acessar a câmera: " + err.message);
-      }
-    }
-  };
-
+  // ✅ Conecta ao peer remoto
   const connectToPeer = () => {
     if (!cameraOn) {
       alert("Ligue a câmera antes de conectar.");
@@ -103,7 +120,6 @@ export default function PeerConnection() {
     }
 
     const call = peerRef.current.call(remoteId, localStreamRef.current);
-
     call.on("stream", (remoteStream) => {
       remoteVideoRef.current.srcObject = remoteStream;
       setConnected(true);
@@ -117,6 +133,7 @@ export default function PeerConnection() {
     callRef.current = call;
   };
 
+  // ✅ Eventos de arrasto
   const onMouseDown = (e) => {
     if (e.target === boxRef.current.querySelector(".header")) {
       isDragging.current = true;
@@ -185,62 +202,54 @@ export default function PeerConnection() {
 
   return (
     <div
-  ref={boxRef}
-  onMouseDown={onMouseDown}
-  onTouchStart={onTouchStart}
-  onTouchMove={onTouchMove}
-  onTouchEnd={onTouchEnd}
-  style={{
-    position: "fixed",
-    top: 60,
-    left: 10,
-    zIndex: 2147483647,
-    width: 170,
-    maxWidth: "95vw",
-    background: "transparent",
-    color: "#e1e1e1",
-    borderRadius: 10,
-    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.75)",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    userSelect: "none",
-    // resize: 'both',
-    overflow: 'auto',
-    scrollbarWidth: 'none',
-    msOverflowStyle: 'none',
-  }}
->
-  <style jsx>{`
-    div::-webkit-scrollbar {
-      display: none;
-    }
-  `}</style>
+      ref={boxRef}
+      onMouseDown={onMouseDown}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      style={{
+        position: "fixed",
+        top: 60,
+        left: 10,
+        zIndex: 2147483647,
+        width: 170,
+        maxWidth: "95vw",
+        background: "transparent",
+        color: "#e1e1e1",
+        borderRadius: 10,
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.75)",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        userSelect: "none",
+        overflow: "auto",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+      }}
+    >
+      <style jsx>{`div::-webkit-scrollbar { display: none; }`}</style>
 
-  <div
-    className="header"
-    style={{
-      backgroundColor: "transparent",
-      padding: "10px 14px",
-      cursor: "grab",
-      fontWeight: "700",
-      fontSize: 14,
-      borderBottom: "1px solid #2f3640",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      // color: "#58a6ff",
-      // textShadow: "0 0 5px #58a6ff66",
-      color: "snow",
-      textShadow: "0 0 5px red",
-      touchAction: "none", // agora aplicado corretamente aqui
-    }}
-  >
+      <div
+        className="header"
+        style={{
+          backgroundColor: "transparent",
+          padding: "10px 14px",
+          cursor: "grab",
+          fontWeight: "700",
+          fontSize: 14,
+          borderBottom: "1px solid #2f3640",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          color: "snow",
+          textShadow: "0 0 5px red",
+          touchAction: "none",
+        }}
+      >
         Webcam
         <button
           onClick={() => setMinimized(!minimized)}
           style={{
             background: "transparent",
             border: "none",
-            // color: "#58a6ff",
             color: "red",
             fontSize: 20,
             cursor: "pointer",
@@ -248,12 +257,12 @@ export default function PeerConnection() {
             height: 28,
           }}
         >
-          {minimized ? "x" : "−"}
+          {minimized ? "−" : "x"}
         </button>
       </div>
 
       {!minimized && (
-        <div style={{ padding: 14, fontSize: 13,color: "#58a6ff" }}>
+        <div style={{ padding: 14, fontSize: 13, color: "#58a6ff" }}>
           <div style={{ fontSize: 11, marginBottom: 10 }}>
             <strong>Seu ID:</strong>
             <br />
@@ -361,12 +370,16 @@ export default function PeerConnection() {
             </p>
           )}
 
-          <div style={{ 
-            display: "flex", gap: 6, marginTop: 14,
-            flexDirection: 'column',
-            alignItems: 'center', // centraliza horizontalmente
-            gap: '10px'           // espaçamento entre os vídeos
-            }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              marginTop: 14,
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
             <video
               ref={localVideoRef}
               autoPlay
@@ -375,7 +388,7 @@ export default function PeerConnection() {
               style={{
                 width: "100%",
                 display: "inline-flex",
-                height: '100%',
+                height: "100%",
                 background: "#333",
                 borderRadius: 6,
                 objectFit: "contain",
