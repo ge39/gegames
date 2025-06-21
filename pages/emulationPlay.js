@@ -51,15 +51,15 @@ export default function Emulation() {
       <Navbar />
       <div className={styles.emulatorContainer} style={{
         position: "relative",
-        width: "800px",
-        height: "500px",
-        maxWidth: "90%",
+        maxwidth: "100hv",
+        height: '90vh',
+        padding: "20px 0" ,
         margin: "0 auto"
       }}>
         <div
           id="game"
           className={styles.game}
-          style={{ width: "800px", height: "500px", maxWidth: "100%" }}
+          style={{width: "100hv", height: '90vh', maxWidth: "100hv",marginTop: '50px' }}
         >
           <PeerConnection peerId={query.peerId} />
         </div>

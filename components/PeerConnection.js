@@ -250,14 +250,14 @@ export default function PeerConnection() {
           style={{
             background: "transparent",
             border: "none",
-            color: "red",
-            fontSize: 20,
+            color: "#66d9ef",
+            fontSize: 12,
             cursor: "pointer",
             width: 28,
             height: 28,
           }}
         >
-          {minimized ? "−" : "x"}
+          {minimized ? "Open" : "Close"}
         </button>
       </div>
 
