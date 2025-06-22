@@ -2,7 +2,7 @@ export const psxGames = [
   {
     id: "1",
     name: "Ace Combat 2",
-    path: "https://nwornmxvzxjyoztftcrl.supabase.co/storage/v1/object/public/roms//Army%20Men%20Sarges%20Heroes.PBP",
+    path: "https://nwornmxvzxjyoztftcrl.supabase.co/storage/v1/object/public/roms/Army%20Men%20Sarges%20Heroes.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Jogo de combate aéreo em 3D com ação intensa.",
