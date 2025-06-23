@@ -2,9 +2,9 @@ export const psxGames = [
   {
     id: "1",
     name: "Ace Combat 2",
-    path: "https://nwornmxvzxjyoztftcrl.supabase.co/storage/v1/object/public/roms/Army%20Men%20Sarges%20Heroes.PBP",
-    core: "mednafen_psx",
-    bios: "/roms/psone/bios/psxonpsp660.bin",
+    path: "psone/Ace Combat 2.PBP",
+    core: "psx",
+    bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Jogo de combate aéreo em 3D com ação intensa.",
     image: "/roms/psone/images/Ace Combat 2-thumb.webp",
     rating: "0.85",
@@ -14,7 +14,7 @@ export const psxGames = [
   {
     id: "2",
     name: "Army Men Sarge's Heroes",
-    path: "/psone/Army Men Sarges Heroes.PBP",
+    path: "psone/Army Men Sarges Heroes.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Soldados de plástico em missões de guerra cheias de humor.",
@@ -38,7 +38,7 @@ export const psxGames = [
   {
     id: "4",
     name: "Battle Arena Toshinden 3",
-    path: "/psone/Battle Arena Toshinden 3.PBP",
+    path: "psone/Battle Arena Toshinden 3.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Luta em arenas 3D com armas e personagens carismáticos.",
@@ -50,7 +50,7 @@ export const psxGames = [
   {
     id: "5",
     name: "Bust-A-Move 4",
-    path: "/psone/Bust-A-Move 4.PBP",
+    path: "psone/Bust-A-Move 4.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Puzzle com bolhas coloridas e muita estratégia.",
@@ -62,7 +62,7 @@ export const psxGames = [
   {
     id: "6",
     name: "Crash Bash",
-    path: "/psone/Crash Bash.PBP",
+    path: "psone/Crash Bash.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Mini games malucos com personagens da série Crash.",
@@ -74,7 +74,7 @@ export const psxGames = [
   {
     id: "7",
     name: "Die Hard Trilogy",
-    path: "/psone/Die Hard Trilogy.PBP",
+    path: "psone/Die Hard Trilogy.PBP",
     core: "psx",
     bios: "/roms/psone/bios/SCPH1001.BIN",
     desc: "Três jogos em um, baseado nos filmes Duro de Matar.",

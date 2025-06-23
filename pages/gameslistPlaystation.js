@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import { useState } from 'react';
 import Navbar from '../components/Navbar.js';
 import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
 import Footer from '../components/Footer.js';
 import Image from 'next/image'; // Importando a tag Image do Next.js
-import { useState } from 'react';
 import { psxGames } from '../data/psxGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
