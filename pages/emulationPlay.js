@@ -24,7 +24,7 @@ export default function Emulation() {
         window.EJS_core = query.core;
         window.EJS_multitap = true;
         window.EJS_bios = query.bios || ""; // define como string vazia se não vier bios
-        window.EJS_gameUrl = query.jogo.startsWith('http') ? query.jogo : `/roms/${query.jogo}`;
+        window.EJS_gameUrl = query.jogo.startsWith('http') ? query.jogo : `./roms/${query.jogo}`;
         window.EJS_canvasWidth = largura;
         window.EJS_canvasHeight = altura;
         window.EJS_fullscreenOnLoad = true;

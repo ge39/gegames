@@ -24,7 +24,7 @@ export default function Emulation() {
           EJS_core: query.core,
           EJS_multitap: true,
           EJS_bios: query.bios,
-          EJS_gameUrl: `/roms/${query.jogo}`, // Corrigido
+          EJS_gameUrl: `./roms/${query.jogo}`, // Corrigido
           EJS_canvasWidth: largura,
           EJS_canvasHeight: altura,
           EJS_fullscreenOnLoad: true,
