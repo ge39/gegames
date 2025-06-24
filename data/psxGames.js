@@ -2,9 +2,9 @@ export const psxGames = [
   {
     id: "1",
     name: "Ace Combat 2",
-    path: "snes/Ace Combat 2.PBP",
+    path: "psone/Ace Combat 2.PBP",
     core: "psx",
-    bios: "/roms/snes/scph1001.bin",
+    bios: "/roms/psone/bios/scph1001.bin",
     desc: "Jogo de combate aéreo em 3D com ação intensa.",
     image: "/roms/psone/images/Ace Combat 2-thumb.webp",
     rating: "0.85",
