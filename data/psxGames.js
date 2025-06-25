@@ -4,7 +4,7 @@ export const psxGames = [
     name: "Ace Combat 2",
     path: "psone/Ace Combat 2.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Jogo de combate aéreo em 3D com ação intensa.",
     image: "/roms/psone/images/Ace Combat 2-thumb.webp",
     rating: "0.85",
@@ -16,7 +16,7 @@ export const psxGames = [
     name: "Army Men Sarge's Heroes",
     path: "psone/Army Men Sarges Heroes.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Soldados de plástico em missões de guerra cheias de humor.",
     image: "/roms/psone/images/Army Men Sarges Heroes-thumb.webp",
     rating: "0.78",
@@ -28,7 +28,7 @@ export const psxGames = [
     name: "Batman Beyond: Return of the Joker",
     path: "psone/Batman Beyond - Return of the Joker (USA).PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Aventura futurista do Batman com o retorno do Coringa.",
     image: "/roms/psone/images/Batman Beyond - Return of the Joker (USA)-thumb.webp",
     rating: "0.70",
@@ -40,7 +40,7 @@ export const psxGames = [
     name: "Battle Arena Toshinden 3",
     path: "psone/Battle Arena Toshinden 3.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Luta em arenas 3D com armas e personagens carismáticos.",
     image: "/roms/psone/images/Battle Arena Toshinden 3-thumb.webp",
     rating: "0.82",
@@ -52,7 +52,7 @@ export const psxGames = [
     name: "Bust-A-Move 4",
     path: "psone/Bust-A-Move 4.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Puzzle com bolhas coloridas e muita estratégia.",
     image: "/roms/psone/images/Bust-A-Move 4-thumb.webp",
     rating: "0.83",
@@ -64,7 +64,7 @@ export const psxGames = [
     name: "Crash Bash",
     path: "psone/Crash Bash.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Mini games malucos com personagens da série Crash.",
     image: "/roms/psone/images/Crash Bash-thumb.webp",
     rating: "0.87",
@@ -76,7 +76,7 @@ export const psxGames = [
     name: "Die Hard Trilogy",
     path: "psone/Die Hard Trilogy.PBP",
     core: "psx",
-    bios: "/roms/psone/bios/scph1001.bin",
+    bios: "/roms/psone/bios/scph5501.bin",
     desc: "Três jogos em um, baseado nos filmes Duro de Matar.",
     image: "/roms/psone/images/Die Hard Trilogy-thumb.webp",
     rating: "0.79",
@@ -312,7 +312,7 @@ export const psxGames = [
     name: "Chessmaster 3D",
     path: "playstation/Chessmaster 3D.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Xadrez em 3D com gráficos clássicos para PlayStation.",
     image: "/roms/psone/images/chessmaster3d.webp"
   },
@@ -321,7 +321,7 @@ export const psxGames = [
     name: "Crash Bash",
     path: "playstation/Crash Bash.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Jogo de festa com os personagens da série Crash Bandicoot.",
     image: "/roms/psone/images/crashbash.webp"
   },
@@ -330,7 +330,7 @@ export const psxGames = [
     name: "Die Hard Trilogy",
     path: "playstation/Die Hard Trilogy.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Três jogos de ação baseados nos filmes Duro de Matar.",
     image: "/roms/psone/images/diehardtrilogy.webp"
   },
@@ -339,7 +339,7 @@ export const psxGames = [
     name: "DragonBall Z Idainaru DragonBall Densetsu",
     path: "playstation/DragonBall Z Idainaru DragonBall Densetsu.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Lutas intensas com os heróis de Dragon Ball Z.",
     image: "/roms/psone/images/dbzidainaru.webp"
   },
@@ -348,7 +348,7 @@ export const psxGames = [
     name: "The Fifth Element",
     path: "playstation/Fifth Element, The (USA).PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Aventura baseada no famoso filme de ficção científica.",
     image: "/roms/psone/images/fifthelement.webp"
   },
@@ -357,7 +357,7 @@ export const psxGames = [
     name: "The King of Fighters '98",
     path: "playstation/King of Fighters '98, The.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Um dos melhores jogos de luta da série KOF.",
     image: "/roms/psone/images/kof98.webp"
   },
@@ -366,7 +366,7 @@ export const psxGames = [
     name: "The King of Fighters '99",
     path: "playstation/King of Fighters '99, The (USA).PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Continuação eletrizante da série de luta KOF.",
     image: "/roms/psone/images/kof99.webp"
   },
@@ -375,7 +375,7 @@ export const psxGames = [
     name: "MegaMan X5",
     path: "playstation/MegaMan X5.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "MegaMan em mais uma missão contra Mavericks.",
     image: "/roms/psone/images/megamanx5.webp"
   },
@@ -384,7 +384,7 @@ export const psxGames = [
     name: "Metal Slug X",
     path: "playstation/Metal Slug X.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Ação explosiva em estilo run and gun.",
     image: "/roms/psone/images/metalslugx.webp"
   },
@@ -393,7 +393,7 @@ export const psxGames = [
     name: "Mortal Kombat Mythologies: Sub-Zero",
     path: "playstation/Mortal Kombat Mythologies Sub-Zero.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Prequela focada na história de Sub-Zero.",
     image: "/roms/psone/images/mkmythologies.webp"
   },
@@ -402,7 +402,7 @@ export const psxGames = [
     name: "Mortal Kombat Trilogy",
     path: "playstation/Mortal Kombat Trilogy.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Todos os personagens clássicos de MK em um só jogo.",
     image: "/roms/psone/images/mktrilogy.webp"
   },
@@ -411,7 +411,7 @@ export const psxGames = [
     name: "Reel Fishing",
     path: "playstation/Reel Fishing.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Simulador de pesca com gráficos realistas.",
     image: "/roms/psone/images/reelfishing.webp"
   },
@@ -420,7 +420,7 @@ export const psxGames = [
     name: "Resident Evil Survivor",
     path: "playstation/Resident Evil Survivor.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Survival horror em primeira pessoa no universo RE.",
     image: "/roms/psone/images/residentevilsurvivor.webp"
   },
@@ -429,7 +429,7 @@ export const psxGames = [
     name: "Ridge Racer",
     path: "playstation/Ridge Racer.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Corridas arcade com visual estilizado.",
     image: "/roms/psone/images/ridgeracer.webp"
   },
@@ -438,7 +438,7 @@ export const psxGames = [
     name: "R-Types",
     path: "playstation/R-Types.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Coleção dos clássicos jogos de tiro R-Type.",
     image: "/roms/psone/images/rtypes.webp"
   },
@@ -447,7 +447,7 @@ export const psxGames = [
     name: "Spyro the Dragon",
     path: "playstation/Spyro the Dragon.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Aventura com o dragão roxo mais carismático dos games.",
     image: "/roms/psone/images/spyro.webp"
   },
@@ -456,7 +456,7 @@ export const psxGames = [
     name: "Street Fighter Zero 3",
     path: "playstation/Street Fighter Zero 3.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Lutas insanas no universo Street Fighter Alpha.",
     image: "/roms/psone/images/sfzero3.webp"
   },
@@ -465,7 +465,7 @@ export const psxGames = [
     name: "Syphon Filter",
     path: "playstation/Syphon Filter.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Espionagem e ação tática no estilo anos 90.",
     image: "/roms/psone/images/syphonfilter.webp"
   },
@@ -474,7 +474,7 @@ export const psxGames = [
     name: "Tekken 3",
     path: "playstation/Tekken 3.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Clássico dos jogos de luta em 3D com gráficos incríveis.",
     image: "/roms/psone/images/tekken3.webp"
   },
@@ -483,7 +483,7 @@ export const psxGames = [
     name: "Tetris Plus",
     path: "playstation/Tetris Plus.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Versão divertida e desafiadora do clássico Tetris.",
     image: "/roms/psone/images/tetrisplus.webp"
   },
@@ -492,7 +492,7 @@ export const psxGames = [
     name: "Time Crisis: Project Titan",
     path: "playstation/Time Crisis - Project Titan (USA).PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Tiro em trilhos com muita ação e cobertura.",
     image: "/roms/psone/images/timecrisis.webp"
   },
@@ -501,7 +501,7 @@ export const psxGames = [
     name: "Rainbow Six: Rogue Spear",
     path: "playstation/Tom Clancy's Rainbow Six - Rogue Spear (USA).PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Ação tática com planejamento e execução.",
     image: "/roms/psone/images/roguespear.webp"
   },
@@ -510,7 +510,7 @@ export const psxGames = [
     name: "Tomb Raider II",
     path: "playstation/Tomb Raider 2.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Lara Croft em sua segunda aventura cheia de perigos.",
     image: "/roms/psone/images/tombraider2.webp"
   },
@@ -519,7 +519,7 @@ export const psxGames = [
     name: "Tomb Raider Chronicles",
     path: "playstation/Tomb Raider Chronicles.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Histórias nunca contadas da exploradora Lara Croft.",
     image: "/roms/psone/images/tombraiderchronicles.webp"
   },
@@ -528,7 +528,7 @@ export const psxGames = [
     name: "Tomb Raider III",
     path: "playstation/Tomb Raider III - Adventures of Lara Croft (USA).PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Terceira aventura de Lara pelo mundo.",
     image: "/roms/psone/images/tombraider3.webp"
   },
@@ -537,7 +537,7 @@ export const psxGames = [
     name: "Tony Hawk's Pro Skater 2",
     path: "playstation/Tony Hawk's Pro Skater 2.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Skate radical com músicas marcantes dos anos 2000.",
     image: "/roms/psone/images/thps2.webp"
   },
@@ -546,7 +546,7 @@ export const psxGames = [
     name: "Tony Hawk's Pro Skater 3",
     path: "playstation/Tony Hawk's Pro Skater 3.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "Evolução da franquia com mais manobras e pistas.",
     image: "/roms/psone/images/thps3.webp"
   },
@@ -555,7 +555,7 @@ export const psxGames = [
     name: "Tony Hawk's Pro Skater 4",
     path: "playstation/Tony Hawk's Pro Skater 4.PBP",
     core: "psx",
-    bios: "scph1001.bin",
+    bios: "SCPH1001.BIN",
     desc: "A última e mais refinada versão para PS1.",
     image: "/roms/psone/images/thps4.webp"
   }

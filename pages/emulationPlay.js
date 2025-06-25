@@ -70,7 +70,7 @@ export default function Emulation() {
         </div>
 
         {/* Reative a conexão com peerId via URL se desejar */}
-        {query.peerId && <PeerConnection peerId={query.peerId} />}
+        {/* {query.peerId && <PeerConnection peerId={query.peerId} />} */}
       </div>
     </div>
   );
