@@ -2,20 +2,23 @@ import { useEffect } from 'react';
 
 export default function Emulator({ gameUrl = '', biosUrl = '', core = 'beetle-psx' }) {
   useEffect(() => {
-    // Define variáveis globais necessárias pelo EmulatorJS
+    if (!gameUrl || !core) {
+      console.error("Parâmetros faltando: gameUrl ou core");
+      return;
+    }
+
     window.EJS_player = '#game';
-    window.EJS_biosUrl = biosUrl;
     window.EJS_gameUrl = gameUrl;
+    window.EJS_biosUrl = biosUrl || '';
     window.EJS_core = core;
 
-    // Carrega o script apenas uma vez
     const script = document.createElement('script');
     script.src = 'https://www.emulatorjs.com/loader.js';
     script.async = true;
+    script.onerror = () => console.error("Erro ao carregar EmulatorJS.");
     document.body.appendChild(script);
 
     return () => {
-      // Limpa o script quando o componente for desmontado
       document.body.removeChild(script);
     };
   }, [gameUrl, biosUrl, core]);
