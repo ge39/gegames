@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export default function Emulator({ gameUrl = '', biosUrl = '', core = 'beetle-psx' }) {
   useEffect(() => {
-    if (!gameUrl || !core) {
+    if (!gameUrl || !core || !biosUrl) {
       console.error("Parâmetros faltando: gameUrl ou core");
       return;
     }
