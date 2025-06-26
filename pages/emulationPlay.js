@@ -6,7 +6,7 @@ export default function EmulationPlay() {
       <h1>Jogando com EmulatorJS</h1>
       <Emulator
         biosUrl="/roms/psone/bios/scph5501.bin"
-        gameUrl="/roms/psone/Bust-A-Move 4.PBP"
+        gameUrl="./roms/psone/Bust-A-Move 4.PBP"
         core="beetle-psx"
       />
     </div>
