@@ -7,7 +7,7 @@ export default function EmulationPlay() {
       <Emulator
         biosUrl="/roms/psone/bios/scph5501.bin"
         gameUrl="/roms/psone/Bust-A-Move 4.PBP"
-        core="beetle-psx"
+        core="psx"
       />
     </div>
   );
