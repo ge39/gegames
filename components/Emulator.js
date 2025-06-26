@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function Emulator({ gameUrl = '', biosUrl = '', core = 'beetle-psx' }) {
+export default function Emulator({ gameUrl = '', biosUrl = '', core = 'psx' }) {
   useEffect(() => {
     if (!gameUrl || !core) {
       console.error("Parâmetros faltando: gameUrl ou core");
