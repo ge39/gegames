@@ -30,7 +30,7 @@ export default function EmulationPlay() {
   return (
     <div>
       <h1>Jogando com EmulatorJS</h1>
-      <div id="game" style={{ width: "640px", height: "480px", maxWidth: "100%" }}></div>
+      <div id="game" style={{ width: "640px", height: "480px"}}></div>
     </div>
   );
 }
