@@ -28,7 +28,7 @@ export default function EmulationPlay() {
   }, []);
 
   return (
-    <div>
+    <div style={{ width: '640px', height: '480px', maxWidth: '100%' }}>
       <h1>Jogando com EmulatorJS</h1>
       <div id="game" style={{ width: '640px', height: '480px', maxWidth: '100%' }}></div>
     </div>
