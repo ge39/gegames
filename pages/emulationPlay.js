@@ -9,7 +9,7 @@ export default function EmulationPlay() {
       window.EJS_player = "#game";
       window.EJS_core = "psx";
       window.EJS_color = "#0064ff";
-      // window.EJS_startOnLoaded = true;
+      window.EJS_startOnLoaded = true;
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
       window.EJS_gameUrl = "/roms/psone/Chessmaster 3D.PBP";
       window.EJS_biosUrl = "/roms/psone/files/scph1001.bin";
@@ -30,7 +30,7 @@ export default function EmulationPlay() {
   return (
     <div>
       <h1>Jogando com EmulatorJS</h1>
-      <div id="game" style={{ width: "640px", height: "80pv", maxWidth: "100%" }}></div>
+      <div id="game" style={{ width: "640px", height: "480px", maxWidth: "100%" }}></div>
     </div>
   );
 }
