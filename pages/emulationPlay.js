@@ -14,7 +14,7 @@ export default function EmulationPlay() {
             EJS_color = "#0064ff";
             EJS_startOnLoaded = true;
             EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            EJS_gameUrl = "/roms/psone/Bust-A-Move 4.PBP";
+            EJS_gameUrl = "/roms/psone/Chessmaster 3D.PBP";
             EJS_biosUrl = "/roms/psone/files/scph5501.bin";
         </script>
         <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
