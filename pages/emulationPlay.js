@@ -9,10 +9,10 @@ export default function EmulationPlay() {
       window.EJS_player = "#game";
       window.EJS_core = "psx";
       window.EJS_color = "#0064ff";
-      window.EJS_startOnLoaded = true;
+      // window.EJS_startOnLoaded = true;
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
       window.EJS_gameUrl = "/roms/psone/Chessmaster 3D.PBP";
-      window.EJS_biosUrl = "/roms/psone/files/scph5501.bin";
+      window.EJS_biosUrl = "/roms/psone/files/scph1001.bin";
 
       // Carrega o loader.js dinamicamente
       const script = document.createElement('script');
