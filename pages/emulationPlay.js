@@ -8,7 +8,7 @@ export default function EmulationPlay() {
   return (
     <div>
       <h1>Jogando com EmulatorJS</h1>
-
+       <p><strong>game:</strong> {core}</p>
       <p><strong>Core:</strong> {core}</p>
       <p><strong>BIOS:</strong> {bios.split('/').pop()}</p>
 
