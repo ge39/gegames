@@ -3,7 +3,7 @@ import Emulator from '../components/Emulator';
 export default function EmulationPlay() {
   const bios = "/roms/psone/files/scph5501.bin";
   const game = "/roms/psone/Crash Bash.PBP";
-  const core = "psx";
+  const core = "beetle-psx";
 
   return (
     <div>
