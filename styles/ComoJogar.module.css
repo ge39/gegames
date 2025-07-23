@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #fff;
+  background: linear-gradient(to bottom, #111, #1b1b1b);
+  font-family:  cursive, sans-serif,'Press Start 2P';
+  line-height: 1.;
+  position: relative;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2rem;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.consoleGallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.consoleGallery img {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.consoleGallery img:hover {
+  transform: scale(1.2);
+}
+
+.spriteContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.intro {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.subtitle {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: #555;
+  border-radius: 10px;
+  gap: 1rem;
+  font-size: 1.2rem;
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style: square;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.link {
+  color: #ff69b4;
+  text-decoration: underline;
+}
+
+.sectionFinal {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #ffd700;
+  color: #000;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 8px #ffd70080;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: #ffcc00;
+}
+
+.whatsappButton {
+  display: block;
+  margin: 3rem auto 1rem auto;
+  width: fit-content;
+  background-color: #25d366;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 10px #25d36680;
+  cursor: pointer;
+}
+
+.whatsappButton:hover {
+  background-color: #1ebc5e;
+}
+
+.spriteContainer {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  z-index: 10;
+  animation: mover 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes mover {
+  from {
+    left: -100px;
+  }
+  to {
+    left: 100vw;
+  }
+}
+.audioPlayer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.audioPlayer button {
+  background: #111;
+  color: #ffd700;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audioPlayer button:hover {
+  background-color: #ffd700;
+  color: #111;
+}

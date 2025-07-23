@@ -1,0 +1,34 @@
+body {
+    font-family: 'Roboto',Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+/* Classe ou estilo para textos retrô */
+.retro {
+  font-family: 'Press Start 2P', cursive;
+}
+
+  h2 {
+    text-align: center;
+    color: #333;
+    background-color: #fafafa;
+    padding: 15px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+   /* aumenta a area do nome do console em gamelist, telas menores que 678px */
+   @media (max-width: 678px) {
+    h2 {
+      width:100%;
+    }
+  
+    
+  }
+  

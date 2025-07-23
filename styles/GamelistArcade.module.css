@@ -1,0 +1,62 @@
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 colunas por padrão */
+    gap: 15px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .gameCard {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .gameImage {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    .gamesGrid {
+      grid-template-columns: repeat(5, 1fr); /* 4 colunas em tablets */
+    }
+  }
+  @media (max-width: 1000px) {
+    .gamesGrid {
+      grid-template-columns: repeat(4, 1fr); /* 2 coluna em celulares pequenos */
+    }
+  }
+  @media (max-width: 768px) {
+    .gamesGrid {
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas em smartphones médios */
+    }
+  
+    .gameImage {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .gamesGrid {
+      grid-template-columns: repeat(2, 1fr); /* 3 colunas em smartphones médios */
+    }
+  
+    .gameImage {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .gamesGrid {
+      grid-template-columns: repeat(1, 1fr); /* 2 coluna em celulares pequenos */
+    }
+  }
+  
+    
+  

@@ -1,0 +1,122 @@
+.carouselContainer {
+    position: relative;
+    overflow: hidden; 
+    margin: 10px auto;
+    width: 100%;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carouselItem {
+    /* flex: 0 0 22%; */
+    padding: 15px;
+    text-align: center;
+    min-width: 350px; /* Cada item ocupa 20% da largura */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .control {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(126, 81, 250, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .slide-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory; /* Para um deslizamento suave entre os slides */
+      justify-content: center; /* Centraliza o conteúdo */
+    }
+    
+    .slide {
+      flex: 0 0 auto; /* Impede que o slide se estique */
+      scroll-snap-align: center; /* Faz o slide alinhar ao centro do contêiner */
+    }
+    
+    .control:disabled {
+        background-color: rgba(126, 81, 250, 0.2); /* Cor para o botão desabilitado */
+        cursor: not-allowed;
+      }
+      
+      .control:first-child {
+        left: 10px;
+      }
+      
+      .control:last-child {
+        right: 10px;
+      }
+    .control:nth-of-type(1) {
+        left: 10px; /* Ajuste conforme necessário */
+      }
+      .control:nth-of-type(2) {
+        right: 10px; /* Ajuste conforme necessário */
+    }
+  .control:hover {
+    background: rgba(2, 27, 253, 0.8);
+  }
+  
+  .card {
+    background: #e7e6e6;
+    border-radius: 8px;
+    padding: 15px;
+     width:95%; 
+    transition: transform 0.3s, border 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    border: 2px solid #23bdfa;
+  }
+  
+  .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .playNow {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    width: 50%;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration:solid;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .playNow:hover {
+    background-color: #0056b3;
+  }
+  /* Ocultar botões de controle em telas menores que 678px */
+@media (max-width: 678px) {
+  .control {
+    display: none;
+  }
+  .carouselItem {
+      min-width: 270px; /* Cada item ocupa 20% da largura */
+      margin-left: 19px;
+    
+  }
+  
+}
+
+
+
+
