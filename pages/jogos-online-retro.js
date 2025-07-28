@@ -8,6 +8,18 @@ import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 
 import Console from '../components/Console';
+import NetplayBanner from '@/components/NetplayBanner';
+
+export default function Home() {
+  return (
+    <div className="max-w-6xl mx-auto px-4">
+      {/* Carrossel, navbar ou título */}
+      <NetplayBanner />
+      
+      {/* Outras seções como consoles, categorias, etc */}
+    </div>
+  );
+}
 
 export default function Gamelist() {
   // Dados para os carrosséis
