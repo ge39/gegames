@@ -10,6 +10,9 @@ import { arcadeGames } from '../data/arcadeGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
 import PeerConnection from "../components/PeerConnection";
+import GameReview from '@/components/GameReview';
+
+<GameReview gameId="Street Fighter" />
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
