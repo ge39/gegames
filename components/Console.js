@@ -9,7 +9,7 @@ export default function Console() {
         <Link style={{ textDecoration: "none" }} href="/gamelistGba">Gba - </Link>
         <Link style={{ textDecoration: 'none' }} href="/gamelistMegadrive">Megadrive - </Link>
         <Link style={{ textDecoration: 'none' }} href="/gamelistSnes">Super Nintendo - </Link>
-        <Link style={{ textDecoration: 'none' }} href="/adult-games">X X X</Link> 
+        <Link style={{ textDecoration: 'none' }} href="/">X X X</Link> 
       </h2>
     </div>
   );
