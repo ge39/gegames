@@ -22,12 +22,15 @@ export default function Gamelist() {
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   return (
-    <>
-    
-      <Head>
-        <title>Lista de Jogos Arcade Online</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+   <>
+      <SEOHead
+        title="Jogos Arcade Online | GeGames"
+        description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
+        keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
+        image="https://gegames.vercel.app/images/capa-arcade.png"
+        url="https://gegames.vercel.app/gamelistArcade"
+      />
+
       <Navbar />
       <main>
         <section id="arcadeSection">
