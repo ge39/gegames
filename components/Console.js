@@ -11,7 +11,7 @@ export default function Console() {
   ];
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '80px' }}>
+    <div style={{ textAlign: 'center', marginTop: '80px',borderColor:'snow' }}>
       <nav style={{ display: 'inline-block', borderRadius: '10px' }}>
         {links.map((link, index) => (
           <span key={link.href}>
