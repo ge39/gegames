@@ -7,7 +7,7 @@ export default function Console() {
     { href: '/gamelistGba', label: 'GBA' },
     { href: '/gamelistMegadrive', label: 'Mega Drive' },
     { href: '/gamelistSnes', label: 'Super Nintendo' },
-    // { href: '/adult-games', label: '🔞 Adulto' },
+    { href: '/adult-games', label: '🔞 Adulto' },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function Console() {
               style={{
                 textDecoration: 'none',
                 margin: '0 8px',
-                color: '#333',
+                color: 'snow',
                 fontWeight: 'bold',
               }}
             >
