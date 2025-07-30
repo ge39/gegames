@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import GameFilter from '@/components/GameFilter';
+// import GameFilter from '@/components/GameFilter';
 
 export default function GameList() {
   const allGames = [/* lista de jogos com nome, console, players, etc */];
