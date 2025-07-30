@@ -43,7 +43,7 @@ export default function Navbar() {
 
         <ul className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
           <li><Link href="/">Home</Link></li>
-          <li><Link href="/jogos-online-retro">Jogue Online</Link></li>
+          <li><Link href="/gamelist">Jogue Online</Link></li>
           <li><Link href="/como-jogar">Como Jogar</Link></li>
           <li><Link href="/#orcamento">Fale Conosco</Link></li>
           <li><Link href="/#nosso-plano">Nossos Planos</Link></li>

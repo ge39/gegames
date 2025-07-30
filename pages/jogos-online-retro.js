@@ -6,23 +6,11 @@ import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
 import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
-
 import Console from '../components/Console';
-import NetplayBanner from '@/components/NetplayBanner';
 
-export default function Home() {
-  return (
-    <div className="max-w-6xl mx-auto px-4">
-      {/* Carrossel, navbar ou título */}
-      <NetplayBanner />
-      
-      {/* Outras seções como consoles, categorias, etc */}
-    </div>
-  );
-}
 
 export default function Gamelist() {
-  // Dados para os carrosséis
+ // Dados para os carrosséis
   const arcadeGames = [
     {
       id: "37385",
@@ -477,8 +465,6 @@ export default function Gamelist() {
     releasedate: "2001-10-10",
 }
   ]
-
- 
   return (
     <>
      <Head />
@@ -520,8 +506,7 @@ export default function Gamelist() {
           <Link href="/gamelistMegadrive">
             <h2>Megadrive</h2>
           </Link>
-          <Carousel games={megadriveGames} />
-          
+          <Carousel games={megadriveGames} /> 
         </section>
         
       </main>
