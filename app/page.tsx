@@ -5,7 +5,6 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import ButtonTop from "../components/ButtonTop";
 
-// 
 
 export default function Home() {
   return (

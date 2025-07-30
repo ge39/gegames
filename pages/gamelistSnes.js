@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import Navbar from '../components/Navbar.js';
@@ -11,11 +10,10 @@ import { snesGames } from '../data/snesGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
 import PeerConnection from "../components/PeerConnection";
-import GameReview from '@/components/GameReview';
-
-<GameReview gameId="super-mario-world" />
+import SEOHead from "@/components/SEOHead";
 
 export default function Gamelist() {
+  
   const [searchTerm, setSearchTerm] = useState('');
   const { query } = useRouter(); // 👈 isso corrige o erro
     // Filtra os jogos pelo nome baseado no searchTerm
@@ -25,10 +23,16 @@ export default function Gamelist() {
 
   return (
     <>
-      <Head>
-        <title>Lista de Jogos Super Nintendo Online</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+     <SEOHead
+        title="Jogos SNES Online | GeGames"
+        description="Reviva os clássicos do Super Nintendo! Jogue online títulos como Super Mario, Donkey Kong, Zelda e outros diretamente do seu navegador."
+        keywords="snes, super nintendo, jogos snes online, retro games, mario, donkey kong, zelda, jogos antigos, gegames"
+        image="https://gegames.vercel.app/images/capa-snes.png"
+        url="https://gegames.vercel.app/gamelistSnes"
+      />
+
+      {/* conteúdo da página */}
+   
       <Navbar />
 
       <main>

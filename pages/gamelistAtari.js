@@ -1,5 +1,3 @@
-
-import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import Navbar from '../components/Navbar';
@@ -12,9 +10,7 @@ import { atariGames } from '../data/atariGames.js';
 import WhatsappButton from '@/components/WhatsappButton'
 import Console from '@/components/Console.js';
 import PeerConnection from "../components/PeerConnection";
-import GameReview from '@/components/GameReview';
-
-<GameReview gameId="super-mario-world" />
+import SEOHead from "@/components/SEOHead";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,12 +21,17 @@ export default function Gamelist() {
   );
 
   return (
-    <>
-      <Head>
-        <title>Lista de Jogos Atari</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+     <>
+      <SEOHead
+        title="Jogos Atari 2600 Online | GeGames"
+        description="Jogue online os jogos clássicos do Atari 2600! Reviva títulos lendários como Pitfall, River Raid, Enduro, Pac-Man e outros diretamente no seu navegador."
+        keywords="atari, atari 2600, jogos atari online, jogos antigos, retro games, river raid, pac-man, pitfall, gegames"
+        image="https://gegames.vercel.app/images/capa-atari.png"
+        url="https://gegames.vercel.app/gamelistAtari"
+      />
 
+      {/* conteúdo da página */}
+   
       <Navbar />
 
       <main>
@@ -79,9 +80,8 @@ export default function Gamelist() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
+     <Footer />
+   </>
   );
 }
 

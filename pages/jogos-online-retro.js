@@ -8,7 +8,6 @@ import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 import Console from '../components/Console';
 
-
 export default function Gamelist() {
  // Dados para os carrosséis
   const arcadeGames = [
