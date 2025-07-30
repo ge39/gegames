@@ -1,5 +1,3 @@
-
-// pages/adult-games.tsx
 import AdultGamesSection from "../components/AdultGamesSection";
 import SEOHead from "@/components/SEOHead";
 
