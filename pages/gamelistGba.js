@@ -32,7 +32,7 @@ export default function Gamelist() {
       />
 
       {/* conteúdo da página */}
-    </>
+    
 
       <Navbar />
 
