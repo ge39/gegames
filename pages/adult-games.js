@@ -13,9 +13,10 @@ export default function AdultGamesPage() {
         image="https://gegames.vercel.app/images/capa-adult.png"
         url="https://gegames.vercel.app/gamelistArcadeAdult"
       />
-    </>
+   
     <main className="min-h-screen bg-gray-100 py-10">
       <AdultGamesSection />
     </main>
+   </>
   );
 }
