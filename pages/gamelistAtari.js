@@ -25,12 +25,17 @@ export default function Gamelist() {
   );
 
   return (
-    <>
-      <Head>
-        <title>Lista de Jogos Atari</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+     <>
+      <SEOHead
+        title="Jogos Atari 2600 Online | GeGames"
+        description="Jogue online os jogos clássicos do Atari 2600! Reviva títulos lendários como Pitfall, River Raid, Enduro, Pac-Man e outros diretamente no seu navegador."
+        keywords="atari, atari 2600, jogos atari online, jogos antigos, retro games, river raid, pac-man, pitfall, gegames"
+        image="https://gegames.vercel.app/images/capa-atari.png"
+        url="https://gegames.vercel.app/gamelistAtari"
+      />
 
+      {/* conteúdo da página */}
+    </>
       <Navbar />
 
       <main>
