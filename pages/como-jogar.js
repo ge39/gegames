@@ -124,7 +124,7 @@ export default function ComoJogar() {
           <Image src="/sprites/superMetroid.gif" alt="Metroid correndo" width={100} height={100} />
           <Image src="/sprites/mario-running.gif" alt="Mario correndo" width={100} height={100} />
           <Image src="/sprites/sonic-running.gif" alt="Sonic correndo" width={70} height={70} />
-          <Image src="/sprites/mario-luigi.gif" alt="Mario-Luigi" width={100} height={100} />
+          // <Image src="/sprites/mario-luigi.gif" alt="Mario-Luigi" width={100} height={100} />
         </div>
          
         <div className={styles.spriteContainer}>
