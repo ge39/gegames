@@ -30,8 +30,7 @@ export default function Gamelist() {
         image="https://gegames.vercel.app/images/capa-arcade.png"
         url="https://gegames.vercel.app/gamelistArcade"
       />
-      
-      </>
+    
       <Navbar />
       <main>
         <section id="arcadeSection">
