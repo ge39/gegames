@@ -22,10 +22,16 @@ export default function Gamelist() {
 
   return (
     <>
-      <Head>
-        <title>Lista de Jogos GBA</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+       <SEOHead
+        title="Jogos GBA Online | GeGames"
+        description="Jogue online os melhores títulos do Game Boy Advance! Reviva clássicos como Pokémon, Metroid, Mario Kart, Castlevania e outros diretamente no seu navegador."
+        keywords="gba, game boy advance, jogos gba online, pokémon, metroid, mario, castlevania, retro games, gegames"
+        image="https://gegames.vercel.app/images/capa-gba.png"
+        url="https://gegames.vercel.app/gamelistGba"
+      />
+
+      {/* conteúdo da página */}
+    </>
 
       <Navbar />
 
