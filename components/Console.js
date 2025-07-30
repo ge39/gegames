@@ -12,3 +12,4 @@ export default function Console() {
       </h2>
     </div>
   );
+}
