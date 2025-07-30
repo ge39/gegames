@@ -82,9 +82,8 @@ export default function Gamelist() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
+      <Footer />
   );
 }
 
