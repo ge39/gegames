@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Gamepad2, Camera } from 'lucide-react';
+import {  Camera } from 'lucide-react';
 
 export default function NetplayBanner() {
   return (
