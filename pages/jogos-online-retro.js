@@ -8,7 +8,7 @@ import WhatsappButton from '@/components/WhatsappButton';
 import SEOHead from "../components/SEOHead";
 
 import Console from '../components/Console';
-import NetplayBanner from '@/components/NetplayBanner';
+// import NetplayBanner from '@/components/NetplayBanner';
 
 export default function Home() {
   return (
