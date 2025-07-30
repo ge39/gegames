@@ -22,10 +22,16 @@ export default function Gamelist() {
     );
   return (
     <>
-      <Head>
-        <title>Lista de Jogos Megadrive</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+      <SEOHead
+        title="Jogos Mega Drive Online | GeGames"
+        description="Jogue online os clássicos do Sega Mega Drive! Relembre títulos como Sonic, Streets of Rage, Golden Axe e muito mais direto no seu navegador."
+        keywords="mega drive, sega, sonic, streets of rage, golden axe, jogos antigos, retro games, gegames, jogar online"
+        image="https://gegames.vercel.app/images/capa-megadrive.png"
+        url="https://gegames.vercel.app/gamelistMegadrive"
+      />
+
+      {/* conteúdo da página */}
+    </>
       <Navbar />
       <main>
         <section id="MegadriveSection">
