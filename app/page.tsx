@@ -4,8 +4,7 @@ import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import ButtonTop from "../components/ButtonTop";
-import { SpeedInsights } from '@vercel/speed-insights/next';
- 
+
 
 export default function Home() {
   return (
