@@ -12,9 +12,7 @@ import { atariGames } from '../data/atariGames.js';
 import WhatsappButton from '@/components/WhatsappButton'
 import Console from '@/components/Console.js';
 import PeerConnection from "../components/PeerConnection";
-import GameReview from '@/components/GameReview';
-
-<GameReview gameId="super-mario-world" />
+import SEOHead from "@/components/SEOHead";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
