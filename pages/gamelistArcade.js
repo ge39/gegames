@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 import Navbar from '../components/Navbar.js';
 import styles from '../styles/GamelistArcade.module.css';
 import  '../styles/Globals.css';
 import Footer from '../components/Footer.js';
 import Image from 'next/image'; // Importando a tag Image do Next.js
-import { useState } from 'react';
+import PeerConnection from "../components/PeerConnection";
 import { arcadeGames } from '../data/arcadeGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
-import PeerConnection from "../components/PeerConnection";
 import GameReview from '@/components/GameReview';
 import SEOHead from "@/components/SEOHead";
 
