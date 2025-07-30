@@ -21,6 +21,7 @@ export default function Console() {
                 textDecoration: 'none',
                 margin: '0 8px',
                 color: 'snow',
+                backgroundColor:'gray',
                 fontWeight: 'bold',
               }}
             >
