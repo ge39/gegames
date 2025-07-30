@@ -7,11 +7,8 @@ import Footer from '../components/Footer';
 import PeerConnection from '../components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import GameReview from '@/components/GameReview'; // se não estiver sendo usado, remova
 import SEOHead from '@/components/SEOHead';
-
 import { arcadeGames } from '../data/arcadeGames';
-
 import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
 
