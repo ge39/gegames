@@ -11,6 +11,7 @@ import { gbaGames } from '../data/gbaGames.js';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console.js';
 import  PeerConnection from "../components/PeerConnection";
+import SEOHead from "@/components/SEOHead";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
