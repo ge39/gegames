@@ -23,6 +23,7 @@ export default function Gamelist() {
     );
 
   return (
+    <>
      <SEOHead
         title="Jogos SNES Online | GeGames"
         description="Reviva os clássicos do Super Nintendo! Jogue online títulos como Super Mario, Donkey Kong, Zelda e outros diretamente do seu navegador."
