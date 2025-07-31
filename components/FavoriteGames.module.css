@@ -1,1 +1,31 @@
 
+/* FavoriteGames.module.css */
+.favoritosContainer {
+  background: #111;
+  color: #0f0;
+  padding: 1rem;
+  border: 2px solid #0f0;
+  margin: 1rem 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.favoritosContainer h2,
+.favoritosContainer h3 {
+  color: #ff0;
+}
+
+.favoritosContainer button {
+  display: block;
+  margin: 0.5rem 0;
+  background: #222;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 0.4rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.favoritosContainer button:hover {
+  background: #0f0;
+  color: #000;
+}
