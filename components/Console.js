@@ -6,7 +6,7 @@ export default function Console() {
     { href: '/gamelistArcade', label: 'Arcade' },
     { href: '/gamelistGba', label: 'GBA' },
     { href: '/gamelistMegadrive', label: 'Mega Drive' },
-    { href: '/gamelistSnes', label: 'Super Nintendo' },
+    { href: '/gamelistSnes', label: 'Super Nes' },
     { href: '/adult-games', label: '🔞 Adulto' },
   ];
 
