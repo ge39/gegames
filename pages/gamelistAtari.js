@@ -88,21 +88,23 @@ export default function Gamelist() {
             />
 
             {/* Botão para filtrar favoritos */}
-            <div style={{ marginTop: '10px' }}>
+            <div style={{ margin: '10px' }}>
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
                   padding: '8px 16px',
                   fontSize: '14px',
                   borderRadius: '6px',
-                  backgroundColor: showOnlyFavorites ? '#FFD700' : '#444',
-                  color: showOnlyFavorites ? '#000' : '#fff',
-                  cursor: 'pointer'
+                  border: 'none',
+                  backgroundColor: showOnlyFavorites ? '#e63946' : '#2a9d8f',
+                  color: '#fff',
+                  cursor: 'pointer',
                 }}
               >
-                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Só Favoritos'}
+                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
             </div>
+
 
             <WhatsappButton />
           </div>
