@@ -10,19 +10,18 @@ import SEOHead from '@/components/SEOHead';
 import { atariGames } from '../data/atariGames.js';
 import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
+import { useRouter } from 'next/router';
 
 export default function Gamelist() {
+  const { query } = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
+  const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
-  const { query } = useRouter(); // 👈 isso corrige o erro
-  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
-  const filteredGames = atariGames.filter((game) =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+
   // Carrega favoritos do localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('arcadeFavorites');
+      const stored = localStorage.getItem('atariFavorites');
       if (stored) {
         setFavorites(JSON.parse(stored));
       }
@@ -38,21 +37,21 @@ export default function Gamelist() {
       updated = [...favorites, id];
     }
     setFavorites(updated);
-    localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
+    localStorage.setItem('atariFavorites', JSON.stringify(updated));
   };
 
   // Verifica se um jogo é favorito
   const isFavorite = (id) => favorites.includes(id);
 
   // Filtra os jogos por nome e favoritos (se ativado)
-  const filteredGames = arcadeGames.filter((game) => {
+  const filteredGames = atariGames.filter((game) => {
     const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
     const isFav = isFavorite(game.id);
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
 
   return (
-     <>
+    <>
       <SEOHead
         title="Jogos Atari 2600 Online | GeGames"
         description="Jogue online os jogos clássicos do Atari 2600! Reviva títulos lendários como Pitfall, River Raid, Enduro, Pac-Man e outros diretamente no seu navegador."
@@ -61,18 +60,18 @@ export default function Gamelist() {
         url="https://gegames.vercel.app/gamelistAtari"
       />
 
-      {/* conteúdo da página */}
-   
       <Navbar />
 
       <main>
         <section id="atariSection">
           <Console />
-           <PeerConnection peerId={query.peerId} />
-           
-          {/* Campo de busca */}
+          <PeerConnection peerId={query.peerId} />
+
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4 style={{backgroundColor:'transparent',color:'#fafafa',borderRadius:'10px',padding:'10px'}}>Lista de Jogos Atari - {filteredGames.length}</h4>
+            <h4 style={{ backgroundColor: 'transparent', color: '#fafafa', borderRadius: '10px', padding: '10px' }}>
+              Lista de Jogos Atari - {filteredGames.length}
+            </h4>
+
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -87,7 +86,24 @@ export default function Gamelist() {
                 border: '1px solid #ccc'
               }}
             />
-           
+
+            {/* Botão para filtrar favoritos */}
+            <div style={{ marginTop: '10px' }}>
+              <button
+                onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+                style={{
+                  padding: '8px 16px',
+                  fontSize: '14px',
+                  borderRadius: '6px',
+                  backgroundColor: showOnlyFavorites ? '#FFD700' : '#444',
+                  color: showOnlyFavorites ? '#000' : '#fff',
+                  cursor: 'pointer'
+                }}
+              >
+                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Só Favoritos'}
+              </button>
+            </div>
+
             <WhatsappButton />
           </div>
 
@@ -106,13 +122,26 @@ export default function Gamelist() {
                   />
                   <h5>{"Total Players: " + game.players}</h5>
                 </Link>
+                <button
+                  onClick={() => toggleFavorite(game.id)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '20px',
+                    cursor: 'pointer',
+                    color: isFavorite(game.id) ? 'red' : '#aaa'
+                  }}
+                  title="Favorito"
+                >
+                  {isFavorite(game.id) ? '❤️' : '🤍'}
+                </button>
               </div>
             ))}
           </div>
         </section>
       </main>
-     <Footer />
-   </>
+
+      <Footer />
+    </>
   );
 }
-
