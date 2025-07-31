@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Console() {
+export default function Console({ titulo, jogos, toggleFavorito, isFavorito }) {
   const links = [
     { href: '/gamelistAtari', label: 'Atari' },
     { href: '/gamelistArcade', label: 'Arcade' },
@@ -11,27 +11,43 @@ export default function Console() {
   ];
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '80px',borderColor:'snow' }}>
-      <nav style={{ display: 'inline-block', borderRadius: '10px' }}>
-        {links.map((link, index) => (
-          <span key={link.href}>
-            <Link
-              href={link.href}
-              style={{
-                textDecoration: 'none',
-                margin: '0 8px',
-                color: 'snow',
-                fontWeight: 'bold',
-              }}
-            >
-              {link.label}
-            </Link>
-            {index < links.length - 1 && <span> - </span>}
-          </span>
-        ))}
-      </nav>
+    <div>
+      {/* Navegação entre consoles */}
+      <div style={{ textAlign: 'center', marginTop: '80px', borderColor: 'snow' }}>
+        <nav style={{ display: 'inline-block', borderRadius: '10px' }}>
+          {links.map((link, index) => (
+            <span key={link.href}>
+              <Link
+                href={link.href}
+                style={{
+                  textDecoration: 'none',
+                  margin: '0 8px',
+                  color: 'snow',
+                  fontWeight: 'bold',
+                }}
+              >
+                {link.label}
+              </Link>
+              {index < links.length - 1 && <span> - </span>}
+            </span>
+          ))}
+        </nav>
+      </div>
+
+      {/* Lista de jogos */}
+      <div style={{ padding: '20px' }}>
+        <h2>{titulo}</h2>
+        <div className="jogos">
+          {jogos.map((jogo) => (
+            <div key={jogo.slug} className="jogo-card">
+              <h3>{jogo.nome}</h3>
+              <button onClick={() => toggleFavorito(jogo)}>
+                {isFavorito(jogo.slug) ? '💔 Remover' : '❤️ Favoritar'}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
-
-
