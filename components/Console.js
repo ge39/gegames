@@ -33,21 +33,6 @@ export default function Console({ titulo, jogos, toggleFavorito, isFavorito }) {
           ))}
         </nav>
       </div>
-
-      {/* Lista de jogos */}
-      <div style={{ padding: '20px' }}>
-        <h2>{titulo}</h2>
-        <div className="jogos">
-          {jogos.map((jogo) => (
-            <div key={jogo.slug} className="jogo-card">
-              <h3>{jogo.nome}</h3>
-              <button onClick={() => toggleFavorito(jogo)}>
-                {isFavorito(jogo.slug) ? '💔 Remover' : '❤️ Favoritar'}
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
