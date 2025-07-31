@@ -1,24 +1,55 @@
 import Link from 'next/link';
-import { useRouter } from "next/router";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PeerConnection from '../components/PeerConnection';
+import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console';
+import SEOHead from '@/components/SEOHead';
+import { atariGames } from '../data/atariGames.js';
 import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
-import Image from 'next/image';
-import { useState } from 'react';
-import { atariGames } from '../data/atariGames.js';
-import WhatsappButton from '@/components/WhatsappButton'
-import Console from '@/components/Console.js';
-import PeerConnection from "../components/PeerConnection";
-import SEOHead from "@/components/SEOHead";
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const { query } = useRouter(); // 👈 isso corrige o erro
-
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const filteredGames = atariGames.filter((game) =>
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  // Carrega favoritos do localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('arcadeFavorites');
+      if (stored) {
+        setFavorites(JSON.parse(stored));
+      }
+    }
+  }, []);
+
+  // Adiciona ou remove jogo dos favoritos
+  const toggleFavorite = (id) => {
+    let updated;
+    if (favorites.includes(id)) {
+      updated = favorites.filter((fav) => fav !== id);
+    } else {
+      updated = [...favorites, id];
+    }
+    setFavorites(updated);
+    localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
+  };
+
+  // Verifica se um jogo é favorito
+  const isFavorite = (id) => favorites.includes(id);
+
+  // Filtra os jogos por nome e favoritos (se ativado)
+  const filteredGames = arcadeGames.filter((game) => {
+    const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const isFav = isFavorite(game.id);
+    return matchesSearch && (!showOnlyFavorites || isFav);
+  });
 
   return (
      <>
