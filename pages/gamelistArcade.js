@@ -13,15 +13,10 @@ import '../styles/Globals.css';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
-
-  // Filtra os jogos pelo nome baseado no searchTerm
-  const filteredGames = arcadeGames.filter((game) =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   const [favorites, setFavorites] = useState([]);
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
-  // Carrega favoritos do localStorage no carregamento da página
+  // Carrega favoritos do localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('arcadeFavorites');
@@ -46,6 +41,13 @@ export default function Gamelist() {
   // Verifica se um jogo é favorito
   const isFavorite = (id) => favorites.includes(id);
 
+  // Filtra os jogos por nome e favoritos (se ativado)
+  const filteredGames = arcadeGames.filter((game) => {
+    const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const isFav = isFavorite(game.id);
+    return matchesSearch && (!showOnlyFavorites || isFav);
+  });
+
   return (
     <>
       <SEOHead
@@ -62,7 +64,7 @@ export default function Gamelist() {
         <section id="arcadeSection">
           <Console />
 
-          {/* Campo de busca */}
+          {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4
               style={{
@@ -74,6 +76,7 @@ export default function Gamelist() {
             >
               Lista de Jogos Arcade - {filteredGames.length}
             </h4>
+
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -86,11 +89,31 @@ export default function Gamelist() {
                 maxWidth: '500px',
                 borderRadius: '8px',
                 border: '1px solid #ccc',
+                marginBottom: '10px',
               }}
             />
+
+            <div style={{ margin: '10px' }}>
+              <button
+                onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+                style={{
+                  padding: '8px 16px',
+                  fontSize: '14px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: showOnlyFavorites ? '#e63946' : '#2a9d8f',
+                  color: '#fff',
+                  cursor: 'pointer',
+                }}
+              >
+                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
+              </button>
+            </div>
+
             <WhatsappButton />
           </div>
 
+          {/* Lista de jogos */}
           <div className={styles.gamesGrid}>
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
@@ -104,7 +127,7 @@ export default function Gamelist() {
                     <h5>{game.name}</h5>
                     <Image
                       src={game.image}
-                      alt={game.name}
+                      alt={`Capa do jogo ${game.name}`}
                       className={styles.gameImage}
                       width={200}
                       height={200}
@@ -113,7 +136,7 @@ export default function Gamelist() {
                     <h5>Total Players: {game.players}</h5>
                   </a>
                 </Link>
-                {/* Botão favorito */}
+
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}
