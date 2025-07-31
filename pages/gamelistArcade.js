@@ -1,16 +1,9 @@
 // pages/gamelistArcade.js
-import Link from 'next/link';
-import { useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import PeerConnection from '../components/PeerConnection';
-import WhatsappButton from '@/components/WhatsappButton';
-import Console from '@/components/Console';
-import SEOHead from '@/components/SEOHead';
-import { arcadeGames } from '../data/arcadeGames';
 import styles from '../styles/GamelistArcade.module.css';
-import '../styles/Globals.css';
 
 const arcadeGames = [
   { title: "Metal Slug" },
@@ -46,14 +39,9 @@ export default function GamelistArcade() {
 
   return (
     <>
-       <SEOHead
-        title="Jogos Arcade Online | GeGames"
-        description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
-        keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
-        image="https://gegames.vercel.app/images/capa-arcade.png"
-        url="https://gegames.vercel.app/gamelistArcade"
-      />
-
+      <Head>
+        <title>Gamelist Arcade - Jogos Anos 90 e 2000</title>
+      </Head>
 
       <Navbar />
 
