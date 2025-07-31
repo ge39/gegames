@@ -19,6 +19,34 @@ export default function Gamelist() {
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const [favorites, setFavorites] = useState([]);
+
+// Carrega favoritos do localStorage no carregamento da página
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('arcadeFavorites');
+    if (stored) {
+      setFavorites(JSON.parse(stored));
+    }
+  }
+}, []);
+
+// Adiciona ou remove jogo dos favoritos
+const toggleFavorite = (slug) => {
+  let updated;
+  if (favorites.includes(slug)) {
+    updated = favorites.filter((fav) => fav !== slug);
+  } else {
+    updated = [...favorites, slug];
+  }
+  setFavorites(updated);
+  localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
+};
+
+// Verifica se um jogo é favorito
+const isFavorite = (slug) => favorites.includes(slug);
+
+  
   return (
     <>
       <SEOHead
