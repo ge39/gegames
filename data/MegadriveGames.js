@@ -1,4 +1,4 @@
-export const MegadriveGames = [
+export const megadriveGames = [
     {
       id: "md1",
       path: "megadrive/Sonic the Hedgehog.zip",
