@@ -30,8 +30,6 @@ export default function Console() {
           </span>
         ))}
       </nav>
-      
-    </div>
     </div>
   );
 }
