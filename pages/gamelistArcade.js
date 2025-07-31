@@ -21,32 +21,31 @@ export default function Gamelist() {
 
   const [favorites, setFavorites] = useState([]);
 
-// Carrega favoritos do localStorage no carregamento da página
-useEffect(() => {
-  if (typeof window !== 'undefined') {
-    const stored = localStorage.getItem('arcadeFavorites');
-    if (stored) {
-      setFavorites(JSON.parse(stored));
+  // Carrega favoritos do localStorage no carregamento da página
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('arcadeFavorites');
+      if (stored) {
+        setFavorites(JSON.parse(stored));
+      }
     }
-  }
-}, []);
+  }, []);
 
-// Adiciona ou remove jogo dos favoritos
-const toggleFavorite = (slug) => {
-  let updated;
-  if (favorites.includes(slug)) {
-    updated = favorites.filter((fav) => fav !== slug);
-  } else {
-    updated = [...favorites, slug];
-  }
-  setFavorites(updated);
-  localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
-};
+  // Adiciona ou remove jogo dos favoritos
+  const toggleFavorite = (id) => {
+    let updated;
+    if (favorites.includes(id)) {
+      updated = favorites.filter((fav) => fav !== id);
+    } else {
+      updated = [...favorites, id];
+    }
+    setFavorites(updated);
+    localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
+  };
 
-// Verifica se um jogo é favorito
-const isFavorite = (slug) => favorites.includes(slug);
+  // Verifica se um jogo é favorito
+  const isFavorite = (id) => favorites.includes(id);
 
-  
   return (
     <>
       <SEOHead
@@ -65,7 +64,14 @@ const isFavorite = (slug) => favorites.includes(slug);
 
           {/* Campo de busca */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4 style={{ backgroundColor: 'transparent', color: '#fafafa', borderRadius: '10px', padding: '10px' }}>
+            <h4
+              style={{
+                backgroundColor: 'transparent',
+                color: '#fafafa',
+                borderRadius: '10px',
+                padding: '10px',
+              }}
+            >
               Lista de Jogos Arcade - {filteredGames.length}
             </h4>
             <input
@@ -89,10 +95,12 @@ const isFavorite = (slug) => favorites.includes(slug);
             {filteredGames.map((game) => (
               <div key={game.id} className={styles.gameCard}>
                 <Link
-                  href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
+                  href={`/emulation?jogo=${encodeURIComponent(
+                    game.path
+                  )}&core=${encodeURIComponent(game.core)}`}
                   passHref
                 >
-                  <div>
+                  <a>
                     <h5>{game.name}</h5>
                     <Image
                       src={game.image}
@@ -103,8 +111,20 @@ const isFavorite = (slug) => favorites.includes(slug);
                       priority
                     />
                     <h5>Total Players: {game.players}</h5>
-                  </div>
+                  </a>
                 </Link>
+                {/* Botão favorito */}
+                <button
+                  className={styles.favoriteButton}
+                  onClick={() => toggleFavorite(game.id)}
+                  aria-label={
+                    isFavorite(game.id)
+                      ? `Remover ${game.name} dos favoritos`
+                      : `Adicionar ${game.name} aos favoritos`
+                  }
+                >
+                  {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
+                </button>
               </div>
             ))}
           </div>
@@ -116,4 +136,3 @@ const isFavorite = (slug) => favorites.includes(slug);
     </>
   );
 }
-
