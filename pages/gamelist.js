@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Head from "next/head";
-import { useEffect, useState } from 'react';
 import Carousel from '../components/carousel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -10,25 +9,6 @@ import SEOHead from "../components/SEOHead";
 import Console from '../components/Console';
 
 export default function Gamelist() {
-
- const [favoritos, setFavoritos] = useState([]);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('favoritos');
-    if (saved) setFavoritos(JSON.parse(saved));
-  }, []);
-
-  const toggleFavorito = (jogo) => {
-    const existe = favoritos.some(f => f.slug === jogo.slug);
-    const novos = existe
-      ? favoritos.filter(f => f.slug !== jogo.slug)
-      : [...favoritos, jogo];
-    setFavoritos(novos);
-    localStorage.setItem('favoritos', JSON.stringify(novos));
-  };
-
-  const isFavorito = (slug) => favoritos.some(f => f.slug === slug);
-
   // ... renderização continua aqui ...
 
  // Dados para os carrosséis
