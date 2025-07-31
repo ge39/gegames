@@ -123,17 +123,17 @@ export default function Gamelist() {
                   <h5>{"Total Players: " + game.players}</h5>
                 </Link>
                 <button
+                  className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    fontSize: '20px',
-                    cursor: 'pointer',
-                    color: isFavorite(game.id) ? 'red' : '#aaa'
-                  }}
-                  title="Favorito"
+                  aria-label={
+                    isFavorite(game.id)
+                      ? `Remover ${game.name} dos favoritos`
+                      : `Adicionar ${game.name} aos favoritos`
+                  }
                 >
-                  {isFavorite(game.id) ? '❤️' : '🤍'}
+
+                >
+                  {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
                 </button>
               </div>
             ))}
