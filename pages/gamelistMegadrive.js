@@ -35,7 +35,7 @@ export default function Gamelist() {
       updated = [...favorites, id];
     }
     setFavorites(updated);
-    localStorage.setItem('megaFavorites', JSON.stringify(updated));
+    localStorage.setItem('megadriveFavorites', JSON.stringify(updated));
   };
 
   // Verifica se um jogo é favorito
