@@ -1,68 +1,91 @@
-// pages/gamelistArcade.js
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
+import Link from 'next/link';
+import { useState } from 'react';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import PeerConnection from '../components/PeerConnection';
+import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console';
+import SEOHead from '@/components/SEOHead';
+import { arcadeGames } from '../data/arcadeGames';
 import styles from '../styles/GamelistArcade.module.css';
+import '../styles/Globals.css';
 
-const arcadeGames = [
-  { title: "Metal Slug" },
-  { title: "Street Fighter II" },
-  { title: "Cadillacs and Dinosaurs" },
-  { title: "The King of Fighters '98" },
-  { title: "Final Fight" },
-  // ...adicione os outros jogos aqui
-];
+export default function Gamelist() {
+  const [searchTerm, setSearchTerm] = useState('');
 
-export default function GamelistArcade() {
-  const [favorites, setFavorites] = useState([]);
-
-  // Carrega favoritos do localStorage ao abrir a página
-  useEffect(() => {
-    const stored = localStorage.getItem('arcadeFavorites');
-    if (stored) {
-      setFavorites(JSON.parse(stored));
-    }
-  }, []);
-
-  // Adiciona ou remove jogo dos favoritos
-  const toggleFavorite = (title) => {
-    let updatedFavorites;
-    if (favorites.includes(title)) {
-      updatedFavorites = favorites.filter((fav) => fav !== title);
-    } else {
-      updatedFavorites = [...favorites, title];
-    }
-    setFavorites(updatedFavorites);
-    localStorage.setItem('arcadeFavorites', JSON.stringify(updatedFavorites));
-  };
+  // Filtra os jogos pelo nome baseado no searchTerm
+  const filteredGames = arcadeGames.filter((game) =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
-      <Head>
-        <title>Gamelist Arcade - Jogos Anos 90 e 2000</title>
-      </Head>
+      <SEOHead
+        title="Jogos Arcade Online | GeGames"
+        description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
+        keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
+        image="https://gegames.vercel.app/images/capa-arcade.png"
+        url="https://gegames.vercel.app/gamelistArcade"
+      />
 
       <Navbar />
 
-      <main className={styles.container}>
-        <h1 className={styles.title}>Melhores Jogos de Arcade</h1>
-        <ul className={styles.gameList}>
-          {arcadeGames.map((game) => (
-            <li key={game.title} className={styles.gameItem}>
-              {game.title}
-              <button
-                className={styles.favoriteButton}
-                onClick={() => toggleFavorite(game.title)}
-              >
-                {favorites.includes(game.title) ? '★' : '☆'}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <main>
+        <section id="arcadeSection">
+          <Console />
+
+          {/* Campo de busca */}
+          <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h4 style={{ backgroundColor: 'transparent', color: '#fafafa', borderRadius: '10px', padding: '10px' }}>
+              Lista de Jogos Arcade - {filteredGames.length}
+            </h4>
+            <input
+              type="text"
+              placeholder="Buscar por nome..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                padding: '10px',
+                fontSize: '16px',
+                width: '80%',
+                maxWidth: '500px',
+                borderRadius: '8px',
+                border: '1px solid #ccc',
+              }}
+            />
+            <WhatsappButton />
+          </div>
+
+          <div className={styles.gamesGrid}>
+            {filteredGames.map((game) => (
+              <div key={game.id} className={styles.gameCard}>
+                <Link
+                  href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
+                  passHref
+                >
+                  <div>
+                    <h5>{game.name}</h5>
+                    <Image
+                      src={game.image}
+                      alt={game.name}
+                      className={styles.gameImage}
+                      width={200}
+                      height={200}
+                      priority
+                    />
+                    <h5>Total Players: {game.players}</h5>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
+      <PeerConnection peerId={null} />
       <Footer />
     </>
   );
 }
+
