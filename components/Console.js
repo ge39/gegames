@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Console({ titulo, jogos, toggleFavorito, isFavorito }) {
+export default function Console() {
   const links = [
     { href: '/gamelistAtari', label: 'Atari' },
     { href: '/gamelistArcade', label: 'Arcade' },
