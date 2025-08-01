@@ -76,7 +76,7 @@ export default function Gamelist() {
             >
              
             </h4>
-             <div style={{ color: '#fafafa',bottom:'10px' }}>
+             <div style={{ color: '#fafafa',padding:'10px' }}>
               Lista de Jogos Arcade - {filteredGames.length}
             </div>
 
