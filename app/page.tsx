@@ -105,8 +105,10 @@ export default function Home() {
 > 
 
       
-  {/* <p> */}
+  <p> 
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
+  <h1>Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online</h1>
+ </p>
   {/* </p> */}
 
   <div
