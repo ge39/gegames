@@ -65,6 +65,7 @@ export default function Gamelist() {
         <section id="arcadeSection">
           <Console />
 
+           <ArcadeFilter /> {/* Busca por genero e data */}
                  
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
@@ -112,9 +113,8 @@ export default function Gamelist() {
               </button>
             </div>
                 
-              <ArcadeFilter /> {/* Busca por genero e data */}
-                
             <WhatsappButton />
+                
           </div>
 
           {/* Lista de jogos */}
