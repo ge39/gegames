@@ -1,6 +1,5 @@
 "use client";
 import EventSection from "../components/EventSection"; // Import do componente EventSection
-import OrientationWrapper from "../components/OrientationWrapper";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
@@ -9,9 +8,6 @@ import ButtonTop from "../components/ButtonTop";
 
 export default function Home() {
   return (
-    <OrientationWrapper>
-      {/* Conteúdo da sua home */}
-   
     <div>
       {/* Navbar */}
       <Navbar />
@@ -500,7 +496,6 @@ export default function Home() {
         {/* Footer */}
       <Footer />
     </div>
-   </OrientationWrapper>
   );
   
 }
