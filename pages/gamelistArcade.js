@@ -75,9 +75,9 @@ export default function Gamelist() {
                 padding: '10px',
               }}
             >
-              Lista de Jogos Arcade - {filteredGames.length}
+             
             </h4>
-
+             Lista de Jogos Arcade - {filteredGames.length}
             <input
               type="text"
               placeholder="Buscar por nome..."
