@@ -137,9 +137,11 @@ export default function Gamelist() {
                       priority
                     />
                     <h5>
-                         {game.descricao}
-                         {game.genre}  
-                        Total Players: {game.players}
+                      {game.desc}
+                      <br />
+                      {game.genre}
+                      <br />
+                      Total Players: {game.players}
                     </h5>
                 </Link>
 
