@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <OrientationWrapper>
       {/* Conteúdo da sua home */}
-    </OrientationWrapper>
+   
     <div>
       {/* Navbar */}
       <Navbar />
@@ -500,6 +500,7 @@ export default function Home() {
         {/* Footer */}
       <Footer />
     </div>
+   </OrientationWrapper>
   );
   
 }
