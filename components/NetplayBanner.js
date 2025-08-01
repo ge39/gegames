@@ -1,25 +1,48 @@
 // components/NetplayBanner.js
-import { Gamepad2 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function NetplayBanner() {
   return (
-    <div className="bg-gradient-to-br from-yellow-400 via-red-500 to-purple-600 text-white p-6 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 animate-pulse">
-      <div className="flex items-center gap-4">
-        <Gamepad2 size={48} className="text-white drop-shadow-lg" />
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight drop-shadow-md">
-            Jogue Clássicos Retrô Online!
-          </h2>
-          <p className="text-sm md:text-base mt-1 text-white/90">
-            Desafie seus amigos nos maiores sucessos dos anos 80, 90 e 2000 com webcam!
-          </p>
-        </div>
+    <div style={{
+      background: 'linear-gradient(to right, #1f1c2c, #928dab)',
+      color: '#fff',
+      padding: '2rem',
+      textAlign: 'center',
+      borderRadius: '16px',
+      margin: '2rem auto',
+      maxWidth: '900px',
+      boxShadow: '0 0 20px rgba(0,0,0,0.5)',
+      fontFamily: '"Press Start 2P", cursive',
+    }}>
+      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>
+        🎮 Jogue Clássicos Retrô Online
+      </h2>
+
+      <p style={{ fontSize: '1rem', marginBottom: '1rem' }}>
+        Com <strong>webcam</strong>, <strong>chat</strong> e <strong>salas multiplayer</strong> ao vivo!
+      </p>
+
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+        <Image src="/icons/controller.png" alt="Controle retrô" width={50} height={50} />
+        <Image src="/icons/webcam.png" alt="Webcam" width={50} height={50} />
+        <Image src="/icons/chat.png" alt="Chat" width={50} height={50} />
       </div>
+
       <Link href="/como-jogar">
-        <span className="bg-black hover:bg-white hover:text-black text-yellow-300 border border-white px-5 py-2 rounded-full text-sm md:text-base font-semibold transition-all duration-300 shadow-md">
-          Veja como jogar
-        </span>
+        <button style={{
+          backgroundColor: '#ffcc00',
+          color: '#000',
+          border: 'none',
+          borderRadius: '8px',
+          padding: '0.75rem 1.5rem',
+          fontSize: '1rem',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+        }}>
+          Saiba como jogar
+        </button>
       </Link>
     </div>
   );
