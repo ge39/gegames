@@ -75,10 +75,8 @@ export default function Gamelist() {
               }}
             >
              
-            </h4>
-             <div style={{ color: '#fafafa',padding:'10px' }}>
               Lista de Jogos Arcade - {filteredGames.length}
-            </div>
+            </h4>
 
             <input
               type="text"
@@ -128,7 +126,7 @@ export default function Gamelist() {
                   )}&core=${encodeURIComponent(game.core)}`}
                   passHref
                 >
-                  <a>
+                  
                     <h5>{game.name}</h5>
                     <Image
                       src={game.image}
@@ -143,7 +141,6 @@ export default function Gamelist() {
                          {game.genre}  
                         Total Players: {game.players}
                     </h5>
-                  </a>
                 </Link>
 
                 <button

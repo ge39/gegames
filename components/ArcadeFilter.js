@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image'; // ✅ Importação adicionada
 import { arcadeGames } from '../data/arcadeGames';
 
 const ArcadeFilter = () => {
@@ -50,7 +51,13 @@ const ArcadeFilter = () => {
       <div className="game-list">
         {filterGames.map(game => (
           <div key={game.id} className="game-card">
-            <img src={game.image} alt={game.alt} />
+            <Image
+              src={game.image}
+              alt={game.alt}
+              width={300} // 🔧 Ajuste os valores conforme o layout
+              height={200}
+              style={{ objectFit: 'cover', borderRadius: '6px' }}
+            />
             <h3>{game.name}</h3>
             <p>{game.desc}</p>
             <p><strong>Jogadores:</strong> {game.players}</p>
@@ -87,4 +94,3 @@ const ArcadeFilter = () => {
 };
 
 export default ArcadeFilter;
-

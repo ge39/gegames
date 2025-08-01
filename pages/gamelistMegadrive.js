@@ -123,7 +123,7 @@ export default function Gamelist() {
                   )}&core=${encodeURIComponent(game.core)}`}
                   passHref
                 >
-                  <a>
+                  
                     <h5>{game.name}</h5>
                     <Image
                       src={game.image}
@@ -134,8 +134,7 @@ export default function Gamelist() {
                       priority
                     />
                     <h5>Total Players: {game.players}</h5>
-                  </a>
-                </Link>
+                  </Link>
 
                 <button
                   className={styles.favoriteButton}

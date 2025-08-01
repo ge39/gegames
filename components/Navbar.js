@@ -3,9 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/Navbar.module.css';
-
 import Head from 'next/head';
+import styles from '../styles/Navbar.module.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,26 +13,21 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  return ( 
+  return (
     <>
+      <Head>
+        <title>GegaMes - Jogos Retrô Online</title>
+        <meta name="description" content="Jogue clássicos dos Arcades, SNES, Mega Drive e mais diretamente do navegador!" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://gegames.vercel.app/jogos-online-retro" />
+      </Head>
+
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          
-        <div className={styles.logo}>
           <Link href="/">
-              <Image src="/logo/Logo gegames-black.png" alt="Gegames Logo" width={200} height={50} />
-           </Link>
-
-            <Head>
-              <title>GegaMes - Jogos Retrô Online</title>
-              <meta name="description" content="Jogue clássicos dos Arcades, SNES, Mega Drive e mais diretamente do navegador!" />
-              <meta name="robots" content="index, follow" />
-              <link rel="canonical" href="https://gegames.vercel.app/jogos-online-retro" />
-            </Head>
-
-      </div>
+            <Image src="/logo/Logo gegames-black.png" alt="Gegames Logo" width={200} height={50} />
+          </Link>
         </div>
-        
 
         <div className={styles.hamburger} onClick={toggleMenu}>
           <div className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} />
@@ -48,7 +42,7 @@ export default function Navbar() {
           <li><Link href="/#orcamento">Fale Conosco</Link></li>
           <li><Link href="/#nosso-plano">Nossos Planos</Link></li>
           <li><Link href="/#eventos">Eventos</Link></li>
-          
+
           <li className={styles.hasSubmenu}>
             <Link href="#">Imagem</Link>
             <ul className={styles.submenu}>
@@ -56,11 +50,10 @@ export default function Navbar() {
               <li><Link href="/imagePlus">imagePlus</Link></li>
             </ul>
           </li>
-          
+
           <li><Link href="/#sobre">Sobre</Link></li>
         </ul>
       </nav>
-      
     </>
   );
 }
