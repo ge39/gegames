@@ -91,10 +91,6 @@ export default function Home() {
 </style>
 
       {/* Home Section */}
-<section>
-   <NetplayBanner />
-</section>
-
 <section  
   id="home" 
   style={{
@@ -125,6 +121,11 @@ export default function Home() {
     }}
     >
       <h1>  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...</h1>
+
+    <section>
+       <NetplayBanner />
+    </section>
+    
     <div 
       className="column" 
       style={{
