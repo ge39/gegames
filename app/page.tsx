@@ -1,5 +1,6 @@
 "use client";
 import EventSection from "../components/EventSection"; // Import do componente EventSection
+import NetplayBanner from '@/components/NetplayBanner';
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
@@ -90,7 +91,7 @@ export default function Home() {
 </style>
 
       {/* Home Section */}
-
+ <NetplayBanner />
 <section  
   id="home" 
   style={{
