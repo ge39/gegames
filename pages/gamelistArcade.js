@@ -9,7 +9,7 @@ import Console from '@/components/Console';
 import SEOHead from '@/components/SEOHead';
 import { arcadeGames } from '../data/arcadeGames';
 import styles from '../styles/GamelistArcade.module.css';
-import ArcadeFilter from '@/components/ArcadeFilter';
+// import ArcadeFilter from '@/components/ArcadeFilter';
 import '../styles/Globals.css';
 
 export default function Gamelist() {
@@ -93,7 +93,7 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
-              <ArcadeFilter /> {/* Busca por genero e data */}
+              // <ArcadeFilter /> {/* Busca por genero e data */}
               
             <div style={{ margin: '10px' }}>
               <button
