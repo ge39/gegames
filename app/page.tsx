@@ -105,10 +105,9 @@ export default function Home() {
 > 
 
       
-  <p> 
+  {/*<p> */}
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
   <h1>Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online</h1>
- </p>
   {/* </p> */}
 
   <div
@@ -122,8 +121,8 @@ export default function Home() {
       flexWrap: 'wrap',             // Permite que as colunas se movam para a próxima linha se não houver espaço
     }}
     >
-{/*       <h1>  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...</h1> */}
-    <h1>Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online</h1>
+{/* <h1>  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...</h1> */}
+    <h1 style={{marginTop:'10px'}}>Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online</h1>
 
 
     <section>
