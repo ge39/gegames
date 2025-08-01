@@ -1,99 +1,61 @@
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
 export default function OrientationWrapper({ children }) {
   const [rotation, setRotation] = useState({ beta: 0, gamma: 0 });
   const [permissionGranted, setPermissionGranted] = useState(false);
-  const [needsPermission, setNeedsPermission] = useState(false);
 
   useEffect(() => {
-    // Verifica se precisa pedir permissão (iOS 13+)
-    if (
-      typeof DeviceOrientationEvent !== "undefined" &&
-      typeof DeviceOrientationEvent.requestPermission === "function"
-    ) {
-      setNeedsPermission(true);
-    } else {
-      setPermissionGranted(true);
-    }
-  }, []);
+    const handleOrientation = (event) => {
+      let { beta, gamma } = event;
 
-  useEffect(() => {
-    if (!permissionGranted) return;
+      // Garante que valores sejam válidos
+      if (beta === null || gamma === null) return;
 
-    function handleOrientation(event) {
-      const { beta, gamma } = event;
+      // Limites suaves (entre -15 e +15 graus)
+      beta = Math.max(-15, Math.min(15, beta));
+      gamma = Math.max(-15, Math.min(15, gamma));
+
       setRotation({ beta, gamma });
-    }
-
-    window.addEventListener("deviceorientation", handleOrientation, true);
-    return () => {
-      window.removeEventListener("deviceorientation", handleOrientation);
     };
-  }, [permissionGranted]);
 
-  async function requestPermission() {
-    if (
-      typeof DeviceOrientationEvent !== "undefined" &&
-      typeof DeviceOrientationEvent.requestPermission === "function"
-    ) {
-      try {
-        const response = await DeviceOrientationEvent.requestPermission();
-        if (response === "granted") {
-          setPermissionGranted(true);
-          setNeedsPermission(false);
-        } else {
-          alert("Permissão para giroscópio negada.");
+    // iOS requer permissão explícita
+    const enableOrientation = async () => {
+      if (
+        typeof DeviceOrientationEvent !== 'undefined' &&
+        typeof DeviceOrientationEvent.requestPermission === 'function'
+      ) {
+        try {
+          const response = await DeviceOrientationEvent.requestPermission();
+          if (response === 'granted') {
+            setPermissionGranted(true);
+            window.addEventListener('deviceorientation', handleOrientation, true);
+          }
+        } catch (error) {
+          console.warn('Permissão negada para giroscópio:', error);
         }
-      } catch (err) {
-        alert("Erro ao solicitar permissão para giroscópio.");
+      } else {
+        // Android ou navegadores sem bloqueio
+        setPermissionGranted(true);
+        window.addEventListener('deviceorientation', handleOrientation, true);
       }
-    }
-  }
+    };
+
+    enableOrientation();
+
+    return () => {
+      window.removeEventListener('deviceorientation', handleOrientation);
+    };
+  }, []);
 
   const style = {
     transform: `rotateX(${rotation.beta}deg) rotateY(${rotation.gamma}deg)`,
-    transformStyle: "preserve-3d",
-    transition: "transform 0.1s ease-out",
-    willChange: "transform",
-    height: "100vh",
+    transformStyle: 'preserve-3d',
+    transition: 'transform 0.2s ease-out',
+    willChange: 'transform',
+    minHeight: '100vh',
+    overflow: 'hidden',
   };
-
-  if (needsPermission && !permissionGranted) {
-    return (
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          background: "#111",
-          color: "#fff",
-          fontFamily: "sans-serif",
-          padding: 20,
-          textAlign: "center",
-        }}
-      >
-        <p>Para usar a orientação do dispositivo, por favor permita o acesso ao giroscópio.</p>
-        <button
-          onClick={requestPermission}
-          style={{
-            marginTop: 20,
-            padding: "12px 24px",
-            fontSize: 16,
-            cursor: "pointer",
-            borderRadius: 6,
-            border: "none",
-            backgroundColor: "#4caf50",
-            color: "#fff",
-          }}
-        >
-          Permitir Acesso
-        </button>
-      </div>
-    );
-  }
 
   return <div style={style}>{children}</div>;
 }
-
