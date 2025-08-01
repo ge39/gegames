@@ -17,8 +17,7 @@ export default function Home() {
       <main style={{ padding: 20 }}>
         <h1>Bem-vindo ao gegames!</h1>
         {/* resto do conteúdo do seu site */}
-      </main>
-    </OrientationWrapper>
+     
       
       <style jsx>{`
 
@@ -496,6 +495,9 @@ export default function Home() {
         {/* Footer */}
       <Footer />
     </div>
-    
+
+         </main>
+    </OrientationWrapper>
   );
+  
 }
