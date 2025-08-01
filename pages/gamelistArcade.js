@@ -76,7 +76,10 @@ export default function Gamelist() {
             >
              
             </h4>
-             <div style={{fontColor: '#fafafa',}}Lista de Jogos Arcade - {filteredGames.length}</div>
+             <div style={{ color: '#fafafa' }}>
+              Lista de Jogos Arcade - {filteredGames.length}
+            </div>
+
             <input
               type="text"
               placeholder="Buscar por nome..."
