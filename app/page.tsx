@@ -148,7 +148,7 @@ export default function Home() {
       }}
 
     >
-      <h2 style={{color:'black',fontWeight:'bold',margin: '5px 0'}}>A Experiência e Tradição</h2>
+      <h2 style={{color:'#000',fontWeight:'bold',margin: '5px 0'}}>A Experiência e Tradição</h2>
       <span style={{textAlign:'justify'}}>Com mais de 20 anos de experiência no mundo da Tecnologia da Informação e redes de comunicação, 
         transformamos nossa paixão por máquinas e tecnologia em uma verdadeira arte. Ao longo dos anos, 
         fomos criando e refinando as habilidades na fabricação de fliperamas e bartops, 
@@ -197,7 +197,7 @@ export default function Home() {
        
       }}
     >
-      <h2 style={{color:'black',fontWeight:'bold',margin: '5px 0 '}}>O Encanto do Fliperama</h2>
+      <h2 style={{color:'#000',fontWeight:'bold',margin: '5px 0 '}}>O Encanto do Fliperama</h2>
       <span style={{padding:'5px',textAlign:'justify'}}>Imagine a emoção de ver os olhos brilhando ao recordar os clássicos dos anos 80 e 90, 
         sentir a adrenalina da vitória no som das fichas caindo e na tela piscando com a próxima rodada. 
         Nosso propósito vai além de oferecer apenas um fliperama para aluguel – entregamos uma experiência imersiva,
