@@ -11,15 +11,7 @@ export default function Home() {
     <div>
       {/* Navbar */}
       <Navbar />
-
-      <OrientationWrapper>
-      <main style={{ padding: 0 }}>
-        <h1>Bem-vindo ao gegames!</h1>
-        {/* resto do conteúdo do seu site */}
-     
-         </main>
-    </OrientationWrapper>
-      
+ 
       <style jsx>{`
 
       #home {
