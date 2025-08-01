@@ -9,6 +9,9 @@ import ButtonTop from "../components/ButtonTop";
 
 export default function Home() {
   return (
+    <OrientationWrapper>
+     
+    </OrientationWrapper>
     <div>
       {/* Navbar */}
       <Navbar />
