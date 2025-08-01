@@ -60,11 +60,13 @@ export default function Gamelist() {
       />
 
       <Navbar />
-
+      
       <main>
         <section id="arcadeSection">
           <Console />
 
+           <ArcadeFilter /> //Busca por genero e data
+          
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4
@@ -93,8 +95,6 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
-
-           <ArcadeFilter /> //Busca por genero e data
               
             <div style={{ margin: '10px' }}>
               <button
