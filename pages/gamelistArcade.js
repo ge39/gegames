@@ -60,8 +60,6 @@ export default function Gamelist() {
       />
 
       <Navbar />
-
-           <ArcadeFilter /> {/* Busca por genero e data */}
           
       <main>
         <section id="arcadeSection">
@@ -95,6 +93,7 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
+              <ArcadeFilter /> {/* Busca por genero e data */}
               
             <div style={{ margin: '10px' }}>
               <button
