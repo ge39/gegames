@@ -60,12 +60,12 @@ export default function Gamelist() {
       />
 
       <Navbar />
-      
+
+           <ArcadeFilter /> {/* Busca por genero e data */}
+          
       <main>
         <section id="arcadeSection">
           <Console />
-
-           <ArcadeFilter /> {/* Busca por genero e data */}
                  
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
