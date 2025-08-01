@@ -41,7 +41,7 @@ export default function NetplayBanner() {
           fontWeight: 'bold',
           boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
         }}>
-          Saiba como jogar
+         🚀 Saiba como jogar
         </button>
       </Link>
     </div>
