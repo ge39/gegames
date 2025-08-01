@@ -9,6 +9,7 @@ import Console from '@/components/Console';
 import SEOHead from '@/components/SEOHead';
 import { arcadeGames } from '../data/arcadeGames';
 import styles from '../styles/GamelistArcade.module.css';
+import ArcadeFilter from '@/components/ArcadeFilter';
 import '../styles/Globals.css';
 
 export default function Gamelist() {
@@ -93,6 +94,8 @@ export default function Gamelist() {
               }}
             />
 
+           <ArcadeFilter /> //Busca por genero e data
+              
             <div style={{ margin: '10px' }}>
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
