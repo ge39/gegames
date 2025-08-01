@@ -65,8 +65,7 @@ export default function Gamelist() {
         <section id="arcadeSection">
           <Console />
 
-           <ArcadeFilter /> {/* Busca por genero e data */}
-          
+                 
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4
@@ -112,7 +111,9 @@ export default function Gamelist() {
                 {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
             </div>
-
+                
+              <ArcadeFilter /> {/* Busca por genero e data */}
+                
             <WhatsappButton />
           </div>
 
