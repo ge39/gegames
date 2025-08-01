@@ -9,11 +9,12 @@ export default function GameCard({ game }) {
       {game.image ? (
             <Image
               src={game.image}
-              alt={game.alt || `Imagem de ${game.name}`}
-              width={200} // Defina o tamanho da imagem
+              alt={game.alt}
+              width={250}
               height={200}
-              className={styles.Image}
+              className={styles.gameImage}
             />
+
           ) : (
             <p className={styles.noImage}>Imagem não disponível</p>
           )}
@@ -27,4 +28,5 @@ export default function GameCard({ game }) {
         </a>
     </div>
   );
+
 }

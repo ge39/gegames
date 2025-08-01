@@ -13,13 +13,19 @@
     background-color: #f9f9f9;
   }
   
-  .gameImage {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    max-width: 300px;
-    margin: 0 auto;
-  }
+  
+.gameImage {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.gameImage:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 0 15px #00ffff; */
+   box-shadow: 0 0 15px #070bf8;
+}
+
   
   /* Responsividade */
   @media (max-width: 1024px) {
