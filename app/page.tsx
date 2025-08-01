@@ -91,6 +91,14 @@ export default function Home() {
 </style>
 
       {/* Home Section */}
+       <h1 style={{ padding:"10px",textAlign: 'center', color:'snow',backgroundColor: '#438',
+        fontWeight: 'bold', margin: '1%',marginTop:'70px',borderRadius: '10px', }}>
+      
+        Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online
+      </h1>
+   <section>
+       <NetplayBanner />
+    </section>
 <section  
   id="home" 
   style={{
@@ -104,7 +112,6 @@ export default function Home() {
   }}
 > 
 
-      
   {/*<p> */}
   {/* ALUGUEL DE FLIPERAMAS COM OS MELHORES JOGOS RETRÔS DOS ANOS 80 E 90 ... */}
    {/* </p> */}
@@ -121,12 +128,7 @@ export default function Home() {
     }}
     >
 {/* <h1>  ALUGUEL DE FLIPERAMAS RETRÔ COM OS MELHORES JOGOS DOS ANOS 80 E 90 ...</h1> */}
-    <h1 style={{marginTop:'10px'}}>Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online</h1>
-
-
-    <section>
-       <NetplayBanner />
-    </section>
+    
     
     <div 
       className="column" 

@@ -44,6 +44,7 @@ export default function NetplayBanner() {
          🚀 Saiba como jogar
         </button>
       </Link>
+         
     </div>
   );
 }
