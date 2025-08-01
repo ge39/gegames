@@ -24,9 +24,9 @@ export default function NetplayBanner() {
       </p>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-        <Image src="/icons/controller.png" alt="Controle retrô" width={50} height={50} />
-        <Image src="/icons/webcam.png" alt="Webcam" width={50} height={50} />
-        <Image src="/icons/chat.png" alt="Chat" width={50} height={50} />
+        <Image src="/logo/controller.png" alt="Controle retrô" width={50} height={50} />
+        <Image src="/logo/webcam.png" alt="Webcam" width={50} height={50} />
+        <Image src="/logo/chat.png" alt="Chat" width={50} height={50} />
       </div>
 
       <Link href="/como-jogar">
