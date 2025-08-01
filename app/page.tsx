@@ -10,7 +10,7 @@ import ButtonTop from "../components/ButtonTop";
 export default function Home() {
   return (
     <OrientationWrapper>
-     
+      {/* Conteúdo da sua home */}
     </OrientationWrapper>
     <div>
       {/* Navbar */}
