@@ -91,7 +91,10 @@ export default function Home() {
 </style>
 
       {/* Home Section */}
- <NetplayBanner />
+<section>
+   <NetplayBanner />
+</section>
+
 <section  
   id="home" 
   style={{
