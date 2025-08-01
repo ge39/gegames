@@ -62,9 +62,8 @@ export default function Gamelist() {
       <Navbar />
           
       <main>
-        <section id="arcadeSection">
-          <Console />
-                 
+           <Console />
+        <section id="arcadeSection">    
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <h4
