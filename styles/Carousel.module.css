@@ -8,7 +8,9 @@
 .gameImage:hover {
   transform: scale(1.05);
   /* box-shadow: 0 0 15px #00ffff; */
-   box-shadow: 0 0 15px #070bf8;
+   /* box-shadow: 0 0 15px #070bf8; */
+   box-shadow: 0 0 10px #f0f, 0 0 20px #0ff;
+
 }
 
 .carouselContainer {
