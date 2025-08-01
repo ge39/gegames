@@ -93,7 +93,7 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
-              // <ArcadeFilter /> {/* Busca por genero e data */}
+              {/* <ArcadeFilter />  Busca por genero e data */}
               
             <div style={{ margin: '10px' }}>
               <button
