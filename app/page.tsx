@@ -1,5 +1,6 @@
 "use client";
 import EventSection from "../components/EventSection"; // Import do componente EventSection
+import OrientationWrapper from "../components/OrientationWrapper";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
@@ -11,6 +12,14 @@ export default function Home() {
     <div>
       {/* Navbar */}
       <Navbar />
+
+      <OrientationWrapper>
+      <main style={{ padding: 20 }}>
+        <h1>Bem-vindo ao gegames!</h1>
+        {/* resto do conteúdo do seu site */}
+      </main>
+    </OrientationWrapper>
+      
       <style jsx>{`
 
       #home {
