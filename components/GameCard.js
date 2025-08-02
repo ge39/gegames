@@ -1,6 +1,6 @@
 import styles from '../styles/Carousel.module.css';
 import Image from 'next/image';
-
+import StarsRating from './StarsRating';
 export default function GameCard({ game }) {
 
   return (
@@ -21,7 +21,12 @@ export default function GameCard({ game }) {
           )}
          
          <small style={{fontSize:'10px'}}>{game.desc}</small>
-         <div style={{fontSize:'10px',padding:'10px',color:'#0000e6'}}>Players: {game.players} | Rating: {game.rating}</div>
+         <div style={{fontSize:'10px',padding:'10px',color:'#0000e6'}}>
+          Players: {game.players}
+         </div>
+        <div >
+          <StarsRating rating={game.rating} />⭐
+        </div>
         <a   href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
             className={styles.playNow}
           >
