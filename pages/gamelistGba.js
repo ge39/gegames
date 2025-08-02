@@ -8,6 +8,7 @@ import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
 import SEOHead from '@/components/SEOHead';
 import { gbaGames } from '../data/gbaGames';
+import StarsRating from '@/components/StarsRating';
 import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
 
@@ -134,6 +135,9 @@ export default function Gamelist() {
                       <br />
                       Players: {game.players}
                     </h5>
+                    <div style={{ fontSize: '14px', padding: '5px', color: '#ffa500' }}>
+                          <StarsRating rating={game.rating} />⭐
+                    </div>
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}

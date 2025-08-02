@@ -73,6 +73,7 @@ export default function Carousel({ games }) {
   };
 
   return (
+    
     <div
       className={styles.carouselContainer}
       onTouchStart={handleTouchStart}

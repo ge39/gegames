@@ -10,7 +10,8 @@ export const arcadeGames = [
     alt: "1944: The Loop Master Cover Art",
     players: "1-2",
     releasedate: "2000-06-20",
-    genre: "Tiro"
+    genre: "Tiro",
+    rating: 8.1
   },
   {
     id: "42982",
@@ -23,7 +24,8 @@ export const arcadeGames = [
     alt: "Street Fighter II Cover Art",
     players: "1-2",
     releasedate: "1991-01-01",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 9.6
   },
   {
     id: "37402",
@@ -36,7 +38,8 @@ export const arcadeGames = [
     alt: "Marvel Super Heroes vs Street Fighter Cover Art",
     players: "1-2",
     releasedate: "1997-01-01",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 8.9
   },
   {
     id: "37360",
@@ -49,7 +52,8 @@ export const arcadeGames = [
     alt: "Cadillacs and Dinosaurs Cover Art",
     players: "1-3",
     releasedate: "1993-01-01",
-    genre: "Beat 'em up"
+    genre: "Beat 'em up",
+    rating: 9.2
   },
   {
     id: "37362",
@@ -62,7 +66,8 @@ export const arcadeGames = [
     alt: "Final Fight Cover Art",
     players: "1-2",
     releasedate: "1988-12-31",
-    genre: "Beat 'em up"
+    genre: "Beat 'em up",
+    rating: 8.7
   },
   {
     id: "37364",
@@ -75,7 +80,8 @@ export const arcadeGames = [
     alt: "Mortal kombat3",
     players: "1-2",
     releasedate: "1995-04-01",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 9.0
   },
   {
     id: "37365",
@@ -88,7 +94,8 @@ export const arcadeGames = [
     alt: "Metal Slug X",
     players: "1-2",
     releasedate: "1999-01-01",
-    genre: "Tiro"
+    genre: "Tiro",
+    rating: 9.4
   },
   {
     id: "37366",
@@ -101,7 +108,8 @@ export const arcadeGames = [
     alt: "Robocop2",
     players: "1-2",
     releasedate: "1991-01-01",
-    genre: "Tiro"
+    genre: "Tiro",
+    rating: 7.8
   },
   {
     id: "37367",
@@ -114,7 +122,8 @@ export const arcadeGames = [
     alt: "The Kof 99",
     players: "1-2",
     releasedate: "1999-01-01",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 8.5
   },
   {
     id: "37368",
@@ -127,7 +136,8 @@ export const arcadeGames = [
     alt: "Captain Commando",
     players: "1-2",
     releasedate: "1991-01-01",
-    genre: "Beat 'em up"
+    genre: "Beat 'em up",
+    rating: 8.2
   },
   {
     id: "37410",
@@ -140,7 +150,8 @@ export const arcadeGames = [
     alt: "Golden Axe Cover Art",
     players: "1-2",
     releasedate: "1989-06-01",
-    genre: "Beat 'em up"
+    genre: "Beat 'em up",
+    rating: 8.8
   },
   {
     id: "37411",
@@ -153,7 +164,8 @@ export const arcadeGames = [
     alt: "The King of Fighters '98 Cover Art",
     players: "1-2",
     releasedate: "1998-07-23",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 9.3
   },
   {
     id: "37412",
@@ -166,7 +178,8 @@ export const arcadeGames = [
     alt: "The King of Fighters 2003 Cover Art",
     players: "1-2",
     releasedate: "2003-12-12",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 8.4
   },
   {
     id: "37413",
@@ -179,7 +192,8 @@ export const arcadeGames = [
     alt: "Pac-Man Plus Cover Art",
     players: "1",
     releasedate: "1982-01-01",
-    genre: "Puzzle"
+    genre: "Puzzle",
+    rating: 7.5
   },
   {
     id: "37414",
@@ -192,7 +206,8 @@ export const arcadeGames = [
     alt: "Rambo III Cover Art",
     players: "1-2",
     releasedate: "1989-01-01",
-    genre: "Tiro"
+    genre: "Tiro",
+    rating: 7.9
   },
   {
     id: "37416",
@@ -205,7 +220,8 @@ export const arcadeGames = [
     alt: "Street Fighter Alfa III Cover Art",
     players: "1-2",
     releasedate: "1997-02-04",
-    genre: "Luta"
+    genre: "Luta",
+    rating: 9.1
   },
   {
     id: "37417",
@@ -218,7 +234,8 @@ export const arcadeGames = [
     alt: "Teenage Mutant Ninja Turtles II Cover Art",
     players: "1-4",
     releasedate: "1991-01-01",
-    genre: "Beat 'em up"
+    genre: "Beat 'em up",
+    rating: 8.6
   },
   {
     id: "37418",
@@ -231,7 +248,8 @@ export const arcadeGames = [
     alt: "Ganryu Cover Art",
     players: "1-2",
     releasedate: "1999-04-16",
-    genre: "Plataforma"
+    genre: "Plataforma",
+    rating: 7.7
   },
   {
     id: "funybuble_001",
@@ -244,7 +262,8 @@ export const arcadeGames = [
     alt: "Funny Bubble Cover Art",
     players: "1-2",
     releasedate: "1997-01-01",
-    genre: "Puzzle"
+    genre: "Puzzle",
+    rating: 7.3
   },
   {
     id: "37420",
@@ -257,6 +276,7 @@ export const arcadeGames = [
     alt: "Rail Chase Cover Art",
     players: "1-2",
     releasedate: "1991-07-01",
-    genre: "Tiro"
+    genre: "Tiro",
+    rating: 7.6
   }
 ];

@@ -9,6 +9,7 @@ import Console from '@/components/Console';
 import SEOHead from '@/components/SEOHead';
 import { arcadeGames } from '../data/arcadeGames';
 import styles from '../styles/GamelistArcade.module.css';
+import StarsRating from '@/components/StarsRating';
 // import ArcadeFilter from '@/components/ArcadeFilter';
 import '../styles/Globals.css';
 
@@ -48,6 +49,8 @@ export default function Gamelist() {
     const isFav = isFavorite(game.id);
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
+
+ 
 
   return (
     <>
@@ -140,6 +143,10 @@ export default function Gamelist() {
                       <br />
                       Players: {game.players}
                     </h5>
+                    
+                    <div style={{ fontSize: '14px', padding: '5px', color: '#ffa500' }}>
+                            <StarsRating rating={game.rating} />⭐
+                    </div>
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}
