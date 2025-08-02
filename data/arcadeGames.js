@@ -84,6 +84,20 @@ export const arcadeGames = [
     rating: 9.0
   },
   {
+  id: "37423",
+  path: "fliperama/umk3.zip",
+  core: "fbneo",
+  bios: "",
+  name: "Ultimate Mortal Kombat 3",
+  desc: "UMK3 é uma versão aprimorada de Mortal Kombat 3, com novos lutadores, movimentos e fatalities icônicos.",
+  image: "/images/games/arcade/umk3-thumb.webp",
+  alt: "Capa de Ultimate Mortal Kombat 3",
+  players: "1-2",
+  releasedate: "1995-11-06",
+  genre: "Luta",
+  rating: 9.0
+},
+  {
     id: "37365",
     path: "fliperama/mslugx.zip",
     core: "arcade",
@@ -168,6 +182,20 @@ export const arcadeGames = [
     rating: 9.3
   },
   {
+  id: "37421",
+  path: "fliperama/kof2002.zip",
+  core: "hbmame",
+  bios: "",
+  name: "The King of Fighters 2002",
+  desc: "KOF 2002 é um clássico jogo de luta da SNK com batalhas intensas 3 contra 3 e elenco estelar.",
+  image: "/images/games/arcade/kof2002-image.webp",
+  alt: "Capa de The King of Fighters 2002",
+  players: "1-2",
+  releasedate: "2002-10-10",
+  genre: "Luta",
+  rating: 9.2
+},
+  {
     id: "37412",
     path: "fliperama/kof2003.zip",
     core: "arcade",
@@ -223,6 +251,20 @@ export const arcadeGames = [
     genre: "Luta",
     rating: 9.1
   },
+  {
+  id: "37422",
+  path: "fliperama/ssriders.zip",
+  core: "fbneo",
+  bios: "",
+  name: "Sunset Riders",
+  desc: "Sunset Riders é um jogo de ação e tiro ambientado no Velho Oeste com até 2 jogadores em modo cooperativo.",
+  image: "/images/games/arcade/ssriders-image.webp",
+  alt: "Capa de Sunset Riders",
+  players: "1-2",
+  releasedate: "1991-09-01",
+  genre: "Ação / Tiro",
+  rating: 8.8
+},
   {
     id: "37417",
     path: "fliperama/tmnt2.zip",
