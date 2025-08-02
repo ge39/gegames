@@ -144,8 +144,8 @@ export default function Gamelist() {
                       Players: {game.players}
                     </h5>
                     
-                    <div style={{ fontSize: '14px', padding: '5px', color: '#ffa500' }}>
-                            <StarsRating rating={game.rating} />⭐
+                    <div >
+                      <StarsRating rating={game.rating} />⭐
                     </div>
                 <button
                   className={styles.favoriteButton}

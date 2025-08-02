@@ -49,19 +49,6 @@ export default function GamelistAtari() {
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
 
-  const renderStars = (rating) => {
-  const maxStars = 5;
-  const fullStar = '★';
-  const emptyStar = '☆';
-
-  // Garante que rating seja um número entre 0 e 5
-  const safeRating = Math.min(Math.max(Number(rating) || 0, 0), maxStars);
-
-  const fullStars = fullStar.repeat(Math.floor(safeRating));
-  const emptyStars = emptyStar.repeat(maxStars - Math.floor(safeRating));
-
-  return fullStars + emptyStars;
-};
 
   return (
     <>
@@ -149,8 +136,8 @@ export default function GamelistAtari() {
                       <br />
                       Players: {game.players}
                     </h5>
-                    <div style={{ fontSize: '14px', padding: '5px', color: '#ffa500' }}>
-                          <StarsRating rating={game.rating} />⭐
+                    <div>
+                      <StarsRating rating={game.rating} />⭐
                     </div>
                 <button
                   className={styles.favoriteButton}

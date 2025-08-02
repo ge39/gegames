@@ -134,9 +134,9 @@ export default function Gamelist() {
                       <br />
                       Players: {game.players}
                     </h5>
-                    <div style={{ fontSize: '14px', padding: '5px', color: '#ffa500' }}>
-                            <StarsRating rating={game.rating} />⭐
-                      </div>
+                    <div>
+                        <StarsRating rating={game.rating} />⭐
+                    </div>
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}

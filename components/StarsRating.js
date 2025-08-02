@@ -12,7 +12,7 @@ export default function StarsRating({ rating }) {
   const emptyStars = emptyStar.repeat(maxStars - Math.floor(safeRating));
 
   return (
-    <span style={{ color: '#ffa500', fontSize: '16px', fontWeight: 'bold' }}>
+    <span style={{ color: '#ffa500', fontSize: '16px', padding: '5px', fontWeight: 'bold' }}>
       {fullStars}{emptyStars} ({safeRating.toFixed(1)}/5)
     </span>
   );

@@ -3,19 +3,6 @@ import Image from 'next/image';
 
 export default function GameCard({ game }) {
 
-  function renderStars(rating) {
-  const fullStars = Math.floor(rating);
-  const halfStar = rating % 1 >= 0.5;
-  const stars = [];
-
-  for (let i = 0; i < fullStars; i++) {
-    stars.push('⭐');
-  }
-  if (halfStar) stars.push('⭐️½');
-
-  return stars.join('');
-}
-
   return (
     <div className={styles.card}>
       {/* <img src={game.image} alt={game.alt} className={styles.image} /> */}
