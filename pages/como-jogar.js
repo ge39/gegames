@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useCallback } from "react";
 import Navbar from "../components/Navbar";
+import Console from '@/components/Console';
 import styles from "../styles/ComoJogar.module.css";
 import Image from 'next/image';
 import Link from "next/link";
@@ -26,14 +27,8 @@ export default function ComoJogar() {
 
       <main className={styles.container}>
         <h1 className={styles.title}>🚀 Prepare-se para a Nostalgia!</h1>
-
-        <div className={styles.consoleGallery}>
-          <Image src="/logo/arcade.png" alt="Arcade" height={40} width={80} />
-          <Image src="/logo/atari.png" alt="Atari 2600" height={40} width={80} />
-          <Image src="/logo/n64.png" alt="Nintendo 64" height={40} width={80} />
-          <Image src="/logo/snes.png" alt="SNES" height={40} width={80} />
-          <Image src="/logo/megadrive.png" alt="Mega Drive" height={40} width={80} />
-          <Image src="/logo/gba.png" alt="Game Boy" height={40} width={80} />
+        <div>
+          <Console />
         </div>
 
         <p className={styles.intro}>

@@ -66,17 +66,6 @@ export default function Gamelist() {
 
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4
-              style={{
-                backgroundColor: 'transparent',
-                color: '#fafafa',
-                borderRadius: '10px',
-                padding: '10px',
-              }}
-            >
-              Lista de Jogos Megadrive - {filteredGames.length}
-            </h4>
-
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -93,7 +82,8 @@ export default function Gamelist() {
               }}
             />
 
-            <div style={{ margin: '10px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', margin: '0px' }}>
+                {/* mostra os favoritos */}
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
@@ -105,12 +95,13 @@ export default function Gamelist() {
                   color: '#fff',
                   cursor: 'pointer',
                 }}
-              >
+                >
                 {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
-            </div>
-
-            <WhatsappButton />
+                <div><WhatsappButton /></div>
+                  
+              </div>
+              <span style={{ color: '#fafafa', fontWeight: 'bold', margin: '10px 0' }}>Lista de Jogos Megadrive - {filteredGames.length}</span>
           </div>
 
           {/* Lista de jogos */}
@@ -133,15 +124,15 @@ export default function Gamelist() {
                       height={200}
                       priority
                     />
-                    <h5>
+                    
+                  </Link>
+                     <h5>
                       {game.desc}
                       <br />
                       {game.genre}
                       <br />
-                      Total Players: {game.players}
+                      Players: {game.players}
                     </h5>
-                  </Link>
-
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}

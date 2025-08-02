@@ -14,6 +14,7 @@ export default function Console() {
 
   return (
     <div className={styles.consoleContainer}>
+      {/* <h2 className={styles.consoleTitle}>Consoles</h2> */}
       <nav className={styles.consoleNav}>
         {links.map((link) => (
           <Link href={link.href} key={link.href} className={styles.consoleLink}>

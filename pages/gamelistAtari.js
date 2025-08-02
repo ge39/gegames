@@ -66,17 +66,6 @@ export default function GamelistAtari() {
 
           {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4
-              style={{
-                backgroundColor: 'transparent',
-                color: '#fafafa',
-                borderRadius: '10px',
-                padding: '10px',
-              }}
-            >
-              Lista de Jogos Atari - {filteredGames.length}
-            </h4>
-
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -93,25 +82,28 @@ export default function GamelistAtari() {
               }}
             />
 
-            <div style={{ margin: '10px' }}>
-              <button
-                onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
-                style={{
-                  padding: '8px 16px',
-                  fontSize: '14px',
-                  borderRadius: '6px',
-                  border: 'none',
-                  backgroundColor: showOnlyFavorites ? '#e63946' : '#2a9d8f',
-                  color: '#fff',
-                  cursor: 'pointer',
-                }}
-              >
-                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
-              </button>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', margin: '0px' }}>
+                {/* mostra os favoritos */}
+                <button
+                  onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+                  style={{
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    backgroundColor: showOnlyFavorites ? '#e63946' : '#2a9d8f',
+                    color: '#fff',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
+                </button>
+                <div><WhatsappButton /></div>
+                
+              </div>
+              <span style={{ color: '#fafafa', fontWeight: 'bold', margin: '10px 0' }}>Lista de Jogos Atari - {filteredGames.length}</span>
             </div>
 
-            <WhatsappButton />
-          </div>
 
           {/* Lista de jogos */}
           <div className={styles.gamesGrid}>
@@ -133,15 +125,15 @@ export default function GamelistAtari() {
                       height={200}
                       priority
                     />
-                    <h5>
+                   
+                  </Link>
+                     <h5>
                       {game.desc}
                       <br />
                       {game.genre}
                       <br />
-                      Total Players: {game.players}
+                      Players: {game.players}
                     </h5>
-                  </Link>
-
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}

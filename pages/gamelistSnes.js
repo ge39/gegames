@@ -66,16 +66,6 @@ export default function GamelistSnes() {
 
           {/* Barra de busca e filtro de favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h4
-              style={{
-                backgroundColor: 'transparent',
-                color: '#fafafa',
-                borderRadius: '10px',
-                padding: '10px',
-              }}
-            >
-              Lista de Jogos SNES - {filteredGames.length}
-            </h4>
 
             <input
               type="text"
@@ -93,7 +83,8 @@ export default function GamelistSnes() {
               }}
             />
 
-            <div style={{ margin: '10px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', margin: '0px' }}>
+              {/* mostra os favoritos */}
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
@@ -108,9 +99,10 @@ export default function GamelistSnes() {
               >
                 {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
+                <div><WhatsappButton /></div>
+                
             </div>
-
-            <WhatsappButton />
+            <span style={{ color: '#fafafa', fontWeight: 'bold', margin: '10px 0' }}>Lista de Jogos SNES - {filteredGames.length}</span>
           </div>
 
           {/* Lista de jogos */}
@@ -133,15 +125,15 @@ export default function GamelistSnes() {
                       height={200}
                       priority
                     />
+                    
+                  </Link>
                     <h5>
                       {game.desc}
                       <br />
                       {game.genre}
                       <br />
-                      Total Players: {game.players}
+                      Players: {game.players}
                     </h5>
-                  </Link>
-
                 <button
                   className={styles.favoriteButton}
                   onClick={() => toggleFavorite(game.id)}

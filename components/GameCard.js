@@ -19,7 +19,7 @@ export default function GameCard({ game }) {
             <p className={styles.noImage}>Imagem não disponível</p>
           )}
          
-         {/* <small style={{fontSize:'10px'}}>{game.desc}</small> */}
+         <small style={{fontSize:'10px'}}>{game.desc}</small>
          <div style={{fontSize:'10px',padding:'10px',color:'#0000e6'}}>Players: {game.players} | Rating: {game.rating}</div>
         <a   href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
             className={styles.playNow}

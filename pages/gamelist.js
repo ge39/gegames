@@ -485,7 +485,9 @@ export default function Gamelist() {
            
             <WhatsappButton />
           </div>
-
+          <Link href="/gamelistArcade">
+            <h2>Arcade</h2>
+          </Link>
           <Carousel games={arcadeGames} />
         </section>
 
