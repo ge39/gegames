@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useCallback } from "react";
 import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
 import Console from '@/components/Console';
 import styles from "../styles/ComoJogar.module.css";
 import Image from 'next/image';
@@ -121,11 +122,9 @@ export default function ComoJogar() {
           <Image src="/sprites/sonic-running.gif" alt="Sonic correndo" width={70} height={70} />
            {/* <Image src="/sprites/mario-luigi.gif" alt="Mario-Luigi" width={100} height={100} /> */}
         </div>
-         
-        <div className={styles.spriteContainer}>
-          
-        </div>
+        
       </main>
+      <Footer />
     </>
   );
 }
