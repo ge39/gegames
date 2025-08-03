@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .navbar {
     display: flex;
-    font-family: 'Roboto',Arial, sans-serif;
-      justify-content: space-around;
+    font-size: 14px;
+    font-family: 'Press Start 2P', 'Roboto', Arial, sans-serif;
+    justify-content: space-around;
     align-items: center;
-    background-color:#884b4b ;
-    color: white;
+    background-color: #8B0000; /* Vermelho escuro */
+    color: #FFD700; /* Dourado */
     padding: 15px 5px;
     position: fixed;
-    width: 100%;
+    width: 99%;
     height: 25px;
     top:0;
     bottom:2px;
@@ -15,14 +17,20 @@
   }
   
   .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .logo a {
-    color: white;
-    text-decoration: none;
-  }
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.logo a {
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #ffffff;
+}
   
   .hamburger {
     display: flex;
@@ -36,7 +44,7 @@
   .bar {
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color:#FFD700;
     transition: transform 0.3s ease;
   }
   
@@ -60,7 +68,7 @@
     position: absolute;
     top: 50px;
     right: 10px;
-    background-color: #444;
+    background-color: #8B0000;
     border-radius: 8px;
     padding: 10px 20px;
   }
@@ -70,7 +78,7 @@
   }
   
   .menu li a {
-    color: white;
+    color:#FFD700 ;
     text-decoration: none;
   }
   
@@ -81,7 +89,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: #884b4b;
+    background: #8B0000;
     list-style: none;
     padding: 10px 0;
     margin: 0;
@@ -115,7 +123,7 @@
   }
   
   .submenu li:hover {
-    background: rgba(180, 175, 240, 0.6);
+    background: #FFD700;
   }
   
   @media (min-width: 768px) {

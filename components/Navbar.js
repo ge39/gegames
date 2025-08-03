@@ -24,16 +24,14 @@ export default function Navbar() {
 
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link href="/" legacyBehavior>
-            <a>
-              <Image
-                src="/logo/Logo gegames-black.png"
-                alt="Gegames Logo"
-                width={200}
+          <Link href="/">
+            <Image
+              src="/logo/Logo gegames-black.png"
+              alt="Gegames Logo"
+              width={200}
                 height={50}
                 priority
               />
-            </a>
           </Link>
         </div>
 
@@ -51,7 +49,7 @@ export default function Navbar() {
             <ul className={`${styles.submenu} ${submenuOpen ? styles.submenuOpen : ''}`}>
               <li><Link href="/gamelistArcade">Arcade</Link></li>
               <li><Link href="/gamelistSnes">SNES</Link></li>
-              <li><Link href="/gamelistMegaDrive">Mega Drive</Link></li>
+              <li><Link href="/gamelistMegadrive">Mega Drive</Link></li>
               <li><Link href="/gamelistAtari">Atari</Link></li>
               <li><Link href="/gamelistGba">GBA</Link></li>
             </ul>
