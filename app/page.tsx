@@ -1,6 +1,7 @@
 "use client";
 import EventSection from "../components/EventSection"; // Import do componente EventSection
 import NetplayBanner from '@/components/NetplayBanner';
+import Console from "../components/Console";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/Footer";
@@ -93,10 +94,11 @@ export default function Home() {
       {/* Home Section */}
        <h1 style={{ padding:"10px",textAlign: 'center', color:'snow',backgroundColor: '#438',
         fontWeight: 'bold', margin: '1%',marginTop:'70px',borderRadius: '10px', }}>
-      
-        Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online
+            Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online
       </h1>
+      
    <section>
+      <div style={{marginTop:'-70px',marginBottom:'-20px'}}><Console /></div> 
        <NetplayBanner />
     </section>
 <section  
@@ -289,6 +291,7 @@ export default function Home() {
      fontWeight: 'bold', margin: '1%',borderRadius: '10px', }}>
    APROVEITE NOSSA PROMOÇÃO COM 10% DE DESCONTO NA PRIMEIRA LOCAÇÃO.
   </h1>
+  
   <div style={{ textAlign: 'center',width:'100%', backgroundColor: 'rgba(0,0,0,9)' }}>
      <Image
        src="/images/bk/suporteArcade.webp"

@@ -23,6 +23,10 @@ export default function NetplayBanner() {
         Com <strong>webcam</strong>, <strong>chat</strong> e <strong>salas multiplayer</strong> ao vivo!
       </p>
 
+      <p style={{ fontSize: '1rem', marginBottom: '1rem' }}>
+         <strong>DESAFIE SEU AMIGO A UM DUELO</strong> ONLINE!
+      </p>
+
       <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
         <Image src="/logo/controller.png" alt="Controle retrô" width={50} height={50} />
         <Image src="/logo/webcam.png" alt="Webcam" width={50} height={50} />

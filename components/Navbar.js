@@ -8,10 +8,10 @@ import styles from '../styles/Navbar.module.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleSubmenu = () => setSubmenuOpen(!submenuOpen);
 
   return (
     <>
@@ -24,8 +24,16 @@ export default function Navbar() {
 
       <nav className={styles.navbar}>
         <div className={styles.logo}>
-          <Link href="/">
-            <Image src="/logo/Logo gegames-black.png" alt="Gegames Logo" width={200} height={50} />
+          <Link href="/" legacyBehavior>
+            <a>
+              <Image
+                src="/logo/Logo gegames-black.png"
+                alt="Gegames Logo"
+                width={200}
+                height={50}
+                priority
+              />
+            </a>
           </Link>
         </div>
 
@@ -37,7 +45,18 @@ export default function Navbar() {
 
         <ul className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
           <li><Link href="/">Home</Link></li>
-          <li><Link href="/gamelist">Jogue Online</Link></li>
+
+          <li className={styles.hasSubmenu} onClick={toggleSubmenu}>
+            <span>Jogue Online</span>
+            <ul className={`${styles.submenu} ${submenuOpen ? styles.submenuOpen : ''}`}>
+              <li><Link href="/gamelistArcade">Arcade</Link></li>
+              <li><Link href="/gamelistSnes">SNES</Link></li>
+              <li><Link href="/gamelistMegaDrive">Mega Drive</Link></li>
+              <li><Link href="/gamelistAtari">Atari</Link></li>
+              <li><Link href="/gamelistGba">GBA</Link></li>
+            </ul>
+          </li>
+
           <li><Link href="/como-jogar">Como Jogar</Link></li>
           <li><Link href="/#orcamento">Fale Conosco</Link></li>
           <li><Link href="/#nosso-plano">Nossos Planos</Link></li>
