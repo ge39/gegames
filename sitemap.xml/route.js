@@ -8,6 +8,7 @@ export async function GET() {
     "/gamelistArcade",
     "/gamelistSnes",
     "/gamelistAtari",
+     "/gamelistGba",
     "/gamelistMegadrive",
     "/como-jogar",
   ];
