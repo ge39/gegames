@@ -61,12 +61,12 @@ export default function GamelistAtari() {
       />
 
       <Navbar />
-
+     
+      <Console />
+          
       <main>
         <section id="atariSection">
-          <Console />
-
-          {/* Barra de busca e favoritos */}
+         {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
               type="text"
