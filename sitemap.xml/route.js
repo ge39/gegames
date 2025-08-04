@@ -1,9 +1,9 @@
-import { arcadeGames } from "@/data/ArcadeGames";
+import { arcadeGames } from "@/data/arcadeGames";
 // Importe os outros arrays de jogos da mesma forma, se existirem:
- import { snesGames } from "@/data/SnesGames";
- import { atariGames } from "@/data/AtariGames";
- import { gbaGames } from "@/data/GbaGames";
- import { megadriveGames } from "@/data/megadriveGames";
+ import { snesGames } from "@/data/snesGames";
+ import { atariGames } from "@/data/atariGames";
+ import { gbaGames } from "@/data/gbaGames";
+ import { megadriveGames } from "@/data/MegadriveGames";
 
 export async function GET() {
   const baseUrl = "https://gegames.vercel.app";
