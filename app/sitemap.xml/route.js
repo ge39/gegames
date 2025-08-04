@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 import { arcadeGames } from "@/data/arcadeGames";
 import { snesGames } from "@/data/snesGames";
 import { atariGames } from "@/data/atariGames";
