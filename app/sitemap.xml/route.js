@@ -1,4 +1,9 @@
-import { arcadeGames } from "@/data/ArcadeGames";
+import { arcadeGames } from "@/data/arcadeGames";
+import { arcadeGames } from "@/data/adultGames";
+import { arcadeGames } from "@/data/atarideGames";
+import { arcadeGames } from "@/data/gbaGames";
+import { arcadeGames } from "@/data/snesGames";
+import { arcadeGames } from "@/data/MegadriveGames";
 
 export async function GET() {
   const baseUrl = "https://gegames.vercel.app";
