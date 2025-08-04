@@ -16,6 +16,7 @@ export async function GET() {
     "/gamelistAtari",
     "/gamelistGba",
     "/gamelistMegadrive",
+    "/adult-games",
     "/como-jogar",
   ];
 
