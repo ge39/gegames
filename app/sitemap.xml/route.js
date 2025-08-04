@@ -21,23 +21,13 @@ export async function GET() {
   ];
 
   const staticUrls = staticPages.map(
-    (path) => `
-    <url>
-      <loc>${baseUrl}${path}</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>`
+    (path) => `<url><loc>${baseUrl}${path}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ).join("");
 
-  const generateGameUrls = (games: { id: string }[] = []) =>
-    games.map(
-      (game) => `
-    <url>
-      <loc>${baseUrl}/jogo/${game.id}</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-    </url>`
-    ).join("");
+  const generateGameUrls = (gamesArray: { id: string }[]): string =>
+    gamesArray?.map(
+      (game) => `<url><loc>${baseUrl}/jogo/${game.id}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>`
+    ).join("") || "";
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -48,11 +38,11 @@ export async function GET() {
   ${generateGameUrls(gbaGames)}
   ${generateGameUrls(megadriveGames)}
   ${generateGameUrls(adultGames)}
-</urlset>`.trim();
+</urlset>`;
 
-  return new Response(xml, {
+  return new Response(xml.trim(), {
     headers: {
-      "Content-Type": "application/xml; charset=utf-8",
+      "Content-Type": "application/xml",
     },
   });
 }
