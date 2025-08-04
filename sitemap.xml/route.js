@@ -33,10 +33,10 @@ export async function GET() {
   // Todos os jogos juntos (adicione os arrays de jogos conforme seus arquivos)
   const allGames = [
     ...arcadeGames,
-    // ...snesGames,
-    // ...atariGames,
-    // ...gbaGames,
-    // ...megadriveGames,
+     ...snesGames,
+     ...atariGames,
+     ...gbaGames,
+     ...MegadriveGames,
   ];
 
   // URLs dinâmicas dos jogos, filtrando para garantir que id exista
