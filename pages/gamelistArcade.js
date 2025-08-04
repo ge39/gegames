@@ -55,8 +55,9 @@ export default function Gamelist() {
     <>
       <SEOHead {...seoData} />
       <Navbar />
+     <Console />
       <main>
-        <Console />
+       
         <section id="arcadeSection">
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
