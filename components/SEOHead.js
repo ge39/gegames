@@ -1,17 +1,64 @@
-import Head from 'next/head';
+import { arcadeGames } from "@/data/arcadeGames";
+import { snesGames } from "@/data/snesGames";
+import { atariGames } from "@/data/atariGames";
+import { gbaGames } from "@/data/gbaGames";
+import { megadriveGames } from "@/data/MegadriveGames";
+import { adultGames } from "@/data/adultGames";
 
-export default function SEOHead({ title, description, keywords, image, url }) {
-  return (
-    <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      {image && <meta property="og:image" content={image} />}
-      {url && <meta property="og:url" content={url} />}
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-    </Head>
-  );
+export async function GET() {
+  const baseUrl = "https://gegames.vercel.app";
+
+  const staticPages = [
+    "",
+    "/gamelist",
+    "/gamelistArcade",
+    "/gamelistSnes",
+    "/gamelistAtari",
+    "/gamelistGba",
+    "/gamelistMegadrive",
+    "/adult-games",
+    "/como-jogar",
+  ];
+
+  const staticUrls = staticPages
+    .map(
+      (path) => `
+    <url>
+      <loc>${baseUrl}${path}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>`
+    )
+    .join("");
+
+  const generateGameUrls = (gamesArray) =>
+    Array.isArray(gamesArray)
+      ? gamesArray
+          .map(
+            (game) => `
+    <url>
+      <loc>${baseUrl}/jogo/${game.id}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>`
+          )
+          .join("")
+      : "";
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${staticUrls}
+  ${generateGameUrls(arcadeGames)}
+  ${generateGameUrls(snesGames)}
+  ${generateGameUrls(atariGames)}
+  ${generateGameUrls(gbaGames)}
+  ${generateGameUrls(megadriveGames)}
+  ${generateGameUrls(adultGames)}
+</urlset>`;
+
+  return new Response(xml.trim(), {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
 }
