@@ -8,7 +8,7 @@ import { adultGames } from "@/data/adultGames";
 export async function GET() {
   const baseUrl = "https://gegames.vercel.app";
 
-  const staticPages: string[] = [
+  const staticPages = [
     "",
     "/gamelist",
     "/gamelistArcade",
@@ -20,14 +20,30 @@ export async function GET() {
     "/como-jogar",
   ];
 
-  const staticUrls = staticPages.map(
-    (path) => `<url><loc>${baseUrl}${path}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`
-  ).join("");
+  const staticUrls = staticPages
+    .map(
+      (path) => `
+    <url>
+      <loc>${baseUrl}${path}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>`
+    )
+    .join("");
 
-  const generateGameUrls = (gamesArray: { id: string }[]): string =>
-    gamesArray?.map(
-      (game) => `<url><loc>${baseUrl}/jogo/${game.id}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>`
-    ).join("") || "";
+  const generateGameUrls = (gamesArray) =>
+    Array.isArray(gamesArray)
+      ? gamesArray
+          .map(
+            (game) => `
+    <url>
+      <loc>${baseUrl}/jogo/${game.id}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>`
+          )
+          .join("")
+      : "";
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
