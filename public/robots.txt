@@ -3,6 +3,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://gegames.vercel.app/sitemap.xml
+Sitemap: https://gegames.vercel.app/sitemap.xml/routes.js
 
 
