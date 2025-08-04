@@ -1,3 +1,10 @@
+import { arcadeGames } from "@/data/arcadeGames";
+// Importe os outros arrays de jogos da mesma forma, se existirem:
+ import { snesGames } from "@/data/snesGames";
+ import { atariGames } from "@/data/atariGames";
+ import { gbaGames } from "@/data/gbaGames";
+ import { megadriveGames } from "@/data/megadriveGames";
+
 export async function GET() {
   const baseUrl = "https://gegames.vercel.app";
 
@@ -11,7 +18,8 @@ export async function GET() {
     "/como-jogar",
   ];
 
-  const urls = staticPages
+  // URLs estáticas
+  const staticUrls = staticPages
     .map(
       (path) => `
     <url>
@@ -22,9 +30,32 @@ export async function GET() {
     )
     .join("");
 
+  // Todos os jogos juntos (adicione os arrays de jogos conforme seus arquivos)
+  const allGames = [
+    ...arcadeGames,
+    // ...snesGames,
+    // ...atariGames,
+    // ...gbaGames,
+    // ...megadriveGames,
+  ];
+
+  // URLs dinâmicas dos jogos, filtrando para garantir que id exista
+  const gameUrls = allGames
+    .filter((game) => game?.id) // evita undefined
+    .map(
+      (game) => `
+    <url>
+      <loc>${baseUrl}/games/${game.id}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>`
+    )
+    .join("");
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${urls}
+  ${staticUrls}
+  ${gameUrls}
 </urlset>`;
 
   return new Response(xml, {
