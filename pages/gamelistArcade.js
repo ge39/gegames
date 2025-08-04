@@ -68,15 +68,14 @@ export default function Gamelist() {
       <p>{game.desc}</p>
       <img src={seoData.image} alt={game.alt} width={400} />
       {/* etc */}
-  
+     </>
       // <SEOHead
       //   title="Jogos Arcade Online | GeGames"
       //   description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
       //   keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
       //   image="https://gegames.vercel.app/images/capa-arcade.png"
-      //   url="https://gegames.vercel.app/gamelistArcade"
-      // />
-
+      //   url="https://gegames.vercel.app/gamelistArcade"/>
+  
       <Navbar />
           
       <main>
