@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+import SEOHead from "@/components/SEOHead";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -50,17 +52,30 @@ export default function Gamelist() {
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
 
+  const seoData = {
+    title: game.name,
+    description: game.desc || "Jogo retrô disponível para jogar online!",
+    image: `https://gegames.vercel.app${game.image}`,
+    url: `https://gegames.vercel.app/jogo/${game.id}`,
+  };
  
 
   return (
     <>
-      <SEOHead
-        title="Jogos Arcade Online | GeGames"
-        description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
-        keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
-        image="https://gegames.vercel.app/images/capa-arcade.png"
-        url="https://gegames.vercel.app/gamelistArcade"
-      />
+    <SEOHead {...seoData} />
+      {/* Seu conteúdo da página */}
+      <h1>{game.name}</h1>
+      <p>{game.desc}</p>
+      <img src={seoData.image} alt={game.alt} width={400} />
+      {/* etc */}
+  
+      // <SEOHead
+      //   title="Jogos Arcade Online | GeGames"
+      //   description="Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!"
+      //   keywords="arcade, jogos antigos, fliperama, jogar online, street fighter, metal slug"
+      //   image="https://gegames.vercel.app/images/capa-arcade.png"
+      //   url="https://gegames.vercel.app/gamelistArcade"
+      // />
 
       <Navbar />
           
