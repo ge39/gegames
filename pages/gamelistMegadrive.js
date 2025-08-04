@@ -60,12 +60,11 @@ export default function Gamelist() {
       />
 
       <Navbar />
-
+      <Console />
+          
       <main>
         <section id="megaSection">
-          <Console />
-
-          {/* Barra de busca e favoritos */}
+         {/* Barra de busca e favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
               type="text"
