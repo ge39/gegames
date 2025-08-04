@@ -1,64 +1,31 @@
-import { arcadeGames } from "@/data/arcadeGames";
-import { snesGames } from "@/data/snesGames";
-import { atariGames } from "@/data/atariGames";
-import { gbaGames } from "@/data/gbaGames";
-import { megadriveGames } from "@/data/MegadriveGames";
-import { adultGames } from "@/data/adultGames";
+"use client";
+import Head from "next/head";
 
-export async function GET() {
-  const baseUrl = "https://gegames.vercel.app";
+const SEOHead = ({ title, description, image, url }) => {
+  return (
+    <Head>
+      <title>{title} | gegames</title>
+      <meta name="description" content={description} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="robots" content="index, follow" />
 
-  const staticPages = [
-    "",
-    "/gamelist",
-    "/gamelistArcade",
-    "/gamelistSnes",
-    "/gamelistAtari",
-    "/gamelistGba",
-    "/gamelistMegadrive",
-    "/adult-games",
-    "/como-jogar",
-  ];
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title + " | gegames"} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
 
-  const staticUrls = staticPages
-    .map(
-      (path) => `
-    <url>
-      <loc>${baseUrl}${path}</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-    </url>`
-    )
-    .join("");
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={url} />
+      <meta name="twitter:title" content={title + " | gegames"} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
 
-  const generateGameUrls = (gamesArray) =>
-    Array.isArray(gamesArray)
-      ? gamesArray
-          .map(
-            (game) => `
-    <url>
-      <loc>${baseUrl}/jogo/${game.id}</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-    </url>`
-          )
-          .join("")
-      : "";
+      <link rel="canonical" href={url} />
+    </Head>
+  );
+};
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${staticUrls}
-  ${generateGameUrls(arcadeGames)}
-  ${generateGameUrls(snesGames)}
-  ${generateGameUrls(atariGames)}
-  ${generateGameUrls(gbaGames)}
-  ${generateGameUrls(megadriveGames)}
-  ${generateGameUrls(adultGames)}
-</urlset>`;
-
-  return new Response(xml.trim(), {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
-}
+export default SEOHead;
