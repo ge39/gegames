@@ -1,8 +1,8 @@
-import { arcadeGames } from "@/data/arcadeGames";
+import { arcadeGames } from "@/data/ArcadeGames";
 // Importe os outros arrays de jogos da mesma forma, se existirem:
- import { snesGames } from "@/data/snesGames";
- import { atariGames } from "@/data/atariGames";
- import { gbaGames } from "@/data/gbaGames";
+ import { snesGames } from "@/data/SnesGames";
+ import { atariGames } from "@/data/AtariGames";
+ import { gbaGames } from "@/data/GbaGames";
  import { megadriveGames } from "@/data/megadriveGames";
 
 export async function GET() {
