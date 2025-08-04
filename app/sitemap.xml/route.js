@@ -1,6 +1,6 @@
 import { arcadeGames } from "@/data/arcadeGames";
 import { adultGames } from "@/data/adultGames";
-import { atariGames } from "@/data/atarideGames";
+import { atariGames } from "@/data/atariGames";
 import { gbaGames } from "@/data/gbaGames";
 import { snesGames } from "@/data/snesGames";
 import { megadriveGames } from "@/data/MegadriveGames";
