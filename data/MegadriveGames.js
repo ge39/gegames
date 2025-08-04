@@ -1,7 +1,7 @@
 export const megadriveGames = [
   {
     id: "md1",
-    path: "megadrive/Sonic the Hedgehog.zip",
+    path: "megadrive/Sonic the Hedgehog 3 (U) [!].zip",
     core: "segaMD",
     name: "Sonic the Hedgehog",
     desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
