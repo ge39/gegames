@@ -31,20 +31,25 @@ export async function GET() {
     )
     .join("");
 
-  // URLs dinâmicas dos jogos de Arcade
-  const arcadeUrls = arcadeGames
-    .map((game) => `
+  const gameUrls = (games) =>
+    games
+      .map((game) => `
     <url>
       <loc>${baseUrl}/jogo/${game.id}</loc>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
     </url>`)
-    .join("");
+      .join("");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${staticUrls}
-  ${arcadeUrls}
+  ${gameUrls(arcadeGames)}
+  ${gameUrls(adultGames)}
+  ${gameUrls(atariGames)}
+  ${gameUrls(gbaGames)}
+  ${gameUrls(snesGames)}
+  ${gameUrls(megadriveGames)}
 </urlset>`;
 
   return new Response(xml.trim(), {
