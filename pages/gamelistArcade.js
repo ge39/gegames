@@ -54,7 +54,7 @@ export default function Gamelist() {
 
   const seoData = {
     title: game.name,
-    description: game.desc || "Jogo retrô disponível para jogar online!",
+    description: game.desc || "Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!!",
     image: `https://gegames.vercel.app${game.image}`,
     url: `https://gegames.vercel.app/jogo/${game.id}`,
   };
