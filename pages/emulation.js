@@ -52,7 +52,7 @@ export default function Emulation() {
       <div className={styles.emulatorContainer} style={{
         position: "relative",
         maxwidth: "100hv",
-       height: '90vh',
+       height: '85vh',
         padding: "20px 0" ,
         margin: "0 auto"
       }}>
