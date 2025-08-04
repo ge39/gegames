@@ -60,12 +60,11 @@ export default function GamelistSnes() {
       />
 
       <Navbar />
-
+      <Console />
+          
       <main>
         <section id="snesSection">
-          <Console />
-
-          {/* Barra de busca e filtro de favoritos */}
+         {/* Barra de busca e filtro de favoritos */}
           <div style={{ textAlign: 'center', margin: '20px' }}>
 
             <input
