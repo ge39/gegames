@@ -12,7 +12,7 @@ export default function Carousel({ games }) {
   useEffect(() => {
     const updateItemsVisible = () => {
       if (window.innerWidth > 768) {
-        setItemsVisible(4); // Exibir 4 itens em telas maiores
+        setItemsVisible(3); // Exibir 4 itens em telas maiores
       } else {
         setItemsVisible(2); // Exibir 1 itens em telas menores
       }
