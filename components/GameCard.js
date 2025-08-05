@@ -1,4 +1,4 @@
-import styles from '../styles/gamecard.module.css';
+import styles from './GameCard.module.css'; // adapte se usar CSS Modules
 import Image from 'next/image';
 import StarsRating from './StarsRating';
 export default function GameCard({ game }) {
