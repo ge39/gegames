@@ -25,7 +25,7 @@ const GameCard = ({ game }) => {
       <p style={{ fontSize: '12px', color: '#666' }}>{game.players} jogadores</p>
 
       {/* Botão */}
-      <Link href={`/play/${game.id}`} className={styles.playNow}>
+      <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`} className={styles.playNow}>
         🎮 Jogar Agora
       </Link>
     </div>
