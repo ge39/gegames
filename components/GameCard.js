@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/GameCard.module.css'; // adapte se usar CSS Modules
+import styles from '../styles/GameCard.module.css'; // ou seu arquivo CSS
 
 const GameCard = ({ game }) => {
   return (
@@ -19,12 +19,12 @@ const GameCard = ({ game }) => {
         priority={false}
       />
 
-      {/* Título e detalhes */}
+      {/* Título e descrição */}
       <h3 style={{ marginTop: '10px' }}>{game.name}</h3>
       <p style={{ fontSize: '14px', color: '#333' }}>{game.desc}</p>
       <p style={{ fontSize: '12px', color: '#666' }}>{game.players} jogadores</p>
 
-      {/* Botão de ação */}
+      {/* Botão */}
       <Link href={`/play/${game.id}`} className={styles.playNow}>
         🎮 Jogar Agora
       </Link>
@@ -33,4 +33,3 @@ const GameCard = ({ game }) => {
 };
 
 export default GameCard;
-s
