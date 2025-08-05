@@ -8,7 +8,9 @@ const GameCard = ({ game }) => {
   return (
     <div className={styles.card} style={{ position: 'relative' }}>
       {/* Nota no canto */}
-       <StarsRating rating={game.rating} />⭐
+       <div>
+         <StarsRating rating={game.rating} />⭐
+       </div>
 
       {/* Imagem do jogo */}
       <Image
