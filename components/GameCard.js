@@ -25,8 +25,8 @@ const GameCard = ({ game }) => {
       <p style={{ fontSize: '12px', color: '#666' }}>{game.players} jogadores</p>
 
       {/* Botão de ação */}
-      <Link href={`/play/${game.id}`} passHref>
-        <span className={styles.playNow}>🎮 Jogar Agora</span>
+      <Link href={`/play/${game.id}`} className={styles.playNow}>
+        🎮 Jogar Agora
       </Link>
     </div>
   );
