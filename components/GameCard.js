@@ -1,4 +1,4 @@
-import styles from '../styles/Carousel.module.css';
+import styles from '../styles/gamecard.module.css';
 import Image from 'next/image';
 import StarsRating from './StarsRating';
 export default function GameCard({ game }) {
