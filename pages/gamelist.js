@@ -476,10 +476,10 @@ export default function Gamelist() {
         image="/logo/arcade.png"
       />
       <Navbar />
-      
+      < Console /> 
       <main className={styles.main}>
         <section id="arcadeSection">
-         < Console /> 
+         
          
           <div style={{ textAlign: 'center', margin: '20px' }}>
            
