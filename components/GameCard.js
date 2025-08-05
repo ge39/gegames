@@ -1,38 +1,36 @@
-import styles from '../styles/Carousel.module.css'; // adapte se usar CSS Modules
+import React from 'react';
 import Image from 'next/image';
-import StarsRating from './StarsRating';
-export default function GameCard({ game }) {
+import Link from 'next/link';
+import styles from '../styles/GameCard.module.css'; // adapte se usar CSS Modules
 
+const GameCard = ({ game }) => {
   return (
-    <div className={styles.card}>
-      {/* <img src={game.image} alt={game.alt} className={styles.image} /> */}
-      <div style={{fontSize:'12px',fontWeight:'bold',padding:'10px',color:'#0000e6'}}>{game.name}</div>
-      {game.image ? (
-            <Image
-              src={game.image}
-              alt={game.alt}
-              width={250}
-              height={200}
-              className={styles.gameImage}
-            />
+    <div className={styles.card} style={{ position: 'relative' }}>
+      {/* Nota no canto */}
+      <div className={styles.ratingBadge}>⭐ {game.rating || '4.5'}</div>
 
-          ) : (
-            <p className={styles.noImage}>Imagem não disponível</p>
-          )}
-         
-         <small style={{fontSize:'10px'}}>{game.desc}</small>
-         <div style={{fontSize:'10px',padding:'10px',color:'#0000e6'}}>
-          Players: {game.players}
-         </div>
-        <div >
-          <StarsRating rating={game.rating} />⭐
-        </div>
-        <a   href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
-            className={styles.playNow}
-          >
-          Play Now
-        </a>
+      {/* Imagem do jogo */}
+      <Image
+        src={game.image}
+        alt={game.alt || game.name}
+        width={300}
+        height={200}
+        className={styles.gameImage}
+        priority={false}
+      />
+
+      {/* Título e detalhes */}
+      <h3 style={{ marginTop: '10px' }}>{game.name}</h3>
+      <p style={{ fontSize: '14px', color: '#333' }}>{game.desc}</p>
+      <p style={{ fontSize: '12px', color: '#666' }}>{game.players} jogadores</p>
+
+      {/* Botão de ação */}
+      <Link href={`/play/${game.id}`} passHref>
+        <span className={styles.playNow}>🎮 Jogar Agora</span>
+      </Link>
     </div>
   );
+};
 
-}
+export default GameCard;
+s
