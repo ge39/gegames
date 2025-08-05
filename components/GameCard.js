@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import StarsRating from '@/components/StarsRating';
 import styles from '../styles/GameCard.module.css'; // ou seu arquivo CSS
 
 const GameCard = ({ game }) => {
