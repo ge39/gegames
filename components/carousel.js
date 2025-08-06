@@ -1,4 +1,5 @@
-import { useRef, useEffect } from 'react';
+// import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
