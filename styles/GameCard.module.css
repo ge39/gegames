@@ -14,8 +14,12 @@
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 255, 255, 0.3), 0 0 20px #00f;
+ transform: scale(1.05);
+  box-shadow:
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 30px #0ff;
+  border: 2px solid #0ff;
 }
 
 .gameImage {
