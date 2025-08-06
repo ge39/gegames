@@ -63,4 +63,5 @@
 .playNow:hover {
   background-color: #0056b3;
   box-shadow: 0 0 12px #0ff, 0 0 24px #00f;
+  animation: pulseGlow 1s infinite;
 }
