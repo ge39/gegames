@@ -1,39 +1,62 @@
-// import { useRef, useEffect } from 'react';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
 export default function Carousel({ games }) {
   const containerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Centraliza o item específico
   const scrollToIndex = (index) => {
     const container = containerRef.current;
     if (!container) return;
 
-    const itemWidth = container.children[0].offsetWidth;
-    const scrollPosition = itemWidth * index - (container.offsetWidth - itemWidth) / 2;
+    const item = container.children[index];
+    if (!item) return;
+
+    const containerWidth = container.offsetWidth;
+    const itemLeft = item.offsetLeft;
+    const itemWidth = item.offsetWidth;
+
+    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2;
 
     container.scrollTo({
       left: scrollPosition,
       behavior: 'smooth',
     });
+
+    setCurrentIndex(index);
   };
 
-  // Swipe por botão
   const handlePrev = () => {
-    const container = containerRef.current;
-    const itemWidth = container.children[0].offsetWidth;
-    const currentIndex = Math.round(container.scrollLeft / itemWidth);
-    scrollToIndex(Math.max(0, currentIndex - 1));
+    if (currentIndex > 0) {
+      scrollToIndex(currentIndex - 1);
+    }
   };
 
   const handleNext = () => {
-    const container = containerRef.current;
-    const itemWidth = container.children[0].offsetWidth;
-    const currentIndex = Math.round(container.scrollLeft / itemWidth);
-    scrollToIndex(Math.min(games.length - 1, currentIndex + 1));
+    if (currentIndex < games.length - 1) {
+      scrollToIndex(currentIndex + 1);
+    }
   };
+
+  // Swipe manual com dedo ou mouse (opcional: detecta deslize e atualiza o índice)
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const itemWidth = container.children[0]?.offsetWidth || 1;
+      const index = Math.round(scrollLeft / itemWidth);
+      setCurrentIndex(index);
+    };
+
+    container.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      container.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   return (
     <div className={styles.carouselWrapper}>
