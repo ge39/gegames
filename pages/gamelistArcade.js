@@ -127,15 +127,17 @@ export default function Gamelist() {
                   Players: {game.players}
                 </h5>
                 <StarsRating rating={game.rating} />
-                <button
-                  className={styles.favoriteButton}
-                  onClick={() => toggleFavorite(game.id)}
-                  aria-label={isFavorite(game.id)
-                    ? `Remover ${game.name} dos favoritos`
-                    : `Adicionar ${game.name} aos favoritos`}
-                >
-                  {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
-                </button>
+                 <div>
+                    <button
+                      className={styles.favoriteButton}
+                      onClick={() => toggleFavorite(game.id)}
+                      aria-label={isFavorite(game.id)
+                        ? `Remover ${game.name} dos favoritos`
+                        : `Adicionar ${game.name} aos favoritos`}
+                    >
+                      {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
+                    </button>
+                </div>
               </div>
             ))}
           </div>
