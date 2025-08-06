@@ -26,10 +26,12 @@ export default function ComoJogar() {
 
       <Navbar />
 
+      <Console />
+            
       <main className={styles.container}>
         <h1 className={styles.title}>🚀 Prepare-se para a Nostalgia!</h1>
         <div>
-          <Console />
+         
         </div>
 
         <p className={styles.intro}>
