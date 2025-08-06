@@ -25,7 +25,7 @@ export default function ComoJogar() {
       </Head>
 
       <Navbar />
-         <div style={{backgroundColor:"#333",marginTop:'10px',marginBottom:'5pxx',padding:'5px'}}>
+         <div style={{backgroundColor:"#333",marginTop:'10px',padding:'5px'}}>
            <Console />
         </div>
       
