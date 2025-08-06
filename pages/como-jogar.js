@@ -25,15 +25,14 @@ export default function ComoJogar() {
       </Head>
 
       <Navbar />
-
-      <Console />
+         <div style={{bacgroundColor:"#333"}}>
+           <Console />
+        </div>
+      
             
       <main className={styles.container}>
         <h1 className={styles.title}>🚀 Prepare-se para a Nostalgia!</h1>
-        <div>
-         
-        </div>
-
+            
         <p className={styles.intro}>
           Se você sente saudades de soprar cartuchos, ouvir o som do Sega&nbsp;
           &quot;SEEGAA&quot;, ou quer reviver os dias de glória do Super Mario,
