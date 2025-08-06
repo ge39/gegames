@@ -32,8 +32,12 @@
 }
 
 .gameImage:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 10px #f0f, 0 0 20px #0ff;
+  transform: scale(1.04);
+  box-shadow:
+    0 0 8px #f0f,
+    0 0 16px #0ff,
+    0 0 24px #f0f;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .ratingBadge {
@@ -50,19 +54,10 @@
 }
 
 .playNow {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  width: 60%;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  transition: 0.3s ease;
-  box-shadow: 0 0 8px #00f, 0 0 16px #0ff;
-  cursor: pointer;
+ font-family: 'Press Start 2P', monospace; /* Se estiver usando Google Fonts */
+  letter-spacing: 1px;
+  background: linear-gradient(145deg, #00f, #0ff);
+  text-shadow: 0 0 2px #fff;
 }
 
 .playNow:hover {
