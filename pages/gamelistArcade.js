@@ -126,7 +126,7 @@ export default function Gamelist() {
                   {game.genre}<br />
                   Players: {game.players}
                 </h5>
-                <StarsRating rating={game.rating} />
+                <StarsRating rating={game.rating} />⭐
                  <div>
                     <button
                       className={styles.favoriteButton}
