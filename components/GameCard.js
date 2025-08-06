@@ -16,7 +16,7 @@ const GameCard = ({ game }) => {
       <Image
         src={game.image}
         alt={game.alt || game.name}
-        width={300}
+        width={250}
         height={200}
         className={styles.gameImage}
         priority={false}
