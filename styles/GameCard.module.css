@@ -1,20 +1,20 @@
-/* GameCard.module.css */
 .button:focus-visible {
   outline: 2px solid #fff;
 }
 
 .card {
-  background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+  background: linear-gradient(145deg, #1a1a1a, #333);
   border-radius: 16px;
   padding: 15px;
   width: 95%;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  position: relative;
 }
 
 .card:hover {
- transform: scale(1.05);
+  transform: scale(1.05);
   box-shadow:
     0 0 10px #0ff,
     0 0 20px #0ff,
@@ -43,28 +43,48 @@
 .ratingBadge {
   position: absolute;
   top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  right: 10px;
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  color: black;
   font-size: 14px;
   padding: 4px 8px;
   border-radius: 8px;
   z-index: 5;
   backdrop-filter: blur(4px);
+  text-shadow: 0 0 2px white;
+  font-weight: bold;
 }
 
 .playNow {
- font-family: 'Press Start 2P', monospace; /* Se estiver usando Google Fonts */
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  width: 60%;
+  background: linear-gradient(-45deg, #00f, #0ff, #f0f, #00f);
+  background-size: 400% 400%;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 0 8px #00f, 0 0 16px #0ff;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
   letter-spacing: 1px;
-  background: linear-gradient(145deg, #00f, #0ff);
-  text-shadow: 0 0 2px #fff;
+  animation: gradientBG 5s ease infinite;
 }
 
 .playNow:hover {
-  background-color: #0056b3;
-  box-shadow: 0 0 12px #0ff, 0 0 24px #00f;
   animation: pulseGlow 1s infinite;
 }
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 12px #0ff, 0 0 24px #00f;
