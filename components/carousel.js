@@ -57,7 +57,7 @@ export default function Carousel({ games }) {
     const touchEndX = e.touches[0].clientX;
     const diff = startTouchX.current - touchEndX;
 
-    if (Math.abs(diff) > 30) { // Limite mínimo para deslizar
+    if (Math.abs(diff) > 10) { // Limite mínimo para deslizar 30
       if (diff > 0) {
         nextSlide(); // Vai para o próximo slide
       } else {
