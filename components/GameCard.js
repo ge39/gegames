@@ -24,8 +24,8 @@ const GameCard = ({ game }) => {
 
       {/* Título e descrição */}
       <h3 style={{ marginTop: '10px' }}>{game.name}</h3>
-      <p style={{ fontSize: '14px', color: '#333' }}>{game.desc}</p>
-      <p style={{ fontSize: '12px', color: '#666' }}>{game.players} jogadores</p>
+      <p style={{ fontSize: '14px', color: 'snow' }}>{game.desc}</p>
+      <p style={{ fontSize: '12px', color: 'snow' }}>{game.players} jogadores</p>
 
       {/* Botão */}
       <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`} className={styles.playNow}>
