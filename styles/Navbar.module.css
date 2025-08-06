@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-:global(body) {
-  padding-top: 60px;
-  font-family: 'Press Start 2P', cursive;
-}
 .navbar {
   display: flex;
   justify-content: space-between;
