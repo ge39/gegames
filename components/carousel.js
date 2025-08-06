@@ -1,101 +1,46 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
 export default function Carousel({ games }) {
-  const [index, setIndex] = useState(0); // Índice atual do carrossel
-  const [itemsVisible, setItemsVisible] = useState(1); // Número inicial de itens visíveis
-  const startTouchX = useRef(0); // Posição inicial do toque
-  const isSwiping = useRef(false); // Indica se está arrastando
+  const containerRef = useRef(null);
 
-  // Atualiza o número de itens visíveis com base no tamanho da tela
-  useEffect(() => {
-    const updateItemsVisible = () => {
-      if (window.innerWidth > 768) {
-        setItemsVisible(3); // Exibir 4 itens em telas maiores
-      } else {
-        setItemsVisible(2); // Exibir 1 itens em telas menores
-      }
-    };
+  // Centraliza o item específico
+  const scrollToIndex = (index) => {
+    const container = containerRef.current;
+    if (!container) return;
 
-    // Chamada inicial
-    updateItemsVisible();
+    const itemWidth = container.children[0].offsetWidth;
+    const scrollPosition = itemWidth * index - (container.offsetWidth - itemWidth) / 2;
 
-    // Atualiza ao redimensionar
-    window.addEventListener('resize', updateItemsVisible);
-
-    // Cleanup do evento
-    return () => {
-      window.removeEventListener('resize', updateItemsVisible);
-    };
-  }, []);
-
-  // Passar para o próximo slide
-  const nextSlide = () => {
-    if (index < games.length - itemsVisible) {
-      setIndex(index + 1);
-    }
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth',
+    });
   };
 
-  // Voltar para o slide anterior
-  const prevSlide = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
+  // Swipe por botão
+  const handlePrev = () => {
+    const container = containerRef.current;
+    const itemWidth = container.children[0].offsetWidth;
+    const currentIndex = Math.round(container.scrollLeft / itemWidth);
+    scrollToIndex(Math.max(0, currentIndex - 1));
   };
 
-  // Inicia o toque
-  const handleTouchStart = (e) => {
-    startTouchX.current = e.touches[0].clientX; // Registra o início do toque
-    isSwiping.current = true; // Marca que o usuário começou a deslizar
-  };
-
-  // Movimenta o carrossel com o toque
-  const handleTouchMove = (e) => {
-    if (!isSwiping.current) return; // Ignora se não está arrastando
-
-    const touchEndX = e.touches[0].clientX;
-    const diff = startTouchX.current - touchEndX;
-
-    if (Math.abs(diff) > 10) { // Limite mínimo para deslizar 30
-      if (diff > 0) {
-        nextSlide(); // Vai para o próximo slide
-      } else {
-        prevSlide(); // Volta para o slide anterior
-      }
-      isSwiping.current = false; // Evita múltiplos disparos no mesmo movimento
-    }
-  };
-
-  // Finaliza o toque
-  const handleTouchEnd = () => {
-    isSwiping.current = false; // Reseta o estado de arrasto
+  const handleNext = () => {
+    const container = containerRef.current;
+    const itemWidth = container.children[0].offsetWidth;
+    const currentIndex = Math.round(container.scrollLeft / itemWidth);
+    scrollToIndex(Math.min(games.length - 1, currentIndex + 1));
   };
 
   return (
-    
-    <div
-      className={styles.carouselContainer}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* Botão de navegação para o slide anterior */}
-      <button
-        className={styles.control}
-        onClick={prevSlide}
-        disabled={index === 0}
-      >
-        &lt;
-      </button>
+    <div className={styles.carouselWrapper}>
+      <button className={styles.control} onClick={handlePrev}>&lt;</button>
 
-      {/* Carrossel contendo os slides */}
       <div
-        className={styles.carousel}
-        style={{
-          transform: `translateX(-${index * (100 / itemsVisible)}%)`,
-          transition: 'transform 0.3s ease-in-out',
-        }}
+        className={styles.carouselContainer}
+        ref={containerRef}
       >
         {games.map((game) => (
           <div key={game.id} className={styles.carouselItem}>
@@ -104,14 +49,7 @@ export default function Carousel({ games }) {
         ))}
       </div>
 
-      {/* Botão de navegação para o próximo slide */}
-      <button
-        className={styles.control}
-        onClick={nextSlide}
-        disabled={index >= games.length - itemsVisible}
-      >
-        &gt;
-      </button>
+      <button className={styles.control} onClick={handleNext}>&gt;</button>
     </div>
   );
 }
