@@ -7,30 +7,30 @@ import styles from '../styles/GameCard.module.css'; // ou seu arquivo CSS
 const GameCard = ({ game }) => {
   return (
     <div className={styles.card} style={{ position: 'relative' }}>
-      {/* Nota no canto */}
-       <div styles={{margin:'2px'}}>
-         <StarsRating rating={game.rating} />⭐
-       </div>
+        
+         {/* Título e descrição */}
+          <h6 style={{ color: 'snow',marginTop:'-5px' }}>{game.name}</h6>
 
       {/* Imagem do jogo */}
       <Image
         src={game.image}
         alt={game.alt || game.name}
-        width={250}
+        width={200}
         height={200}
         className={styles.gameImage}
         priority={false}
       />
 
-      {/* Título e descrição */}
-      <h3 style={{ marginTop: '10px' }}>{game.name}</h3>
-      <p style={{ fontSize: '14px', color: 'snow' }}>{game.desc}</p>
-      <p style={{ fontSize: '12px', color: 'snow' }}>{game.players} jogadores</p>
-
+      {/* Nome do jogo */}
+      <p style={{ fontSize: '10px', color: 'snow' }}>{game.desc}</p>
+      <p style={{ fontSize: '10px', color: 'snow' }}>{game.players} jogadores</p>
+       <StarsRating rating={game.rating} />⭐
       {/* Botão */}
-      <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`} className={styles.playNow}>
-        🎮 Jogar Agora
-      </Link>
+      <div style={{ fontSize: '12px' }}>
+          <Link href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`} className={styles.playNow}>
+            Jogar Agora
+          </Link>
+      </div>
     </div>
   );
 };

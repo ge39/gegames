@@ -17,7 +17,7 @@ export default function Carousel({ games }) {
     const itemLeft = item.offsetLeft;
     const itemWidth = item.offsetWidth;
 
-    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2;
+    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2.5;
 
     // Evita rolagem desnecessária
     if (Math.abs(container.scrollLeft - scrollPosition) < 5) return;

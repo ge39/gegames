@@ -15,6 +15,7 @@
    gap: 24px; /* Aumente esse valor se quiser mais espaço */
   padding: 16px; /* opcional: espaço interno */
   width: 100%;
+  scrollbar-width: none; /* Firefox */
   padding: 20px 10px;
   scroll-padding: 0 50%;
 }
@@ -23,9 +24,9 @@
   flex: 0 0 auto;
   scroll-snap-align: center;
   width: 85%;
-/*   max-width: 300px; */
-/*   margin: 0 auto; */
+  max-width: 220px;
   margin: 10px;
+  /* background-color: #222; */
 }
 
 .control {
