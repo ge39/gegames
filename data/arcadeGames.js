@@ -335,7 +335,7 @@ export const arcadeGames = [
 },
   {
     "id": "blaztar",
-    "path": "fliperama/blaztar.zip",
+    "path": "fliperama/blazstar.zip",
     "core": "hbmame",
     "name": "Blazing Star",
     "desc": "Shoot 'em up clássico da SNK com visual impressionante e jogabilidade intensa no estilo side-scrolling.",
