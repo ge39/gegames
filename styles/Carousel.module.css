@@ -22,11 +22,10 @@
 .carouselItem {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 95%;
+  width: 85%;
   max-width: 300px;
 /*   margin: 0 auto; */
   margin: 10px;
-   background-color: #000;
 }
 
 .control {
