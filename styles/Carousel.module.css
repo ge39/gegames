@@ -17,7 +17,6 @@
   width: 100%;
   padding: 20px 10px;
   scroll-padding: 0 50%;
-  background-color: #000;
 }
 
 .carouselItem {
@@ -27,6 +26,7 @@
   max-width: 300px;
 /*   margin: 0 auto; */
   margin: 10px;
+   background-color: #000;
 }
 
 .control {
