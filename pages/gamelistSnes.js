@@ -65,7 +65,7 @@ export default function GamelistSnes() {
       <main>
         <section id="snesSection">
          {/* Barra de busca e filtro de favoritos */}
-          <div style={{ textAlign: 'center', margin: '20px' }}>
+          <div style={{ textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
 
             <input
               type="text"

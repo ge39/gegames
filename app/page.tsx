@@ -15,7 +15,12 @@ export default function Home() {
       <Navbar />
  
       <style jsx>{`
-
+      #body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0; /* Cor de fundo padrão */
+      }
       #home {
         position: relative;
       }
@@ -93,12 +98,13 @@ export default function Home() {
 
       {/* Home Section */}
        <h1 style={{ padding:"10px",textAlign: 'center', color:'snow',backgroundColor: '#438',
-        fontWeight: 'bold', margin: '1%',marginTop:'70px',borderRadius: '10px', }}>
+        fontWeight: 'bold', margin: '1%',marginTop:'90px',borderRadius: '10px', }}>
             Jogue Clássicos do SNES, Arcade e Mega Drive com Amigos Online
       </h1>
-      
+     <div style={{marginTop:'-70px',marginBottom:'-20px'}}>
+        <Console />
+      </div>  
    <section>
-      <div style={{marginTop:'-70px',marginBottom:'-20px'}}><Console /></div> 
        <NetplayBanner />
     </section>
 <section  

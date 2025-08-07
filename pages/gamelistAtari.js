@@ -67,7 +67,7 @@ export default function GamelistAtari() {
       <main>
         <section id="atariSection">
          {/* Barra de busca e favoritos */}
-          <div style={{ textAlign: 'center', margin: '20px' }}>
+          <div style={{ textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
             <input
               type="text"
               placeholder="Buscar por nome..."

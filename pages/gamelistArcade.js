@@ -57,9 +57,8 @@ export default function Gamelist() {
       <Navbar />
      <Console />
       <main>
-       
         <section id="arcadeSection">
-          <div style={{ textAlign: 'center', margin: '20px' }}>
+          <div style={{ textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
             <input
               type="text"
               placeholder="Buscar por nome..."
