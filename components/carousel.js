@@ -19,6 +19,9 @@ export default function Carousel({ games }) {
 
     const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2;
 
+    // Evita rolagem desnecessária
+    if (Math.abs(container.scrollLeft - scrollPosition) < 5) return;
+
     container.scrollTo({
       left: scrollPosition,
       behavior: 'smooth',
@@ -39,14 +42,14 @@ export default function Carousel({ games }) {
     }
   };
 
-  // Swipe manual com dedo ou mouse (opcional: detecta deslize e atualiza o índice)
+  // Atualiza índice baseado no scroll manual
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || container.children.length === 0) return;
 
     const onScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const itemWidth = container.children[0]?.offsetWidth || 1;
+      const itemWidth = container.children[0].offsetWidth || 1;
       const index = Math.round(scrollLeft / itemWidth);
       setCurrentIndex(index);
     };
@@ -58,14 +61,27 @@ export default function Carousel({ games }) {
     };
   }, []);
 
+  // Suporte às teclas ← e →
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex]);
+
   return (
     <div className={styles.carouselWrapper}>
-      <button className={styles.control} onClick={handlePrev}>&lt;</button>
-
-      <div
-        className={styles.carouselContainer}
-        ref={containerRef}
+      <button
+        className={styles.control}
+        onClick={handlePrev}
+        aria-label="Anterior"
       >
+        &lt;
+      </button>
+
+      <div className={styles.carouselContainer} ref={containerRef}>
         {games.map((game) => (
           <div key={game.id} className={styles.carouselItem}>
             <GameCard game={game} />
@@ -73,7 +89,13 @@ export default function Carousel({ games }) {
         ))}
       </div>
 
-      <button className={styles.control} onClick={handleNext}>&gt;</button>
+      <button
+        className={styles.control}
+        onClick={handleNext}
+        aria-label="Próximo"
+      >
+        &gt;
+      </button>
     </div>
   );
 }
