@@ -17,7 +17,7 @@ export default function ComoJogar() {
   return (
     <>
       <Head>
-      <Navbar />
+      
         <title>Como Jogar | Gegames</title>
         <meta
           name="description"
@@ -27,6 +27,7 @@ export default function ComoJogar() {
 
       
          <div style={{backgroundColor:"#333",marginTop:'10px'}}>
+            <Navbar />
            <Console />
         </div>
       
