@@ -57,18 +57,18 @@ export default function Navbar() {
           <li><Link href="/">Home</Link></li>
 
           <li className={styles.hasSubmenu} onClick={toggleSubmenu} ref={submenuRef}>
-            <span>Jogue Online</span>
+            <span>Consoles</span>
             <ul className={`${styles.submenu} ${submenuOpen ? styles.submenuOpen : ''}`}>
               <li><Link href="/gamelistArcade">Arcade</Link></li>
-              <li><Link href="/gamelistSnes">SNES</Link></li>
+              <li><Link href="/gamelistSnes">Snes</Link></li>
               <li><Link href="/gamelistMegadrive">Mega Drive</Link></li>
               <li><Link href="/gamelistAtari">Atari</Link></li>
-              <li><Link href="/gamelistGba">GBA</Link></li>
-              <li><Link href="/gamelist">Lista</Link></li>
+              <li><Link href="/gamelistGba">Gba</Link></li>
+              <li><Link href="/gamelist">Todos</Link></li>
             </ul>
           </li>
 
-          <li><Link href="/como-jogar">Como Jogar</Link></li>
+          <li><Link href="/como-jogar">Ajuda</Link></li>
           <li><Link href="/#orcamento">Fale Conosco</Link></li>
           <li><Link href="/#nosso-plano">Nossos Planos</Link></li>
           <li><Link href="/#eventos">Eventos</Link></li>
