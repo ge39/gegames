@@ -1,6 +1,7 @@
 /* components/Footer.module.css */
 .footer {
-  background-color: #884b4b;
+/*   background-color: #884b4b; */
+   background-color: #8B0000; /* Vermelho escuro */
   color: #fff;
   text-align: center;
   padding: 5px 0;
