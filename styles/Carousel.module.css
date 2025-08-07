@@ -14,7 +14,6 @@
   scroll-behavior: smooth;
    gap: 24px; /* Aumente esse valor se quiser mais espaço */
   padding: 16px; /* opcional: espaço interno */
-/*   gap: 16px; */
   width: 100%;
   padding: 20px 10px;
   scroll-padding: 0 50%;
@@ -24,7 +23,7 @@
 .carouselItem {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 80%;
+  width: 95%;
   max-width: 300px;
 /*   margin: 0 auto; */
   margin: 10px;
