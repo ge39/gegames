@@ -1,44 +1,90 @@
 .carouselWrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
   position: relative;
+  width: 100%;
   overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .carouselContainer {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-   gap: 24px; /* Aumente esse valor se quiser mais espaço */
-  padding: 16px; /* opcional: espaço interno */
-  width: 100%;
-  padding: 20px 10px;
-  scroll-padding: 0 50%;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 10px 0;
 }
 
 .carouselItem {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 85%;
-/*   max-width: 300px; */
-/*   margin: 0 auto; */
-  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carouselItem:hover {
+  transform: scale(1.05);
 }
 
 .control {
-  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
   border: none;
-  font-size: 2rem;
-  color: #0ff;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  z-index: 10;
-  padding: 0 10px;
-  transition: color 0.3s ease;
+  border-radius: 50%;
 }
 
 .control:hover {
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.control:focus {
+  outline: 2px solid #fff;
+}
+
+.control:first-of-type {
+  left: 10px;
+}
+
+.control:last-of-type {
+  right: 10px;
+}
+
+/* Indicadores (bolinhas) */
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #1e90ff;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+  .carouselItem {
+    min-width: 80%;
+  }
+
+  .control {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
 }
