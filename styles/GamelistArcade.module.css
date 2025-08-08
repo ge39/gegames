@@ -1,80 +1,59 @@
-
-.gamesGrid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 4 colunas por padrão */
-    gap: 15px;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  .gameCard {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    /* background-color: #f9f9f9; */
-    background-color: #000;
-    color:snow
-  }
-  .gameCard:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 30px #0ff;
-  border: 2px solid #0ff;
-}
-  
-.gameImage {
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.arcadeWrapper {
+  padding: 20px;
 }
 
-.gameImage:hover {
-  transform: scale(1.05);
-  /* box-shadow: 0 0 15px #00ffff; */
-   /* box-shadow: 0 0 15px #070bf8; */
-   box-shadow: 0 0 10px #f0f, 0 0 20px #0ff;
-
+.genreSection {
+  margin-bottom: 50px;
 }
 
-  
-  /* Responsividade */
-  @media (max-width: 1024px) {
-    .gamesGrid {
-      grid-template-columns: repeat(5, 1fr); /* 4 colunas em tablets */
-    }
+.genreTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Container do carrossel horizontal */
+.carouselContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #0ff #000;
+}
+
+/* Estilo do scrollbar no Chrome/Edge */
+.carouselContainer::-webkit-scrollbar {
+  height: 8px;
+}
+.carouselContainer::-webkit-scrollbar-track {
+  background: #000;
+}
+.carouselContainer::-webkit-scrollbar-thumb {
+  background: #0ff;
+  border-radius: 10px;
+}
+
+.carouselItem {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 220px; /* largura fixa para os cards */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carouselItem {
+    width: 180px;
   }
-  @media (max-width: 1000px) {
-    .gamesGrid {
-      grid-template-columns: repeat(4, 1fr); /* 2 coluna em celulares pequenos */
-    }
+}
+
+@media (max-width: 500px) {
+  .carouselItem {
+    width: 150px;
   }
-  @media (max-width: 768px) {
-    .gamesGrid {
-      grid-template-columns: repeat(3, 1fr); /* 3 colunas em smartphones médios */
-    }
-  
-    .gameImage {
-      max-width: 100%;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .gamesGrid {
-      grid-template-columns: repeat(2, 1fr); /* 3 colunas em smartphones médios */
-    }
-  
-    .gameImage {
-      max-width: 100%;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .gamesGrid {
-      grid-template-columns: repeat(1, 1fr); /* 2 coluna em celulares pequenos */
-    }
-  }
-  
-    
-  
+}
