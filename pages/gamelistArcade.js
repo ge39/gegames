@@ -1,31 +1,149 @@
-import GameCard from '../components/GameCard.js';
-import styles from '../styles/GamelistArcade.module.css';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import SEOHead from '@/components/SEOHead';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import PeerConnection from '@/components/PeerConnection';
+import WhatsappButton from '@/components/WhatsappButton';
+import Console from '@/components/Console';
+import StarsRating from '@/components/StarsRating';
+// import ArcadeFilter from '@/components/ArcadeFilter';
 
-export default function GamelistArcade({ games }) {
-  // Agrupar os jogos por gênero
-  const gamesByGenre = games.reduce((acc, game) => {
-    if (!acc[game.genre]) {
-      acc[game.genre] = [];
+import { arcadeGames } from '@/data/arcadeGames';
+import styles from '@/styles/GamelistArcade.module.css';
+import '@/styles/Globals.css';
+
+export default function Gamelist() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [favorites, setFavorites] = useState([]);
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('arcadeFavorites');
+      if (stored) {
+        setFavorites(JSON.parse(stored));
+      }
     }
-    acc[game.genre].push(game);
-    return acc;
-  }, {});
+  }, []);
+
+  const toggleFavorite = (id) => {
+    const updated = favorites.includes(id)
+      ? favorites.filter((fav) => fav !== id)
+      : [...favorites, id];
+    setFavorites(updated);
+    localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
+  };
+
+  const isFavorite = (id) => favorites.includes(id);
+
+  const filteredGames = arcadeGames.filter((game) => {
+    const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const isFav = isFavorite(game.id);
+    return matchesSearch && (!showOnlyFavorites || isFav);
+  });
+
+  const seoData = {
+    title: "Jogos Arcade Online | GeGames",
+    description: "Jogue online os melhores jogos arcade dos anos 80 e 90 no GeGames. Clássicos como Metal Slug, Street Fighter, Cadillacs e muito mais!",
+    image: "https://gegames.vercel.app/images/capa-arcade.png",
+    url: "https://gegames.vercel.app/gamelistArcade",
+  };
 
   return (
-    <div className={styles.arcadeWrapper}>
-      {Object.entries(gamesByGenre).map(([genre, gamesInGenre]) => (
-        <section key={genre} className={styles.genreSection}>
-          <h2 className={styles.genreTitle}>{genre}</h2>
+    <>
+      <SEOHead {...seoData} />
+      <Navbar />
+     <Console />
+      <main>
+        <section id="arcadeSection">
+          <div style={{ textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
+            <input
+              type="text"
+              placeholder="Buscar por nome..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                padding: '10px',
+                fontSize: '16px',
+                width: '80%',
+                maxWidth: '500px',
+                borderRadius: '8px',
+                border: '1px solid #ccc',
+                marginBottom: '10px',
+              }}
+            />
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              margin: '10px 0'
+            }}>
+              <button
+                onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+                style={{
+                  padding: '8px 16px',
+                  fontSize: '14px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: showOnlyFavorites ? '#e63946' : '#2a9d8f',
+                  color: '#fff',
+                  cursor: 'pointer',
+                }}
+              >
+                {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
+              </button>
+              <WhatsappButton />
+            </div>
+            <span style={{ color: '#fafafa', fontWeight: 'bold' }}>
+              Lista de Jogos Arcade - {filteredGames.length}
+            </span>
+          </div>
 
-          <div className={styles.carouselContainer}>
-            {gamesInGenre.map((game) => (
-              <div key={game.id} className={styles.carouselItem}>
-                <GameCard game={game} />
+          <div className={styles.gamesGrid}>
+            {filteredGames.map((game) => (
+              <div key={game.id} className={styles.gameCard}>
+               <h5>{game.name}</h5>
+                <Link
+                  href={`/emulation?jogo=${encodeURIComponent(game.path)}&core=${encodeURIComponent(game.core)}`}
+                  passHref
+                >
+                  <Image
+                    src={game.image}
+                    alt={`Capa do jogo ${game.name}`}
+                    className={styles.gameImage}
+                    width={200}
+                    height={200}
+                    priority
+                  />
+                </Link>
+                <h5>
+                  {game.desc}<br />
+                  {game.genre}<br />
+                  Players: {game.players}
+                </h5>
+                <StarsRating rating={game.rating} />⭐
+                 <div>
+                    <button
+                      className={styles.favoriteButton}
+                      onClick={() => toggleFavorite(game.id)}
+                      aria-label={isFavorite(game.id)
+                        ? `Remover ${game.name} dos favoritos`
+                        : `Adicionar ${game.name} aos favoritos`}
+                    >
+                      {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
+                    </button>
+                </div>
               </div>
             ))}
           </div>
         </section>
-      ))}
-    </div>
+      </main>
+      <PeerConnection peerId={null} />
+      <Footer />
+    </>
   );
 }
