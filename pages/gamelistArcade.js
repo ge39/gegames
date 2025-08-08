@@ -1,4 +1,4 @@
-import GameCard from './Game';
+import GameCard from '../components/Game.js';
 import styles from '../styles/GamelistArcade.module.css';
 
 export default function GamelistArcade({ games }) {
