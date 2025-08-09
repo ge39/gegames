@@ -7,12 +7,12 @@ import Footer from "@/components/Footer";
 import PeerConnection from "@/components/PeerConnection";
 import WhatsappButton from "@/components/WhatsappButton";
 import Console from "@/components/Console";
-import Carousel from "@/components/carousel"; // Corrigido para maiúscula
+import Carousel from "@/components/Carousel"; // Corrigido para maiúscula
 import { adultGames } from "@/data/adultGames";
 import "@/styles/Globals.css";
 
 export default function AdultGamesPage() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");  // Descomentei
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
@@ -72,7 +72,7 @@ export default function AdultGamesPage() {
               type="text"
               placeholder="Buscar por nome..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}  // Descomentei e ajustei
               style={{
                 padding: "10px",
                 fontSize: "16px",

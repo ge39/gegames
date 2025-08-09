@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar';
 import '../styles/Globals.css';
 import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
-import { adultGames } from '../data/adultGames';
+// import { adultGames } from '../data/adultGames';
 
 export default function Gamelist() {
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   const checkPassword = () => {
@@ -24,9 +24,9 @@ export default function Gamelist() {
     checkPassword();
   }, []);
 
-  const filteredGames = adultGames.filter((game) =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredGames = adultGames.filter((game) =>
+  //   game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   if (!isAuthorized) {
     return (
