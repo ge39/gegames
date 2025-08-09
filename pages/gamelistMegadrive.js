@@ -1,18 +1,17 @@
-import Link from 'next/link';
+// pages/gamelistArcade.js
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import PeerConnection from '../components/PeerConnection';
+import SEOHead from '@/components/SEOHead';
+import { seoData } from '@/data/seoData';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import SEOHead from '@/components/SEOHead';
-import { megadriveGames } from '../data/MegadriveGames';
-import StarsRating from '@/components/StarsRating';
-import styles from '../styles/GamelistArcade.module.css';
-import '../styles/Globals.css';
+import Carousel from '@/components/Carousel';
+import { megadriveGames } from '@/data/MegadriveGames';
+import '@/styles/Globals.css';
 
-export default function Gamelist() {
+export default function GamelistMegadrive() {
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
@@ -20,52 +19,46 @@ export default function Gamelist() {
   // Carrega favoritos do localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('megadriveFavorites');
-      if (stored) {
-        setFavorites(JSON.parse(stored));
-      }
+      const stored = localStorage.getItem('arcadeFavorites');
+      if (stored) setFavorites(JSON.parse(stored));
     }
   }, []);
 
-  // Adiciona ou remove jogo dos favoritos
   const toggleFavorite = (id) => {
-    let updated;
-    if (favorites.includes(id)) {
-      updated = favorites.filter((fav) => fav !== id);
-    } else {
-      updated = [...favorites, id];
-    }
+    const updated = favorites.includes(id)
+      ? favorites.filter((fav) => fav !== id)
+      : [...favorites, id];
     setFavorites(updated);
-    localStorage.setItem('megadriveFavorites', JSON.stringify(updated));
+    localStorage.setItem('arcadeFavorites', JSON.stringify(updated));
   };
 
-  // Verifica se um jogo é favorito
   const isFavorite = (id) => favorites.includes(id);
 
-  // Filtra os jogos por nome e favoritos (se ativado)
+  // Filtra jogos por busca e favoritos
   const filteredGames = megadriveGames.filter((game) => {
     const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
     const isFav = isFavorite(game.id);
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
 
+  // Agrupa os jogos filtrados por gênero (genre)
+  const gamesByGenre = filteredGames.reduce((acc, game) => {
+    if (!acc[game.genre]) {
+      acc[game.genre] = [];
+    }
+    acc[game.genre].push(game);
+    return acc;
+  }, {});
+
+
   return (
     <>
-      <SEOHead
-        title="Jogos Mega Drive Online | GeGames"
-        description="Jogue online os clássicos do Sega Mega Drive! Relembre títulos como Sonic, Streets of Rage, Golden Axe e muito mais direto no seu navegador."
-        keywords="mega drive, sega, sonic, streets of rage, golden axe, jogos antigos, retro games, gegames, jogar online"
-        image="https://gegames.vercel.app/images/capa-megadrive.png"
-        url="https://gegames.vercel.app/gamelistMegadrive"
-      />
-
+      <SEOHead {...seoData.megadrive} />
       <Navbar />
       <Console />
-          
       <main>
-        <section id="megaSection">
-         {/* Barra de busca e favoritos */}
-          <div style={{textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
+        <section id="arcadeSection" style={{ padding: '0 10px' }}>
+          <div style={{ textAlign: 'center', margin: '10px 0' }}>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -81,9 +74,14 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', margin: '0px' }}>
-                {/* mostra os favoritos */}
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              marginBottom: '10px',
+            }}>
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
@@ -95,63 +93,31 @@ export default function Gamelist() {
                   color: '#fff',
                   cursor: 'pointer',
                 }}
-                >
+              >
                 {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
-                <div><WhatsappButton /></div>
-                  
-              </div>
-              <span style={{ color: '#fafafa', fontWeight: 'bold', margin: '10px 0' }}>Lista de Jogos Megadrive - {filteredGames.length}</span>
+              <WhatsappButton />
+            </div>
+            <span style={{ color: '#fafafa', fontWeight: 'bold' }}>
+              Jogos encontrados: {filteredGames.length}
+            </span>
           </div>
 
-          {/* Lista de jogos */}
-          <div className={styles.gamesGrid}>
-            {filteredGames.map((game) => (
-              <div key={game.id} className={styles.gameCard}>
-                 <h5>{game.name}</h5>
-                <Link
-                  href={`/emulation?jogo=${encodeURIComponent(
-                    game.path
-                  )}&core=${encodeURIComponent(game.core)}`}
-                  passHref
-                >
-                    <Image
-                      src={game.image}
-                      alt={`Capa do jogo ${game.name}`}
-                      className={styles.gameImage}
-                      width={200}
-                      height={200}
-                      priority
-                    />
-                    
-                  </Link>
-                     <h5>
-                      {game.desc}
-                      <br />
-                      {game.genre}
-                      <br />
-                      Players: {game.players}
-                    </h5>
-                    <div>
-                        <StarsRating rating={game.rating} />⭐
-                    </div>
-                <button
-                  className={styles.favoriteButton}
-                  onClick={() => toggleFavorite(game.id)}
-                  aria-label={
-                    isFavorite(game.id)
-                      ? `Remover ${game.name} dos favoritos`
-                      : `Adicionar ${game.name} aos favoritos`
-                  }
-                >
-                  {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
-                </button>
-              </div>
-            ))}
-          </div>
+          {/* Exibe um carrossel para cada gênero */}
+          {Object.entries(gamesByGenre).map(([genre, games]) => (
+            <section key={genre} style={{ marginBottom: '40px' }}>
+              <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
+              <Carousel games={games.map(game => ({
+                ...game,
+                // Adiciona propriedades para controle de favorito no GameCard via prop extra
+                isFavorite: isFavorite(game.id),
+                toggleFavorite,
+              }))} />
+            </section>
+          ))}
+
         </section>
       </main>
-
       <PeerConnection peerId={null} />
       <Footer />
     </>

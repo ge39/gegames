@@ -84,7 +84,12 @@ export default function Carousel({ games }) {
       <div className={styles.carouselContainer} ref={containerRef}>
         {games.map((game) => (
           <div key={game.id} className={styles.carouselItem}>
-            <GameCard game={game} />
+            {/* Passa as props de favorito para o GameCard */}
+            <GameCard 
+              game={game} 
+              isFavorite={game.isFavorite} 
+              toggleFavorite={game.toggleFavorite} 
+            />
           </div>
         ))}
       </div>

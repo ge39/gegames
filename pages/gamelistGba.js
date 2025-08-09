@@ -1,71 +1,60 @@
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import PeerConnection from '../components/PeerConnection';
+import SEOHead from '@/components/SEOHead';
+import { seoData } from '@/data/seoData';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import SEOHead from '@/components/SEOHead';
-import { gbaGames } from '../data/gbaGames';
-import StarsRating from '@/components/StarsRating';
-import styles from '../styles/GamelistArcade.module.css';
-import '../styles/Globals.css';
+import Carousel from '@/components/Carousel';
+import { gbaGames } from '@/data/gbaGames';
+import '@/styles/Globals.css';
 
-export default function Gamelist() {
+export default function GamelistArcade() {
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
-  // Carrega favoritos do localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('gbaFavorites');
-      if (stored) {
-        setFavorites(JSON.parse(stored));
-      }
+      const stored = localStorage.getItem('atariFavorites');
+      if (stored) setFavorites(JSON.parse(stored));
     }
   }, []);
 
-  // Adiciona ou remove jogo dos favoritos
   const toggleFavorite = (id) => {
-    let updated;
-    if (favorites.includes(id)) {
-      updated = favorites.filter((fav) => fav !== id);
-    } else {
-      updated = [...favorites, id];
-    }
+    const updated = favorites.includes(id)
+      ? favorites.filter((fav) => fav !== id)
+      : [...favorites, id];
     setFavorites(updated);
-    localStorage.setItem('gbaFavorites', JSON.stringify(updated));
+    localStorage.setItem('atariFavorites', JSON.stringify(updated));
   };
 
-  // Verifica se um jogo é favorito
   const isFavorite = (id) => favorites.includes(id);
 
-  // Filtra os jogos por nome e favoritos (se ativado)
   const filteredGames = gbaGames.filter((game) => {
     const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
     const isFav = isFavorite(game.id);
     return matchesSearch && (!showOnlyFavorites || isFav);
   });
 
+  // Agrupa os jogos filtrados por gênero (genre)
+  const gamesByGenre = filteredGames.reduce((acc, game) => {
+    if (!acc[game.genre]) {
+      acc[game.genre] = [];
+    }
+    acc[game.genre].push(game);
+    return acc;
+  }, {});
+
   return (
     <>
-      <SEOHead
-        title="Jogos GBA Online | GeGames"
-        description="Jogue online os melhores títulos do Game Boy Advance! Reviva clássicos como Pokémon, Metroid, Mario Kart, Castlevania e outros diretamente no seu navegador."
-        keywords="gba, game boy advance, jogos gba online, pokémon, metroid, mario, castlevania, retro games, gegames"
-        image="https://gegames.vercel.app/images/capa-gba.png"
-        url="https://gegames.vercel.app/gamelistGba"
-      />
-
+      <SEOHead {...seoData.gba} />
       <Navbar />
       <Console />
-          
       <main>
-        <section id="gbaSection">
-          {/* Barra de busca e favoritos */}
-          <div style={{ textAlign: 'center', marginTop: '-10px',marginBottom: '10px', padding: '0px' }}>
+        <section id="atariSection" style={{ padding: '0 10px' }}>
+          <div style={{ textAlign: 'center', margin: '10px 0' }}>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -81,10 +70,14 @@ export default function Gamelist() {
                 marginBottom: '10px',
               }}
             />
-           
-
-           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', margin: '0px' }}>
-              {/* mostra os favoritos */}
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              marginBottom: '10px',
+            }}>
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
@@ -99,61 +92,30 @@ export default function Gamelist() {
               >
                 {showOnlyFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos'}
               </button>
-              <div><WhatsappButton /></div>
-              
+              <WhatsappButton />
             </div>
-            <span style={{ color: '#fafafa', fontWeight: 'bold', margin: '10px 0' }}>Lista de Jogos GBA - {filteredGames.length}</span>
+            <span style={{ color: '#fafafa', fontWeight: 'bold' }}>
+              Jogos encontrados: {filteredGames.length}
+            </span>
           </div>
 
-          {/* Lista de jogos */}
-          <div className={styles.gamesGrid}>
-            {filteredGames.map((game) => (
-              <div key={game.id} className={styles.gameCard}>
-                <Link
-                  href={`/emulation?jogo=${encodeURIComponent(
-                    game.path
-                  )}&core=${encodeURIComponent(game.core)}`}
-                  passHref
-                >
-                
-                    <h5>{game.name}</h5>
-                    <Image
-                      src={game.image}
-                      alt={`Capa do jogo ${game.name}`}
-                      className={styles.gameImage}
-                      width={200}
-                      height={200}
-                      priority
-                    />
-                    
-                  </Link>
-                    <h5>
-                      {game.desc}
-                      <br />
-                      {game.genre}
-                      <br />
-                      Players: {game.players}
-                    </h5>
-                    <div>
-                      <StarsRating rating={game.rating} />⭐
-                    </div>
-                <button
-                  className={styles.favoriteButton}
-                  onClick={() => toggleFavorite(game.id)}
-                  aria-label={
-                    isFavorite(game.id)
-                      ? `Remover ${game.name} dos favoritos`
-                      : `Adicionar ${game.name} aos favoritos`
-                  }
-                >
-                  {isFavorite(game.id) ? '💔 Remover' : '❤️ Favoritar'}
-                </button>
-              </div>
-            ))}
-          </div>
+          {/* Carrossel por gênero */}
+          {Object.entries(gamesByGenre).map(([genre, games]) => (
+            
+            <section key={genre} style={{ margin: '0px' }}>
+              <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
+              <Carousel
+                games={games.map(game => ({
+                  ...game,
+                  isFavorite: isFavorite(game.id),
+                  toggleFavorite,
+                }))}
+              />
+            </section>
+          ))}
+
         </section>
       </main>
-
       <PeerConnection peerId={null} />
       <Footer />
     </>
