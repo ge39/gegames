@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
@@ -6,7 +6,7 @@ export default function Carousel({ games }) {
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const scrollToIndex = (index) => {
+  const scrollToIndex = useCallback((index) => {
     const container = containerRef.current;
     if (!container) return;
 
@@ -19,7 +19,6 @@ export default function Carousel({ games }) {
 
     const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2.5;
 
-    // Evita rolagem desnecessária
     if (Math.abs(container.scrollLeft - scrollPosition) < 5) return;
 
     container.scrollTo({
@@ -28,19 +27,19 @@ export default function Carousel({ games }) {
     });
 
     setCurrentIndex(index);
-  };
+  }, []);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
       scrollToIndex(currentIndex - 1);
     }
-  };
+  }, [currentIndex, scrollToIndex]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentIndex < games.length - 1) {
       scrollToIndex(currentIndex + 1);
     }
-  };
+  }, [currentIndex, games.length, scrollToIndex]);
 
   // Atualiza índice baseado no scroll manual
   useEffect(() => {
@@ -55,7 +54,6 @@ export default function Carousel({ games }) {
     };
 
     container.addEventListener('scroll', onScroll, { passive: true });
-
     return () => {
       container.removeEventListener('scroll', onScroll);
     };
@@ -69,7 +67,7 @@ export default function Carousel({ games }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex]);
+  }, [handlePrev, handleNext]);
 
   return (
     <div className={styles.carouselWrapper}>
@@ -84,7 +82,6 @@ export default function Carousel({ games }) {
       <div className={styles.carouselContainer} ref={containerRef}>
         {games.map((game) => (
           <div key={game.id} className={styles.carouselItem}>
-            {/* Passa as props de favorito para o GameCard */}
             <GameCard 
               game={game} 
               isFavorite={game.isFavorite} 
