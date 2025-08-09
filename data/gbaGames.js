@@ -3,18 +3,6 @@ import { useState, useEffect } from "react";
 
 export const gbaGames = [
   {
-    id: "4",
-    name: "Advance Wars",
-    path: "gba/Advance Wars.gba",
-    core: "gba",
-    genre: "Estratégia",
-    desc: "Jogo de estratégia militar baseado em turnos com gráficos coloridos e profundidade tática.",
-    image: "/images/games/gba/Advance Wars.webp",
-    rating: 4.5,
-    players: "2",
-    releasedate: "2001-09-10"
-  },
-  {
     id: "19",
     name: "Boktai: The Sun Is in Your Hand",
     path: "gba/Boktai - The Sun is in Your Hand.gba",
@@ -241,5 +229,17 @@ export const gbaGames = [
     rating: 4.5,
     players: "1",
     releasedate: "2001-11-19"
+  },
+  {
+    id: "4",
+    name: "Advance Wars",
+    path: "gba/Advance Wars.gba",
+    core: "gba",
+    genre: "Estratégia",
+    desc: "Jogo de estratégia militar baseado em turnos com gráficos coloridos e profundidade tática.",
+    image: "/images/games/gba/Advance Wars.webp",
+    rating: 4.5,
+    players: "2",
+    releasedate: "2001-09-10"
   }
 ];

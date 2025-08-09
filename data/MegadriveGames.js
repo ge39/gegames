@@ -1,44 +1,5 @@
 export const megadriveGames = [
   {
-    id: "md1",
-    path: "megadrive/Sonic the Hedgehog 3 (U) [!].zip",
-    core: "segaMD",
-    name: "Sonic the Hedgehog",
-    desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
-    image: "/images/games/megadrive/Sonic the Hedgehog (JUE) [!]-thumb.jpg",
-    alt: "Sonic the Hedgehog Cover Art",
-    rating: 4.5,
-    players: "1-2",
-    releasedate: "1991-06-23",
-    genre: "Plataforma"
-  },
-  {
-    id: "md2",
-    path: "megadrive/Streets of Rage (JUE) [!].zip",
-    core: "segaMD",
-    name: "Streets of Rage",
-    desc: "Um jogo de luta side-scrolling onde o jogador deve derrotar gangues criminosas para salvar a cidade.",
-    image: "/images/games/megadrive/Streets of Rage (JUE) [!]-thumb.jpg",
-    alt: "Streets of Rage Cover Art",
-    rating: 4.3,
-    players: "1-2",
-    releasedate: "1991-08-02",
-    genre: "Luta de Rua"
-  },
-  {
-    id: "md3",
-    path: "megadrive/Streets of Rage 2 (U).zip",
-    core: "segaMD",
-    name: "Streets of Rage 2",
-    desc: "A sequência de Streets of Rage, oferecendo novos personagens, movimentos e uma jogabilidade mais refinada.",
-    image: "/images/games/megadrive/Streets of Rage 2 (U) [!]-thumb.jpg",
-    alt: "Streets of Rage 2 Cover Art",
-    rating: 4.8,
-    players: "1-2",
-    releasedate: "1992-12-20",
-    genre: "Luta de Rua"
-  },
-  {
     id: "md4",
     path: "megadrive/Comix Zone (4) [!].zip",
     core: "segaMD",
@@ -52,7 +13,20 @@ export const megadriveGames = [
     genre: "Plataforma"
   },
   {
-    id: "md5",
+  id: "md12",
+  path: "megadrive/Earthworm Jim (U) [!].zip",
+  core: "segaMD",
+  name: "Earthworm Jim",
+  desc: "Earthworm Jim é um jogo de plataforma e ação com humor irreverente; o jogador controla um verme num traje espacial que enfrenta inimigos e percorre fases criativas e variadas.",
+  image: "/images/games/megadrive/Earthworm Jim (U) [!]-thumb.jpg",
+  alt: "Earthworm Jim Cover Art",
+  rating: 4.4,
+  players: "1",
+  releasedate: "1994",
+  genre: "Plataforma"
+},
+{
+  id: "md5",
     path: "megadrive/Altered Beast (REV 02) (JU).zip",
     core: "segaMD",
     name: "Altered Beast",
@@ -77,5 +51,109 @@ export const megadriveGames = [
     releasedate: "1989-04-29",
     genre: "RPG"
   },
-  // E assim por diante para os demais jogos...
+  {
+    id: "md7",
+    path: "megadrive/Show do Milhao (Brazil).zip",
+    core: "segaMD",
+    name: "Show do Milhão",
+    desc: "Jogo baseado no famoso programa de TV brasileiro, onde o jogador responde perguntas para acumular prêmios virtuais.",
+    image: "/images/games/megadrive/Show do Milhao (Brazil)-thumb.jpg",
+    alt: "Show do Milhão Cover Art",
+    rating: 4.2,
+    players: "1",
+    releasedate: "2001-01-01",
+    genre: "Quiz"
+  },
+  {
+    id: "md8",
+    path: "megadrive/Show do Milhao Volume 2 (Brazil).zip",
+    core: "segaMD",
+    name: "Show do Milhão Volume 2",
+    desc: "Continuação do game de perguntas e respostas baseado no programa de TV brasileiro, com novas questões e desafios.",
+    image: "/images/games/megadrive/Show do Milhao Volume 2 (Brazil)-thumb.jpg",
+    alt: "Show do Milhão Volume 2 Cover Art",
+    rating: 4.3,
+    players: "1",
+    releasedate: "2002-01-01",
+    genre: "Quiz"
+  },
+  {
+    id: "md9",
+    path: "megadrive/Sonic the Hedgehog (JUE) [!].zip",
+    core: "segaMD",
+    name: "Sonic the Hedgehog",
+    desc: "O primeiro jogo da famosa franquia, onde Sonic corre por fases repletas de inimigos e obstáculos para derrotar o Dr. Robotnik.",
+    image: "/images/games/megadrive/Sonic the Hedgehog (JUE) [!]-thumb.jpg",
+    alt: "Sonic the Hedgehog Cover Art",
+    rating: 4.6,
+    players: "1",
+    releasedate: "1991-06-23",
+    genre: "Plataforma"
+  },
+  {
+    id: "md1",
+    path: "megadrive/Sonic the Hedgehog 3 (U) [!].zip",
+    core: "segaMD",
+    name: "Sonic the Hedgehog 3",
+    desc: "Sonic é um jogo de plataforma em que o personagem principal, Sonic, deve derrotar o vilão Dr. Robotnik.",
+    image: "/images/games/megadrive/Sonic the Hedgehog (JUE) [!]-thumb.jpg",
+    alt: "Sonic the Hedgehog Cover Art",
+    rating: 4.5,
+    players: "1-2",
+    releasedate: "1991-06-23",
+    genre: "Plataforma"
+  },
+  {
+    id: "md10",
+    path: "megadrive/Streets of Rage (JUE) [!].zip",
+    core: "segaMD",
+    name: "Streets of Rage",
+    desc: "Clássico beat 'em up onde três heróis lutam contra o sindicato do crime para libertar a cidade.",
+    image: "/images/games/megadrive/Streets of Rage (JUE) [!]-thumb.jpg",
+    alt: "Streets of Rage Cover Art",
+    rating: 4.3,
+    players: "1-2",
+    releasedate: "1991-08-02",
+    genre: "Luta de Rua"
+  },
+  {
+    id: "md11",
+    path: "megadrive/Streets of Rage 2 (U).zip",
+    core: "segaMD",
+    name: "Streets of Rage 2",
+    desc: "A sequência traz novos personagens e golpes, além de gráficos e trilha sonora aprimorados.",
+    image: "/images/games/megadrive/Streets of Rage 2 (U) [!]-thumb.jpg",
+    alt: "Streets of Rage 2 Cover Art",
+    rating: 4.8,
+    players: "1-2",
+    releasedate: "1992-12-20",
+    genre: "Luta de Rua"
+  },
+  {
+  id: "md14",
+  path: "megadrive/Golden Axe (REV 00) (JU).zip",
+  core: "segaMD",
+  name: "Golden Axe",
+  desc: "Golden Axe é um jogo de ação e luta ambientado em um mundo de fantasia medieval, onde heróis enfrentam o vilão Death Adder para salvar o reino.",
+  image: "/images/games/megadrive/Golden Axe (REV 00) (JU) [!]-thumb.jpg",
+  alt: "Golden Axe Cover Art",
+  rating: 4.5,
+  players: "1-2",
+  releasedate: "1989-12-23",
+  genre: "Ação"
+},
+  {
+  id: "md13",
+  path: "megadrive/Columns (REV 00) (JU).zip",
+  core: "segaMD",
+  name: "Columns",
+  desc: "Columns é um jogo de puzzle onde o jogador deve alinhar joias de cores iguais para eliminá-las e marcar pontos, em um estilo semelhante a Tetris.",
+  image: "/images/games/megadrive/Columns (REV 00) (JU)-thumb.jpg",
+  alt: "Columns Cover Art",
+  rating: 4.1,
+  players: "1-2",
+  releasedate: "1990-06-30",
+  genre: "Puzzle"
+}
 ];
+

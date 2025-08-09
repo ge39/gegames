@@ -1,19 +1,5 @@
 export const arcadeGames = [
-  {
-    id: "37385",
-    path: "fliperama/1944.zip",
-    core: "arcade",
-    bios: "",
-    name: "1944 : THE LOOP MASTER",
-    desc: "O jogo se passa nas acaloradas batalhas de 1944, durante a Segunda Guerra Mundial...",
-    image: "/images/games/arcade/1944-image.webp",
-    alt: "1944: The Loop Master Cover Art",
-    players: "1-2",
-    releasedate: "2000-06-20",
-    genre: "Nave",
-    rating: 8.1
-  },
-  {
+   {
     id: "42982",
     path: "fliperama/sf2.zip",
     core: "fbneo",
@@ -124,6 +110,59 @@ export const arcadeGames = [
     releasedate: "1991-01-01",
     genre: "Tiro",
     rating: 7.8
+  },
+  {
+    id: "blaztar",
+    path: "fliperama/blazstar.zip",
+    core: "hbmame",
+    name: "Blazing Star",
+    desc: "Shoot 'em up clássico da SNK com visual impressionante e jogabilidade intensa no estilo side-scrolling.",
+    image: "/images/games/arcade/blazstar-image.webp",
+    alt: "Blazing Star Cover Art",
+    players: "1-2",
+    releasedate: "1998",
+    rating: 4.5,
+    genre: "Nave"
+  },
+  {
+    id: "raiden",
+    path: "fliperama/raiden.zip",
+    core: "mame2003",
+    name: "Raiden",
+    desc: "Vertical shooter clássico com naves, power-ups e chefes gigantes. Ícone dos anos 90.",
+    image: "/images/games/arcade/raiden-image.webp",
+    alt: "Raiden Cover Art",
+    players: "1-2",
+    releasedate: "1990",
+    rating: 4.4,
+    genre: "Nave"
+  },
+   {
+    id: "s1945p",
+    path: "fliperama/s1945p.zip",
+    core: "hbmame",
+    name: "Strikers 1945 Plus",
+    desc: "Versão Neo Geo da famosa franquia de tiro vertical com aviões da Segunda Guerra Mundial.",
+    image: "/images/games/arcade/s1945p-image.webp",
+    alt: "Strikers 1945 Plus Cover Art",
+    players: "1-2",
+    releasedate: "1999",
+    rating: 4.3,
+    genre: "Nave"
+  },
+   {
+    id: "37385",
+    path: "fliperama/1944.zip",
+    core: "arcade",
+    bios: "",
+    name: "1944 : THE LOOP MASTER",
+    desc: "O jogo se passa nas acaloradas batalhas de 1944, durante a Segunda Guerra Mundial...",
+    image: "/images/games/arcade/1944-image.webp",
+    alt: "1944: The Loop Master Cover Art",
+    players: "1-2",
+    releasedate: "2000-06-20",
+    genre: "Nave",
+    rating: 8.1
   },
   {
     id: "37367",
@@ -334,19 +373,7 @@ export const arcadeGames = [
     rating: 4.2,
     genre: "Tiro"
   },
-  {
-    id: "blaztar",
-    path: "fliperama/blazstar.zip",
-    core: "hbmame",
-    name: "Blazing Star",
-    desc: "Shoot 'em up clássico da SNK com visual impressionante e jogabilidade intensa no estilo side-scrolling.",
-    image: "/images/games/arcade/blazstar-image.webp",
-    alt: "Blazing Star Cover Art",
-    players: "1-2",
-    releasedate: "1998",
-    rating: 4.5,
-    genre: "Nave"
-  },
+  
   {
     id: "gng",
     path: "fliperama/gng.zip",
@@ -400,19 +427,6 @@ export const arcadeGames = [
     genre: "Corrida"
   },
   {
-    id: "raiden",
-    path: "fliperama/raiden.zip",
-    core: "mame2003",
-    name: "Raiden",
-    desc: "Vertical shooter clássico com naves, power-ups e chefes gigantes. Ícone dos anos 90.",
-    image: "/images/games/arcade/raiden-image.webp",
-    alt: "Raiden Cover Art",
-    players: "1-2",
-    releasedate: "1990",
-    rating: 4.4,
-    genre: "Nave"
-  },
-  {
     id: "rotd",
     path: "fliperama/rotd.zip",
     core: "mame2003",
@@ -424,19 +438,6 @@ export const arcadeGames = [
     releasedate: "2002",
     rating: 4.1,
     genre: "Luta"
-  },
-  {
-    id: "s1945p",
-    path: "fliperama/s1945p.zip",
-    core: "hbmame",
-    name: "Strikers 1945 Plus",
-    desc: "Versão Neo Geo da famosa franquia de tiro vertical com aviões da Segunda Guerra Mundial.",
-    image: "/images/games/arcade/s1945p-image.webp",
-    alt: "Strikers 1945 Plus Cover Art",
-    players: "1-2",
-    releasedate: "1999",
-    rating: 4.3,
-    genre: "Nave"
   },
   {
     id: "sgemf",
@@ -451,4 +452,5 @@ export const arcadeGames = [
     rating: 4.0,
     genre: "Luta"
   }
+  
 ];

@@ -50,7 +50,7 @@ export const snesGames = [
     rating: 4.4,
     players: "2",
     releasedate: "1995-09-08",
-    genre: "Ação"
+    genre: "Luta de Rua"
   },
   {
     id: "ct1",
@@ -90,19 +90,6 @@ export const snesGames = [
     players: "1",
     releasedate: "1994-10-06",
     genre: "Ação"
-  },
-  {
-    id: "ds",
-    path: "snes/Desert Strike - Return to the Gulf (USA).zip",
-    core: "snes",
-    name: "Desert Strike: Return to the Gulf",
-    desc: "Desert Strike é um jogo de tiro isométrico onde o jogador pilota um helicóptero de combate em missões no Golfo Pérsico para enfrentar forças inimigas.",
-    image: "/images/games/snes/Desert Strike - Return to the Gulf (USA)-thumb.webp",
-    alt: "Desert Strike: Return to the Gulf Cover Art",
-    rating: 4.5,
-    players: "1",
-    releasedate: "1992-12-01",
-    genre: "Tiro"
   },
   {
     id: "dkc1",
@@ -271,7 +258,7 @@ export const snesGames = [
     rating: 4.3,
     players: "1",
     releasedate: "1994-07-01",
-    genre: "RPG/Ação"
+    genre: "RPG"
   },
   {
     id: "jp1",
@@ -336,7 +323,7 @@ export const snesGames = [
     rating: 4.7,  // 0.94 * 5 = 4.7
     players: "1",
     releasedate: "1993-12-17",
-    genre: "Ação/Plataforma"
+    genre: "Ação"
   },
   {
     id: "mk3",
@@ -362,7 +349,7 @@ export const snesGames = [
     rating: 4.6,  // 0.91 * 5 = 4.6
     players: "1",
     releasedate: "1995-03-10",
-    genre: "Estratégia/Tática"
+    genre: "RPG"
   },
   {
     id: "pb",
@@ -388,7 +375,7 @@ export const snesGames = [
     rating: 4.4,  // 0.87 * 5 = 4.35 arredondei para 4.4
     players: "1-5",
     releasedate: "1994-11-14",
-    genre: "Ação/Estratégia"
+    genre: "Ação"
   },
   {
     id: "sc4",
@@ -401,7 +388,7 @@ export const snesGames = [
     rating: 4.6,  // 0.91 * 5 = 4.6
     players: "1",
     releasedate: "1991-10-01",
-    genre: "Ação/Plataforma"
+    genre: "Ação"
   },
   {
     id: "smk",
@@ -453,7 +440,7 @@ export const snesGames = [
     rating: 4.7,  // 0.93 * 5 = 4.65 arredondei para 4.7
     players: "1",
     releasedate: "1994-03-19",
-    genre: "Ação/Aventura"
+    genre: "Ação"
   },
   {
     id: "spo",
@@ -466,7 +453,7 @@ export const snesGames = [
     rating: 4.4,  // 0.88 * 5 = 4.4
     players: "1-2",
     releasedate: "1994-03-01",
-    genre: "Esporte/Luta"
+    genre: "Luta"
   },
   {
     id: "srtype",
@@ -479,7 +466,7 @@ export const snesGames = [
     rating: 4.5,  // 0.89 * 5 = 4.45 arredondei para 4.5
     players: "1",
     releasedate: "1991-11-01",
-    genre: "Nave"
+    genre: "Nave Tiro"
   },
   {
     id: "snes-starfox",
@@ -492,7 +479,7 @@ export const snesGames = [
     rating: 4.6,  // 0.92 * 5 = 4.6
     players: "1",
     releasedate: "1993-02-21",
-    genre: "Nave"
+    genre: "Nave Tiro"
   },
   {
     id: "snes-sfa2",
@@ -531,7 +518,7 @@ export const snesGames = [
     rating: 4.3,  // 0.85 * 5 = 4.25 arredondei para 4.3
     players: "1",
     releasedate: "1995-11-13",
-    genre: "Ação/Tiro"
+    genre: "Ação"
   },
   {
     id: "tmnt4",
@@ -622,6 +609,19 @@ export const snesGames = [
     rating: 4.0,  // 0.80 * 5 = 4.0
     players: "1-2",
     releasedate: "1992-12-01",
-    genre: "Combate Aéreo"
-  }
+    genre: "Nave Tiro"
+  },
+  {
+    id: "ds",
+    path: "snes/Desert Strike - Return to the Gulf (USA).zip",
+    core: "snes",
+    name: "Desert Strike: Return to the Gulf",
+    desc: "Desert Strike é um jogo de tiro isométrico onde o jogador pilota um helicóptero de combate em missões no Golfo Pérsico para enfrentar forças inimigas.",
+    image: "/images/games/snes/Desert Strike - Return to the Gulf (USA)-thumb.webp",
+    alt: "Desert Strike: Return to the Gulf Cover Art",
+    rating: 4.5,
+    players: "1",
+    releasedate: "1992-12-01",
+    genre: "Nave Tiro"
+  },
 ];
