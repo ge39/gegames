@@ -1,14 +1,9 @@
 import Head from 'next/head';
-// import Link from 'next/link';
 import Navbar from '../components/Navbar';
-import styles from '../styles/GamelistArcade.module.css';
 import '../styles/Globals.css';
 import Footer from '../components/Footer';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { adultGames } from '../data/adultGames';
-import WhatsappButton from '@/components/WhatsappButton';
-import Console from '@/components/Console';
 
 export default function Gamelist() {
   const [searchTerm, setSearchTerm] = useState('');
