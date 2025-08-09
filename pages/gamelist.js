@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from "next/head";
-import Carousel from '../components/carousel';
+import Carousel from '../components/Carousel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
