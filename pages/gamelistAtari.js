@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import Carousel from '@/components/Carousel';
+import Carousel from '@/components/Carousel'; // Corrigido para maiúscula
 import { atariGames } from '@/data/atariGames';
 import '@/styles/Globals.css';
 
