@@ -97,8 +97,8 @@ export default function GamelistArcade() {
               </button>
               <WhatsappButton />
             </div>
-            <span style={{ color: '#fafafa', fontWeight: 'bold' }}>
-              Jogos encontrados: {filteredGames.length}
+            <span style={{ color: '#FFD700', fontWeight: 'bold' }}>
+              ARCADE: {filteredGames.length} JOGOS
             </span>
           </div>
 

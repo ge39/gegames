@@ -65,9 +65,10 @@ export default function Gamelist() {
       <main>
         <section id="arcadeSection">
          
-         <Console />
+          
+         {/* <Console /> */}
 
-          <div style={{ textAlign: 'center', margin: '20px' }}>
+          {/* <div style={{ textAlign: 'center', margin: '20px' }}>
             <input
               type="text"
               placeholder="Buscar por nome..."
@@ -106,10 +107,12 @@ export default function Gamelist() {
                 </a>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
+         
       </main>
-      <Footer />
+       
+      {/* <Footer /> */}
     </>
   );
 }

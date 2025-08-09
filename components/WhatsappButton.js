@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const WhatsappButton = ({ phone = "5511975145360", message = "Olá, Deixe um comentário, ou Faça uma solicitação!" }) => {
+const WhatsappButton = ({ phone = "5511975145360", message = "Olá, Deixe um comentário,Sugestão ou solicite senha para os Games Eróticos!" }) => {
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/${phone}?text=${encodedMessage}`;
 
@@ -17,7 +17,7 @@ const WhatsappButton = ({ phone = "5511975145360", message = "Olá, Deixe um com
           alignItems: "center",
           textDecoration: "none",
           backgroundColor: "#25D366",
-          color: "white",
+          color: "#000",
           padding: "8px 12px",
           borderRadius: "5px",
           fontWeight: "bold",

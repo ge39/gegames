@@ -1,3 +1,5 @@
+import { adultGames } from "./adultGames";
+
 export const seoData = {
   atari: {
     title: "Jogos Atari Online | GeGames",
@@ -33,5 +35,12 @@ export const seoData = {
     keywords: "megadrive, genesis, jogos megadrive, jogar online, sonic, streets of rage",
     image: "https://gegames.vercel.app/logo/megadrive.png",
     url: "https://gegames.vercel.app/gamelistMegadrive",
+  },
+  adultGames: {
+    title: "Jogos Adultos Arcade Online | GeGames 18+",
+    description: "Explore jogos retrô adultos em estilo arcade. Títulos raros e nostálgicos para maiores de 18 anos, jogáveis diretamente no navegador.",
+    keywords: "jogos adultos, arcade adulto, retrô 18+, gegames adultos, jogos proibidos, fliperama 18+, nostálgicos",
+    image: "https://gegames.vercel.app/images/capa-adult.png",
+    url: "https://gegames.vercel.app/logo/adult-games",
   },
 };

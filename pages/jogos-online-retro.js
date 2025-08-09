@@ -489,21 +489,21 @@ export default function Gamelist() {
 
         <section id="snesSection">
             <Link href="/gamelistSnes">
-              <h2>Super Nintendo</h2>
+              <h2 style={{ color: '#FFD700' }}>Super Nintendo</h2>
             </Link>
           <Carousel games={snesGames} />
         </section>
 
         <section id="atariSection">
           <Link href="/gamelistAtari">
-            <h2>Atari</h2>
+            <h2 style={{ color: '#FFD700' }}>Atari</h2>
           </Link>
           <Carousel games={atariGames} />
         </section>
 
         <section id="megadriveSection">
           <Link href="/gamelistMegadrive">
-            <h2>Megadrive</h2>
+            <h2 style={{ color: '#FFD700' }}>Megadrive</h2>
           </Link>
           <Carousel games={megadriveGames} /> 
         </section>

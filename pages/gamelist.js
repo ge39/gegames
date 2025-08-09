@@ -486,28 +486,28 @@ export default function Gamelist() {
             <WhatsappButton />
           </div>
           <Link href="/gamelistArcade">
-            <h2 style={{backgroundColor:'#444',color:'#fafafa',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Arcade</h2>
+            <h2 style={{backgroundColor:'#444', color: '#FFD700', borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Arcade</h2>
           </Link>
           <Carousel games={arcadeGames} />
         </section>
 
         <section id="snesSection">
             <Link href="/gamelistSnes">
-              <h2 style={{backgroundColor:'#444',color:'#fafafa',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Super Nintendo</h2>
+              <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Super Nintendo</h2>
             </Link>
           <Carousel games={snesGames} />
         </section>
 
         <section id="atariSection">
           <Link href="/gamelistAtari">
-            <h2 style={{backgroundColor:'#444',color:'#fafafa',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Atari</h2>
+            <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Atari</h2>
           </Link>
           <Carousel games={atariGames} />
         </section>
 
         <section id="megadriveSection">
           <Link href="/gamelistMegadrive">
-            <h2 style={{backgroundColor:'#444',color:'#fafafa',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Megadrive</h2>
+            <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Megadrive</h2>
           </Link>
           <Carousel games={megadriveGames} /> 
         </section>

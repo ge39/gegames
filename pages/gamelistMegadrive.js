@@ -98,8 +98,8 @@ export default function GamelistMegadrive() {
               </button>
               <WhatsappButton />
             </div>
-            <span style={{ color: '#fafafa', fontWeight: 'bold' }}>
-              Jogos encontrados: {filteredGames.length}
+            <span style={{ color: '#FFD700', fontWeight: 'bold' }}>
+              Megadrive: {filteredGames.length} Jogos
             </span>
           </div>
 
