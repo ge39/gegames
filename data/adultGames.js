@@ -15,6 +15,7 @@ export const adultGames = [
     alt: "Fantasia Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 4.2,
   },
   {
     id: "3",
@@ -28,6 +29,7 @@ export const adultGames = [
     alt: "Galpanic Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 3.8,
   },
   {
     id: "4",
@@ -41,6 +43,7 @@ export const adultGames = [
     alt: "Galpanis Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 4.0,
   },
   {
     id: "5",
@@ -54,6 +57,7 @@ export const adultGames = [
     alt: "Galpans2 Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 3.9,
   },
   {
     id: "6",
@@ -67,6 +71,7 @@ export const adultGames = [
     alt: "Galpans3 Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 4.3,
   },
   {
     id: "7",
@@ -80,20 +85,8 @@ export const adultGames = [
     alt: "Galspnbl Cover Art",
     players: "1-2",
     releasedate: "199X-01-01",
+    rating: 3.7,
   },
-  // {
-  //   id: "8",
-  //   path: "/fliperama/adulto/fantasia2.zip",
-  //   core: "arcade",
-  //   bios: "",
-  //   name: "FANTASIA 2",
-  //   desc: "Continuação das aventuras sensuais com mais desafios e erotismo.",
-  //   genre: "Puzzle / Erótico",
-  //   image: "/images/games/arcade/adulto/fantasia2-thumb.webp",
-  //   alt: "Fantasia 2 Cover Art",
-  //   players: "1-2",
-  //   releasedate: "199X-05-01",
-  // },
   {
     id: "9",
     path: "/fliperama/adulto/missw96.zip",
@@ -106,9 +99,9 @@ export const adultGames = [
     alt: "Miss W96 Cover Art",
     players: "1-2",
     releasedate: "199X-07-01",
+    rating: 4.1,
   }
 ];
-
 
 export default function AdultGamesSection() {
   const [isAuthorized, setIsAuthorized] = useState(false);
