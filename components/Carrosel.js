@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
-export default function Carousel({ games }) {
+export default function Carrosel({ games }) {
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 

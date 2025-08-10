@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
-import Carousel from '@/components/Carrosel'; // Corrigido para maiúscula
+import Carrosel from '@/components/Carrosel'; // Corrigido para maiúscula
 import { seoData } from '@/data/seoData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -104,7 +104,7 @@ export default function GamelistAtari() {
           {Object.entries(gamesByGenre).map(([genre, games]) => (
             <section key={genre} style={{ marginBottom: '40px' }}>
               <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
-              <Carousel
+              <Carrosel
                 games={games.map(game => ({
                   ...game,
                   isFavorite: isFavorite(game.id),

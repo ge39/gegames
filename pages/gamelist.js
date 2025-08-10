@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from "next/head";
-import Carousel from '../components/Carousel';
+import Carrosel from '@/components/Carrosel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
@@ -495,7 +495,7 @@ export default function Gamelist() {
             <Link href="/gamelistSnes">
               <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Super Nintendo</h2>
             </Link>
-          <Carousel games={snesGames} />
+          <Carrosel games={snesGames} />
         </section>
 
         <section id="atariSection">

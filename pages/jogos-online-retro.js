@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from "next/head";
-import Carousel from '@/components/Carrosel';
+import Carrosel from '@/components/Carrosel';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../styles/Globals.css';
@@ -505,7 +505,7 @@ export default function Gamelist() {
           <Link href="/gamelistMegadrive">
             <h2 style={{ color: '#FFD700' }}>Megadrive</h2>
           </Link>
-          <Carousel games={megadriveGames} /> 
+          <Carrosel games={megadriveGames} />
         </section>
         
       </main>

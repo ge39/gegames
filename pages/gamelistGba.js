@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import Carousel from '@/components/Carrosel'; // Corrigido para maiúscula
+import Carrosel from '@/components/Carrosel'; // Corrigido para maiúscula
 import { gbaGames } from '@/data/gbaGames';
 import '@/styles/Globals.css';
 
@@ -104,7 +104,7 @@ export default function GamelistArcade() {
             
             <section key={genre} style={{ margin: '0px' }}>
               <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
-              <Carousel
+              <Carrosel
                 games={games.map(game => ({
                   ...game,
                   isFavorite: isFavorite(game.id),
