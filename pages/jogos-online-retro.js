@@ -484,21 +484,21 @@ export default function Gamelist() {
             <WhatsappButton />
           </div>
 
-          <Carousel games={arcadeGames} />
+          <Carrosel games={arcadeGames} />
         </section>
 
         <section id="snesSection">
             <Link href="/gamelistSnes">
               <h2 style={{ color: '#FFD700' }}>Super Nintendo</h2>
             </Link>
-          <Carousel games={snesGames} />
+          <Carrosel games={snesGames} />
         </section>
 
         <section id="atariSection">
           <Link href="/gamelistAtari">
             <h2 style={{ color: '#FFD700' }}>Atari</h2>
           </Link>
-          <Carousel games={atariGames} />
+          <Carrosel games={atariGames} />
         </section>
 
         <section id="megadriveSection">

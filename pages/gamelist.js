@@ -488,7 +488,7 @@ export default function Gamelist() {
           <Link href="/gamelistArcade">
             <h2 style={{backgroundColor:'#444', color: '#FFD700', borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Arcade</h2>
           </Link>
-          <Carousel games={arcadeGames} />
+          <Carrosel games={arcadeGames} />
         </section>
 
         <section id="snesSection">
@@ -502,14 +502,14 @@ export default function Gamelist() {
           <Link href="/gamelistAtari">
             <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Atari</h2>
           </Link>
-          <Carousel games={atariGames} />
+          <Carrosel games={atariGames} />
         </section>
 
         <section id="megadriveSection">
           <Link href="/gamelistMegadrive">
             <h2 style={{backgroundColor:'#444',color:'#FFD700',borderColor:'#333',borderRadius: '10px',padding: '10px'}}>Megadrive</h2>
           </Link>
-          <Carousel games={megadriveGames} /> 
+          <Carrosel games={megadriveGames} />
         </section>
         
       </main>
