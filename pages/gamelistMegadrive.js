@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import Carousel from '@/components/Carousel';
+import Carousel from '../components/Carousel';
 import { megadriveGames } from '@/data/MegadriveGames';
 import '@/styles/Globals.css';
 
