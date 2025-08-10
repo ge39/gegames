@@ -7,6 +7,7 @@ export const seoData = {
     keywords: "atari, jogos antigos, atari 2600, jogar online, river raid, pac-man",
     image: "https://gegames.vercel.app/logo/atari.png",
     url: "https://gegames.vercel.app/gamelistAtari",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
   snes: {
     title: "Jogos SNES Online | GeGames",
@@ -14,6 +15,7 @@ export const seoData = {
     keywords: "snes, super nintendo, jogos snes, jogar online, super mario, donkey kong",
     image: "https://gegames.vercel.app/logo/snes.png",
     url: "https://gegames.vercel.app/gamelistSnes",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
   arcade: {
     title: "Jogos Arcade Online | GeGames",
@@ -21,13 +23,16 @@ export const seoData = {
     keywords: "arcade, jogos arcade, jogos retro, street fighter, metal slug, cadillacs",
     image: "https://gegames.vercel.app/logo/arcade.png",
     url: "https://gegames.vercel.app/gamelistArcade",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
+  
   gba: {
     title: "Jogos GameBoy Advance Online | GeGames",
     description: "Jogue online os melhores jogos do GameBoy Advance no GeGames. Aventuras épicas, RPGs e clássicos portáteis!",
     keywords: "gameboy advance, gba, jogos gba, jogar online, pokemon, mario",
     image: "https://gegames.vercel.app/logo/gba.png",
     url: "https://gegames.vercel.app/gamelistGba",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
   megadrive: {
     title: "Jogos MegaDrive Online | GeGames",
@@ -35,6 +40,7 @@ export const seoData = {
     keywords: "megadrive, genesis, jogos megadrive, jogar online, sonic, streets of rage",
     image: "https://gegames.vercel.app/logo/megadrive.png",
     url: "https://gegames.vercel.app/gamelistMegadrive",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
   adultGames: {
     title: "Jogos Adultos Arcade Online | GeGames 18+",
@@ -42,5 +48,6 @@ export const seoData = {
     keywords: "jogos adultos, arcade adulto, retrô 18+, gegames adultos, jogos proibidos, fliperama 18+, nostálgicos",
     image: "https://gegames.vercel.app/images/capa-adult.png",
     url: "https://gegames.vercel.app/logo/adult-games",
+    googleVerification: "abcdefg1234567890" // seu token do Search Console
   },
 };
