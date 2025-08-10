@@ -52,7 +52,8 @@ export default function GamelistArcade() {
 
   return (
     <>
-      <SEOHead {...seoData.arcade} />
+      <SEOHead {...seoData.arcade}
+      />
       <Navbar />
       <Console />
       <main>

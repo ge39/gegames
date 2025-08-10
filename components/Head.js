@@ -33,6 +33,7 @@ export default function HeadJogosRetro() {
       <meta name="twitter:image" content="https://gegames.vercel.app/logo/arcade.png" />
 
       <link rel="canonical" href="https://gegames.vercel.app/jogos-online-retro" />
+      <meta name="google-site-verification" content="01gWc9EGEoGdMf7W7-8QhdAN0ifanxUfTNMRvKCoYaU" />
     </Head>
   );
 }

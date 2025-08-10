@@ -480,7 +480,6 @@ export default function Gamelist() {
       <main className={styles.main}>
         <section id="arcadeSection">
          
-         
           <div style={{ textAlign: 'center', margin: '20px' }}>
            
             <WhatsappButton />
