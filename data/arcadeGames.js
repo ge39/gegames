@@ -403,7 +403,7 @@ export const arcadeGames = [
   {
     id: "neobombe",
     path: "fliperama/neobombe.zip",
-    core: "mame2003",
+    core: "arcade",
     name: "Neo Bomberman",
     desc: "Versão arcade do clássico Bomberman com multiplayer explosivo e fases criativas.",
     image: "/images/games/arcade/neobombe.webp",

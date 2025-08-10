@@ -11,7 +11,8 @@ export default function HeadJogosRetro() {
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Gegames" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="google-site-verification" content="google6f561de9f8982561" />
+      {/* <meta name="google-site-verification" content="google6f561de9f8982561" /> */}
+      <meta name="google-site-verification" content="01gWc9EGEoGdMf7W7-8QhdAN0ifanxUfTNMRvKCoYaU" />
 
       {/* Open Graph (Facebook, WhatsApp, etc.) */}
       <meta property="og:title" content="Jogue Clássicos Retrô Online | Gegames" />
@@ -22,6 +23,7 @@ export default function HeadJogosRetro() {
       <meta property="og:url" content="https://gegames.vercel.app/jogos-online-retro" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://gegames.vercel.app/logo/arcade.png" />
+      
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +35,7 @@ export default function HeadJogosRetro() {
       <meta name="twitter:image" content="https://gegames.vercel.app/logo/arcade.png" />
 
       <link rel="canonical" href="https://gegames.vercel.app/jogos-online-retro" />
-      <meta name="google-site-verification" content="01gWc9EGEoGdMf7W7-8QhdAN0ifanxUfTNMRvKCoYaU" />
+      
     </Head>
   );
 }
