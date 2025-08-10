@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
+import Carousel from '@/components/Carrosel'; // Corrigido para maiúscula
 import { seoData } from '@/data/seoData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import Carousel from '../components/Carousel'; // Corrigido para maiúscula
 import { atariGames } from '@/data/atariGames';
 import '@/styles/Globals.css';
 
-export default function GamelistArcade() {
+export default function GamelistAtari() {
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
