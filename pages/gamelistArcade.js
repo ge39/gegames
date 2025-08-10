@@ -1,5 +1,6 @@
 // pages/gamelistArcade.js
 import { useState, useEffect } from 'react';
+import Carousel from '@/components/Carousel';
 import SEOHead from '@/components/SEOHead';
 import { seoData } from '@/data/seoData';
 import Navbar from '@/components/Navbar';
@@ -7,7 +8,6 @@ import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
-import Carousel from '../components/Carousel';
 import { arcadeGames } from '@/data/arcadeGames';
 import '@/styles/Globals.css';
 
