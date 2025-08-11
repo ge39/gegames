@@ -1,47 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 .carouselWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-  position: relative;
   overflow: hidden;
+  padding: 10px 0;
 }
 
 .carouselContainer {
+  
+  
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-   gap: 24px; /* Aumente esse valor se quiser mais espaço */
+   gap: 0 16px; /* Aumente esse valor se quiser mais espaço */
   padding: 16px; /* opcional: espaço interno */
   width: 100%;
   scrollbar-width: none; /* Firefox */
-  padding: 20px 10px;
   scroll-padding: 0 50%;
+  
+  
+}
+
+.carouselContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 .carouselItem {
   flex: 0 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   scroll-snap-align: center;
-  width: 85%;
-  max-width: 220px;
+  width: 90%;
+  max-width: 250px;
   margin: 10px;
   /* background-color: #222; */
 }
 
+.carouselItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
 .control {
-  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
   border: none;
-  font-size: 2rem;
-  color: #0ff;
+  color: white;
+  font-size: 1.5rem;
+  padding: 12px 16px;
   cursor: pointer;
   z-index: 10;
-  padding: 0 10px;
-  transition: color 0.3s ease;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .control:hover {
-  color: #fff;
+  background: rgba(6, 6, 6, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.control:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.control:first-of-type {
+  left: 8px;
+}
+
+.control:last-of-type {
+  right: 8px;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .carouselItem:hover {
+    transform: scale(1.02);
+  }
+  .control {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
 }

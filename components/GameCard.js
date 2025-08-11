@@ -38,7 +38,7 @@ const GameCard = ({ game, isFavorite, toggleFavorite }) => {
           aria-label={isFavorite ? `Remover ${game.name} dos favoritos` : `Adicionar ${game.name} aos favoritos`}
           style={{
             position: 'absolute',
-            top: '10px',
+            top: '18px',
             right: '10px',
             background: 'transparent',
             border: 'none',

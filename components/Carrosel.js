@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import styles from '../styles/Carousel.module.css';
 import GameCard from './GameCard';
 
-export default function Carrosel({ games }) {
+export default function Carrosel({ games, toggleFavorite }) {
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -17,9 +17,8 @@ export default function Carrosel({ games }) {
     const itemLeft = item.offsetLeft;
     const itemWidth = item.offsetWidth;
 
-    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2.5;
-
-    if (Math.abs(container.scrollLeft - scrollPosition) < 5) return;
+    // Centraliza exatamente o item
+    const scrollPosition = itemLeft - (containerWidth - itemWidth) / 2;
 
     container.scrollTo({
       left: scrollPosition,
@@ -47,16 +46,24 @@ export default function Carrosel({ games }) {
     if (!container || container.children.length === 0) return;
 
     const onScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const itemWidth = container.children[0].offsetWidth || 1;
-      const index = Math.round(scrollLeft / itemWidth);
-      setCurrentIndex(index);
+      const centerPosition = container.scrollLeft + container.offsetWidth / 2;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      Array.from(container.children).forEach((item, index) => {
+        const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+        const distance = Math.abs(itemCenter - centerPosition);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setCurrentIndex(closestIndex);
     };
 
     container.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      container.removeEventListener('scroll', onScroll);
-    };
+    return () => container.removeEventListener('scroll', onScroll);
   }, []);
 
   // Suporte às teclas ← e →
@@ -74,6 +81,7 @@ export default function Carrosel({ games }) {
       <button
         className={styles.control}
         onClick={handlePrev}
+        disabled={currentIndex === 0}
         aria-label="Anterior"
       >
         &lt;
@@ -85,7 +93,7 @@ export default function Carrosel({ games }) {
             <GameCard 
               game={game} 
               isFavorite={game.isFavorite} 
-              toggleFavorite={game.toggleFavorite} 
+              toggleFavorite={() => toggleFavorite(game.id)} 
             />
           </div>
         ))}
@@ -94,6 +102,7 @@ export default function Carrosel({ games }) {
       <button
         className={styles.control}
         onClick={handleNext}
+        disabled={currentIndex === games.length - 1}
         aria-label="Próximo"
       >
         &gt;
