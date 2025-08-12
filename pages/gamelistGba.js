@@ -104,12 +104,12 @@ export default function GamelistArcade() {
             
             <section key={genre} style={{ margin: '0px' }}>
               <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
-              <Carrosel
+              <Carrosel 
                 games={games.map(game => ({
                   ...game,
                   isFavorite: isFavorite(game.id),
-                  toggleFavorite,
                 }))}
+                toggleFavorite={toggleFavorite}
               />
             </section>
           ))}

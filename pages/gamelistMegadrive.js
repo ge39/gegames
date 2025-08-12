@@ -107,12 +107,14 @@ export default function GamelistMegadrive() {
           {Object.entries(gamesByGenre).map(([genre, games]) => (
             <section key={genre} style={{ marginBottom: '40px' }}>
               <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
-              <Carrosel games={games.map(game => ({
-                ...game,
-                // Adiciona propriedades para controle de favorito no GameCard via prop extra
-                isFavorite: isFavorite(game.id),
-                toggleFavorite,
-              }))} />
+              <Carrosel 
+                games={games.map(game => ({
+                  ...game,
+                  isFavorite: isFavorite(game.id),
+                }))}
+                toggleFavorite={toggleFavorite}
+              />
+
             </section>
           ))}
 
