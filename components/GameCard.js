@@ -49,7 +49,7 @@ const GameCard = ({ game, isFavorite, toggleFavorite }) => {
           }}
           title={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >
-          {isFavorite ? '💔' : '❤️'}
+          {isFavorite ? '💔' : `❤️`}
         </button>
       )}
     </div>

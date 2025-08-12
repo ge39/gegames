@@ -52,8 +52,7 @@ export default function GamelistArcade() {
 
   return (
     <>
-      <SEOHead {...seoData.arcade}
-      />
+      <SEOHead {...seoData.arcade} />
       <Navbar />
       <Console />
       <main>
@@ -74,14 +73,16 @@ export default function GamelistArcade() {
                 marginBottom: '10px',
               }}
             />
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '10px',
-              marginBottom: '10px',
-            }}>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '10px',
+                marginBottom: '10px',
+              }}
+            >
               <button
                 onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
                 style={{
@@ -103,19 +104,31 @@ export default function GamelistArcade() {
             </span>
           </div>
 
-          {/* Exibe um carrossel para cada gênero */}
+          {/* Renderiza um carrossel para cada gênero */}
           {Object.entries(gamesByGenre).map(([genre, games]) => (
             <section key={genre} style={{ marginBottom: '40px' }}>
-              <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
-              <Carrosel games={games.map(game => ({
-                ...game,
-                // Adiciona propriedades para controle de favorito no GameCard via prop extra
-                isFavorite: isFavorite(game.id),
-                toggleFavorite,
-              }))} />
+              <h2
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'Press Start 2P',
+                  color: '#FFD700',
+                  margin: '10px',
+                  borderRadius: '12px',
+                  padding: '5px 10px',
+                  background: '#666',
+                }}
+              >
+                {genre}
+              </h2>
+              <Carrosel
+                games={games.map((game) => ({
+                  ...game,
+                  isFavorite: isFavorite(game.id),
+                }))}
+                toggleFavorite={toggleFavorite}
+              />
             </section>
           ))}
-
         </section>
       </main>
       <PeerConnection peerId={null} />

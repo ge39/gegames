@@ -36,4 +36,3 @@ const GameCard = ({ game }) => {
 };
 
 export default GameCard;
-
