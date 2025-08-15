@@ -100,7 +100,7 @@ export default function Gamelistarcade() {
               <WhatsappButton />
             </div>
             <span style={{ color: '#FFD700', fontWeight: 'bold' }}>
-              Super Nintendo: {filteredGames.length} Jogos
+              Arcade: {filteredGames.length} Jogos
             </span>
           </div>
 

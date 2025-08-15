@@ -1,23 +1,41 @@
+/* Fonte arcade */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Classe para espaçar letras no estilo retrô */
+.genre-spaced {
+  display: inline-block;
+   /*letter-spacing: 8px; Espaçamento entre letras */
+  text-transform: uppercase; /* Tudo em maiúsculo */
+  font-family: 'Press Start 2P', cursive;
+  color: #FFD700; /* Dourado */
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; /* Glow dourado */
+}
+
+/* ----------------------------------- */
+/* NAVBAR PRINCIPAL                    */
+/* ----------------------------------- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #8B0000; /* Vermelho escuro */
-  color: #FFD700; /* Dourado */
+  background-color: #8B0000;
+  color: #FFD700;
   padding: 15px 20px;
-  font-family:  'Roboto', Arial,'Press Start 2P', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  height: 20px; /* altura real */
   z-index: 6000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+
+/* Logo */
 .logo {
   font-size: 12px;
   text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .logo a {
@@ -31,11 +49,30 @@
   text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
 }
 
+/* Span com estilo arcade */
+.navbar span {
+  display: inline-block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: #FFD700;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar span:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+}
+
 /* Botão Hamburger */
 .hamburger {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+    font-size: 10px;
+    
   width: 30px;
   height: 24px;
   cursor: pointer;
@@ -79,6 +116,8 @@
 }
 
 .menu li a {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
   color: #FFD700;
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -129,6 +168,7 @@
 }
 
 .submenu li a {
+  font-family: 'Press Start 2P', cursive;
   color: snow;
   display: block;
   transition: background-color 0.2s;
