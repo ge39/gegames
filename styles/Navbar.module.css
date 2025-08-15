@@ -4,7 +4,7 @@
 /* Classe para espaçar letras no estilo retrô */
 .genre-spaced {
   display: inline-block;
-   /*letter-spacing: 8px; Espaçamento entre letras */
+   letter-spacing: 8px; /*Espaçamento entre letras */
   text-transform: uppercase; /* Tudo em maiúsculo */
   font-family: 'Press Start 2P', cursive;
   color: #FFD700; /* Dourado */
@@ -28,6 +28,7 @@
   height: 20px; /* altura real */
   z-index: 6000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  font-size: 15px;
 }
 
 
@@ -117,7 +118,7 @@
 
 .menu li a {
   font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
+  font-size: 15px;
   color: #FFD700;
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -142,6 +143,7 @@
   position: absolute;
   top: 100%;
   left: 0;
+  font-size: 15px;
   background: #8B0000;
   list-style: none;
   padding: 10px 0;
@@ -160,6 +162,7 @@
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
+  font-size: 15px;
 }
 
 .submenu li {
@@ -172,6 +175,7 @@
   color: snow;
   display: block;
   transition: background-color 0.2s;
+  font-size: 15px;
 }
 
 .submenu li:hover {
@@ -189,10 +193,12 @@
     display: flex;
     flex-direction: row;
     position: static;
+    font: 1em sans-serif;
     background: transparent;
     box-shadow: none;
     padding: 0;
     gap: 20px;
+    font-size: 15px;
   }
 
   .menu li {
@@ -200,6 +206,6 @@
   }
 
   .menu li a {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
