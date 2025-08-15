@@ -106,7 +106,7 @@ export default function GamelistSnes() {
 
           {/* Renderiza um carrossel para cada gênero */}
           {Object.entries(gamesByGenre).map(([genre, games]) => (
-            <section key={genre} style={{ marginBottom: '40px' }}>
+            <section key={genre} style={{ marginBottom: '-30px' }}>
               <h2
                 style={{
                   fontSize: '16px',
@@ -116,9 +116,11 @@ export default function GamelistSnes() {
                   borderRadius: '12px',
                   padding: '5px 10px',
                   background: '#666',
+                  marginBottom: '-10px'
                 }}
               >
                 {genre}
+
               </h2>
               <Carrosel
                 games={games.map((game) => ({

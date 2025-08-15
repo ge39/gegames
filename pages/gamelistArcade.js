@@ -1,6 +1,5 @@
-// pages/gamelistArcade.js
+// pages/gamelistSnes.js
 import { useState, useEffect } from 'react';
-import Carrosel from '@/components/Carrosel';
 import SEOHead from '@/components/SEOHead';
 import { seoData } from '@/data/seoData';
 import Navbar from '@/components/Navbar';
@@ -8,10 +7,11 @@ import Footer from '@/components/Footer';
 import PeerConnection from '@/components/PeerConnection';
 import WhatsappButton from '@/components/WhatsappButton';
 import Console from '@/components/Console';
+import Carrosel from '@/components/Carrosel';
 import { arcadeGames } from '@/data/arcadeGames';
 import '@/styles/Globals.css';
 
-export default function GamelistArcade() {
+export default function Gamelistarcade() {
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
@@ -100,19 +100,20 @@ export default function GamelistArcade() {
               <WhatsappButton />
             </div>
             <span style={{ color: '#FFD700', fontWeight: 'bold' }}>
-              ARCADE: {filteredGames.length} JOGOS
+              Super Nintendo: {filteredGames.length} Jogos
             </span>
           </div>
 
           {/* Renderiza um carrossel para cada gênero */}
           {Object.entries(gamesByGenre).map(([genre, games]) => (
-            <section key={genre} style={{ marginBottom: '40px' }}>
+            <section key={genre} style={{ marginBottom: '-20px' }}>
               <h2
                 style={{
                   fontSize: '16px',
                   fontFamily: 'Press Start 2P',
                   color: '#FFD700',
                   margin: '10px',
+                  marginBottom: '-10px',
                   borderRadius: '12px',
                   padding: '5px 10px',
                   background: '#666',

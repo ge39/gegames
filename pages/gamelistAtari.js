@@ -102,8 +102,8 @@ export default function GamelistAtari() {
 
           {/* Carrossel por gênero */}
           {Object.entries(gamesByGenre).map(([genre, games]) => (
-            <section key={genre} style={{ marginBottom: '40px' }}>
-              <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666' }}>{genre}</h2>
+            <section key={genre} style={{ marginBottom: '40px',marginBottom: '-20px' }}>
+              <h2 style={{ fontSize: '16px', fontFamily:  'Press Start 2P', color: '#FFD700', margin: '10px', borderRadius:'12px', padding:'5px 10px', background:'#666',marginBottom: '-10px' }}>{genre}</h2>
               <Carrosel 
                 games={games.map(game => ({
                   ...game,

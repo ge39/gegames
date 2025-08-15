@@ -17,11 +17,19 @@ const WhatsappButton = ({ phone = "5511975145360", message = "Olá, Deixe um com
           alignItems: "center",
           textDecoration: "none",
           backgroundColor: "#25D366",
-          color: "#000",
+          color: "#fafafa",
           padding: "8px 12px",
           borderRadius: "5px",
           fontWeight: "bold",
           fontSize: "16px",
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.boxShadow = '0 0 10px #FFD700, 0 0 20px #FF0000';
+          e.target.style.transform = 'scale(1.05)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.boxShadow = 'none';
+          e.target.style.transform = 'scale(1)';
         }}
       >
         <svg
