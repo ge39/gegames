@@ -388,8 +388,8 @@ export default function PeerConnection() {
               style={{
                 width: "100%",
                 display: "inline-flex",
-                height: "100%",
-                background: "#333",
+                maxHeight: "120px",
+                background: "transparent",
                 borderRadius: 6,
                 objectFit: "contain",
               }}
@@ -401,8 +401,8 @@ export default function PeerConnection() {
               style={{
                 width: "100%",
                 display: "inline-block",
-                height: "100%",
-                background: "#333",
+                height: "100px",
+                background: "transparent",
                 borderRadius: 6,
                 objectFit: "contain",
               }}
