@@ -6,7 +6,7 @@ export default function PeerConnection() {
   const [remoteId, setRemoteId] = useState("");
   const [connected, setConnected] = useState(false);
   const [cameraOn, setCameraOn] = useState(false);
-  const [minimized, setMinimized] = useState(false);
+  const [minimized, setMinimized] = useState(true);
 
   const remoteVideoRef = useRef(null);
   const localVideoRef = useRef(null);
@@ -401,7 +401,7 @@ export default function PeerConnection() {
               style={{
                 width: "100%",
                 display: "inline-block",
-                height: "100px",
+                maxHeight:  "120px",
                 background: "transparent",
                 borderRadius: 6,
                 objectFit: "contain",
