@@ -40,7 +40,7 @@ export default function PeerConnection() {
         alert("Erro ao acessar a câmera: " + err.message);
       }
     }
-  }, [cameraOn]);
+ }, [cameraOn]);
 
   // ✅ Inicializa PeerJS e vídeo local
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function PeerConnection() {
       localStreamRef.current = stream;
       if (localVideoRef.current) localVideoRef.current.srcObject = stream;
       window.localStream = stream;
-      setCameraOn(true);
+      setCameraOn(false);
     } catch (err) {
       alert("Erro ao acessar a câmera: " + err.message);
     }
