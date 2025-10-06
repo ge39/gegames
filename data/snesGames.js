@@ -80,7 +80,7 @@ export const snesGames = [
   },
   {
     id: "dc1",
-    path: "nintendo/Demon's Crest (U) [T+Por].zip",
+    path: "nintendo/Demons Crest (U) [T+Por].zip",
     core: "snes",
     name: "Demon’s Crest",
     desc: "Demon's Crest é um jogo de ação e plataforma onde o protagonista, Firebrand, luta para restaurar seu poder.",
