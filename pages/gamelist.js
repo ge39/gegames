@@ -147,7 +147,7 @@ export default function Gamelist() {
   const snesGames = [
     {
       id: "sn1",
-      path: "snes/Super Mario World.zip",
+      path: "nintendo/Super Mario World.zip",
       name: "Super Mario World",
       core: "snes",
       desc: "Um dos maiores clássicos do Super Nintendo, onde Mario deve salvar a princesa Peach.",
@@ -159,7 +159,7 @@ export default function Gamelist() {
     },
     {
       id: "sn2",
-      path: "snes/The Legend of Zelda - A Link to the Past (USA).zip",
+      path: "nintendo/The Legend of Zelda - A Link to the Past (USA).zip",
       core: "snes",
       name: "The Legend of Zelda: A Link to the Past",
       desc: "A épica aventura de Link em busca de salvar Hyrule da escuridão de Ganon.",
@@ -171,7 +171,7 @@ export default function Gamelist() {
     },
     {
       id: "sn3",
-      path: "snes/Donkey Kong Country (USA).zip",
+      path: "nintendo/Donkey Kong Country (USA).zip",
       core: "snes",
       name: "Donkey Kong Country",
       desc: "A icônica aventura de Donkey Kong e Diddy para recuperar as bananas roubadas pelo Kremling Krew.",
@@ -183,7 +183,7 @@ export default function Gamelist() {
     },
     {
       id: "sn4",
-      path: "snes/Top Gear (USA).zip",
+      path: "nintendo/Top Gear (USA).zip",
       core: "snes",
       name: "Top Gear",
       desc: "Top Gear é um jogo de corrida no qual você compete contra adversários em pistas desafiadoras.",
@@ -195,7 +195,7 @@ export default function Gamelist() {
       },
       {
         id: "sn5",
-        path: "snes/Super Mario Kart (USA).zip",
+        path: "nintendo/Super Mario Kart (USA).zip",
         core: "snes",
         name: "Super Mario Kart",
         desc: "O icônico jogo de kart da Nintendo, com os personagens do Mario competindo em pistas divertidas.",
@@ -207,7 +207,7 @@ export default function Gamelist() {
       },
       {
         id: "sn6",
-        path: "snes/Star Fox (U) (V1.0) [T+Por].zip",
+        path: "nintendo/Star Fox (U) (V1.0) [T+Por].zip",
         core: "snes",
         name: "Star Fox",
         desc: "Star Fox é um jogo de tiro em 3D onde você controla a nave Arwing, enfrentando inimigos em uma série de planetas.",
@@ -219,7 +219,7 @@ export default function Gamelist() {
       },
       {
         id: "sn7",
-        path: "snes/Super Metroid (Europe) (En,Fr,De).zip",
+        path: "nintendo/Super Metroid (Europe) (En,Fr,De).zip",
         core: "snes",
         name: "Super Metroid",
         desc: "Super Metroid é um jogo de ação e exploração onde Samus Aran tenta resgatar a criatura Metroid seqüestrada.",
